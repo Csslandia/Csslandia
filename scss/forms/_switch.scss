@@ -1,0 +1,66 @@
+@mixin switch($size) {
+    height: $size * 0.3rem;
+    width: $size * 0.55rem;
+
+    &:after {
+        height: $size * 0.2rem;
+        width: $size * 0.2rem;
+        top: calc($size * 0.05rem - 0.1rem);
+        left: calc($size * 0.05rem - 0.1rem);
+    }
+
+    &[class^="bd"]:after,
+    &[class*=" bd"]:after {
+        height: $size * 0.16rem;
+        width: $size * 0.16rem;
+        top: calc($size * 0.07rem - 0.1rem);
+        left: calc($size * 0.07rem - 0.1rem);
+    }
+
+    &:checked:after {
+        left: calc(100% - calc($size * 0.25rem - 0.1rem));
+    }
+
+    &[class^="bd"]:checked:after,
+    &[class*=" bd"]:checked:after {
+        left: calc(100% - calc($size * 0.23rem - 0.1rem));
+    }
+}
+
+input[type="checkbox"].switch {
+    appearance: none;
+    vertical-align: middle;
+    border-radius: 9999px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.25s * $transition-ratio ease;
+    border: $form-bd-width solid $form-bd-color;
+    color: var(--bd);
+
+    @include switch(6);
+
+    &:after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        color: inherit;
+        background-color: currentColor;
+        transition: left 0.25s * $transition-ratio ease;
+    }
+
+    &.xs {
+        @include switch(4);
+    }
+
+    &.sm {
+        @include switch(5);
+    }
+
+    &.lg {
+        @include switch(7);
+    }
+
+    &.xl {
+        @include switch(8);
+    }
+}

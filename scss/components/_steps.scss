@@ -1,0 +1,181 @@
+.steps {
+    width: 100%;
+    counter-reset: step;
+    list-style: none;
+
+    &.horizontal {
+        display: flex;
+        justify-content: space-between;
+        overflow-x: auto;
+
+        & > * {
+            display: block;
+            text-align: center;
+            position: relative;
+            padding-left: 8px;
+            padding-right: 8px;
+            flex-grow: 1;
+            flex-basis: 0;
+            min-width: 96px;
+
+            &::before {
+                content: counter(step);
+                counter-increment: step;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                height: 2rem;
+                width: 2rem;
+                border-radius: 9999px;
+                background-color: var(--bg-medium);
+                z-index: 1;
+                margin: auto;
+                margin-bottom: 4px;
+            }
+
+            &:not(:first-child)::after {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0.75rem;
+                left: -50%;
+                height: 0.5rem;
+                width: 100%;
+                background-color: var(--bg-medium);
+            }
+        }
+    }
+
+    &.vertical {
+        & > * {
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-bottom: 24px;
+            height: 2rem;
+
+            &::before {
+                content: counter(step);
+                counter-increment: step;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                height: 2rem;
+                width: 2rem;
+                border-radius: 9999px;
+                background-color: var(--bg-medium);
+                z-index: 1;
+                margin-right: 8px;
+                flex-basis: 2rem;
+                flex-shrink: 0;
+            }
+
+            &:not(:first-child)::after {
+                content: "";
+                display: block;
+                position: absolute;
+                left: 0.75rem;
+                bottom: 1rem;
+                width: 0.5rem;
+                height: calc(24px + 2rem);
+                background-color: var(--bg-medium);
+            }
+        }
+    }
+
+    & > .done {
+        &::before,
+        & + .done::after {
+            background-color: var(--done-bg, var(--accent)) !important;
+            color: var(--done-c, var(--accent-color)) !important;
+        }
+    }
+}
+
+@media only screen and (max-width: $steps-breakpoint) {
+    .steps:not(.horizontal):not(.vertical) {
+        & > * {
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-bottom: 24px;
+            height: 2rem;
+
+            &::before {
+                content: counter(step);
+                counter-increment: step;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                height: 2rem;
+                width: 2rem;
+                border-radius: 9999px;
+                background-color: var(--bg-medium);
+                z-index: 1;
+                margin-right: 8px;
+                flex-basis: 2rem;
+                flex-shrink: 0;
+            }
+
+            &:not(:first-child)::after {
+                content: "";
+                display: block;
+                position: absolute;
+                left: 0.75rem;
+                bottom: 1rem;
+                width: 0.5rem;
+                height: calc(24px + 2rem);
+                background-color: var(--bg-medium);
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: ($steps-breakpoint + 1px)) {
+    .steps:not(.horizontal):not(.vertical) {
+        display: flex;
+        justify-content: space-between;
+        overflow-x: auto;
+
+        & > * {
+            display: block;
+            text-align: center;
+            position: relative;
+            padding-left: 8px;
+            padding-right: 8px;
+            flex-grow: 1;
+            flex-basis: 0;
+            min-width: 96px;
+
+            &::before {
+                content: counter(step);
+                counter-increment: step;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                height: 2rem;
+                width: 2rem;
+                border-radius: 9999px;
+                background-color: var(--bg-medium);
+                z-index: 1;
+                margin: auto;
+                margin-bottom: 4px;
+            }
+
+            &:not(:first-child)::after {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0.75rem;
+                left: -50%;
+                height: 0.5rem;
+                width: 100%;
+                background-color: var(--bg-medium);
+            }
+        }
+    }
+}

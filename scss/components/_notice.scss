@@ -1,0 +1,32 @@
+.notice {
+    font-size: 0.9375rem;
+    display: block;
+    position: relative;
+    background-color: var(--bg-medium);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 14px * $padding-ratio calc(38px * $padding-ratio + 0.75em) 13px *
+        $padding-ratio 19px * $padding-ratio;
+
+    @if $icons {
+        &::after {
+            content: "\f14a";
+            font-family: "csslandia-icons" !important;
+            font-style: normal;
+            font-weight: normal !important;
+            font-variant: normal;
+            text-transform: none;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+
+            font-size: 0.75em;
+            display: block;
+
+            position: absolute;
+            right: 18px * $padding-ratio;
+            top: calc(50% + 1px);
+            transform: translateY(-50%);
+        }
+    }
+}

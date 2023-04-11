@@ -1,0 +1,15 @@
+.bw-0 {
+    border-width: 0 !important;
+}
+
+@for $i from 1 to 11 {
+    .bw-#{$i} {
+        border-width: $i * 0.05rem !important;
+    }
+}
+
+@for $i from 1 to 6 {
+    .bw-#{$i + 10} {
+        border-width: 0.5rem + $i * 0.1rem !important;
+    }
+}

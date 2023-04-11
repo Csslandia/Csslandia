@@ -1,0 +1,302 @@
+.film-strip {
+    width: 100%;
+    overflow: hidden;
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
+
+    & > * {
+        position: relative;
+        display: flex;
+        width: 100%;
+        animation-name: slide;
+        animation-duration: inherit;
+        animation-timing-function: inherit;
+        animation-iteration-count: infinite;
+
+        & > * {
+            flex-shrink: 0;
+            order: 0;
+            animation-name: order;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        @for $i from 1 to 33 {
+            & > :nth-child(#{$i}) {
+                animation-delay: #{$i * 4}s;
+            }
+
+            & > :first-child:nth-last-child(#{$i}),
+            & > :first-child:nth-last-child(#{$i}) ~ * {
+                animation-duration: #{$i * 4}s;
+            }
+        }
+    }
+
+    &.fast {
+        animation-duration: 2s;
+
+        & > * {
+            animation-name: slide-fast;
+
+            @for $i from 1 to 33 {
+                & > :nth-child(#{$i}) {
+                    animation-delay: #{$i * 2}s;
+                }
+
+                & > :first-child:nth-last-child(#{$i}),
+                & > :first-child:nth-last-child(#{$i}) ~ * {
+                    animation-duration: #{$i * 2}s;
+                }
+            }
+        }
+    }
+
+    &.slow {
+        animation-duration: 8s;
+
+        & > * {
+            animation-name: slide-slow;
+
+            @for $i from 1 to 33 {
+                & > :nth-child(#{$i}) {
+                    animation-delay: #{$i * 8}s;
+                }
+
+                & > :first-child:nth-last-child(#{$i}),
+                & > :first-child:nth-last-child(#{$i}) ~ * {
+                    animation-duration: #{$i * 8}s;
+                }
+            }
+        }
+    }
+
+    &.sm {
+        & > * {
+            animation-name: slide-sm;
+        }
+        &.fast > * {
+            animation-name: slide-fast-sm;
+        }
+        &.slow > * {
+            animation-name: slide-slow-sm;
+        }
+    }
+}
+
+@media only screen and (max-width: $mob-tab-breakpoint) {
+    .film-strip > * > * {
+        width: 100%;
+    }
+
+    @keyframes slide-fast {
+        0%,
+        50% {
+            left: 0;
+        }
+        100% {
+            left: -100%;
+        }
+    }
+
+    @keyframes slide {
+        0%,
+        75% {
+            left: 0;
+        }
+        100% {
+            left: -100%;
+        }
+    }
+
+    @keyframes slide-slow {
+        0%,
+        87.5% {
+            left: 0;
+        }
+        100% {
+            left: -100%;
+        }
+    }
+    .film-strip.sm > * > * {
+        width: 50%;
+    }
+
+    @keyframes slide-fast-sm {
+        0%,
+        50% {
+            left: 0;
+        }
+        100% {
+            left: -50%;
+        }
+    }
+
+    @keyframes slide-sm {
+        0%,
+        75% {
+            left: 0;
+        }
+        100% {
+            left: -50%;
+        }
+    }
+
+    @keyframes slide-slow-sm {
+        0%,
+        87.5% {
+            left: 0;
+        }
+        100% {
+            left: -50%;
+        }
+    }
+}
+
+@media only screen and (min-width: ($mob-tab-breakpoint + 1px)) and (max-width: $tab-pc-breakpoint) {
+    .film-strip > * > * {
+        width: 50%;
+    }
+
+    @keyframes slide-fast {
+        0%,
+        50% {
+            left: 0;
+        }
+        100% {
+            left: -50%;
+        }
+    }
+
+    @keyframes slide {
+        0%,
+        75% {
+            left: 0;
+        }
+        100% {
+            left: -50%;
+        }
+    }
+
+    @keyframes slide-slow {
+        0%,
+        87.5% {
+            left: 0;
+        }
+        100% {
+            left: -50%;
+        }
+    }
+    .film-strip.sm > * > * {
+        width: 25%;
+    }
+
+    @keyframes slide-fast-sm {
+        0%,
+        50% {
+            left: 0;
+        }
+        100% {
+            left: -25%;
+        }
+    }
+
+    @keyframes slide-sm {
+        0%,
+        75% {
+            left: 0;
+        }
+        100% {
+            left: -25%;
+        }
+    }
+
+    @keyframes slide-slow-sm {
+        0%,
+        87.5% {
+            left: 0;
+        }
+        100% {
+            left: -25%;
+        }
+    }
+}
+
+@media only screen and (min-width: ($tab-pc-breakpoint + 1px)) {
+    .film-strip > * > * {
+        width: calc(100% / 3);
+    }
+
+    .film-strip.sm > * > * {
+        width: calc(100% / 6);
+    }
+
+    @keyframes slide-fast {
+        0%,
+        50% {
+            left: 0;
+        }
+        100% {
+            left: calc(-100% / 3);
+        }
+    }
+
+    @keyframes slide {
+        0%,
+        75% {
+            left: 0;
+        }
+        100% {
+            left: calc(-100% / 3);
+        }
+    }
+
+    @keyframes slide-slow {
+        0%,
+        87.5% {
+            left: 0;
+        }
+        100% {
+            left: calc(-100% / 3);
+        }
+    }
+
+    @keyframes slide-fast-sm {
+        0%,
+        50% {
+            left: 0;
+        }
+        100% {
+            left: calc(-100% / 6);
+        }
+    }
+
+    @keyframes slide-sm {
+        0%,
+        75% {
+            left: 0;
+        }
+        100% {
+            left: calc(-100% / 6);
+        }
+    }
+
+    @keyframes slide-slow-sm {
+        0%,
+        87.5% {
+            left: 0;
+        }
+        100% {
+            left: calc(-100% / 6);
+        }
+    }
+}
+
+@keyframes order {
+    0% {
+        order: 9999;
+    }
+    100% {
+        order: 0;
+    }
+}

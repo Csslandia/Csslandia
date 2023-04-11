@@ -1,0 +1,105 @@
+[data-tooltip] {
+    position: relative;
+
+    &:hover,
+    &:focus,
+    &:active {
+        z-index: 42;
+    }
+
+    &::before,
+    &::after {
+        position: absolute;
+        display: none;
+        opacity: 0;
+    }
+
+    &::before {
+        content: "";
+        border: 7px solid transparent;
+    }
+
+    &::after {
+        content: attr(data-tooltip);
+        font-size: 0.875rem;
+        user-select: none;
+        pointer-events: none;
+        white-space: nowrap;
+        padding: 5px * $padding-ratio 12px * $padding-ratio;
+        border-radius: 6px * $border-radius-ratio;
+        background-color: var(--tooltip-bg, var(--bg-soft));
+        color: var(--tooltip-c, var(--c-soft));
+
+    }
+
+    @keyframes tooltip {
+        to {
+            opacity: 1;
+        }
+    }
+
+    &:hover::before,
+    &:hover::after {
+        display: block;
+        animation: tooltip 0.3s forwards;
+    }
+
+    &[data-tooltip=""]::before,
+    &[data-tooltip=""]::after {
+        display: none !important;
+    }
+
+    &:not(.left):not(.right)::before,
+    &:not(.left):not(.right)::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &:not(.left):not(.right):not(.bottom)::before {
+        bottom: calc(100% + 8px);
+        border-bottom-width: 0;
+        border-top-color: var(--tooltip-bg, var(--bg-soft));
+    }
+
+    &:not(.left):not(.right):not(.bottom)::after {
+        bottom: calc(100% + 14px);
+    }
+
+    &.bottom::before {
+        top: calc(100% + 8px);
+        border-top-width: 0;
+        border-bottom-color: var(--tooltip-bg, var(--bg-soft));
+    }
+
+    &.bottom::after {
+        top: calc(100% + 14px);
+    }
+
+    &.left::before,
+    &.left::after,
+    &.right::before,
+    &.right::after {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &.left::before {
+        border-right-width: 0;
+        border-left-color: var(--tooltip-bg, var(--bg-soft));
+        right: calc(100% + 8px);
+    }
+
+    &.left::after {
+        right: calc(100% + 14px);
+    }
+
+    &.right::before {
+        border-left-width: 0;
+        border-right-color: var(--tooltip-bg, var(--bg-soft));
+        left: calc(100% + 8px);
+    }
+
+    &.right::after {
+        left: calc(100% + 14px);
+    }
+}

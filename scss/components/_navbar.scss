@@ -1,0 +1,105 @@
+.navbar {
+    background-color: var(--bg-strong);
+    width: 100%;
+    white-space: nowrap;
+    line-height: 1.5;
+
+    & > :first-child {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        & img {
+            height: 22px;
+        }
+
+        & > :first-child {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    & > :last-child {
+        font-size: 0.875rem;
+        font-weight: 500;
+
+        & > * {
+            display: block;
+        }
+    }
+}
+
+@media only screen and (min-width: $navbar-breakpoint) {
+    .navbar {
+        display: flex;
+        align-items: stretch;
+        width: 100%;
+
+        & > :first-child {
+            padding: 22px * $padding-ratio 24px * $padding-ratio 22px * $padding-ratio 10%;
+
+            & > :last-child {
+                display: none;
+            }
+        }
+
+        & > :last-child {
+            flex-grow: 1;
+            padding-right: 10%;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            overflow-x: hidden;
+
+            & > * {
+                margin-left: 32px;
+                white-space: nowrap;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: ($navbar-breakpoint - 1px)) {
+    .navbar {
+        & > :first-child {
+            padding: 18px * $padding-ratio 24px * $padding-ratio;
+            margin-bottom: -1px;
+        }
+
+        & > :last-child {
+            width: 100%;
+            position: absolute;
+            background-color: inherit;
+            z-index: 7;
+            transition: clip-path 0.5s * $transition-ratio max-height 0.5s * $transition-ratio;
+            transition-timing-function: ease-in-out;
+            clip-path: inset(0 0 100% 0);
+            max-height: 0;
+            overflow-y: auto;
+
+            &.open {
+                clip-path: inset(0 0 0 0);
+                max-height: calc(100vh - 58px);
+                max-height: calc(100dvh - 58px);
+            }
+
+            & > * {
+                display: block;
+                padding: 12px * $padding-ratio 24px * $padding-ratio;
+
+                &:last-child {
+                    padding-top: 13px;
+                }
+
+                &:last-child {
+                    padding-bottom: 16px;
+                }
+            }
+        }
+    }
+
+    body:has(.navbar > :last-child.open) {
+        overflow-y: hidden;
+    }
+}

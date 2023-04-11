@@ -1,0 +1,262 @@
+@mixin input-size($size, $padding: 0) {
+    font-size: $size * 0.125rem;
+    padding: ($size - 2.5px + $padding) * $padding-ratio + 1 ($size - 1px) * 2 *
+        $padding-ratio ($size - 2.5px + $padding) * $padding-ratio;
+
+    &.p-xs {
+        padding: 1px ($size - 1px) * $padding-ratio 0;
+    }
+
+    &.p-sm {
+        padding: ($size - 2.5px + $padding) * 0.5 * $padding-ratio + 1
+            ($size - 1px) * 1.5 * $padding-ratio ($size - 2.5px + $padding) *
+            0.5 * $padding-ratio;
+    }
+
+    &.p-lg {
+        padding: ($size - 2.5px + $padding) * 1.5 * $padding-ratio + 1
+            ($size - 1px) * 2.5 * $padding-ratio ($size - 2.5px + $padding) *
+            1.5 * $padding-ratio;
+    }
+
+    &.p-xl {
+        padding: ($size - 2.5px + $padding) * 2 * $padding-ratio + 1
+            ($size - 1px) * 3 * $padding-ratio ($size - 2.5px + $padding) *
+            2 * $padding-ratio;
+    }
+
+    @if $form-shape == "pill" {
+        padding-left: ($size - 1px) * 2.5 * $padding-ratio;
+        padding-right: ($size - 1px) * 2.5 * $padding-ratio;
+
+        &.p-xs {
+            padding-left: ($size - 1px) * 1.5 * $padding-ratio;
+            padding-right: ($size - 1px) * 1.5 * $padding-ratio;
+        }
+
+        &.p-sm {
+            padding-left: ($size - 1px) * 2 * $padding-ratio;
+            padding-right: ($size - 1px) * 2 * $padding-ratio;
+        }
+
+        &.p-lg {
+            padding-left: ($size - 1px) * 3 * $padding-ratio;
+            padding-right: ($size - 1px) * 3 * $padding-ratio;
+        }
+
+        &.p-xl {
+            padding-left: ($size - 1px) * 3.5 * $padding-ratio;
+            padding-right: ($size - 1px) * 3.5 * $padding-ratio;
+        }
+    } @else {
+        @if $form-shape != "angular" {
+            border-radius: $size * 1px * $border-radius-ratio;
+        }
+
+        &.pill {
+            padding-left: ($size - 1px) * 2.5 * $padding-ratio;
+            padding-right: ($size - 1px) * 2.5 * $padding-ratio;
+    
+            &.p-xs {
+                padding-left: ($size - 1px) * 1.5 * $padding-ratio;
+                padding-right: ($size - 1px) * 1.5 * $padding-ratio;
+            }
+    
+            &.p-sm {
+                padding-left: ($size - 1px) * 2 * $padding-ratio;
+                padding-right: ($size - 1px) * 2 * $padding-ratio;
+            }
+    
+            &.p-lg {
+                padding-left: ($size - 1px) * 3 * $padding-ratio;
+                padding-right: ($size - 1px) * 3 * $padding-ratio;
+            }
+    
+            &.p-xl {
+                padding-left: ($size - 1px) * 3.5 * $padding-ratio;
+                padding-right: ($size - 1px) * 3.5 * $padding-ratio;
+            }
+        }
+    }
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"],
+.form input[type="number"],
+.form input[type="tel"],
+.form input[type="url"],
+.form input[type="search"],
+.form select,
+.form textarea,
+.group input[type="text"],
+.group input[type="email"],
+.group input[type="password"],
+.group input[type="number"],
+.group input[type="tel"],
+.group input[type="url"],
+.group input[type="search"],
+.group select,
+.group textarea,
+input[type="text"].form,
+input[type="email"].form,
+input[type="password"].form,
+input[type="number"].form,
+input[type="tel"].form,
+input[type="url"].form,
+input[type="search"].form,
+select.form,
+textarea.form {
+    appearance: none;
+    width: 100%;
+    line-height: $form-line-height;
+    box-shadow: none;
+    background-color: $form-bg-color;
+    outline: none;
+    border: $form-bd-width solid $form-bd-color;
+
+    @include input-size(8);
+
+    &.xs {
+        @include input-size(6);
+    }
+
+    &.sm {
+        @include input-size(7);
+    }
+
+    &.lg {
+        @include input-size(9);
+    }
+
+    &.xl {
+        @include input-size(10);
+    }
+}
+
+.form input[type="date"],
+.form input[type="datetime-local"],
+.form input[type="month"],
+.form input[type="time"],
+.form input[type="week"],
+.group input[type="date"],
+.group input[type="datetime-local"],
+.group input[type="month"],
+.group input[type="time"],
+.group input[type="week"],
+input[type="date"].form,
+input[type="datetime-local"].form,
+input[type="month"].form,
+input[type="time"].form,
+input[type="week"].form {
+    appearance: none;
+    width: 100%;
+    line-height: $form-line-height;
+    box-shadow: none;
+    background-color: $form-bg-color;
+    box-sizing: border-box !important;
+    border: $form-bd-width solid $form-bd-color;
+    outline: none;
+
+    @include input-size(8, -1);
+
+    &::-webkit-calendar-picker-indicator {
+        cursor: pointer;
+    }
+
+    &.xs {
+        @include input-size(6, -1);
+    }
+
+    &.sm {
+        @include input-size(7, -1);
+    }
+
+    &.lg {
+        @include input-size(9, -1);
+    }
+
+    &.xl {
+        @include input-size(10, -1);
+    }
+}
+
+@mixin moz($size) {
+    padding-top: $size * 1px * $padding-ratio + 1;
+    padding-bottom: $size * 1px * $padding-ratio;
+}
+
+@-moz-document url-prefix() {
+    .form input[type="date"],
+    .form input[type="datetime-local"],
+    .form input[type="month"],
+    .form input[type="time"],
+    .form input[type="week"],
+    .group input[type="date"],
+    .group input[type="datetime-local"],
+    .group input[type="month"],
+    .group input[type="time"],
+    .group input[type="week"],
+    input[type="date"].form,
+    input[type="datetime-local"].form,
+    input[type="month"].form,
+    input[type="time"].form,
+    input[type="week"].form {
+        @include moz(5.5);
+
+        &.xs {
+            @include moz(3.5);
+        }
+
+        &.sm {
+            @include moz(4.5);
+        }
+
+        &.lg {
+            @include moz(6.5);
+        }
+
+        &.xl {
+            @include moz(7.5);
+        }
+    }
+}
+
+.form input[type="search"],
+.group input[type="search"],
+input[type="search"].form {
+    &::-webkit-search-cancel-button {
+        appearance: none;
+        cursor: pointer;
+        background-image: url("svg/search/light.svg");
+        height: 10px;
+        width: 10px;
+    }
+
+    &.xs::-webkit-search-cancel-button {
+        height: 8px;
+        width: 8px;
+    }
+    &.sm::-webkit-search-cancel-button {
+        height: 9px;
+        width: 9px;
+    }
+    &.lg::-webkit-search-cancel-button {
+        height: 11px;
+        width: 11px;
+    }
+    &.xl::-webkit-search-cancel-button {
+        height: 12px;
+        width: 12px;
+    }
+}
+
+html.dark {
+    .form input[type="search"],
+    .group input[type="search"],
+    input[type="search"].form {
+        &::-webkit-search-cancel-button {
+            background-image: url("svg/search/dark.svg");
+        }
+    }
+}

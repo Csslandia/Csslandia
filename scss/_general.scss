@@ -1,0 +1,205 @@
+@if $font == "Inter" {
+    @font-face {
+        font-family: "Inter var";
+        font-weight: 100 900;
+        font-display: swap;
+        font-style: normal;
+        font-named-instance: "Regular";
+        src: url("font/Inter-roman.var.woff2") format("woff2");
+    }
+
+    @font-face {
+        font-family: "Inter var";
+        font-weight: 100 900;
+        font-display: swap;
+        font-style: italic;
+        font-named-instance: "Italic";
+        src: url("font/Inter-italic.var.woff2") format("woff2");
+    }
+    html {
+        font-family: "Inter var", sans-serif;
+    }
+} @else {
+    html {
+        font-family: $font, $font-family;
+    }
+}
+
+@if $color-mode ==dark {
+    :root {
+        --c-strong: #{$dark-c-strong};
+        --c-soft: #{$dark-c-soft};
+        --bg-strong: #{$dark-bg-strong};
+        --bg-medium: #{$dark-bg-medium};
+        --bg-medium-2: #{$dark-bg-medium}3;
+        --bg-medium-4: #{$dark-bg-medium}6;
+        --bg-medium-6: #{$dark-bg-medium}9;
+        --bg-medium-8: #{$dark-bg-medium}c;
+        --bg-soft: #{$dark-bg-soft};
+        --bd: #{$dark-bd};
+        --accent: #{$dark-accent};
+        --accent-color: #{$dark-accent-color};
+    }
+} @else {
+    :root {
+        --c-strong: #{$light-c-strong};
+        --c-soft: #{$light-c-soft};
+        --bg-strong: #{$light-bg-strong};
+        --bg-medium: #{$light-bg-medium};
+        --bg-medium-2: #{$light-bg-medium}3;
+        --bg-medium-4: #{$light-bg-medium}6;
+        --bg-medium-6: #{$light-bg-medium}9;
+        --bg-medium-8: #{$light-bg-medium}c;
+        --bg-soft: #{$light-bg-soft};
+        --bd: #{$light-bd};
+        --accent: #{$light-accent};
+        --accent-color: #{$light-accent-color};
+    }
+}
+
+@if $color-mode !=light or dark {
+    html.dark {
+        --c-strong: #{$dark-c-strong};
+        --c-soft: #{$dark-c-soft};
+        --bg-strong: #{$dark-bg-strong};
+        --bg-medium: #{$dark-bg-medium};
+        --bg-medium-2: #{$dark-bg-medium}3;
+        --bg-medium-4: #{$dark-bg-medium}6;
+        --bg-medium-6: #{$dark-bg-medium}9;
+        --bg-medium-8: #{$dark-bg-medium}c;
+        --bg-soft: #{$dark-bg-soft};
+        --bd: #{$dark-bd};
+        --accent: #{$dark-accent};
+        --accent-color: #{$dark-accent-color};
+        color-scheme: dark;
+    }
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+    font-family: inherit;
+    line-height: inherit;
+
+    @if $italic-all {
+        font-style: italic;
+    }
+}
+
+html {
+    background-color: var(--bg-strong);
+    color: var(--c-soft);
+    min-height: 100vh;
+    min-height: 100dvh;
+    scroll-behavior: smooth;
+    transition: 0.25s * $transition-ratio;
+    line-height: $line-height;
+
+    @if $color-mode == dark {
+        color-scheme: dark;
+    }
+}
+
+a {
+    color: var(--c-soft);
+    transition: color 0.3s * $transition-ratio;
+}
+
+[class^="c-"],
+[class*=" c-"],
+.bg-a {
+    & a {
+        color: inherit;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+th,
+a:hover,
+a:focus,
+a:active {
+    color: var(--c-strong);
+}
+
+[class^="c-"],
+[class*=" c-"],
+.bg-a {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    th,
+    a:hover,
+    a:focus,
+    a:active {
+        color: inherit;
+    }
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+}
+
+img,
+video,
+canvas {
+    display: block;
+}
+
+::selection {
+    @if $selection-bg {
+        background-color: $selection-bg;
+    }
+    @if $selection-c {
+        color: $selection-c;
+    }
+}
+
+@if $color-mode == dark {
+    .disabled,
+    :disabled,
+    [disabled] {
+        opacity: 0.75 !important;
+        cursor: default !important;
+    }
+} @else {
+    .disabled,
+    :disabled,
+    [disabled] {
+        opacity: 0.6 !important;
+        cursor: default !important;
+    }
+}
+
+@if $color-mode != light or dark {
+    html.dark {
+        .disabled,
+        :disabled,
+        [disabled] {
+            opacity: 0.75 !important;
+        }
+    }
+}
+
+.d3 {
+    box-shadow: 4px 4px var(--bd);
+    transform: translate(-0.1rem, -0.1rem);
+}

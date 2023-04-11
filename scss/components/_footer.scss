@@ -1,0 +1,12 @@
+*:has(.footer) {
+    height: 100%;
+}
+
+*:has(> .footer) {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    margin-top: auto !important;
+}

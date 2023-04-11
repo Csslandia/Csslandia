@@ -1,0 +1,13 @@
+@for $i from 0 to 16 {
+    .br-#{$i} {
+        border-radius: nth($i) !important;
+    }
+}
+
+.angular {
+    border-radius: 0 !important;
+}
+
+.pill {
+    border-radius: 9999px !important;
+}

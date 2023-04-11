@@ -1,0 +1,65 @@
+@function nth($n) {
+    @if $n == 0 {
+        @return 0;
+    }
+    @if $n == 1 {
+        @return 1px;
+    }
+    @if $n == 2 {
+        @return 2px;
+    }
+    @if $n == 3 {
+        @return 3px;
+    }
+    @if $n == 4 {
+        @return 4px;
+    }
+    @if $n == 5 {
+        @return 6px;
+    }
+    @if $n == 6 {
+        @return 8px;
+    }
+    @if $n == 7 {
+        @return 12px;
+    }
+    @if $n == 8 {
+        @return 16px;
+    }
+    @if $n == 9 {
+        @return 24px;
+    }
+    @if $n == 10 {
+        @return 32px;
+    }
+    @if $n == 11 {
+        @return 48px;
+    }
+    @if $n == 12 {
+        @return 64px;
+    }
+    @if $n == 13 {
+        @return 96px;
+    }
+    @if $n == 14 {
+        @return 128px;
+    }
+    @if $n == 15 {
+        @return 192px;
+    }
+    @if $n == 16 {
+        @return 256px;
+    }
+    @if $n == 17 {
+        @return 384px;
+    }
+    @if $n == 18 {
+        @return 512px;
+    }
+    @if $n == 19 {
+        @return 768px;
+    }
+    @if $n == 20 {
+        @return 1024px;
+    }
+}

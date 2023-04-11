@@ -1,0 +1,80 @@
+@mixin chat($size) {
+    & * {
+        &.recieved,
+        &.sent {
+            &:not(img) {
+                font-size: $size * 0.125rem;
+                padding: ($size + 2) * 0.75px * $padding-ratio ($size + 2) *
+                    1.5px * $padding-ratio;
+            }
+        }
+
+        &.recieved {
+            border-top-right-radius: $size * $line-height + ($size + 2) * 0.75px;
+            border-bottom-right-radius: $size * $line-height + ($size + 2) * 0.75px;
+            margin-right: auto;
+        }
+
+        &.sent {
+            border-top-left-radius: $size * $line-height + ($size + 2) * 0.75px;
+            border-bottom-left-radius: $size * $line-height + ($size + 2) * 0.75px;
+            margin-left: auto;
+        }
+
+        &:first-child {
+            border-top-right-radius: $size * $line-height + ($size + 2) * 0.75px;
+            border-top-left-radius: $size * $line-height + ($size + 2) * 0.75px;
+        }
+
+        &:last-child {
+            border-bottom-right-radius: $size * $line-height + ($size + 2) * 0.75px;
+            border-bottom-left-radius: $size * $line-height + ($size + 2) * 0.75px;
+        }
+
+        &:not(.recieved) + .recieved {
+            border-top-left-radius: $size * $line-height + ($size + 2) * 0.75px;
+        }
+        &:not(.sent) + .sent {
+            border-top-right-radius: $size * $line-height + ($size + 2) * 0.75px;
+        }
+        &.recieved:has(+ :not(.recieved)) {
+            border-bottom-left-radius: $size * $line-height + ($size + 2) * 0.75px;
+        }
+        &.sent:has(+ :not(.sent)) {
+            border-bottom-right-radius: $size * $line-height + ($size + 2) * 0.75px;
+        }
+    }
+}
+
+.chat {
+    & * {
+        &.recieved,
+        &.sent {
+            margin-top: 2px;
+            max-width: 80%;
+
+            &:not(img) {
+                width: fit-content;
+                background-color: var(--bg-medium);
+            }
+        }
+    }
+
+    @include chat(8);
+
+    &.xs {
+        @include chat(6);
+    }
+
+    &.sm {
+        @include chat(7);
+    }
+
+    &.lg {
+        @include chat(9);
+    }
+
+    &.xl {
+        @include chat(10);
+    }
+}

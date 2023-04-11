@@ -1,0 +1,46 @@
+.frame {
+    background-color: var(--bg-medium);
+    border-radius: 12px * $border-radius-ratio;
+    overflow: hidden;
+
+    & img {
+        object-fit: cover;
+    }
+}
+
+@media only screen and (max-width: $frame-breakpoint) {
+    .frame {
+        & > * > img {
+            width: 100%;
+            height: 192px;
+        }
+
+        & > :not(:has(> img)) {
+            padding: 16px * $padding-ratio;
+        }
+    }
+}
+
+@media only screen and (min-width: ($frame-breakpoint + 1px)) {
+    .frame {
+        display: flex;
+
+        & > :not(:has(> img)) {
+            padding: 20px * $padding-ratio;
+            flex-grow: 1;
+        }
+
+        & > :has(> img) {
+            position: relative;
+            min-width: 30%;
+            max-width: 40%;
+            width: 100%;
+
+            img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}

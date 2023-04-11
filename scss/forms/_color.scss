@@ -1,0 +1,26 @@
+input[type="color"] {
+    appearance: none;
+    border: 0.1rem solid transparent;
+    border-radius: 7px * $border-radius-ratio;
+    width: 51.3px;
+    height: 34.2px;
+    cursor: pointer;
+    background-color: $form-bg-color;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0.3rem * $padding-ratio;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: calc(7px * $border-radius-ratio - 0.3rem * $border-radius-ratio);
+}
+
+input[type="color"]::-moz-color-swatch {
+    margin: 0.3rem;
+    border: none;
+    border-radius: calc(7px * $border-radius-ratio - 0.3rem * $border-radius-ratio);
+    width: calc(51.3px - 0.8rem);
+    height: calc(34.2px - 0.8rem);
+}

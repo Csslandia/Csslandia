@@ -1,0 +1,68 @@
+.tabs {
+    & > :first-child {
+        width: 100%;
+        display: flex;
+        overflow-x: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        padding-right: 16px * $border-radius-ratio;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        & > * {
+            border-bottom-left-radius: 0 !important;
+            border-bottom-right-radius: 0 !important;
+
+            &[class^="bg"],
+            &[class*=" bg"] {
+                background-color: inherit;
+                position: relative;
+                z-index: 1;
+
+                &:not(:first-child)::before,
+                &::after {
+                    content: "";
+                    background-color: inherit !important;
+                    display: block;
+                    position: absolute;
+                    width: 8px * $border-radius-ratio;
+                    height: 8px * $border-radius-ratio;
+                    bottom: -0.1rem;
+                    z-index: 0;
+                }
+
+                &:not(:first-child)::before {
+                    left: calc(-8px * $border-radius-ratio - 0.1rem);
+                    mask-image: url("svg/tabs/before.svg");
+                    -webkit-mask-image: url("svg/tabs/before.svg");
+                }
+
+                &::after {
+                    right: calc(-8px * $border-radius-ratio - 0.1rem);
+                    mask-image: url("svg/tabs/after.svg");
+                    -webkit-mask-image: url("svg/tabs/after.svg");
+                }
+
+                &:hover,
+                &:focus,
+                &:active {
+                    outline: none !important;
+                }
+            }
+        }
+    }
+    & > *:not(:first-child) {
+        border-radius: 8px * $border-radius-ratio;
+        padding: 8px * $padding-ratio 12px * $padding-ratio;
+    }
+
+    &:has(:first-child > :first-child.bg),
+    &:has(:first-child > :first-child[class^="bg-"]),
+    &:has(:first-child > :first-child[class*=" bg-"]) {
+        & > *:not(:first-child) {
+            border-top-left-radius: 0px !important;
+        }
+    }
+}

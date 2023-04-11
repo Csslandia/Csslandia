@@ -1,0 +1,48 @@
+@mixin range-size($size) {
+    height: $size * 2px;
+
+    &::-webkit-slider-thumb {
+        width: $size * 3.6px;
+        height: $size * 3.6px;
+    }
+}
+
+
+.form input[type="range"],
+.group input[type="range"],
+input[type="range"].form {
+    appearance: none;
+    width: 100%;
+    border-radius: 9999px;
+    border: $form-bd-width solid $form-bd-color;
+    cursor: pointer;
+    background-color: $form-bg-color;
+    color: var(--bd);
+    padding: 0;
+
+    @include range-size(5);
+
+    &::-webkit-slider-thumb {
+        appearance: none;
+        border-radius: 50%;
+        color: inherit;
+        background-color: currentColor;
+        cursor: pointer;
+    }
+
+    &.xs {
+        @include range-size(3);
+    }
+
+    &.sm {
+        @include range-size(4);
+    }
+
+    &.lg {
+        @include range-size(6);
+    }
+
+    &.xl {
+        @include range-size(7);
+    }
+}

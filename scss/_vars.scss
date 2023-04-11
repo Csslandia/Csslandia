@@ -1,0 +1,65 @@
+$color-mode: both;
+
+$accent: #0c5;
+$accent-color: var(--bg-strong);
+$selection-bg: $accent;
+$selection-c: $accent-color;
+$selection-bg: false;
+$selection-c: false;
+
+$light-c-strong: #222;
+$light-c-soft: #222c;
+$light-bg-strong: #fff;
+$light-bg-medium: #eee;
+$light-bg-soft: #ddd;
+$light-bd: #ccc;
+$light-accent: $accent;
+$light-accent-color: $accent-color;
+
+$dark-c-strong: #fff;
+$dark-c-soft: #fffc;
+$dark-bg-strong: #222;
+$dark-bg-medium: #333;
+$dark-bg-soft: #444;
+$dark-bd: #555;
+$dark-accent: $accent;
+$dark-accent-color: $accent-color;
+
+$font: "Inter";
+$font-family: sans-serif;
+$line-height: 1.4;
+$italic-all: false;
+
+$padding-ratio: 1;
+$border-radius-ratio: 1;
+$transition-ratio: 1;
+
+$button-bg-color: transparent;
+$button-bd-color: transparent;
+$button-bd-width: 0.1rem;
+$button-shape: default;
+$button-line-height: 1.5;
+
+$form-bg-color: var(--bg-medium);
+$form-bd-color: transparent;
+$form-bd-width: 0.1rem;
+$form-shape: default;
+$form-line-height: 1.5;
+
+$mob-tab-breakpoint: 600px;
+$tab-pc-breakpoint: 1000px;
+$frame-breakpoint: $mob-tab-breakpoint;
+$hero-breakpoint: $tab-pc-breakpoint;
+$navbar-breakpoint: $tab-pc-breakpoint;
+$steps-breakpoint: $mob-tab-breakpoint;
+
+$mob-container-width: 92%;
+$tab-container-width: 84%;
+$pc-container-width: 76%;
+
+$colors: true;
+$icons: true;
+$margin-padding: true;
+$margin-padding-prefixes: false;
+$width-height: true;
+$width-height-prefixes: false;

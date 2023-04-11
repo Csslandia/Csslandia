@@ -1,0 +1,51 @@
+@mixin radio-size($size) {
+    height: $size * 3px;
+    width: $size * 3px;
+}
+
+.form input[type="radio"],
+.group input[type="radio"],
+input[type="radio"].form {
+    appearance: none;
+    vertical-align: middle;
+    cursor: pointer;
+    padding: 0;
+    border: $form-bd-width solid $form-bd-color;
+    border-radius: 50%;
+
+    @include radio-size(8);
+
+    &:checked {
+        &::before {
+            content: "";
+            color: inherit;
+            background-color: currentColor;
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+
+            mask-repeat: no-repeat;
+            -webkit-mask-repeat: no-repeat;
+            mask-position: center;
+            -webkit-mask-position: center;
+            mask-image: url("svg/radio.svg");
+            -webkit-mask-image: url("svg/radio.svg");
+        }
+    }
+
+    &.xs {
+        @include radio-size(6);
+    }
+
+    &.sm {
+        @include radio-size(7);
+    }
+
+    &.lg {
+        @include radio-size(9);
+    }
+
+    &.xl {
+        @include radio-size(10);
+    }
+}

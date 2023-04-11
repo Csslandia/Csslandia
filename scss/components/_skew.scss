@@ -1,0 +1,63 @@
+.skew {
+    transform: skewY(-3deg);
+    & > * {
+        transform: skewY(3deg);
+    }
+
+    &.xs {
+        transform: skewY(-1deg);
+        & > * {
+            transform: skewY(1deg);
+        }
+    }
+    &.sm {
+        transform: skewY(-2deg);
+        & > * {
+            transform: skewY(2deg);
+        }
+    }
+    &.lg {
+        transform: skewY(-4deg);
+        & > * {
+            transform: skewY(4deg);
+        }
+    }
+    &.xl {
+        transform: skewY(-5deg);
+        & > * {
+            transform: skewY(5deg);
+        }
+    }
+
+    &.flip {
+        transform: skewY(3deg);
+        & > * {
+            transform: skewY(-3deg);
+        }
+
+        &.xs {
+            transform: skewY(1deg);
+            & > * {
+                transform: skewY(-1deg);
+            }
+        }
+        &.sm {
+            transform: skewY(2deg);
+            & > * {
+                transform: skewY(-2deg);
+            }
+        }
+        &.lg {
+            transform: skewY(4deg);
+            & > * {
+                transform: skewY(-4deg);
+            }
+        }
+        &.xl {
+            transform: skewY(5deg);
+            & > * {
+                transform: skewY(-5deg);
+            }
+        }
+    }
+}

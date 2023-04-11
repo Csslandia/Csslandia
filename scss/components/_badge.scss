@@ -1,0 +1,24 @@
+[data-badge] {
+    position: relative;
+
+    &::after {
+        content: attr(data-badge);
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 0;
+        left: 100%;
+        white-space: nowrap;
+        background-color: var(--badge-bg, var(--bg-soft));
+        color: var(--badge-c, var(--c-soft));
+        padding: 2px * $padding-ratio 8px * $padding-ratio;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        z-index: 1;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        opacity: 1 !important;
+    }
+}

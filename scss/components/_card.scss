@@ -1,0 +1,37 @@
+.card {
+    background-color: var(--bg-medium);
+    border-radius: 12px * $border-radius-ratio;
+    overflow: hidden;
+    max-width: 100%;
+
+    & > *:not(:last-child):not(img) {
+        border-bottom: 1px solid var(--bd);
+    }
+
+    & > * {
+        padding: 12px * $padding-ratio 16px * $padding-ratio;
+    }
+
+    & > :first-child {
+        margin-top: 4px;
+    }
+
+    & > :last-child {
+        margin-bottom: 4px;
+    }
+
+    & > img {
+        width: 100%;
+        object-fit: cover;
+        padding: 0 !important;
+        margin-bottom: 4px;
+    }
+
+    & > img:first-child {
+        margin-top: 0 !important;
+    }
+
+    & > img:last-child {
+        margin-bottom: 0 !important;
+    }
+}

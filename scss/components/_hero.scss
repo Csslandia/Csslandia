@@ -1,0 +1,33 @@
+.hero {
+    display: flex;
+    align-items: center;
+
+    & > :last-child {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @media only screen and (max-width: $hero-breakpoint) {
+        flex-direction: column-reverse;
+        text-align: center;
+
+        & * {
+            text-align: center;
+        }
+
+        & > :last-child {
+            padding-bottom: 16px;
+        }
+    }
+
+    @media only screen and (min-width: ($hero-breakpoint + 1px)) {
+        & > :first-child {
+            width: 50%;
+        }
+        & > :last-child {
+            width: 50%;
+        }
+    }
+}

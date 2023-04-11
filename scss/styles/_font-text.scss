@@ -1,0 +1,145 @@
+.fs-0 {
+    font-size: 0 !important;
+}
+
+.fs-1 {
+    font-size: 0.5rem !important;
+}
+
+.fs-2 {
+    font-size: 0.625rem !important;
+}
+
+.fs-3 {
+    font-size: 0.75rem !important;
+}
+
+.fs-4 {
+    font-size: 0.875rem !important;
+}
+
+.fs-5 {
+    font-size: 1rem !important;
+}
+
+.fs-6 {
+    font-size: calc(1.125rem + 0.25vw) !important;
+    line-height: calc(1.5rem + 0.5vw);
+}
+.fs-7 {
+    font-size: calc(1.25rem + 0.5vw) !important;
+    line-height: calc(1.625rem + 0.75vw);
+}
+.fs-8 {
+    font-size: calc(1.375rem + 0.75vw) !important;
+    line-height: calc(1.75rem + 1vw);
+}
+.fs-9 {
+    font-size: calc(1.5rem + 1vw) !important;
+    line-height: calc(1.875rem + 1.25vw);
+}
+.fs-10 {
+    font-size: calc(1.625rem + 1.25vw) !important;
+    line-height: calc(2rem + 1.5vw);
+}
+.fs-11 {
+    font-size: calc(1.75rem + 1.5vw) !important;
+    line-height: calc(2.125rem + 1.75vw);
+}
+.fs-12 {
+    font-size: calc(1.875rem + 1.75vw) !important;
+    line-height: calc(2.25rem + 2vw);
+}
+.fs-13 {
+    font-size: calc(2rem + 2vw) !important;
+    line-height: calc(2.375rem + 2.25vw);
+}
+.fs-14 {
+    font-size: calc(2.125rem + 2.25vw) !important;
+    line-height: calc(2.5rem + 2.5vw);
+}
+.fs-15 {
+    font-size: calc(2.25rem + 2.5vw) !important;
+    line-height: calc(2.625rem + 2.75vw);
+}
+
+.monospace {
+    font-family: monospace !important;
+}
+.serif {
+    font-family: serif !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.text-justify {
+    text-align: justify !important;
+}
+
+.thin {
+    font-weight: 100 !important;
+}
+
+.bold {
+    font-weight: bold !important;
+}
+
+.italic {
+    font-style: italic !important;
+}
+
+.underline {
+    text-decoration: underline !important;
+}
+
+.line-through {
+    text-decoration: line-through !important;
+}
+
+.uppercase {
+    text-transform: uppercase !important;
+}
+
+.lowercase {
+    text-transform: lowercase !important;
+}
+
+.stroke-thin {
+    -webkit-text-stroke: 0.5px currentColor;
+    -webkit-text-fill-color: transparent;
+}
+.stroke {
+    -webkit-text-stroke: 1.5px currentColor;
+    -webkit-text-fill-color: transparent;
+}
+
+.stroke-bold {
+    -webkit-text-stroke: 2.5px currentColor;
+    -webkit-text-fill-color: transparent;
+}
+
+.vertical:not(.steps) {
+    writing-mode: vertical-rl;
+}
+
+@for $i from 1 to 10 {
+    .fw-#{$i} {
+        font-weight: #{$i * 100} !important;
+    }
+}
+
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

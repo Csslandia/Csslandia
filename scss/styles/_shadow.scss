@@ -1,0 +1,16 @@
+.shadow-xs {
+    box-shadow: 0 0 3px 2px var(--shadow, var(--bg-medium));
+}
+.shadow-sm {
+    box-shadow: 0 0 6px 4px var(--shadow, var(--bg-medium));
+}
+.shadow,
+.shadow-md {
+    box-shadow: 0 0 9px 6px var(--shadow, var(--bg-medium));
+}
+.shadow-lg {
+    box-shadow: 0 0 12px 8px var(--shadow, var(--bg-medium));
+}
+.shadow-xl {
+    box-shadow: 0 0 15px 10px var(--shadow, var(--bg-medium));
+}

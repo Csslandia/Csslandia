@@ -1,0 +1,85 @@
+.modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 22;
+    overflow: hidden;
+    background-color: #000a;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    max-height: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: visibility 0.4s * $transition-ratio step-end,
+        pointer-events 0.4s * $transition-ratio step-end,
+        max-height 0.4s * $transition-ratio step-end,
+        opacity 0.4s * $transition-ratio ease;
+
+    &.center {
+        align-items: center;
+    }
+
+    & > * {
+        padding-top: 4px;
+        max-width: calc(100vw - 32px);
+        margin: 40px auto;
+        background-color: var(--bg-strong);
+        border-radius: 12px * $border-radius-ratio;
+        max-height: calc(100vh - 80px);
+        max-height: calc(100dvh - 80px);
+        height: fit-content;
+        width: 512px;
+        transform: translateY(-40px);
+        transition: opacity 0.4s * $transition-ratio,
+            transform 0.4s * $transition-ratio;
+
+        display: flex;
+        flex-direction: column;
+
+        & > *:not(:last-child) {
+            padding: 16px * $padding-ratio calc(10px * $padding-ratio + 2% * $padding-ratio);
+            border-bottom: 1px solid var(--bd);
+        }
+
+        & > :first-child {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        & > *:not(:first-child):not(:last-child) {
+            overflow-x: visible;
+            overflow-y: auto;
+        }
+
+        & > :last-child {
+            padding: 16px * $padding-ratio calc(10px * $padding-ratio + 2% * $padding-ratio);
+            width: fit-content;
+        }
+    }
+
+    &.open {
+        opacity: 1;
+        max-height: 100%;
+        visibility: visible;
+        pointer-events: auto;
+        transition: visibility 0.4s * $transition-ratio step-start,
+            pointer-events 0.4s * $transition-ratio step-start,
+            max-height 0.4s * $transition-ratio step-start,
+            opacity 0.4s * $transition-ratio ease;
+
+        & > div {
+            transform: translateY(0px);
+        }
+    }
+}
+
+body:has(.modal.open) {
+    overflow-y: hidden;
+}

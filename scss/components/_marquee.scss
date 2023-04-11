@@ -1,0 +1,37 @@
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    animation-duration: 16s;
+    animation-timing-function: linear;
+
+    & > * {
+        animation-name: marquee;
+        animation-duration: inherit;
+        animation-timing-function: inherit;
+        animation-iteration-count: infinite;
+        width: max-content;
+        display: flex;
+
+        & > * {
+            &::after {
+                content: "\00a0";
+            }
+        }
+    }
+    &.fast {
+        animation-duration: 8s;
+    }
+
+    &.slow {
+        animation-duration: 32s;
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: 0;
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}

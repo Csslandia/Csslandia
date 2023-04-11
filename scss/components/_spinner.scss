@@ -1,0 +1,37 @@
+.spinner {
+    animation: rotate 2s linear infinite;
+    width: 32px;
+    height: 32px;
+    background-color: currentColor !important;
+    display: inline-block;
+    vertical-align: middle;
+    mask-image: url("svg/spinner.svg");
+    -webkit-mask-image: url("svg/spinner.svg");
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-position: center;
+
+    &.xs {
+        width: 16px;
+        height: 16px;
+    }
+    &.sm {
+        width: 24px;
+        height: 24px;
+    }
+    &.lg {
+        width: 48px;
+        height: 48px;
+    }
+    &.xl {
+        width: 64px;
+        height: 64px;
+    }
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,159 @@
+.hamburger {
+    position: relative;
+    display: block;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0 !important;
+    width: 1.38rem;
+    height: 0.92rem;
+
+    & > *,
+    &::before,
+    &::after {
+        content: "";
+        width: 100%;
+        height: 0.12rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: transform 0.25s * $transition-ratio ease-in-out,
+            top 0.25s * $transition-ratio ease-in-out;
+        border-radius: 9999px;
+        color: inherit !important;
+        background-color: currentColor;
+    }
+
+    & > * {
+        top: 0.4rem;
+        opacity: 1;
+        transition: opacity 0.25s * $transition-ratio ease-in-out;
+    }
+
+    &::after {
+        top: 0.8rem;
+    }
+
+    &.open {
+        & > * {
+            opacity: 0;
+        }
+
+        &::before,
+        &::after {
+            top: 0.4rem;
+        }
+
+        &::before {
+            transform: rotate(45deg);
+        }
+
+        &::after {
+            transform: rotate(-45deg);
+        }
+    }
+
+    &.xs {
+        width: 0.69rem;
+        height: 0.46rem;
+
+        & > *,
+        &::before,
+        &::after {
+            height: 0.06rem;
+        }
+
+        & > * {
+            top: 0.2rem;
+        }
+
+        &::after {
+            top: 0.4rem;
+        }
+
+        &.open {
+            &::before,
+            &::after {
+                top: 0.2rem;
+            }
+        }
+    }
+
+    &.sm {
+        width: 1.035rem;
+        height: 0.69rem;
+
+        & > *,
+        &::before,
+        &::after {
+            height: 0.09rem;
+        }
+
+        & > * {
+            top: 0.3rem;
+        }
+
+        &::after {
+            top: 0.6rem;
+        }
+
+        &.open {
+            &::before,
+            &::after {
+                top: 0.3rem;
+            }
+        }
+    }
+
+    &.lg {
+        width: 1.725rem;
+        height: 1.15rem;
+
+        & > *,
+        &::before,
+        &::after {
+            height: 0.15rem;
+        }
+
+        & > * {
+            top: 0.5rem;
+        }
+
+        &::after {
+            top: 1rem;
+        }
+
+        &.open {
+            &::before,
+            &::after {
+                top: 0.5rem;
+            }
+        }
+    }
+
+    &.xl {
+        width: 2.07rem;
+        height: 1.38rem;
+
+        & > *,
+        &::before,
+        &::after {
+            height: 0.18rem;
+        }
+
+        & > * {
+            top: 0.6rem;
+        }
+
+        &::after {
+            top: 1.2rem;
+        }
+
+        &.open {
+            &::before,
+            &::after {
+                top: 0.6rem;
+            }
+        }
+    }
+}

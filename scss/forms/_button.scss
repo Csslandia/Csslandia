@@ -1,0 +1,162 @@
+@mixin button-size($size) {
+    font-size: ($size + 0.5) * 0.125rem;
+    padding: ($size - 3.25px) * $padding-ratio + 1 ($size - 1px) * 2 *
+        $padding-ratio ($size - 3.25px) * $padding-ratio;
+
+    &.p-xs {
+        padding: 1px ($size - 1px) * $padding-ratio 0;
+    }
+
+    &.p-sm {
+        padding: ($size - 3.25px) * 0.5 * $padding-ratio + 1 ($size - 1px) * 1.5 *
+            $padding-ratio ($size - 3.25px) * 0.5 * $padding-ratio;
+    }
+
+    &.p-lg {
+        padding: ($size - 3.25px) * 1.5 * $padding-ratio + 1 ($size - 1px) * 2.5 *
+            $padding-ratio ($size - 3.25px) * 1.5 * $padding-ratio;
+    }
+
+    &.p-xl {
+        padding: ($size - 3.25px) * 2 * $padding-ratio + 1 ($size - 1px) * 3 *
+            $padding-ratio ($size - 3.25px) * 2 * $padding-ratio;
+    }
+
+    @if $button-shape == "pill" {
+        padding-left: ($size - 1px) * 2.5 * $padding-ratio;
+        padding-right: ($size - 1px) * 2.5 * $padding-ratio;
+
+        &.p-xs {
+            padding-left: ($size - 1px) * 1.5 * $padding-ratio;
+            padding-right: ($size - 1px) * 1.5 * $padding-ratio;
+        }
+
+        &.p-sm {
+            padding-left: ($size - 1px) * 2 * $padding-ratio;
+            padding-right: ($size - 1px) * 2 * $padding-ratio;
+        }
+
+        &.p-lg {
+            padding-left: ($size - 1px) * 3 * $padding-ratio;
+            padding-right: ($size - 1px) * 3 * $padding-ratio;
+        }
+
+        &.p-xl {
+            padding-left: ($size - 1px) * 3.5 * $padding-ratio;
+            padding-right: ($size - 1px) * 3.5 * $padding-ratio;
+        }
+    } @else {
+        @if $button-shape != "angular" {
+            border-radius: $size * 1px * $border-radius-ratio;
+        }
+
+        &.pill {
+            padding-left: ($size - 1px) * 2.5 * $padding-ratio;
+            padding-right: ($size - 1px) * 2.5 * $padding-ratio;
+
+            &.p-xs {
+                padding-left: ($size - 1px) * 1.5 * $padding-ratio;
+                padding-right: ($size - 1px) * 1.5 * $padding-ratio;
+            }
+
+            &.p-sm {
+                padding-left: ($size - 1px) * 2 * $padding-ratio;
+                padding-right: ($size - 1px) * 2 * $padding-ratio;
+            }
+
+            &.p-lg {
+                padding-left: ($size - 1px) * 3 * $padding-ratio;
+                padding-right: ($size - 1px) * 3 * $padding-ratio;
+            }
+
+            &.p-xl {
+                padding-left: ($size - 1px) * 3.5 * $padding-ratio;
+                padding-right: ($size - 1px) * 3.5 * $padding-ratio;
+            }
+        }
+    }
+}
+
+.tabs > :first-child > *,
+.form input[type="button"],
+.form input[type="submit"],
+.form input[type="reset"],
+.form button,
+input[type="button"].form,
+input[type="submit"].form,
+input[type="reset"].form,
+button.form,
+.b,
+.btn,
+.button {
+    appearance: none;
+    cursor: pointer;
+    display: inline-block;
+    line-height: $button-line-height;
+    font-weight: 500;
+    white-space: nowrap;
+    background-color: $button-bg-color;
+    border: $button-bd-width solid $button-bd-color;
+    user-select: none;
+    transition: transform 0.25s * $transition-ratio;
+
+    @if $button-shape == "pill" {
+        border-radius: 9999px;
+    } @else if $button-shape == "angular" {
+        border-radius: 0;
+    }
+
+    @include button-size(7);
+
+    &.xs {
+        @include button-size(5);
+    }
+
+    &.sm {
+        @include button-size(6);
+    }
+
+    &.lg {
+        @include button-size(8);
+    }
+
+    &.xl {
+        @include button-size(9);
+    }
+
+    &.d3 {
+        transform: translate(-2 * $button-bd-width, -2 * $button-bd-width);
+
+        &:hover,
+        &:focus,
+        &:active {
+            transform: translate(0, 0);
+            box-shadow: none;
+            outline: none;
+        }
+    }
+}
+
+.form input[type="button"],
+.form input[type="submit"],
+.form input[type="reset"],
+.form button,
+input[type="button"].form,
+input[type="submit"].form,
+input[type="reset"].form,
+button.form,
+.b,
+.btn,
+.button {
+    &:hover,
+    &:focus,
+    &:active {
+        opacity: 0.92;
+    }
+    &:not(.w-100\%):not(.mob\:w-100\%):not(.tab\:w-100\%):not(.pc\:w-100\%):not(
+            .d3
+        ):focus-visible {
+        outline: none;
+        transform: scale(1.05);
+    }
+}

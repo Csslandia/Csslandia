@@ -1,0 +1,38 @@
+.viewer {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 27;
+    overflow: hidden;
+    background-color: #000a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: $dark-c-strong;
+
+    & * {
+        color: inherit;
+    }
+
+    & > button {
+        position: absolute;
+        top: calc(1vw + 16px);
+        right: calc(1vw + 16px);
+        color: $dark-c-strong;
+    }
+
+    & img {
+        max-width: 94%;
+        max-height: 80%;
+    }
+}
+
+body:has(.viewer.open) {
+    overflow-y: hidden;
+}

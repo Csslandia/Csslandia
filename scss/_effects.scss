@@ -1,0 +1,53 @@
+.fade {
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    pointer-events: none;
+    transition: visibility 0.5s * $transition-ratio step-end,
+        pointer-events 0.5s * $transition-ratio step-end,
+        max-height 0.5s * $transition-ratio step-end,
+        opacity 0.5s * $transition-ratio ease;
+
+    &.open {
+        opacity: 1;
+        visibility: visible;
+        max-height: 100%;
+        pointer-events: auto;
+        transition: visibility 0.5s * $transition-ratio step-start,
+            pointer-events 0.5s * $transition-ratio step-start,
+            max-height 0.5s * $transition-ratio step-start,
+            opacity 0.5s * $transition-ratio ease;
+    }
+}
+
+.slide {
+    clip-path: inset(0 0 100% 0);
+    max-height: 0;
+    pointer-events: none;
+    transition: clip-path 0.5s * $transition-ratio ease-in-out,
+        max-height 0.5s * $transition-ratio ease-in-out,
+        pointer-events 0.5s * $transition-ratio step-end;
+
+    &.open {
+        clip-path: inset(0 0 0 0);
+        max-height: 100vh;
+        max-height: 100dvh;
+        pointer-events: auto;
+        transition: clip-path 0.5s * $transition-ratio ease-in-out,
+            max-height 0.5s * $transition-ratio ease-in-out,
+            pointer-events 0.5s * $transition-ratio step-start;
+    }
+}
+
+.hide {
+    visibility: hidden;
+    max-height: 0;
+    pointer-events: none;
+
+    &.open {
+        visibility: visible;
+        max-height: 100vh;
+        max-height: 100dvh;
+        pointer-events: auto;
+    }
+}

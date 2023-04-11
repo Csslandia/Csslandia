@@ -1,0 +1,51 @@
+@mixin checkbox-size($size) {
+    height: $size * 3px;
+    width: $size * 3px;
+    border-radius: $size * 0.75px * $border-radius-ratio;
+}
+
+.form input[type="checkbox"],
+.group input[type="checkbox"],
+input[type="checkbox"].form {
+    appearance: none;
+    vertical-align: middle;
+    cursor: pointer;
+    padding: 0;
+    border: $form-bd-width solid $form-bd-color;
+
+    @include checkbox-size(8);
+
+    &:checked {
+        &::before {
+            content: "";
+            color: inherit;
+            background-color: currentColor;
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+
+            mask-repeat: no-repeat;
+            -webkit-mask-repeat: no-repeat;
+            mask-position: center;
+            -webkit-mask-position: center;
+            mask-image: url("svg/checkbox.svg");
+            -webkit-mask-image: url("svg/checkbox.svg");
+        }
+    }
+
+    &.xs {
+        @include checkbox-size(6);
+    }
+
+    &.sm {
+        @include checkbox-size(7);
+    }
+
+    &.lg {
+        @include checkbox-size(9);
+    }
+
+    &.xl {
+        @include checkbox-size(10);
+    }
+}

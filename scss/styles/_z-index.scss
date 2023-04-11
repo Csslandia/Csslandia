@@ -1,0 +1,16 @@
+.z-auto {
+    z-index: auto !important;
+}
+
+@for $i from 5 to 0 {
+    .z--#{$i} {
+        z-index: $i * -10 !important;
+
+    }
+}
+
+@for $i from 0 to 6 {
+    .z-#{$i} {
+        z-index: $i * 10 !important;
+    }
+}

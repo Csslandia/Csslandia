@@ -1,0 +1,39 @@
+:not(.flexbox).x-center {
+    position: relative;
+    display: block;
+    width: fit-content;
+    transform: translateX(-50%);
+    left: 50%;
+}
+
+:not(.flexbox).x-right {
+    position: relative;
+    display: block;
+    width: fit-content;
+    transform: translateX(-100%);
+    left: 100%;
+}
+
+:not(.flexbox).y-center {
+    position: relative;
+    display: block;
+    transform: translateY(-50%);
+    top: 50%;
+}
+
+:not(.flexbox).y-bottom {
+    position: relative;
+    display: block;
+    transform: translateY(-100%);
+    top: 100%;
+}
+
+:not(.flexbox):not(.modal).center {
+    position: relative;
+    display: block;
+    width: fit-content;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    text-align: center;
+}

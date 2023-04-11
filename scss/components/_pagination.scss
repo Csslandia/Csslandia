@@ -1,0 +1,105 @@
+.pagination {
+    display: flex !important;
+    width: fit-content;
+    padding: 0 !important;
+    border-radius: 9999px;
+    border-color: $form-bd-color;
+    border-width: 0 !important;
+
+    & > * {
+        display: inline-block;
+        font-size: 0.9375rem;
+        line-height: $button-line-height;
+        padding: 3.75px * $padding-ratio + 1 12px * $padding-ratio
+            3.75px * $padding-ratio;
+        font-weight: 500;
+        white-space: nowrap;
+        user-select: none;
+        border-radius: 7px * $border-radius-ratio;
+        border-width: $button-bd-width;
+        border-style: solid;
+        border-color: inherit;
+        background-color: inherit;
+        color: inherit;
+
+        &:not(:first-child):not(:last-child) {
+            border-radius: 0 !important;
+            border-left-width: 1px !important;
+            border-right-width: 1px !important;
+        }
+
+        &:first-child {
+            border-top-right-radius: 0 !important;
+            border-bottom-right-radius: 0 !important;
+            border-right-width: 1px !important;
+        }
+
+        &:last-child {
+            border-top-left-radius: 0 !important;
+            border-bottom-left-radius: 0 !important;
+            border-left-width: 1px !important;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            opacity: 0.92;
+        }
+    }
+
+    &.xs {
+        & > * {
+            font-size: 0.6875rem;
+            padding: 1.75px * $padding-ratio + 1 8px * $padding-ratio
+                1.75px * $padding-ratio;
+            border-radius: 5px * $border-radius-ratio;
+
+            &.pill {
+                padding-left: 10px * $padding-ratio;
+                padding-right: 10px * $padding-ratio;
+            }
+        }
+    }
+
+    &.sm {
+        & > * {
+            font-size: 0.8125rem;
+            padding: 2.75px * $padding-ratio + 1 10px * $padding-ratio
+                2.75px * $padding-ratio;
+            border-radius: 6px * $border-radius-ratio;
+
+            &.pill {
+                padding-left: 12.5px * $padding-ratio;
+                padding-right: 12.5px * $padding-ratio;
+            }
+        }
+    }
+
+    &.lg {
+        & > * {
+            font-size: 1.0625rem;
+            padding: 4.75px * $padding-ratio + 1 14px * $padding-ratio
+                4.75px * $padding-ratio;
+            border-radius: 8px * $border-radius-ratio;
+
+            &.pill {
+                padding-left: 17.5px * $padding-ratio;
+                padding-right: 17.5px * $padding-ratio;
+            }
+        }
+    }
+
+    &.xl {
+        & > * {
+            font-size: 1.1875rem;
+            padding: 5.75px * $padding-ratio + 1 16px * $padding-ratio
+                5.75px * $padding-ratio;
+            border-radius: 9px * $border-radius-ratio;
+
+            &.pill {
+                padding-left: 20px * $padding-ratio;
+                padding-right: 20px * $padding-ratio;
+            }
+        }
+    }
+}

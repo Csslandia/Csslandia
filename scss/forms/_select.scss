@@ -1,0 +1,53 @@
+@mixin select-size($size) {
+    background-size: $size * 0.125rem;
+    background-position: right ($size * 2px - 2px) * $padding-ratio center;
+    padding-right: ($size - 1px) * 4 * $padding-ratio + $size;
+
+    &.pill {
+        padding-left: ($size - 1) * 2.5px * $padding-ratio;
+        padding-right: ($size - 1) * 4.5px * $padding-ratio + $size;
+        background-position: right ($size - 1) * 2.5px * $padding-ratio center;
+    }
+}
+
+.form select,
+.group select,
+select.form {
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-image: url("svg/select/light.svg");
+
+    & option {
+        background-color: inherit;
+    }
+
+    &.bg-none option {
+        background-color: $form-bg-color;
+    }
+
+    @include select-size(8);
+
+    &.xs {
+        @include select-size(6);
+    }
+
+    &.sm {
+        @include select-size(7);
+    }
+
+    &.lg {
+        @include select-size(9);
+    }
+
+    &.xl {
+        @include select-size(10);
+    }
+}
+
+html.dark {
+    .form select,
+    .group select,
+    select.form {
+        background-image: url("svg/select/dark.svg");
+    }
+}

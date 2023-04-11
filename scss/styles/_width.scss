@@ -1,0 +1,88 @@
+@mixin width($prefix) {
+    .#{$prefix}w-auto,
+    .#{$prefix}max-w-auto,
+    .#{$prefix}min-w-auto {
+        width: auto !important;
+    }
+
+    @for $i from 0 to 21 {
+        .#{$prefix}w-#{$i} {
+            width: nth($i) !important;
+        }
+    }
+
+    @for $i from 0 to 21 {
+        .#{$prefix}max-w-#{$i} {
+            max-width: nth($i) !important;
+        }
+    }
+
+    @for $i from 0 to 21 {
+        .#{$prefix}min-w-#{$i} {
+            min-width: nth($i) !important;
+        }
+    }
+
+    .#{$prefix}w-100vw {
+        width: 100vw !important;
+    }
+    .#{$prefix}min-w-100vw {
+        min-width: 100vw !important;
+    }
+    .#{$prefix}max-w-100vw {
+        max-width: 100vw !important;
+    }
+
+    .#{$prefix}w-min {
+        width: min-content !important;
+    }
+
+    .#{$prefix}w-fit {
+        width: fit-content !important;
+    }
+
+    .#{$prefix}w-max {
+        width: max-content !important;
+    }
+
+    .#{$prefix}min-w-min {
+        min-width: min-content !important;
+    }
+
+    .#{$prefix}min-w-fit {
+        min-width: fit-content !important;
+    }
+
+    .#{$prefix}min-w-max {
+        min-width: max-content !important;
+    }
+
+    .#{$prefix}max-w-min {
+        max-width: min-content !important;
+    }
+
+    .#{$prefix}max-w-fit {
+        max-width: fit-content !important;
+    }
+
+    .#{$prefix}max-w-max {
+        max-width: max-content !important;
+    }
+}
+@if ($width-height) {
+    @include width("");
+
+    @if ($width-height-prefixes) {
+        @media only screen and (max-width: $mob-tab-breakpoint) {
+            @include width(mob\:);
+        }
+
+        @media only screen and (min-width: ($mob-tab-breakpoint + 1px)) and (max-width: $tab-pc-breakpoint) {
+            @include width(tab\:);
+        }
+
+        @media only screen and (min-width: ($tab-pc-breakpoint + 1px)) {
+            @include width(pc\:);
+        }
+    }
+}

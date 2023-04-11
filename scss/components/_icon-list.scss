@@ -1,0 +1,15 @@
+.icon-list {
+    list-style: none !important;
+    font-size: 0.9375rem;
+
+    & > * {
+        &:not(:last-child) {
+            padding-bottom: 12px;
+        }
+
+        & [class^="i-"],
+        & [class*=" i-"] {
+            padding-right: 4px;
+        }
+    }
+}

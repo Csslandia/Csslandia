@@ -1,0 +1,95 @@
+.folder {
+    overflow: hidden;
+
+    & > :first-child {
+        border-bottom: 1px solid var(--bd);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px * $padding-ratio 16px * $padding-ratio;
+        cursor: pointer;
+    }
+
+    &:not(.plus) {
+        & > :first-child {
+            &::after {
+                content: "";
+                color: inherit;
+                background-color: currentColor !important;
+                width: 12px;
+                height: 12px;
+                mask-image: url("svg/folder.svg");
+                -webkit-mask-image: url("svg/folder.svg");
+                mask-repeat: no-repeat;
+                -webkit-mask-repeat: no-repeat;
+                mask-position: center;
+                -webkit-mask-position: center;
+                transform: rotate(0);
+                transition: transform 0.5s * $transition-ratio;
+            }
+        }
+    }
+
+    &.plus {
+        & > :first-child {
+            &::before {
+                content: "";
+                color: inherit;
+                background-color: currentColor !important;
+                width: 0.15rem;
+                height: 0.75rem;
+                border-radius: 9999px;
+                position: relative;
+                right: 0.45rem;
+                order: 1;
+                opacity: 1;
+                transition: opacity 0.5s * $transition-ratio;
+            }
+            &::after {
+                content: "";
+                color: inherit;
+                background-color: currentColor !important;
+                width: 0.75rem;
+                height: 0.15rem;
+                border-radius: 9999px;
+                position: relative;
+                right: 0;
+                margin-left: auto;
+            }
+        }
+    }
+
+    & > :last-child {
+        clip-path: inset(0 0 100% 0);
+        max-height: 0;
+        transition: clip-path 0.5s * $transition-ratio ease-in-out,
+            max-height 0.5s * $transition-ratio ease-in-out,
+            padding-top 0.5s * $transition-ratio ease-in-out,
+            padding-bottom 0.5s * $transition-ratio ease-in-out,
+            padding-left 0.5s * $transition-ratio step-end,
+            padding-right 0.5s * $transition-ratio step-end;
+        padding: 0;
+    }
+
+    &.open {
+        &:not(.plus) > :first-child::after {
+            transform: rotate(180deg);
+        }
+        &.plus > :first-child::before {
+            opacity: 0;
+        }
+
+        & > :last-child {
+            clip-path: inset(0 0 0 0);
+            max-height: 100vh;
+            max-height: 100dvh;
+            padding: 12px * $padding-ratio;
+            transition: clip-path 0.5s * $transition-ratio ease-in-out,
+                max-height 0.5s * $transition-ratio ease-in-out,
+                padding-top 0.5s * $transition-ratio ease-in-out,
+                padding-bottom 0.5s * $transition-ratio ease-in-out,
+                padding-left 0.5s * $transition-ratio step-start,
+                padding-right 0.5s * $transition-ratio step-start;
+        }
+    }
+}

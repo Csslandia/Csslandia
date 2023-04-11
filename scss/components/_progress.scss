@@ -1,0 +1,36 @@
+progress {
+    width: 100%;
+    display: block;
+    border-radius: 9999px;
+    background-color: var(--bg-medium);
+    color: var(--bd);
+    height: 15px;
+
+    &.xs {
+        height: 10px;
+    }
+    &.sm {
+        height: 12px;
+    }
+    &.lg {
+        height: 19px;
+    }
+    &.xl {
+        height: 24px;
+    }
+
+    &::-webkit-progress-bar {
+        border-radius: 9999px;
+        background-color: inherit;
+    }
+
+    &::-webkit-progress-value {
+        background-color: currentColor;
+        border-radius: 9999px;
+    }
+
+    &::-moz-progress-bar {
+        border-radius: 9999px;
+        background-color: currentColor;
+    }
+}

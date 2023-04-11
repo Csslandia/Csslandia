@@ -1,0 +1,193 @@
+@mixin flexbox($prefix) {
+    .#{$prefix}w-auto {
+        width: auto !important;
+    }
+
+    .#{$prefix}w-0 {
+        width: 0 !important;
+        overflow: hidden;
+        padding: 0 !important;
+    }
+
+    .#{$prefix}w-10\% {
+        width: 10% !important;
+    }
+
+    .#{$prefix}w-12\%,
+    .#{$prefix}w-13\% {
+        width: 12.5% !important;
+    }
+
+    .#{$prefix}w-16\%,
+    .#{$prefix}w-17\% {
+        width: calc(100% / 6) !important;
+    }
+
+    .#{$prefix}w-20\% {
+        width: 20% !important;
+    }
+
+    .#{$prefix}w-25\% {
+        width: 25% !important;
+    }
+    .#{$prefix}w-30\% {
+        width: 30% !important;
+    }
+
+    .#{$prefix}w-33\% {
+        width: calc(100% / 3) !important;
+    }
+
+    .#{$prefix}w-37\%,
+    .#{$prefix}w-38\% {
+        width: 37.5% !important;
+    }
+
+    .#{$prefix}w-40\% {
+        width: 40% !important;
+    }
+
+    .#{$prefix}w-50\% {
+        width: 50% !important;
+    }
+
+    .#{$prefix}w-60\% {
+        width: 60% !important;
+    }
+
+    .#{$prefix}w-62\%,
+    .#{$prefix}w-63\% {
+        width: 62.5% !important;
+    }
+
+    .#{$prefix}w-66\%,
+    .#{$prefix}w-67\% {
+        width: calc(200% / 3) !important;
+    }
+
+    .#{$prefix}w-70\% {
+        width: 70% !important;
+    }
+
+    .#{$prefix}w-75\% {
+        width: 75% !important;
+    }
+
+    .#{$prefix}w-80\% {
+        width: 80% !important;
+    }
+
+    .#{$prefix}w-83\%,
+    .#{$prefix}w-84\% {
+        width: calc(250% / 3) !important;
+    }
+
+    .#{$prefix}w-87\%,
+    .#{$prefix}w-88\% {
+        width: 87.5% !important;
+    }
+
+    .#{$prefix}w-90\% {
+        width: 90% !important;
+    }
+
+    .#{$prefix}w-100\% {
+        width: 100% !important;
+    }
+
+    .#{$prefix}w-fill {
+        flex-grow: 1;
+        flex-basis: min-content;
+    }
+
+    .#{$prefix}x-left {
+        justify-content: start;
+    }
+
+    .#{$prefix}x-right {
+        justify-content: end;
+    }
+
+    .#{$prefix}x-between {
+        justify-content: space-between;
+    }
+
+    .#{$prefix}x-around {
+        justify-content: space-around;
+    }
+
+    .#{$prefix}x-evenly {
+        justify-content: space-evenly;
+    }
+
+    .#{$prefix}x-center {
+        justify-content: center;
+    }
+
+    .#{$prefix}y-top {
+        align-items: flex-start;
+    }
+
+    .#{$prefix}y-bottom {
+        align-items: flex-end;
+    }
+
+    .#{$prefix}y-baseline {
+        align-items: baseline;
+    }
+
+    .#{$prefix}y-stretch {
+        align-items: stretch;
+    }
+
+    .#{$prefix}y-center {
+        align-items: center;
+    }
+
+    .#{$prefix}center {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .#{$prefix}row {
+        flex-direction: row;
+    }
+
+    .#{$prefix}row-reverse {
+        flex-direction: row-reverse;
+    }
+
+    .#{$prefix}column {
+        flex-direction: column;
+        & > * {
+            width: 100%;
+        }
+    }
+
+    .#{$prefix}column-reverse {
+        flex-direction: column-reverse;
+        & > * {
+            width: 100%;
+        }
+    }
+}
+
+.flexbox {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: flex-start;
+}
+
+@include flexbox("");
+
+@media only screen and (max-width: $mob-tab-breakpoint) {
+    @include flexbox(mob\:);
+}
+
+@media only screen and (min-width: ($mob-tab-breakpoint + 1px)) and (max-width: $tab-pc-breakpoint) {
+    @include flexbox(tab\:);
+}
+
+@media only screen and (min-width: ($tab-pc-breakpoint + 1px)) {
+    @include flexbox(pc\:);
+}

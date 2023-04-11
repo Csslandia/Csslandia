@@ -1,0 +1,189 @@
+@if $colors {
+    $colors: 0, 5, a, f;
+    $grays: 1, 2, 3, 4, 6, 7, 8, 9, b, c, d, e;
+    $h: "#";
+
+    @each $c in $grays {
+        .c-#{$c}#{$c}#{$c} {
+            color: #{$h}#{$c}#{$c}#{$c} !important;
+        }
+
+        .bg-#{$c}#{$c}#{$c} {
+            background-color: #{$h}#{$c}#{$c}#{$c} !important;
+        }
+
+        .bd-#{$c}#{$c}#{$c} {
+            border-color: #{$h}#{$c}#{$c}#{$c} !important;
+        }
+    }
+
+    @each $r in $colors {
+        @each $g in $colors {
+            @each $b in $colors {
+                .c-#{$r}#{$g}#{$b} {
+                    color: #{$h}#{$r}#{$g}#{$b} !important;
+                }
+
+                .bg-#{$r}#{$g}#{$b} {
+                    background-color: #{$h}#{$r}#{$g}#{$b} !important;
+                }
+
+                .bd-#{$r}#{$g}#{$b} {
+                    border-color: #{$h}#{$r}#{$g}#{$b} !important;
+                }
+            }
+        }
+    }
+
+    .c-none {
+        color: transparent !important;
+    }
+
+    .bg-none {
+        background-color: transparent !important;
+    }
+
+    .bd-none {
+        border-color: transparent !important;
+    }
+
+    @if $color-mode !=light or dark {
+        html.dark {
+            @each $c in $grays {
+                .d\:c-#{$c}#{$c}#{$c} {
+                    color: #{$h}#{$c}#{$c}#{$c} !important;
+                }
+
+                .d\:bg-#{$c}#{$c}#{$c} {
+                    background-color: #{$h}#{$c}#{$c}#{$c} !important;
+                }
+
+                .d\:bd-#{$c}#{$c}#{$c} {
+                    border-color: #{$h}#{$c}#{$c}#{$c} !important;
+                }
+            }
+
+            @each $r in $colors {
+                @each $g in $colors {
+                    @each $b in $colors {
+                        .d\:c-#{$r}#{$g}#{$b} {
+                            color: #{$h}#{$r}#{$g}#{$b} !important;
+                        }
+
+                        .d\:bg-#{$r}#{$g}#{$b} {
+                            background-color: #{$h}#{$r}#{$g}#{$b} !important;
+                        }
+
+                        .d\:bd-#{$r}#{$g}#{$b} {
+                            border-color: #{$h}#{$r}#{$g}#{$b} !important;
+                        }
+                    }
+                }
+            }
+
+            .d\:c-none {
+                color: transparent !important;
+            }
+
+            .d\:bg-none {
+                background-color: transparent !important;
+            }
+
+            .d\:bd-none {
+                border-color: transparent !important;
+            }
+        }
+    }
+}
+
+.c-a {
+    color: var(--accent) !important;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: var(--accent);
+    }
+}
+
+.bg-a {
+    background-color: var(--accent) !important;
+    color: var(--accent-color);
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: var(--accent);
+        color: var(--accent-color);
+    }
+}
+
+.bd-a {
+    border-color: var(--accent) !important;
+}
+
+.hover\:c-a {
+    &:hover,
+    &:focus,
+    &:active {
+        color: var(--accent) !important;
+
+        & * {
+            color: var(--accent);
+        }
+    }
+}
+
+.hover\:bg-a {
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: var(--accent) !important;
+        color: var(--accent-color);
+    }
+}
+
+.hover\:bd-a {
+    &:hover,
+    &:focus,
+    &:active {
+        border-color: var(--accent) !important;
+
+        & * {
+            border-color: var(--accent);
+        }
+    }
+}
+
+.c {
+    color: var(--c-strong) !important;
+}
+
+.bg-strong {
+    background-color: var(--bg-strong) !important;
+}
+
+.bg,
+.bg-medium {
+    background-color: var(--bg-medium) !important;
+}
+
+.bg-soft {
+    background-color: var(--bg-soft) !important;
+}
+
+.bg-0\.2 {
+    background-color: var(--bg-medium-2) !important;
+}
+
+.bg-0\.4 {
+    background-color: var(--bg-medium-4) !important;
+}
+
+.bg-0\.6 {
+    background-color: var(--bg-medium-6) !important;
+}
+
+.bg-0\.8 {
+    background-color: var(--bg-medium-8) !important;
+}

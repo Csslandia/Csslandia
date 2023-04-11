@@ -1,0 +1,43 @@
+@mixin textarea-size($size) {
+    min-height: calc(
+        ((($size * 2px - 5px) * $padding-ratio) + 1px) +
+            ($size * 0.125rem * $form-line-height + 2 * $form-bd-width)
+    );
+
+    &.pill {
+        border-radius: calc(
+            ((($size * 1px - 2.5px) * $padding-ratio) + 0.5px) +
+                ($size * 0.0625rem * $form-line-height + $form-bd-width)
+        ) !important;
+    }
+}
+
+.form textarea,
+.group textarea,
+textarea.form {
+    @if $font == "Inter" {
+        font-family: "Inter var", sans-serif;
+    } @else {
+        font-family: $font, sans-serif;
+    }
+    resize: vertical;
+    vertical-align: top;
+
+    @include textarea-size(8);
+
+    &.xs {
+        @include textarea-size(6);
+    }
+
+    &.sm {
+        @include textarea-size(7);
+    }
+
+    &.lg {
+        @include textarea-size(9);
+    }
+
+    &.xl {
+        @include textarea-size(10);
+    }
+}

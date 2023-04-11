@@ -1,0 +1,86 @@
+@mixin padding($prefix) {
+    @for $i from 0 to 21 {
+        .#{$prefix}p-#{$i} {
+            padding: nth($i) !important;
+        }
+    }
+    .#{$prefix}p-auto {
+        padding: auto !important;
+    }
+
+    @for $i from 0 to 21 {
+        .#{$prefix}px-#{$i} {
+            padding-left: nth($i) !important;
+            padding-right: nth($i) !important;
+        }
+    }
+    .#{$prefix}px-auto {
+        padding-left: auto !important;
+        padding-right: auto !important;
+    }
+
+    @for $i from 0 to 21 {
+        .#{$prefix}py-#{$i} {
+            padding-top: nth($i) !important;
+            padding-bottom: nth($i) !important;
+        }
+    }
+    .#{$prefix}py-auto {
+        padding-top: auto !important;
+        padding-bottom: auto !important;
+    }
+
+    @for $i from 0 to 21 {
+        .#{$prefix}pl-#{$i} {
+            padding-left: nth($i) !important;
+        }
+    }
+    .#{$prefix}pl-auto {
+        padding-left: auto !important;
+    }
+
+    @for $i from 0 to 21 {
+        .#{$prefix}pr-#{$i} {
+            padding-right: nth($i) !important;
+        }
+    }
+    .#{$prefix}pr-auto {
+        padding-right: auto !important;
+    }
+
+    @for $i from 0 to 21 {
+        .#{$prefix}pt-#{$i} {
+            padding-top: nth($i) !important;
+        }
+    }
+    .#{$prefix}pt-auto {
+        padding-top: auto !important;
+    }
+
+    @for $i from 0 to 21 {
+        .#{$prefix}pb-#{$i} {
+            padding-bottom: nth($i) !important;
+        }
+    }
+    .#{$prefix}pb-auto {
+        padding-bottom: auto !important;
+    }
+}
+
+@if $margin-padding {
+    @include padding("");
+
+    @if $margin-padding-prefixes {
+        @media only screen and (max-width: $mob-tab-breakpoint) {
+            @include padding(mob\:);
+        }
+
+        @media only screen and (min-width: ($mob-tab-breakpoint + 1px)) and (max-width: $tab-pc-breakpoint) {
+            @include padding(tab\:);
+        }
+
+        @media only screen and (min-width: ($tab-pc-breakpoint + 1px)) {
+            @include padding(pc\:);
+        }
+    }
+}

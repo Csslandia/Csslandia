@@ -1,0 +1,38 @@
+.list {
+    display: block;
+    border-radius: 8px * $border-radius-ratio;
+    background-color: var(--bg-medium);
+    overflow: hidden;
+    width: fit-content;
+    list-style: none;
+    border-color: var(--bd);
+
+    & > * {
+        display: block;
+        padding: 9px * $padding-ratio 15px * $padding-ratio;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid;
+            border-color: inherit;
+        }
+    }
+
+    &:not([class^="bg-"]),
+    &:not([class*=" bg-"]) {
+        & > * {
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: var(--bg-soft);
+            }
+        }
+    }
+
+    & > * {
+        &:hover,
+        &:focus,
+        &:active {
+            opacity: 0.92;
+        }
+    }
+}
