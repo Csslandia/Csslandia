@@ -1,27 +1,9 @@
 import fs from "fs";
 import sass from "sass";
-import CleanCSS from "clean-css";
 
-import { path, dir } from "./path_dir.js";
-import default_config from "./config.js";
+import { dir, file } from "./dir_file.js";
 
-const compiler = () => {
-    let config = {};
-    try {
-        config = JSON.parse(fs.readFileSync(path));
-    } catch {
-        fs.writeFileSync(path, JSON.stringify(default_config, null, 4));
-        config = default_config;
-    }
-
-    let scss_config = "";
-
-    for (let [key, value] of Object.entries(config)) {
-        scss_config += `$${key}: ${value};\n`;
-    }
-
-    fs.writeFileSync(dir + "scss/_config.scss", scss_config);
-
+const compile = () => {
     const result = sass.compile(dir + "scss/csslandia.scss");
     const compressed = sass.compile(dir + "scss/csslandia.scss", {
         style: "compressed",
@@ -29,6 +11,31 @@ const compiler = () => {
 
     fs.writeFileSync(dir + "style.css", result.css);
     fs.writeFileSync(dir + "style.min.css", compressed.css);
+};
+
+const compiler = async () => {
+    return await new Promise((resolve, reject) => {
+        try {
+            compile();
+        } catch {
+            if (fs.existsSync(file)) {
+                console.error("An error occurred in the " + file);
+                reject();
+            } else {
+                let data = fs.readFileSync(dir + "scss/_vars.scss").toString();
+                fs.writeFileSync(file, data);
+                console.log(file + " created");
+
+                try {
+                    compile();
+                } catch {
+                    console.error("An unexpected error occurred");
+                    reject();
+                }
+            }
+        }
+        resolve();
+    });
 };
 
 export default compiler;

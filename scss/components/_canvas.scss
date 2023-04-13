@@ -7,7 +7,7 @@
     width: 100vw;
     height: 100vh;
     height: 100dvh;
-    z-index: 17;
+    z-index: 22;
     overflow: hidden;
     display: flex;
     background-color: #000a;
@@ -15,10 +15,10 @@
     max-height: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: visibility 0.5s * $transition-ratio step-end,
-        pointer-events 0.5s * $transition-ratio step-end,
-        max-height 0.5s * $transition-ratio step-end,
-        opacity 0.5s * $transition-ratio ease;
+    transition: visibility 0.4s * $transition-ratio step-end,
+        pointer-events 0.4s * $transition-ratio step-end,
+        max-height 0.4s * $transition-ratio step-end,
+        opacity 0.4s * $transition-ratio ease;
 
     & > div:first-child {
         background-color: var(--bg-strong);
@@ -62,10 +62,10 @@
         max-height: 100%;
         visibility: visible;
         pointer-events: auto;
-        transition: visibility 0.5s * $transition-ratio step-start,
-            pointer-events 0.5s * $transition-ratio step-start,
-            max-height 0.5s * $transition-ratio step-start,
-            opacity 0.5s * $transition-ratio ease;
+        transition: visibility 0.4s * $transition-ratio step-start,
+            pointer-events 0.4s * $transition-ratio step-start,
+            max-height 0.4s * $transition-ratio step-start,
+            opacity 0.4s * $transition-ratio ease;
 
         & > div {
             transform: translate(0) !important;

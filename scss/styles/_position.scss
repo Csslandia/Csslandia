@@ -13,34 +13,26 @@
 .sticky {
     position: sticky !important;
     top: 0;
-    z-index: 12;
+    z-index: 17;
 }
 
 .fixed {
     position: fixed !important;
-    z-index: 32;
+    z-index: 17;
 }
 
-.top {
-    position: fixed !important;
-    top: 0;
-    z-index: 32;
+.top:not([data-tooltip]):not(.dropdown) {
+    top: 0 !important;
 }
 
-.bottom:not([data-tooltip]) {
-    position: fixed !important;
-    bottom: 0;
-    z-index: 32;
+.bottom:not([data-tooltip]):not(.dropdown) {
+    bottom: 0 !important;
 }
 
 .left:not([data-tooltip]):not(.dropdown) {
-    position: fixed !important;
-    left: 0;
-    z-index: 32;
+    left: 0 !important;
 }
 
 .right:not([data-tooltip]):not(.dropdown) {
-    position: fixed !important;
-    right: 0;
-    z-index: 32;
+    right: 0 !important;
 }

@@ -30,8 +30,8 @@ html {
   --bg-medium-8: #eeec;
   --bg-soft: #ddd;
   --bd: #ccc;
-  --accent: #0c5;
-  --accent-color: var(--bg-strong);
+  --accent: #888;
+  --accent-color: var(--c-strong);
 }
 
 html.dark {
@@ -45,8 +45,8 @@ html.dark {
   --bg-medium-8: #333c;
   --bg-soft: #444;
   --bd: #555;
-  --accent: #0c5;
-  --accent-color: var(--bg-strong);
+  --accent: #888;
+  --accent-color: var(--c-strong);
   color-scheme: dark;
 }
 
@@ -144,6 +144,15 @@ canvas {
   display: block;
 }
 
+input[type=button],
+input[type=submit],
+input[type=reset],
+button {
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+}
+
 .disabled,
 :disabled,
 [disabled] {
@@ -167,28 +176,28 @@ html.dark [disabled] {
   visibility: hidden;
   max-height: 0;
   pointer-events: none;
-  transition: visibility 0.5s step-end, pointer-events 0.5s step-end, max-height 0.5s step-end, opacity 0.5s ease;
+  transition: visibility 0.4s step-end, pointer-events 0.4s step-end, max-height 0.4s step-end, opacity 0.4s ease;
 }
 .fade.open {
   opacity: 1;
   visibility: visible;
   max-height: 100%;
   pointer-events: auto;
-  transition: visibility 0.5s step-start, pointer-events 0.5s step-start, max-height 0.5s step-start, opacity 0.5s ease;
+  transition: visibility 0.4s step-start, pointer-events 0.4s step-start, max-height 0.4s step-start, opacity 0.4s ease;
 }
 
 .slide {
   clip-path: inset(0 0 100% 0);
   max-height: 0;
   pointer-events: none;
-  transition: clip-path 0.5s ease-in-out, max-height 0.5s ease-in-out, pointer-events 0.5s step-end;
+  transition: clip-path 0.4s ease-in-out, max-height 0.4s ease-in-out, pointer-events 0.4s step-end;
 }
 .slide.open {
   clip-path: inset(0 0 0 0);
   max-height: 100vh;
   max-height: 100dvh;
   pointer-events: auto;
-  transition: clip-path 0.5s ease-in-out, max-height 0.5s ease-in-out, pointer-events 0.5s step-start;
+  transition: clip-path 0.4s ease-in-out, max-height 0.4s ease-in-out, pointer-events 0.4s step-start;
 }
 
 .hide {
@@ -243,7 +252,7 @@ html.dark [disabled] {
   width: 100vw;
   height: 100vh;
   height: 100dvh;
-  z-index: 17;
+  z-index: 22;
   overflow: hidden;
   display: flex;
   background-color: rgba(0, 0, 0, 0.6666666667);
@@ -251,7 +260,7 @@ html.dark [disabled] {
   max-height: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: visibility 0.5s step-end, pointer-events 0.5s step-end, max-height 0.5s step-end, opacity 0.5s ease;
+  transition: visibility 0.4s step-end, pointer-events 0.4s step-end, max-height 0.4s step-end, opacity 0.4s ease;
 }
 .canvas > div:first-child {
   background-color: var(--bg-strong);
@@ -287,7 +296,7 @@ html.dark [disabled] {
   max-height: 100%;
   visibility: visible;
   pointer-events: auto;
-  transition: visibility 0.5s step-start, pointer-events 0.5s step-start, max-height 0.5s step-start, opacity 0.5s ease;
+  transition: visibility 0.4s step-start, pointer-events 0.4s step-start, max-height 0.4s step-start, opacity 0.4s ease;
 }
 .canvas.open > div {
   transform: translate(0) !important;
@@ -1376,16 +1385,16 @@ body:has(.canvas.open) {
   content: "";
   color: inherit;
   background-color: currentColor !important;
-  width: 12px;
-  height: 12px;
-  mask-image: url("svg/folder.svg");
-  -webkit-mask-image: url("svg/folder.svg");
+  width: 0.75em;
+  height: 0.75em;
   mask-repeat: no-repeat;
   -webkit-mask-repeat: no-repeat;
   mask-position: center;
   -webkit-mask-position: center;
+  mask-image: url("svg/folder.svg");
+  -webkit-mask-image: url("svg/folder.svg");
   transform: rotate(0);
-  transition: transform 0.5s;
+  transition: transform 0.4s;
 }
 .folder.plus > :first-child::before {
   content: "";
@@ -1398,7 +1407,7 @@ body:has(.canvas.open) {
   right: 0.45rem;
   order: 1;
   opacity: 1;
-  transition: opacity 0.5s;
+  transition: opacity 0.4s;
 }
 .folder.plus > :first-child::after {
   content: "";
@@ -1414,7 +1423,7 @@ body:has(.canvas.open) {
 .folder > :last-child {
   clip-path: inset(0 0 100% 0);
   max-height: 0;
-  transition: clip-path 0.5s ease-in-out, max-height 0.5s ease-in-out, padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out, padding-left 0.5s step-end, padding-right 0.5s step-end;
+  transition: clip-path 0.4s ease-in-out, max-height 0.4s ease-in-out, padding-top 0.4s ease-in-out, padding-bottom 0.4s ease-in-out, padding-left 0.4s step-end, padding-right 0.4s step-end;
   padding: 0;
 }
 .folder.open:not(.plus) > :first-child::after {
@@ -1428,7 +1437,7 @@ body:has(.canvas.open) {
   max-height: 100vh;
   max-height: 100dvh;
   padding: 12px;
-  transition: clip-path 0.5s ease-in-out, max-height 0.5s ease-in-out, padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out, padding-left 0.5s step-start, padding-right 0.5s step-start;
+  transition: clip-path 0.4s ease-in-out, max-height 0.4s ease-in-out, padding-top 0.4s ease-in-out, padding-bottom 0.4s ease-in-out, padding-left 0.4s step-start, padding-right 0.4s step-start;
 }
 
 *:has(.footer) {
@@ -1696,7 +1705,7 @@ body:has(.canvas.open) {
   width: 100vw;
   height: 100vh;
   height: 100dvh;
-  z-index: 22;
+  z-index: 27;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.6666666667);
   display: flex;
@@ -1818,17 +1827,12 @@ body:has(.modal.open) {
     width: 100%;
     position: absolute;
     background-color: inherit;
-    z-index: 7;
-    transition: clip-path 0.5s max-height 0.5s;
+    z-index: 12;
+    transition: clip-path 0.4s, max-height 0.4s;
     transition-timing-function: ease-in-out;
     clip-path: inset(0 0 100% 0);
     max-height: 0;
     overflow-y: auto;
-  }
-  .navbar > :last-child.open {
-    clip-path: inset(0 0 0 0);
-    max-height: calc(100vh - 58px);
-    max-height: calc(100dvh - 58px);
   }
   .navbar > :last-child > * {
     display: block;
@@ -1840,7 +1844,12 @@ body:has(.modal.open) {
   .navbar > :last-child > *:last-child {
     padding-bottom: 16px;
   }
-  body:has(.navbar > :last-child.open) {
+  .navbar:has(.hamburger.open) > :last-child {
+    clip-path: inset(0 0 0 0);
+    max-height: calc(100vh - 58px);
+    max-height: calc(100dvh - 58px);
+  }
+  body:has(.navbar .open) {
     overflow-y: hidden;
   }
 }
@@ -1855,20 +1864,22 @@ body:has(.modal.open) {
   padding: 14px calc(38px + 0.75em) 13px 19px;
 }
 .notice::after {
-  content: "\f14a";
-  font-family: "csslandia-icons" !important;
-  font-style: normal;
-  font-weight: normal !important;
-  font-variant: normal;
-  text-transform: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 0.75em;
+  content: "";
+  color: inherit;
+  background-color: currentColor !important;
+  width: 0.75em;
+  height: 0.75em;
   display: block;
   position: absolute;
   right: 18px;
   top: calc(50% + 1px);
   transform: translateY(-50%);
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+  mask-image: url("svg/notice.svg");
+  -webkit-mask-image: url("svg/notice.svg");
 }
 
 .pagination {
@@ -2454,7 +2465,7 @@ progress::-moz-progress-bar {
   width: 100vw;
   height: 100vh;
   height: 100dvh;
-  z-index: 27;
+  z-index: 32;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.6666666667);
   display: flex;
@@ -3312,17 +3323,17 @@ button.form:active,
 .button:active {
   opacity: 0.92;
 }
-.form input[type=button]:not(.w-100\%):not(.mob\:w-100\%):not(.tab\:w-100\%):not(.pc\:w-100\%):not(.d3):focus-visible,
-.form input[type=submit]:not(.w-100\%):not(.mob\:w-100\%):not(.tab\:w-100\%):not(.pc\:w-100\%):not(.d3):focus-visible,
-.form input[type=reset]:not(.w-100\%):not(.mob\:w-100\%):not(.tab\:w-100\%):not(.pc\:w-100\%):not(.d3):focus-visible,
-.form button:not(.w-100\%):not(.mob\:w-100\%):not(.tab\:w-100\%):not(.pc\:w-100\%):not(.d3):focus-visible,
-input[type=button].form:not(.w-100\%):not(.mob\:w-100\%):not(.tab\:w-100\%):not(.pc\:w-100\%):not(.d3):focus-visible,
-input[type=submit].form:not(.w-100\%):not(.mob\:w-100\%):not(.tab\:w-100\%):not(.pc\:w-100\%):not(.d3):focus-visible,
-input[type=reset].form:not(.w-100\%):not(.mob\:w-100\%):not(.tab\:w-100\%):not(.pc\:w-100\%):not(.d3):focus-visible,
-button.form:not(.w-100\%):not(.mob\:w-100\%):not(.tab\:w-100\%):not(.pc\:w-100\%):not(.d3):focus-visible,
-.b:not(.w-100\%):not(.mob\:w-100\%):not(.tab\:w-100\%):not(.pc\:w-100\%):not(.d3):focus-visible,
-.btn:not(.w-100\%):not(.mob\:w-100\%):not(.tab\:w-100\%):not(.pc\:w-100\%):not(.d3):focus-visible,
-.button:not(.w-100\%):not(.mob\:w-100\%):not(.tab\:w-100\%):not(.pc\:w-100\%):not(.d3):focus-visible {
+.form input[type=button]:focus-visible,
+.form input[type=submit]:focus-visible,
+.form input[type=reset]:focus-visible,
+.form button:focus-visible,
+input[type=button].form:focus-visible,
+input[type=submit].form:focus-visible,
+input[type=reset].form:focus-visible,
+button.form:focus-visible,
+.b:focus-visible,
+.btn:focus-visible,
+.button:focus-visible {
   outline: none;
   transform: scale(1.05);
 }
@@ -10302,36 +10313,28 @@ textarea.form.xl.pill {
 .sticky {
   position: sticky !important;
   top: 0;
-  z-index: 12;
+  z-index: 17;
 }
 
 .fixed {
   position: fixed !important;
-  z-index: 32;
+  z-index: 17;
 }
 
-.top {
-  position: fixed !important;
-  top: 0;
-  z-index: 32;
+.top:not([data-tooltip]):not(.dropdown) {
+  top: 0 !important;
 }
 
-.bottom:not([data-tooltip]) {
-  position: fixed !important;
-  bottom: 0;
-  z-index: 32;
+.bottom:not([data-tooltip]):not(.dropdown) {
+  bottom: 0 !important;
 }
 
 .left:not([data-tooltip]):not(.dropdown) {
-  position: fixed !important;
-  left: 0;
-  z-index: 32;
+  left: 0 !important;
 }
 
 .right:not([data-tooltip]):not(.dropdown) {
-  position: fixed !important;
-  right: 0;
-  z-index: 32;
+  right: 0 !important;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
@@ -10368,53 +10371,53 @@ textarea.form.xl.pill {
 }
 
 .fs-6 {
-  font-size: calc(1.125rem + 0.25vw) !important;
-  line-height: calc(1.5rem + 0.5vw);
+  font-size: calc(1.125rem + 0.1vw) !important;
+  line-height: calc(1.575rem + 0.11vw);
 }
 
 .fs-7 {
-  font-size: calc(1.25rem + 0.5vw) !important;
-  line-height: calc(1.625rem + 0.75vw);
+  font-size: calc(1.25rem + 0.15vw) !important;
+  line-height: calc(1.75rem + 0.165vw);
 }
 
 .fs-8 {
-  font-size: calc(1.375rem + 0.75vw) !important;
-  line-height: calc(1.75rem + 1vw);
+  font-size: calc(1.375rem + 0.225vw) !important;
+  line-height: calc(1.925rem + 0.2475vw);
 }
 
 .fs-9 {
-  font-size: calc(1.5rem + 1vw) !important;
-  line-height: calc(1.875rem + 1.25vw);
+  font-size: calc(1.5rem + 0.335vw) !important;
+  line-height: calc(2.1rem + 0.3685vw);
 }
 
 .fs-10 {
-  font-size: calc(1.625rem + 1.25vw) !important;
-  line-height: calc(2rem + 1.5vw);
+  font-size: calc(1.625rem + 0.5vw) !important;
+  line-height: calc(2.275rem + 0.55vw);
 }
 
 .fs-11 {
-  font-size: calc(1.75rem + 1.5vw) !important;
-  line-height: calc(2.125rem + 1.75vw);
+  font-size: calc(1.75rem + 0.75vw) !important;
+  line-height: calc(2.45rem + 0.825vw);
 }
 
 .fs-12 {
-  font-size: calc(1.875rem + 1.75vw) !important;
-  line-height: calc(2.25rem + 2vw);
+  font-size: calc(1.875rem + 1.125vw) !important;
+  line-height: calc(2.625rem + 1.2375vw);
 }
 
 .fs-13 {
-  font-size: calc(2rem + 2vw) !important;
-  line-height: calc(2.375rem + 2.25vw);
+  font-size: calc(2rem + 1.675vw) !important;
+  line-height: calc(2.8rem + 1.8425vw);
 }
 
 .fs-14 {
-  font-size: calc(2.125rem + 2.25vw) !important;
-  line-height: calc(2.5rem + 2.5vw);
+  font-size: calc(2.125rem + 2.5vw) !important;
+  line-height: calc(2.975rem + 2.75vw);
 }
 
 .fs-15 {
-  font-size: calc(2.25rem + 2.5vw) !important;
-  line-height: calc(2.625rem + 2.75vw);
+  font-size: calc(2.25rem + 3.75vw) !important;
+  line-height: calc(3.15rem + 4.125vw);
 }
 
 .monospace {
@@ -10446,7 +10449,7 @@ textarea.form.xl.pill {
 }
 
 .bold {
-  font-weight: bold !important;
+  font-weight: 600 !important;
 }
 
 .italic {

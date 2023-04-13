@@ -37,7 +37,8 @@
         width: 100%;
 
         & > :first-child {
-            padding: 22px * $padding-ratio 24px * $padding-ratio 22px * $padding-ratio 10%;
+            padding: 22px * $padding-ratio 24px * $padding-ratio 22px *
+                $padding-ratio 10%;
 
             & > :last-child {
                 display: none;
@@ -71,18 +72,13 @@
             width: 100%;
             position: absolute;
             background-color: inherit;
-            z-index: 7;
-            transition: clip-path 0.5s * $transition-ratio max-height 0.5s * $transition-ratio;
+            z-index: 12;
+            transition: clip-path 0.4s * $transition-ratio,
+                max-height 0.4s * $transition-ratio;
             transition-timing-function: ease-in-out;
             clip-path: inset(0 0 100% 0);
             max-height: 0;
             overflow-y: auto;
-
-            &.open {
-                clip-path: inset(0 0 0 0);
-                max-height: calc(100vh - 58px);
-                max-height: calc(100dvh - 58px);
-            }
 
             & > * {
                 display: block;
@@ -97,9 +93,17 @@
                 }
             }
         }
+
+        &:has(.hamburger.open) {
+            & > :last-child {
+                clip-path: inset(0 0 0 0);
+                max-height: calc(100vh - 58px);
+                max-height: calc(100dvh - 58px);
+            }
+        }
     }
 
-    body:has(.navbar > :last-child.open) {
+    body:has(.navbar .open) {
         overflow-y: hidden;
     }
 }

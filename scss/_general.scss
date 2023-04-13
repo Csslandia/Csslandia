@@ -148,7 +148,6 @@ a:active {
     }
 }
 
-
 h1,
 h2,
 h3,
@@ -162,6 +161,15 @@ img,
 video,
 canvas {
     display: block;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+button {
+    background-color: transparent;
+    border-color: transparent;
+    cursor: pointer;
 }
 
 ::selection {

@@ -1,6 +1,6 @@
 {
     "name": "csslandia",
-    "version": "1.0.0-beta.1",
+    "version": "1.0.0-beta.2",
     "description": "Csslandia is a free and open source CSS framework carefully crafted with attention to every detail.",
     "keywords": [
         "csslandia",
@@ -22,7 +22,7 @@
         "url": "https://github.com/csslandia/csslandia"
     },
     "license": "MIT",
-    "devDependencies": {
+    "dependencies": {
         "sass": "^1.61.0"
     }
 }

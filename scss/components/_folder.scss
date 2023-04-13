@@ -16,16 +16,16 @@
                 content: "";
                 color: inherit;
                 background-color: currentColor !important;
-                width: 12px;
-                height: 12px;
-                mask-image: url("svg/folder.svg");
-                -webkit-mask-image: url("svg/folder.svg");
+                width: 0.75em;
+                height: 0.75em;
                 mask-repeat: no-repeat;
                 -webkit-mask-repeat: no-repeat;
                 mask-position: center;
                 -webkit-mask-position: center;
+                mask-image: url("svg/folder.svg");
+                -webkit-mask-image: url("svg/folder.svg");
                 transform: rotate(0);
-                transition: transform 0.5s * $transition-ratio;
+                transition: transform 0.4s * $transition-ratio;
             }
         }
     }
@@ -43,7 +43,7 @@
                 right: 0.45rem;
                 order: 1;
                 opacity: 1;
-                transition: opacity 0.5s * $transition-ratio;
+                transition: opacity 0.4s * $transition-ratio;
             }
             &::after {
                 content: "";
@@ -62,12 +62,12 @@
     & > :last-child {
         clip-path: inset(0 0 100% 0);
         max-height: 0;
-        transition: clip-path 0.5s * $transition-ratio ease-in-out,
-            max-height 0.5s * $transition-ratio ease-in-out,
-            padding-top 0.5s * $transition-ratio ease-in-out,
-            padding-bottom 0.5s * $transition-ratio ease-in-out,
-            padding-left 0.5s * $transition-ratio step-end,
-            padding-right 0.5s * $transition-ratio step-end;
+        transition: clip-path 0.4s * $transition-ratio ease-in-out,
+            max-height 0.4s * $transition-ratio ease-in-out,
+            padding-top 0.4s * $transition-ratio ease-in-out,
+            padding-bottom 0.4s * $transition-ratio ease-in-out,
+            padding-left 0.4s * $transition-ratio step-end,
+            padding-right 0.4s * $transition-ratio step-end;
         padding: 0;
     }
 
@@ -84,12 +84,12 @@
             max-height: 100vh;
             max-height: 100dvh;
             padding: 12px * $padding-ratio;
-            transition: clip-path 0.5s * $transition-ratio ease-in-out,
-                max-height 0.5s * $transition-ratio ease-in-out,
-                padding-top 0.5s * $transition-ratio ease-in-out,
-                padding-bottom 0.5s * $transition-ratio ease-in-out,
-                padding-left 0.5s * $transition-ratio step-start,
-                padding-right 0.5s * $transition-ratio step-start;
+            transition: clip-path 0.4s * $transition-ratio ease-in-out,
+                max-height 0.4s * $transition-ratio ease-in-out,
+                padding-top 0.4s * $transition-ratio ease-in-out,
+                padding-bottom 0.4s * $transition-ratio ease-in-out,
+                padding-left 0.4s * $transition-ratio step-start,
+                padding-right 0.4s * $transition-ratio step-start;
         }
     }
 }

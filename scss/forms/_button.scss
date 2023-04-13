@@ -153,9 +153,7 @@ button.form,
     &:active {
         opacity: 0.92;
     }
-    &:not(.w-100\%):not(.mob\:w-100\%):not(.tab\:w-100\%):not(.pc\:w-100\%):not(
-            .d3
-        ):focus-visible {
+    &:focus-visible {
         outline: none;
         transform: scale(1.05);
     }
