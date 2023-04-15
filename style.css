@@ -21,7 +21,7 @@ html {
 
 :root {
   --c-strong: #222;
-  --c-soft: rgba(34, 34, 34, 0.8);
+  --c-soft: rgba(0, 0, 0, 0.8);
   --bg-strong: #fff;
   --bg-medium: #eee;
   --bg-medium-2: #eee3;
@@ -30,7 +30,7 @@ html {
   --bg-medium-8: #eeec;
   --bg-soft: #ddd;
   --bd: #ccc;
-  --accent: #888;
+  --accent: #999;
   --accent-color: var(--c-strong);
 }
 
@@ -45,7 +45,7 @@ html.dark {
   --bg-medium-8: #333c;
   --bg-soft: #444;
   --bd: #555;
-  --accent: #888;
+  --accent: #999;
   --accent-color: var(--c-strong);
   color-scheme: dark;
 }
@@ -55,9 +55,8 @@ html.dark {
 *::after {
   margin: 0;
   padding: 0;
-  text-decoration: none;
-  -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
   font-family: inherit;
   line-height: inherit;
 }
@@ -70,6 +69,7 @@ html {
   scroll-behavior: smooth;
   transition: 0.25s;
   line-height: 1.4;
+  text-decoration: none;
 }
 
 a {
@@ -1793,7 +1793,7 @@ body:has(.modal.open) {
   display: block;
 }
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1001px) {
   .navbar {
     display: flex;
     align-items: stretch;
@@ -1818,7 +1818,7 @@ body:has(.modal.open) {
     white-space: nowrap;
   }
 }
-@media only screen and (max-width: 999px) {
+@media only screen and (max-width: 1000px) {
   .navbar > :first-child {
     padding: 18px 24px;
     margin-bottom: -1px;

@@ -25,7 +25,7 @@
     }
 }
 
-@if $color-mode ==dark {
+@if $color-mode == dark {
     :root {
         --c-strong: #{$dark-c-strong};
         --c-soft: #{$dark-c-soft};
@@ -57,7 +57,7 @@
     }
 }
 
-@if $color-mode !=light or dark {
+@if $color-mode != light and dark {
     html.dark {
         --c-strong: #{$dark-c-strong};
         --c-soft: #{$dark-c-soft};
@@ -80,9 +80,8 @@
 *::after {
     margin: 0;
     padding: 0;
-    text-decoration: none;
-    -webkit-tap-highlight-color: transparent;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
     font-family: inherit;
     line-height: inherit;
 
@@ -99,6 +98,7 @@ html {
     scroll-behavior: smooth;
     transition: 0.25s * $transition-ratio;
     line-height: $line-height;
+    text-decoration: none;
 
     @if $color-mode == dark {
         color-scheme: dark;
@@ -197,7 +197,7 @@ button {
     }
 }
 
-@if $color-mode != light or dark {
+@if $color-mode != light and dark {
     html.dark {
         .disabled,
         :disabled,
