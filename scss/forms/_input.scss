@@ -21,8 +21,8 @@
 
     &.p-xl {
         padding: ($size - 2.5px + $padding) * 2 * $padding-ratio + 1
-            ($size - 1px) * 3 * $padding-ratio ($size - 2.5px + $padding) *
-            2 * $padding-ratio;
+            ($size - 1px) * 3 * $padding-ratio ($size - 2.5px + $padding) * 2 *
+            $padding-ratio;
     }
 
     @if $form-shape == "pill" {
@@ -56,22 +56,22 @@
         &.pill {
             padding-left: ($size - 1px) * 2.5 * $padding-ratio;
             padding-right: ($size - 1px) * 2.5 * $padding-ratio;
-    
+
             &.p-xs {
                 padding-left: ($size - 1px) * 1.5 * $padding-ratio;
                 padding-right: ($size - 1px) * 1.5 * $padding-ratio;
             }
-    
+
             &.p-sm {
                 padding-left: ($size - 1px) * 2 * $padding-ratio;
                 padding-right: ($size - 1px) * 2 * $padding-ratio;
             }
-    
+
             &.p-lg {
                 padding-left: ($size - 1px) * 3 * $padding-ratio;
                 padding-right: ($size - 1px) * 3 * $padding-ratio;
             }
-    
+
             &.p-xl {
                 padding-left: ($size - 1px) * 3.5 * $padding-ratio;
                 padding-right: ($size - 1px) * 3.5 * $padding-ratio;
@@ -187,6 +187,12 @@ input[type="week"].form {
 }
 
 @-moz-document url-prefix() {
+    .form input[type="number"],
+    .group input[type="number"],
+    input[type="number"].form {
+        appearance: textfield;
+    }
+
     .form input[type="date"],
     .form input[type="datetime-local"],
     .form input[type="month"],

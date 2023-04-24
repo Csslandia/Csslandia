@@ -13,15 +13,13 @@ try {
 
 const args = process.argv.slice(2);
 
-if (args[0] === "start") {
+if (args[0] === "watch") {
     console.log("Watching for changes in " + file);
 
     fs.watch(file, async () => {
         try {
-            try {
-                await compiler();
-                console.log("Csslandia recompiled");
-            } catch {}
+            await compiler();
+            console.log("Csslandia recompiled");
         } catch {}
     });
 }

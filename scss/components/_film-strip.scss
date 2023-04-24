@@ -84,7 +84,7 @@
     }
 }
 
-@media only screen and (max-width: $mob-tab-breakpoint) {
+@media (max-width: $mob-tab-breakpoint) {
     .film-strip > * > * {
         width: 100%;
     }
@@ -153,7 +153,7 @@
     }
 }
 
-@media only screen and (min-width: ($mob-tab-breakpoint + 1px)) and (max-width: $tab-pc-breakpoint) {
+@media (min-width: ($mob-tab-breakpoint + 1px)) and (max-width: $tab-pc-breakpoint) {
     .film-strip > * > * {
         width: 50%;
     }
@@ -222,7 +222,7 @@
     }
 }
 
-@media only screen and (min-width: ($tab-pc-breakpoint + 1px)) {
+@media (min-width: ($tab-pc-breakpoint + 1px)) {
     .film-strip > * > * {
         width: calc(100% / 3);
     }

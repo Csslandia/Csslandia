@@ -59,6 +59,7 @@ html.dark {
   -webkit-tap-highlight-color: transparent;
   font-family: inherit;
   line-height: inherit;
+  text-decoration: none;
 }
 
 html {
@@ -69,10 +70,14 @@ html {
   scroll-behavior: smooth;
   transition: 0.25s;
   line-height: 1.4;
-  text-decoration: none;
+  height: 100%;
 }
 
-a {
+body {
+  height: 100%;
+}
+
+:where(a) {
   color: var(--c-soft);
   transition: color 0.3s;
 }
@@ -83,71 +88,32 @@ a {
   color: inherit;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-th,
-a:hover,
-a:focus,
-a:active {
+:where(h1, h2, h3, h4, h5, h6, th),
+a:where(:hover, :focus, :active) {
   color: var(--c-strong);
 }
 
-[class^=c-] h1,
-[class^=c-] h2,
-[class^=c-] h3,
-[class^=c-] h4,
-[class^=c-] h5,
-[class^=c-] h6,
-[class^=c-] th,
-[class^=c-] a:hover,
-[class^=c-] a:focus,
-[class^=c-] a:active,
-[class*=" c-"] h1,
-[class*=" c-"] h2,
-[class*=" c-"] h3,
-[class*=" c-"] h4,
-[class*=" c-"] h5,
-[class*=" c-"] h6,
-[class*=" c-"] th,
-[class*=" c-"] a:hover,
-[class*=" c-"] a:focus,
-[class*=" c-"] a:active,
-.bg-a h1,
-.bg-a h2,
-.bg-a h3,
-.bg-a h4,
-.bg-a h5,
-.bg-a h6,
-.bg-a th,
-.bg-a a:hover,
-.bg-a a:focus,
-.bg-a a:active {
+[class^=c-] :where(h1, h2, h3, h4, h5, h6, th),
+[class^=c-] a:where(:hover, :focus, :active),
+[class*=" c-"] :where(h1, h2, h3, h4, h5, h6, th),
+[class*=" c-"] a:where(:hover, :focus, :active),
+.bg-a :where(h1, h2, h3, h4, h5, h6, th),
+.bg-a a:where(:hover, :focus, :active) {
   color: inherit;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+:where(h1, h2, h3, h4, h5, h6) {
   font-size: inherit;
 }
 
-img,
-video,
-canvas {
+:where(img, video, canvas) {
   display: block;
 }
 
-input[type=button],
+:where(input[type=button],
 input[type=submit],
 input[type=reset],
-button {
+button) {
   background-color: transparent;
   border-color: transparent;
   cursor: pointer;
@@ -234,9 +200,10 @@ html.dark [disabled] {
   white-space: nowrap;
   background-color: var(--badge-bg, var(--bg-soft));
   color: var(--badge-c, var(--c-soft));
-  padding: 2px 8px;
+  padding: 4px 8px;
   border-radius: 9999px;
   font-size: 0.875rem;
+  line-height: 1rem;
   z-index: 1;
 }
 [data-badge]:hover, [data-badge]:focus, [data-badge]:active {
@@ -521,17 +488,17 @@ body:has(.canvas.open) {
   margin-right: auto !important;
 }
 
-@media only screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .container {
     width: 92%;
   }
 }
-@media only screen and (min-width: 601px) and (max-width: 1000px) {
+@media (min-width: 601px) and (max-width: 1000px) {
   .container {
     width: 84%;
   }
 }
-@media only screen and (min-width: 1001px) {
+@media (min-width: 1001px) {
   .container {
     width: 76%;
     max-width: 1600px;
@@ -1194,7 +1161,7 @@ body:has(.canvas.open) {
   animation-name: slide-slow-sm;
 }
 
-@media only screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .film-strip > * > * {
     width: 100%;
   }
@@ -1250,7 +1217,7 @@ body:has(.canvas.open) {
     }
   }
 }
-@media only screen and (min-width: 601px) and (max-width: 1000px) {
+@media (min-width: 601px) and (max-width: 1000px) {
   .film-strip > * > * {
     width: 50%;
   }
@@ -1306,7 +1273,7 @@ body:has(.canvas.open) {
     }
   }
 }
-@media only screen and (min-width: 1001px) {
+@media (min-width: 1001px) {
   .film-strip > * > * {
     width: 33.3333333333%;
   }
@@ -1440,16 +1407,12 @@ body:has(.canvas.open) {
   transition: clip-path 0.4s ease-in-out, max-height 0.4s ease-in-out, padding-top 0.4s ease-in-out, padding-bottom 0.4s ease-in-out, padding-left 0.4s step-start, padding-right 0.4s step-start;
 }
 
-*:has(.footer) {
+.has-footer {
   height: 100%;
-}
-
-*:has(> .footer) {
   display: flex;
   flex-direction: column;
 }
-
-.footer {
+.has-footer *:last-child {
   margin-top: auto !important;
 }
 
@@ -1458,37 +1421,31 @@ body:has(.canvas.open) {
   border-radius: 12px;
   overflow: hidden;
 }
-.frame img {
+.frame > img {
   object-fit: cover;
 }
 
-@media only screen and (max-width: 600px) {
-  .frame > * > img {
+@media (max-width: 600px) {
+  .frame > :not(img) {
+    padding: 16px;
+  }
+  .frame > img {
     width: 100%;
     height: 192px;
   }
-  .frame > :not(:has(> img)) {
-    padding: 16px;
-  }
 }
-@media only screen and (min-width: 601px) {
+@media (min-width: 601px) {
   .frame {
     display: flex;
   }
-  .frame > :not(:has(> img)) {
+  .frame > :not(img) {
     padding: 20px;
     flex-grow: 1;
   }
-  .frame > :has(> img) {
-    position: relative;
+  .frame > img {
     min-width: 30%;
     max-width: 40%;
     width: 100%;
-  }
-  .frame > :has(> img) img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
   }
 }
 .hamburger {
@@ -1596,37 +1553,6 @@ body:has(.canvas.open) {
 }
 .hamburger.xl.open::before, .hamburger.xl.open::after {
   top: 0.6rem;
-}
-
-.hero {
-  display: flex;
-  align-items: center;
-}
-.hero > :last-child {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-@media only screen and (max-width: 1000px) {
-  .hero {
-    flex-direction: column-reverse;
-    text-align: center;
-  }
-  .hero * {
-    text-align: center;
-  }
-  .hero > :last-child {
-    padding-bottom: 16px;
-  }
-}
-@media only screen and (min-width: 1001px) {
-  .hero > :first-child {
-    width: 50%;
-  }
-  .hero > :last-child {
-    width: 50%;
-  }
 }
 
 .icon-list {
@@ -1793,7 +1719,7 @@ body:has(.modal.open) {
   display: block;
 }
 
-@media only screen and (min-width: 1001px) {
+@media (min-width: 1001px) {
   .navbar {
     display: flex;
     align-items: stretch;
@@ -1818,7 +1744,7 @@ body:has(.modal.open) {
     white-space: nowrap;
   }
 }
-@media only screen and (max-width: 1000px) {
+@media (max-width: 1000px) {
   .navbar > :first-child {
     padding: 18px 24px;
     margin-bottom: -1px;
@@ -2249,7 +2175,7 @@ progress::-moz-progress-bar {
   color: var(--done-c, var(--accent-color)) !important;
 }
 
-@media only screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .steps:not(.horizontal):not(.vertical) > * {
     display: flex;
     align-items: center;
@@ -2284,7 +2210,7 @@ progress::-moz-progress-bar {
     background-color: var(--bg-medium);
   }
 }
-@media only screen and (min-width: 601px) {
+@media (min-width: 601px) {
   .steps:not(.horizontal):not(.vertical) {
     display: flex;
     justify-content: space-between;
@@ -2333,6 +2259,11 @@ progress::-moz-progress-bar {
   -ms-overflow-style: none;
   scrollbar-width: none;
   padding-right: 16px;
+}
+@supports not selector(:has(*)) {
+  .tabs > :first-child {
+    padding-left: 8px;
+  }
 }
 .tabs > :first-child::-webkit-scrollbar {
   display: none;
@@ -2395,11 +2326,12 @@ progress::-moz-progress-bar {
 [data-tooltip]::after {
   content: attr(data-tooltip);
   font-size: 0.875rem;
+  line-height: 1rem;
   user-select: none;
   pointer-events: none;
   white-space: nowrap;
-  padding: 5px 12px;
-  border-radius: 6px;
+  padding: 7px 12px;
+  border-radius: 7px;
   background-color: var(--tooltip-bg, var(--bg-soft));
   color: var(--tooltip-c, var(--c-soft));
 }
@@ -3343,12 +3275,22 @@ label {
   user-select: none;
   font-size: 0.875rem;
 }
-label:has(input) {
-  margin-top: 2px;
-  display: block;
+@supports selector(:has(*)) {
+  label:has(input) {
+    margin-top: 2px;
+    display: block;
+  }
+  label:has(input) > input {
+    margin-top: -2px;
+  }
 }
-label:has(input) > input {
-  margin-top: -2px;
+@supports not selector(:has(*)) {
+  label {
+    display: block;
+  }
+  label > input {
+    margin-top: -2px;
+  }
 }
 
 .form input[type=checkbox],
@@ -3635,6 +3577,7 @@ input[type=file].form {
 .form input[type=file]::file-selector-button,
 .group input[type=file]::file-selector-button,
 input[type=file].form::file-selector-button {
+  appearance: none;
   cursor: pointer;
   line-height: 1.5;
   border: none;
@@ -3906,23 +3849,7 @@ input[type=file].form.xl[class*=" bd"].pill::file-selector-button {
   border-color: transparent;
   border-width: 0 !important;
   background-color: var(--bg-medium);
-}
-.group:not(:has(input[type=text],
-input[type=email],
-input[type=password],
-input[type=number],
-input[type=tel],
-input[type=url],
-input[type=search],
-select,
-textarea,
-input[type=date],
-input[type=datetime-local],
-input[type=month],
-input[type=time],
-input[type=week])) {
   width: fit-content;
-  background-color: transparent;
 }
 .group > * {
   border-color: inherit !important;
@@ -6493,6 +6420,11 @@ input[type=week].form.xl.pill.p-xl {
 }
 
 @-moz-document url-prefix() {
+  .form input[type=number],
+  .group input[type=number],
+  input[type=number].form {
+    appearance: textfield;
+  }
   .form input[type=date],
   .form input[type=datetime-local],
   .form input[type=month],
@@ -9770,7 +9702,7 @@ textarea.form.xl.pill {
   width: 100%;
 }
 
-@media only screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .mob\:w-auto {
     width: auto !important;
   }
@@ -9906,7 +9838,7 @@ textarea.form.xl.pill {
     width: 100%;
   }
 }
-@media only screen and (min-width: 601px) and (max-width: 1000px) {
+@media (min-width: 601px) and (max-width: 1000px) {
   .tab\:w-auto {
     width: auto !important;
   }
@@ -10042,7 +9974,7 @@ textarea.form.xl.pill {
     width: 100%;
   }
 }
-@media only screen and (min-width: 1001px) {
+@media (min-width: 1001px) {
   .pc\:w-auto {
     width: auto !important;
   }

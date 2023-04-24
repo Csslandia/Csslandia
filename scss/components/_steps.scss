@@ -94,7 +94,7 @@
     }
 }
 
-@media only screen and (max-width: $steps-breakpoint) {
+@media (max-width: $steps-breakpoint) {
     .steps:not(.horizontal):not(.vertical) {
         & > * {
             display: flex;
@@ -134,7 +134,7 @@
     }
 }
 
-@media only screen and (min-width: ($steps-breakpoint + 1px)) {
+@media (min-width: ($steps-breakpoint + 1px)) {
     .steps:not(.horizontal):not(.vertical) {
         display: flex;
         justify-content: space-between;

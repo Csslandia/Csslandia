@@ -30,7 +30,7 @@
     }
 }
 
-@media only screen and (min-width: ($navbar-breakpoint + 1px)) {
+@media (min-width: ($navbar-breakpoint + 1px)) {
     .navbar {
         display: flex;
         align-items: stretch;
@@ -61,7 +61,7 @@
     }
 }
 
-@media only screen and (max-width: $navbar-breakpoint) {
+@media (max-width: $navbar-breakpoint) {
     .navbar {
         & > :first-child {
             padding: 18px * $padding-ratio 24px * $padding-ratio;

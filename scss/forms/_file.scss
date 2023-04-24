@@ -95,6 +95,7 @@ input[type="file"].form {
     padding-left: 0;
 
     &::file-selector-button {
+        appearance: none;
         cursor: pointer;
         line-height: $form-line-height;
         border: none;

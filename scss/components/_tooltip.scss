@@ -22,14 +22,14 @@
     &::after {
         content: attr(data-tooltip);
         font-size: 0.875rem;
+        line-height: 1rem;
         user-select: none;
         pointer-events: none;
         white-space: nowrap;
-        padding: 5px * $padding-ratio 12px * $padding-ratio;
-        border-radius: 6px * $border-radius-ratio;
+        padding: 7px * $padding-ratio 12px * $padding-ratio;
+        border-radius: 7px * $border-radius-ratio;
         background-color: var(--tooltip-bg, var(--bg-soft));
         color: var(--tooltip-c, var(--c-soft));
-
     }
 
     @keyframes tooltip {

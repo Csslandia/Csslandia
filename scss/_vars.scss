@@ -1,11 +1,7 @@
 $color-mode: both;
 
-$accent: #0c5;
 $accent: #999;
-$accent-color: var(--bg-strong);
 $accent-color: var(--c-strong);
-$selection-bg: $accent;
-$selection-c: $accent-color;
 $selection-bg: false;
 $selection-c: false;
 
@@ -51,7 +47,6 @@ $form-line-height: 1.5;
 $mob-tab-breakpoint: 600px;
 $tab-pc-breakpoint: 1000px;
 $frame-breakpoint: $mob-tab-breakpoint;
-$hero-breakpoint: $tab-pc-breakpoint;
 $navbar-breakpoint: $tab-pc-breakpoint;
 $steps-breakpoint: $mob-tab-breakpoint;
 

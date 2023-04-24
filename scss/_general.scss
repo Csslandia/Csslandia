@@ -84,6 +84,7 @@
     -webkit-tap-highlight-color: transparent;
     font-family: inherit;
     line-height: inherit;
+    text-decoration: none;
 
     @if $italic-all {
         font-style: italic;
@@ -98,14 +99,18 @@ html {
     scroll-behavior: smooth;
     transition: 0.25s * $transition-ratio;
     line-height: $line-height;
-    text-decoration: none;
+    height: 100%;
 
     @if $color-mode == dark {
         color-scheme: dark;
     }
 }
 
-a {
+body {
+    height: 100%;
+}
+
+:where(a) {
     color: var(--c-soft);
     transition: color 0.3s * $transition-ratio;
 }
@@ -118,55 +123,34 @@ a {
     }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-th,
-a:hover,
-a:focus,
-a:active {
+:where(h1, h2, h3, h4, h5, h6, th),
+a:where(:hover, :focus, :active) {
     color: var(--c-strong);
 }
 
 [class^="c-"],
 [class*=" c-"],
 .bg-a {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    th,
-    a:hover,
-    a:focus,
-    a:active {
+    :where(h1, h2, h3, h4, h5, h6, th),
+    a:where(:hover, :focus, :active) {
         color: inherit;
     }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+:where(h1, h2, h3, h4, h5, h6) {
     font-size: inherit;
 }
 
-img,
-video,
-canvas {
+:where(img, video, canvas) {
     display: block;
 }
 
-input[type="button"],
-input[type="submit"],
-input[type="reset"],
-button {
+:where(
+        input[type="button"],
+        input[type="submit"],
+        input[type="reset"],
+        button
+    ) {
     background-color: transparent;
     border-color: transparent;
     cursor: pointer;

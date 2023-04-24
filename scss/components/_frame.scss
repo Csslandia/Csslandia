@@ -3,44 +3,37 @@
     border-radius: 12px * $border-radius-ratio;
     overflow: hidden;
 
-    & img {
+    & > img {
         object-fit: cover;
     }
 }
 
-@media only screen and (max-width: $frame-breakpoint) {
+@media (max-width: $frame-breakpoint) {
     .frame {
-        & > * > img {
-            width: 100%;
-            height: 192px;
+        & > :not(img) {
+            padding: 16px * $padding-ratio;
         }
 
-        & > :not(:has(> img)) {
-            padding: 16px * $padding-ratio;
+        & > img {
+            width: 100%;
+            height: 192px;
         }
     }
 }
 
-@media only screen and (min-width: ($frame-breakpoint + 1px)) {
+@media (min-width: ($frame-breakpoint + 1px)) {
     .frame {
         display: flex;
 
-        & > :not(:has(> img)) {
+        & > :not(img) {
             padding: 20px * $padding-ratio;
             flex-grow: 1;
         }
 
-        & > :has(> img) {
-            position: relative;
+        & > img {
             min-width: 30%;
             max-width: 40%;
             width: 100%;
-
-            img {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-            }
         }
     }
 }
