@@ -22,8 +22,8 @@
                 -webkit-mask-repeat: no-repeat;
                 mask-position: center;
                 -webkit-mask-position: center;
-                mask-image: url("svg/folder.svg");
-                -webkit-mask-image: url("svg/folder.svg");
+                mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m.4,4.76c-.49.49-.49,1.28,0,1.77l6.72,6.72c.49.49,1.28.49,1.77,0l6.72-6.72c.49-.49.49-1.28,0-1.77-.49-.49-1.28-.49-1.77,0l-5.83,5.83L2.17,4.76c-.49-.49-1.28-.49-1.77,0Z"/></svg>');
+                -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m.4,4.76c-.49.49-.49,1.28,0,1.77l6.72,6.72c.49.49,1.28.49,1.77,0l6.72-6.72c.49-.49.49-1.28,0-1.77-.49-.49-1.28-.49-1.77,0l-5.83,5.83L2.17,4.76c-.49-.49-1.28-.49-1.77,0Z"/></svg>');
                 transform: rotate(0);
                 transition: transform 0.4s * $transition-ratio;
             }

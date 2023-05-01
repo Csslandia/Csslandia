@@ -5,12 +5,12 @@
     background-color: currentColor !important;
     display: inline-block;
     vertical-align: middle;
-    mask-image: url("svg/spinner.svg");
-    -webkit-mask-image: url("svg/spinner.svg");
     mask-repeat: no-repeat;
     -webkit-mask-repeat: no-repeat;
     mask-position: center;
     -webkit-mask-position: center;
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="25 25 50 50"><style>circle{stroke:currentColor;stroke-linecap:round;animation:spinner 1.5s ease-in-out infinite;} @keyframes spinner { 0%{stroke-dasharray:1,200;stroke-dashoffset:0;} 50%{stroke-dasharray:89,200;stroke-dashoffset:-35px;} 100%{stroke-dasharray:89,200;stroke-dashoffset:-124px}}</style><circle cx="50" cy="50" r="20" fill="none" stroke-width="6"></circle></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="25 25 50 50"><style>circle{stroke:currentColor;stroke-linecap:round;animation:spinner 1.5s ease-in-out infinite;} @keyframes spinner { 0%{stroke-dasharray:1,200;stroke-dashoffset:0;} 50%{stroke-dasharray:89,200;stroke-dashoffset:-35px;} 100%{stroke-dasharray:89,200;stroke-dashoffset:-124px}}</style><circle cx="50" cy="50" r="20" fill="none" stroke-width="6"></circle></svg>');
 
     &.xs {
         width: 16px;

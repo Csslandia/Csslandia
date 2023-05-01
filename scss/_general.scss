@@ -5,7 +5,9 @@
         font-display: swap;
         font-style: normal;
         font-named-instance: "Regular";
-        src: url("font/Inter-roman.var.woff2") format("woff2");
+        src: url("font/Inter-roman.var.woff2") format("woff2"),
+            url("https://cdn.jsdelivr.net/npm/csslandia/font/font/Inter-roman.var.woff2")
+                format("woff2");
     }
 
     @font-face {
@@ -14,7 +16,9 @@
         font-display: swap;
         font-style: italic;
         font-named-instance: "Italic";
-        src: url("font/Inter-italic.var.woff2") format("woff2");
+        src: url("font/Inter-italic.var.woff2") format("woff2"),
+            url("https://cdn.jsdelivr.net/npm/csslandia/font/font/Inter-italic.var.woff2")
+                format("woff2");
     }
     html {
         font-family: "Inter var", sans-serif;
@@ -58,7 +62,7 @@
 }
 
 @if $color-mode != light and dark {
-    html.dark {
+    :root.dark {
         --c-strong: #{$dark-c-strong};
         --c-soft: #{$dark-c-soft};
         --bg-strong: #{$dark-bg-strong};
@@ -82,6 +86,7 @@
     padding: 0;
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
+    color: inherit;
     font-family: inherit;
     line-height: inherit;
     text-decoration: none;
@@ -99,40 +104,34 @@ html {
     scroll-behavior: smooth;
     transition: 0.25s * $transition-ratio;
     line-height: $line-height;
-    height: 100%;
 
     @if $color-mode == dark {
         color-scheme: dark;
     }
 }
 
-body {
-    height: 100%;
-}
-
 :where(a) {
-    color: var(--c-soft);
+    color: $a-color;
+    text-decoration: $a-decoration;
+    cursor: pointer;
     transition: color 0.3s * $transition-ratio;
 }
 
-[class^="c-"],
-[class*=" c-"],
-.bg-a {
-    & a {
-        color: inherit;
-    }
+a:where(:hover, :focus, :active) {
+    color: $a-hover-color;
+    text-decoration: $a-hover-decoration;
 }
 
-:where(h1, h2, h3, h4, h5, h6, th),
-a:where(:hover, :focus, :active) {
+:where(h1, h2, h3, h4, h5, h6, th) {
     color: var(--c-strong);
 }
 
 [class^="c-"],
 [class*=" c-"],
 .bg-a {
-    :where(h1, h2, h3, h4, h5, h6, th),
-    a:where(:hover, :focus, :active) {
+    & :where(a),
+    & a:where(:hover, :focus, :active),
+    & :where(h1, h2, h3, h4, h5, h6, th) {
         color: inherit;
     }
 }
@@ -191,7 +190,3 @@ a:where(:hover, :focus, :active) {
     }
 }
 
-.d3 {
-    box-shadow: 4px 4px var(--bd);
-    transform: translate(-0.1rem, -0.1rem);
-}

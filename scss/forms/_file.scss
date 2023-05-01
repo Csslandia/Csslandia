@@ -1,7 +1,10 @@
 @mixin file-size($size) {
     padding-right: calc(($size - 1) * 2px * $padding-ratio + $form-bd-width);
     font-size: $size * 0.125rem;
-    border-radius: $size * 1px * $border-radius-ratio;
+
+    @if $form-shape != "pill" and $form-shape != "angular" {
+        border-radius: $size * 1px * $border-radius-ratio;
+    }
 
     &::file-selector-button {
         font-size: $size * 0.125rem;
@@ -12,6 +15,18 @@
             ($size - 1) * 2px * $padding-ratio
             calc(($size - 2.5) * 1px * $padding-ratio + $form-bd-width)
             calc(($size - 1) * 2px * $padding-ratio + $form-bd-width);
+    }
+
+    @if $form-shape == "pill" {
+        padding-right: calc(
+            ($size - 1) * 2.5px * $padding-ratio + $form-bd-width
+        );
+
+        &::file-selector-button {
+            padding-left: calc(
+                ($size - 1) * 2.5px * $padding-ratio + $form-bd-width
+            );
+        }
     }
 
     &.pill {
@@ -43,6 +58,14 @@
                 $padding-ratio;
         }
 
+        @if $form-shape == "pill" {
+            padding-right: ($size - 1) * 2.5px * $padding-ratio;
+
+            &::file-selector-button {
+                padding-left: ($size - 1) * 2.5px * $padding-ratio;
+            }
+        }
+
         &.pill {
             padding-right: ($size - 1) * 2.5px * $padding-ratio;
 
@@ -69,6 +92,14 @@
                     $padding-ratio;
             }
 
+            @if $form-shape == "pill" {
+                padding-right: ($size - 1) * 2.5px * $padding-ratio;
+
+                &::file-selector-button {
+                    padding-left: ($size - 1) * 2.5px * $padding-ratio;
+                }
+            }
+
             &.pill {
                 padding-right: ($size - 1) * 2.5px * $padding-ratio;
 
@@ -93,6 +124,13 @@ input[type="file"].form {
     padding-top: 0;
     padding-bottom: 0;
     padding-left: 0;
+    overflow: hidden;
+
+    @if $form-shape == "pill" {
+        border-radius: 9999px;
+    } @else if $form-shape == "angular" {
+        border-radius: 0;
+    }
 
     &::file-selector-button {
         appearance: none;
@@ -100,6 +138,7 @@ input[type="file"].form {
         line-height: $form-line-height;
         border: none;
         background-color: var(--bg-soft);
+        color: var(--c-soft);
         border-radius: 0 !important;
     }
 

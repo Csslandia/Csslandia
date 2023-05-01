@@ -1,6 +1,6 @@
 .list {
     display: block;
-    border-radius: 8px * $border-radius-ratio;
+    border-radius: 9px * $border-radius-ratio;
     background-color: var(--bg-medium);
     overflow: hidden;
     width: fit-content;
@@ -9,7 +9,7 @@
 
     & > * {
         display: block;
-        padding: 9px * $padding-ratio 15px * $padding-ratio;
+        padding: 9px * $padding-ratio 16px * $padding-ratio;
 
         &:not(:last-child) {
             border-bottom: 1px solid;
@@ -20,12 +20,12 @@
     &:not([class^="bg-"]),
     &:not([class*=" bg-"]) {
         & > * {
-            &:hover,
-            &:focus,
-            &:active {
+            &:where(:hover, :focus, :active) {
                 background-color: var(--bg-soft);
             }
         }
+
+
     }
 
     & > * {

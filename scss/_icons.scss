@@ -1,8 +1,10 @@
 @if $icons {
     @font-face {
-        font-family: "csslandia-icons";
-        src: url("font/csslandia-icons.woff2?5793bda7fd0a118a10d41a4b0cbbbd11")
-            format("woff2");
+        font-family: "Csslandia Icons";
+        src: url("font/Csslandia-icons.woff2")
+                format("woff2"),
+            url("https://cdn.jsdelivr.net/npm/csslandia/font/font/Csslandia-icons.woff2")
+                format("woff2");
     }
 
     [class^="i-"],
@@ -10,9 +12,9 @@
         font-size: inherit;
 
         &:before {
-            font-family: "csslandia-icons" !important;
+            font-family: "Csslandia Icons" !important;
             font-style: normal;
-            font-weight: normal !important;
+            font-weight: normal;
             font-variant: normal;
             text-transform: none;
             line-height: 1;
@@ -20,31 +22,29 @@
             vertical-align: middle;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            position: relative;
-            bottom: 1px;
         }
+
         &.xs {
             vertical-align: baseline;
 
             &:before {
-                font-size: 0.4545454545em;
                 font-size: 0.5em;
             }
         }
+
         &.sm {
             vertical-align: baseline;
 
             &:before {
-                font-size: 0.7272727272em;
                 font-size: 0.75em;
             }
         }
+
         &.lg:before {
-            font-size: 1.2727272727em;
             font-size: 1.25em;
         }
+
         &.xl:before {
-            font-size: 1.5454545454em;
             font-size: 1.5em;
         }
     }

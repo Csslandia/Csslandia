@@ -1,17 +1,24 @@
 @mixin checkbox-size($size) {
     height: $size * 3px;
     width: $size * 3px;
-    border-radius: $size * 0.75px * $border-radius-ratio;
+
+    @if $form-shape != "angular" {
+        border-radius: $size * 0.75px * $border-radius-ratio;
+    }
 }
 
 .form input[type="checkbox"],
-.group input[type="checkbox"],
+.group input[type="radio"],
 input[type="checkbox"].form {
     appearance: none;
     vertical-align: middle;
     cursor: pointer;
     padding: 0;
     border: $form-bd-width solid $form-bd-color;
+
+    @if $form-shape == "angular" {
+        border-radius: 0;
+    }
 
     @include checkbox-size(8);
 
@@ -23,13 +30,13 @@ input[type="checkbox"].form {
             width: 100%;
             height: 100%;
             display: inline-block;
-
+            vertical-align: $form-bd-width;
             mask-repeat: no-repeat;
             -webkit-mask-repeat: no-repeat;
             mask-position: center;
             -webkit-mask-position: center;
-            mask-image: url("svg/checkbox.svg");
-            -webkit-mask-image: url("svg/checkbox.svg");
+            mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M12.6,4.64c-.49-.49-1.28-.49-1.77,0l-4.07,4.07-1.59-1.59c-.49-.49-1.28-.49-1.77,0s-.49,1.28,0,1.77l2.47,2.47c.24,.24,.56,.37,.88,.37s.64-.12,.88-.37l4.95-4.95c.49-.49,.49-1.28,0-1.77Z"/></svg>');
+            -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M12.6,4.64c-.49-.49-1.28-.49-1.77,0l-4.07,4.07-1.59-1.59c-.49-.49-1.28-.49-1.77,0s-.49,1.28,0,1.77l2.47,2.47c.24,.24,.56,.37,.88,.37s.64-.12,.88-.37l4.95-4.95c.49-.49,.49-1.28,0-1.77Z"/></svg>');
         }
     }
 

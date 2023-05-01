@@ -81,5 +81,5 @@
 }
 
 body:has(.modal.open) {
-    overflow-y: hidden;
+    overflow: hidden;
 }

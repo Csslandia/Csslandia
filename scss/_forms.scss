@@ -1,3 +1,69 @@
+label {
+    font-size: 0.875rem;
+    margin-bottom: 4px;
+    display: block;
+
+    &:has(> input[type="checkbox"]),
+    &:has(> input[type="radio"]) {
+        cursor: pointer;
+        user-select: none;
+        margin-top: 2px;
+    }
+
+    & > input[type="checkbox"],
+    & > input[type="radio"] {
+        margin-top: -2px;
+    }
+}
+
+.verify:invalid:not(:focus) {
+    color: var(--verify-c, #f00) !important;
+    border-color: var(--verify-c, #f00) !important;
+}
+
+form.form {
+    & > :not(:last-child) {
+        margin-bottom: $form-space;
+    }
+}
+
+.horizontal {
+    & > * {
+        display: flex;
+        // flex-wrap: wrap;
+        align-items: center;
+
+        & > :first-child,
+        & > :not(:last-child) {
+            margin-right: 8px;
+        }
+        
+        & > label {
+            width: 120px;
+            max-width: 33%;
+        }
+
+        & > input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        input[type="tel"],
+        input[type="url"],
+        input[type="search"],
+        input[type="date"],
+        input[type="datetime-local"],
+        input[type="month"],
+        input[type="time"],
+        input[type="week"],
+        select,
+        textarea {
+            flex-grow: 1;
+            flex-basis: min-content;
+            // width: fit-content
+        }
+    }
+}
+
 @import "forms/button";
 @import "forms/checkbox-radio-switch";
 @import "forms/color";

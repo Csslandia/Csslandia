@@ -32,6 +32,11 @@ $padding-ratio: 1;
 $border-radius-ratio: 1;
 $transition-ratio: 1;
 
+$a-color: var(--c-soft);
+$a-hover-color: var(--c-strong);
+$a-decoration: none;
+$a-hover-decoration: none;
+
 $button-bg-color: transparent;
 $button-bd-color: transparent;
 $button-bd-width: 0.1rem;
@@ -41,8 +46,11 @@ $button-line-height: 1.5;
 $form-bg-color: var(--bg-medium);
 $form-bd-color: transparent;
 $form-bd-width: 0.1rem;
-$form-shape: default;
+$form-shape: angular;
 $form-line-height: 1.5;
+$form-space: 8px;
+
+$color-aspect-ratio: 1.5;
 
 $mob-tab-breakpoint: 600px;
 $tab-pc-breakpoint: 1000px;

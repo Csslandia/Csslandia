@@ -11,13 +11,15 @@
 
         &.recieved {
             border-top-right-radius: $size * $line-height + ($size + 2) * 0.75px;
-            border-bottom-right-radius: $size * $line-height + ($size + 2) * 0.75px;
+            border-bottom-right-radius: $size * $line-height + ($size + 2) *
+                0.75px;
             margin-right: auto;
         }
 
         &.sent {
             border-top-left-radius: $size * $line-height + ($size + 2) * 0.75px;
-            border-bottom-left-radius: $size * $line-height + ($size + 2) * 0.75px;
+            border-bottom-left-radius: $size * $line-height + ($size + 2) *
+                0.75px;
             margin-left: auto;
         }
 
@@ -27,8 +29,10 @@
         }
 
         &:last-child {
-            border-bottom-right-radius: $size * $line-height + ($size + 2) * 0.75px;
-            border-bottom-left-radius: $size * $line-height + ($size + 2) * 0.75px;
+            border-bottom-right-radius: $size * $line-height + ($size + 2) *
+                0.75px;
+            border-bottom-left-radius: $size * $line-height + ($size + 2) *
+                0.75px;
         }
 
         &:not(.recieved) + .recieved {
@@ -38,10 +42,12 @@
             border-top-right-radius: $size * $line-height + ($size + 2) * 0.75px;
         }
         &.recieved:has(+ :not(.recieved)) {
-            border-bottom-left-radius: $size * $line-height + ($size + 2) * 0.75px;
+            border-bottom-left-radius: $size * $line-height + ($size + 2) *
+                0.75px;
         }
         &.sent:has(+ :not(.sent)) {
-            border-bottom-right-radius: $size * $line-height + ($size + 2) * 0.75px;
+            border-bottom-right-radius: $size * $line-height + ($size + 2) *
+                0.75px;
         }
     }
 }
@@ -50,8 +56,11 @@
     & * {
         &.recieved,
         &.sent {
-            margin-top: 2px;
             max-width: 80%;
+
+            &:not(:last-child) {
+                margin-bottom: 2px;
+            }
 
             &:not(img) {
                 width: fit-content;
@@ -59,6 +68,8 @@
             }
         }
     }
+
+    line-height: 1.4;
 
     @include chat(8);
 

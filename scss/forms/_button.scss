@@ -82,6 +82,10 @@
 .form input[type="submit"],
 .form input[type="reset"],
 .form button,
+.group input[type="button"],
+.group input[type="submit"],
+.group input[type="reset"],
+.group button,
 input[type="button"].form,
 input[type="submit"].form,
 input[type="reset"].form,
@@ -125,7 +129,9 @@ button.form,
     }
 
     &.d3 {
-        transform: translate(-2 * $button-bd-width, -2 * $button-bd-width);
+        box-shadow: 4px 4px var(--d3, var(--bd));
+        transform: translate(-4px, -4px);
+        transition: transform 0s !important;
 
         &:hover,
         &:focus,
@@ -141,6 +147,10 @@ button.form,
 .form input[type="submit"],
 .form input[type="reset"],
 .form button,
+.group input[type="button"],
+.group input[type="submit"],
+.group input[type="reset"],
+.group button,
 input[type="button"].form,
 input[type="submit"].form,
 input[type="reset"].form,

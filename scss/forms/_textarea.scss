@@ -4,6 +4,13 @@
             ($size * 0.125rem * $form-line-height + 2 * $form-bd-width)
     );
 
+    @if $form-shape == "pill" {
+        border-radius: calc(
+            ((($size * 1px - 2.5px) * $padding-ratio) + 0.5px) +
+                ($size * 0.0625rem * $form-line-height + $form-bd-width)
+        ) !important;
+    }
+
     &.pill {
         border-radius: calc(
             ((($size * 1px - 2.5px) * $padding-ratio) + 0.5px) +

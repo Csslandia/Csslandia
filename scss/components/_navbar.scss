@@ -30,7 +30,7 @@
     }
 }
 
-@media (min-width: ($navbar-breakpoint + 1px)) {
+@media (min-width: $navbar-breakpoint) {
     .navbar {
         display: flex;
         align-items: stretch;
@@ -92,10 +92,8 @@
                     padding-bottom: 16px;
                 }
             }
-        }
 
-        &:has(.hamburger.open) {
-            & > :last-child {
+            &.open {
                 clip-path: inset(0 0 0 0);
                 max-height: calc(100vh - 58px);
                 max-height: calc(100dvh - 58px);
@@ -104,6 +102,6 @@
     }
 
     body:has(.navbar .open) {
-        overflow-y: hidden;
+        overflow: hidden;
     }
 }

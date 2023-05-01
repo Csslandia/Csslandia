@@ -1,4 +1,5 @@
 .card {
+    display: block;
     background-color: var(--bg-medium);
     border-radius: 12px * $border-radius-ratio;
     overflow: hidden;

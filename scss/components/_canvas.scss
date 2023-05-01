@@ -74,5 +74,5 @@
 }
 
 body:has(.canvas.open) {
-    overflow-y: hidden;
+    overflow: hidden;
 }

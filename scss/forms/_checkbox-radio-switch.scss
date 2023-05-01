@@ -1,28 +1,3 @@
-label {
-    cursor: pointer;
-    user-select: none;
-    font-size: 0.875rem;
-
-    @supports selector(:has(*)) {
-        &:has(input) {
-            margin-top: 2px;
-            display: block;
-
-            & > input {
-                margin-top: -2px;
-            }
-        }
-    }
-
-    @supports not selector(:has(*)) {
-        display: block;
-
-        & > input {
-            margin-top: -2px;
-        }
-    }
-}
-
 @import "checkbox";
 @import "radio";
 @import "switch";

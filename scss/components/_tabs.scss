@@ -35,19 +35,23 @@
                     height: 8px * $border-radius-ratio;
                     bottom: -0.1rem;
                     z-index: 0;
+                    mask-repeat: no-repeat;
+                    -webkit-mask-repeat: no-repeat;
+                    mask-position: center;
+                    -webkit-mask-position: center;
                 }
 
                 &:not(:first-child)::before {
                     left: calc(-8px * $border-radius-ratio - 0.1rem);
-                    mask-image: url("svg/tabs/before.svg");
-                    -webkit-mask-image: url("svg/tabs/before.svg");
-                }
+                    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m16,0v16H0c8.84,0,16-7.16,16-16Z"/></svg>');
+                    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m16,0v16H0c8.84,0,16-7.16,16-16Z"/></svg>');
+                  }
 
                 &::after {
                     right: calc(-8px * $border-radius-ratio - 0.1rem);
-                    mask-image: url("svg/tabs/after.svg");
-                    -webkit-mask-image: url("svg/tabs/after.svg");
-                }
+                    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m0,0v16h16C7.16,16,0,8.84,0,0Z"/></svg>');
+                    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m0,0v16h16C7.16,16,0,8.84,0,0Z"/></svg>');
+                 }
 
                 &:hover,
                 &:focus,

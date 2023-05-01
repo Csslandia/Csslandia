@@ -75,11 +75,11 @@
             @include padding(mob\:);
         }
 
-        @media (min-width: ($mob-tab-breakpoint + 1px)) and (max-width: $tab-pc-breakpoint) {
+        @media (min-width: $mob-tab-breakpoint) and (max-width: $tab-pc-breakpoint) {
             @include padding(tab\:);
         }
 
-        @media (min-width: ($tab-pc-breakpoint + 1px)) {
+        @media (min-width: $tab-pc-breakpoint) {
             @include padding(pc\:);
         }
     }

@@ -23,13 +23,13 @@ input[type="radio"].form {
             width: 100%;
             height: 100%;
             display: inline-block;
-
+            vertical-align: $form-bd-width;
             mask-repeat: no-repeat;
             -webkit-mask-repeat: no-repeat;
             mask-position: center;
             -webkit-mask-position: center;
-            mask-image: url("svg/radio.svg");
-            -webkit-mask-image: url("svg/radio.svg");
+            mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><circle cx="8" cy="8" r="3.5"/></svg>');
+            -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><circle cx="8" cy="8" r="3.5"/></svg>');
         }
     }
 

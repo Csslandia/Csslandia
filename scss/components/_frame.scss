@@ -21,7 +21,7 @@
     }
 }
 
-@media (min-width: ($frame-breakpoint + 1px)) {
+@media (min-width: $frame-breakpoint) {
     .frame {
         display: flex;
 

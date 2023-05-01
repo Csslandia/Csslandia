@@ -3,6 +3,12 @@
     background-position: right ($size * 2px - 2px) * $padding-ratio center;
     padding-right: ($size - 1px) * 4 * $padding-ratio + $size;
 
+    @if $form-shape == "pill" {
+        padding-left: ($size - 1) * 2.5px * $padding-ratio;
+        padding-right: ($size - 1) * 4.5px * $padding-ratio + $size;
+        background-position: right ($size - 1) * 2.5px * $padding-ratio center;
+    }
+
     &.pill {
         padding-left: ($size - 1) * 2.5px * $padding-ratio;
         padding-right: ($size - 1) * 4.5px * $padding-ratio + $size;
@@ -15,7 +21,7 @@
 select.form {
     cursor: pointer;
     background-repeat: no-repeat;
-    background-image: url("svg/select/light.svg");
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="%23222"><path d="M10.4,11.21l-3.32-2.67c-1.03-.83-.44-2.49,.88-2.49h6.64c1.32,0,1.91,1.66,.88,2.49l-3.32,2.67c-.51,.41-1.24,.41-1.76,0Z"/></svg>');
 
     & option {
         background-color: inherit;
@@ -48,6 +54,6 @@ html.dark {
     .form select,
     .group select,
     select.form {
-        background-image: url("svg/select/dark.svg");
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="%23fff"><path d="M10.4,11.21l-3.32-2.67c-1.03-.83-.44-2.49,.88-2.49h6.64c1.32,0,1.91,1.66,.88,2.49l-3.32,2.67c-.51,.41-1.24,.41-1.76,0Z"/></svg>');
     }
 }

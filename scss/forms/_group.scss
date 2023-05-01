@@ -1,5 +1,6 @@
 .group {
     display: flex !important;
+    align-items: stretch;
     border-radius: 9999px;
     border-color: $form-bd-color;
     border-width: 0 !important;
@@ -10,6 +11,8 @@
         border-color: inherit !important;
         background-color: inherit !important;
         color: inherit !important;
+        display: flex;
+        align-items: center;
     }
 
     & > :not(:first-child) {
@@ -78,6 +81,9 @@
 .group.pill > input[type="button"],
 .group.pill > input[type="submit"],
 .group.pill > input[type="reset"],
+.group.pill > button,
+.group.pill > .b,
+.group.pill > .btn,
 .group.pill > .button {
     @include pill(6);
 

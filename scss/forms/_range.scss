@@ -5,8 +5,12 @@
         width: $size * 3.6px;
         height: $size * 3.6px;
     }
-}
 
+    &::-moz-range-thumb {
+        width: $size * 3.6px;
+        height: $size * 3.6px;
+    }
+}
 
 .form input[type="range"],
 .group input[type="range"],
@@ -25,6 +29,16 @@ input[type="range"].form {
     &::-webkit-slider-thumb {
         appearance: none;
         border-radius: 50%;
+        border: none;
+        color: inherit;
+        background-color: currentColor;
+        cursor: pointer;
+    }
+
+    &::-moz-range-thumb {
+        appearance: none;
+        border-radius: 50%;
+        border: none;
         color: inherit;
         background-color: currentColor;
         cursor: pointer;

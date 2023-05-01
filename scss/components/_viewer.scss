@@ -34,5 +34,5 @@
 }
 
 body:has(.viewer.open) {
-    overflow-y: hidden;
+    overflow: hidden;
 }

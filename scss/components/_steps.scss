@@ -32,6 +32,7 @@
                 z-index: 1;
                 margin: auto;
                 margin-bottom: 4px;
+                padding-top: 1px;
             }
 
             &:not(:first-child)::after {
@@ -68,6 +69,7 @@
                 background-color: var(--bg-medium);
                 z-index: 1;
                 margin-right: 8px;
+                padding-top: 1px;
                 flex-basis: 2rem;
                 flex-shrink: 0;
             }
@@ -116,6 +118,7 @@
                 background-color: var(--bg-medium);
                 z-index: 1;
                 margin-right: 8px;
+                padding-top: 1px;
                 flex-basis: 2rem;
                 flex-shrink: 0;
             }
@@ -134,7 +137,7 @@
     }
 }
 
-@media (min-width: ($steps-breakpoint + 1px)) {
+@media (min-width: $steps-breakpoint) {
     .steps:not(.horizontal):not(.vertical) {
         display: flex;
         justify-content: space-between;
@@ -164,6 +167,7 @@
                 z-index: 1;
                 margin: auto;
                 margin-bottom: 4px;
+                padding-top: 1px;
             }
 
             &:not(:first-child)::after {

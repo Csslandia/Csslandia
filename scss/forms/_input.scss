@@ -80,6 +80,107 @@
     }
 }
 
+@mixin datetime-size($size, $padding: 0) {
+    font-size: $size * 0.125rem;
+    padding: ($size - 2.5px + $padding) * $padding-ratio + 1 ($size - 1px) * 2 *
+        $padding-ratio ($size - 2.5px + $padding) * $padding-ratio;
+    height: calc(
+        (($size - 2.5) * $padding-ratio * 2px + 1px) +
+            ($size * 0.125rem * $form-line-height + $form-bd-width * 2)
+    );
+
+    &.p-xs {
+        padding: 1px ($size - 1px) * $padding-ratio 0;
+        height: calc(
+            1px + ($size * 0.125rem * $form-line-height + $form-bd-width * 2)
+        );
+    }
+
+    &.p-sm {
+        padding: ($size - 2.5px + $padding) * 0.5 * $padding-ratio + 1
+            ($size - 1px) * 1.5 * $padding-ratio ($size - 2.5px + $padding) *
+            0.5 * $padding-ratio;
+        height: calc(
+            (($size - 2.5) * $padding-ratio * 1px + 1px) +
+                ($size * 0.125rem * $form-line-height + $form-bd-width * 2)
+        );
+    }
+
+    &.p-lg {
+        padding: ($size - 2.5px + $padding) * 1.5 * $padding-ratio + 1
+            ($size - 1px) * 2.5 * $padding-ratio ($size - 2.5px + $padding) *
+            1.5 * $padding-ratio;
+        height: calc(
+            (($size - 2.5) * $padding-ratio * 3px + 1px) +
+                ($size * 0.125rem * $form-line-height + $form-bd-width * 2)
+        );
+    }
+
+    &.p-xl {
+        padding: ($size - 2.5px + $padding) * 2 * $padding-ratio + 1
+            ($size - 1px) * 3 * $padding-ratio ($size - 2.5px + $padding) * 2 *
+            $padding-ratio;
+        height: calc(
+            (($size - 2.5) * $padding-ratio * 4px + 1px) +
+                ($size * 0.125rem * $form-line-height + $form-bd-width * 2)
+        );
+    }
+
+    @if $form-shape == "pill" {
+        padding-left: ($size - 1px) * 2.5 * $padding-ratio;
+        padding-right: ($size - 1px) * 2.5 * $padding-ratio;
+
+        &.p-xs {
+            padding-left: ($size - 1px) * 1.5 * $padding-ratio;
+            padding-right: ($size - 1px) * 1.5 * $padding-ratio;
+        }
+
+        &.p-sm {
+            padding-left: ($size - 1px) * 2 * $padding-ratio;
+            padding-right: ($size - 1px) * 2 * $padding-ratio;
+        }
+
+        &.p-lg {
+            padding-left: ($size - 1px) * 3 * $padding-ratio;
+            padding-right: ($size - 1px) * 3 * $padding-ratio;
+        }
+
+        &.p-xl {
+            padding-left: ($size - 1px) * 3.5 * $padding-ratio;
+            padding-right: ($size - 1px) * 3.5 * $padding-ratio;
+        }
+    } @else {
+        @if $form-shape != "angular" {
+            border-radius: $size * 1px * $border-radius-ratio;
+        }
+
+        &.pill {
+            padding-left: ($size - 1px) * 2.5 * $padding-ratio;
+            padding-right: ($size - 1px) * 2.5 * $padding-ratio;
+
+            &.p-xs {
+                padding-left: ($size - 1px) * 1.5 * $padding-ratio;
+                padding-right: ($size - 1px) * 1.5 * $padding-ratio;
+            }
+
+            &.p-sm {
+                padding-left: ($size - 1px) * 2 * $padding-ratio;
+                padding-right: ($size - 1px) * 2 * $padding-ratio;
+            }
+
+            &.p-lg {
+                padding-left: ($size - 1px) * 3 * $padding-ratio;
+                padding-right: ($size - 1px) * 3 * $padding-ratio;
+            }
+
+            &.p-xl {
+                padding-left: ($size - 1px) * 3.5 * $padding-ratio;
+                padding-right: ($size - 1px) * 3.5 * $padding-ratio;
+            }
+        }
+    }
+}
+
 .form input[type="text"],
 .form input[type="email"],
 .form input[type="password"],
@@ -114,6 +215,12 @@ textarea.form {
     background-color: $form-bg-color;
     outline: none;
     border: $form-bd-width solid $form-bd-color;
+
+    @if $form-shape == "pill" {
+        border-radius: 9999px;
+    } @else if $form-shape == "angular" {
+        border-radius: 0;
+    }
 
     @include input-size(8);
 
@@ -158,26 +265,32 @@ input[type="week"].form {
     border: $form-bd-width solid $form-bd-color;
     outline: none;
 
-    @include input-size(8, -1);
+    @if $form-shape == "pill" {
+        border-radius: 9999px;
+    } @else if $form-shape == "angular" {
+        border-radius: 0;
+    }
+
+    @include datetime-size(8, -1);
 
     &::-webkit-calendar-picker-indicator {
         cursor: pointer;
     }
 
     &.xs {
-        @include input-size(6, -1);
+        @include datetime-size(6, -1);
     }
 
     &.sm {
-        @include input-size(7, -1);
+        @include datetime-size(7, -1);
     }
 
     &.lg {
-        @include input-size(9, -1);
+        @include datetime-size(9, -1);
     }
 
     &.xl {
-        @include input-size(10, -1);
+        @include datetime-size(10, -1);
     }
 }
 
@@ -234,9 +347,16 @@ input[type="search"].form {
     &::-webkit-search-cancel-button {
         appearance: none;
         cursor: pointer;
-        background-image: url("svg/search/light.svg");
-        height: 10px;
-        width: 10px;
+        color: inherit;
+        background-color: currentColor !important;
+        width: 0.625em;
+        height: 0.625em;
+        mask-repeat: no-repeat;
+        -webkit-mask-repeat: no-repeat;
+        mask-position: center;
+        -webkit-mask-position: center;
+        mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m.88,15.12c.49.49,1.28.49,1.77,0l5.35-5.35,5.35,5.35c.49.49,1.28.49,1.77,0s.49-1.28,0-1.77l-5.35-5.35,5.35-5.35c.49-.49.49-1.28,0-1.77s-1.28-.49-1.77,0l-5.35,5.35L2.65.88c-.49-.49-1.28-.49-1.77,0s-.49,1.28,0,1.77l5.35,5.35L.88,13.35c-.49.49-.49,1.28,0,1.77Z"/></svg>');
+        -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m.88,15.12c.49.49,1.28.49,1.77,0l5.35-5.35,5.35,5.35c.49.49,1.28.49,1.77,0s.49-1.28,0-1.77l-5.35-5.35,5.35-5.35c.49-.49.49-1.28,0-1.77s-1.28-.49-1.77,0l-5.35,5.35L2.65.88c-.49-.49-1.28-.49-1.77,0s-.49,1.28,0,1.77l5.35,5.35L.88,13.35c-.49.49-.49,1.28,0,1.77Z"/></svg>');
     }
 
     &.xs::-webkit-search-cancel-button {
@@ -254,15 +374,5 @@ input[type="search"].form {
     &.xl::-webkit-search-cancel-button {
         height: 12px;
         width: 12px;
-    }
-}
-
-html.dark {
-    .form input[type="search"],
-    .group input[type="search"],
-    input[type="search"].form {
-        &::-webkit-search-cancel-button {
-            background-image: url("svg/search/dark.svg");
-        }
     }
 }

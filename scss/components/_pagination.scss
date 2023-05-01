@@ -1,21 +1,21 @@
 .pagination {
     display: flex !important;
     width: fit-content;
-    padding: 0 !important;
-    border-radius: 9999px;
-    border-color: $form-bd-color;
-    border-width: 0 !important;
+    border-radius: 7px * $border-radius-ratio;
+    max-width: 100%;
+    overflow-x: auto;
+    border-color: $button-bd-color;
+    border-style: unset !important;
 
     & > * {
         display: inline-block;
-        font-size: 0.9375rem;
+        font-size: 1rem;
         line-height: $button-line-height;
-        padding: 3.75px * $padding-ratio + 1 12px * $padding-ratio
-            3.75px * $padding-ratio;
+        padding: 4.5px * $padding-ratio + 1 14px * $padding-ratio 4.5px *
+            $padding-ratio;
         font-weight: 500;
         white-space: nowrap;
         user-select: none;
-        border-radius: 7px * $border-radius-ratio;
         border-width: $button-bd-width;
         border-style: solid;
         border-color: inherit;
@@ -23,21 +23,22 @@
         color: inherit;
 
         &:not(:first-child):not(:last-child) {
-            border-radius: 0 !important;
-            border-left-width: 1px !important;
-            border-right-width: 1px !important;
+            border-left-width: $button-bd-width * 0.5 !important;
+            border-right-width: $button-bd-width * 0.5 !important;
         }
 
         &:first-child {
-            border-top-right-radius: 0 !important;
-            border-bottom-right-radius: 0 !important;
-            border-right-width: 1px !important;
+            border-radius: inherit;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            border-right-width: $button-bd-width * 0.5 !important;
         }
 
         &:last-child {
-            border-top-left-radius: 0 !important;
-            border-bottom-left-radius: 0 !important;
-            border-left-width: 1px !important;
+            border-radius: inherit;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border-left-width: $button-bd-width * 0.5 !important;
         }
 
         &:hover,
@@ -47,58 +48,92 @@
         }
     }
 
-    &.xs {
-        & > * {
-            font-size: 0.6875rem;
-            padding: 1.75px * $padding-ratio + 1 8px * $padding-ratio
-                1.75px * $padding-ratio;
-            border-radius: 5px * $border-radius-ratio;
+    &.pill {
+        & > :first-child {
+            padding-left: 17.5px * $padding-ratio;
+        }
 
-            &.pill {
-                padding-left: 10px * $padding-ratio;
-                padding-right: 10px * $padding-ratio;
-            }
+        & > :last-child {
+            padding-right: 17.5px * $padding-ratio;
         }
     }
 
-    &.sm {
-        & > * {
-            font-size: 0.8125rem;
-            padding: 2.75px * $padding-ratio + 1 10px * $padding-ratio
-                2.75px * $padding-ratio;
-            border-radius: 6px * $border-radius-ratio;
+    &.xs {
+        border-radius: 5px * $border-radius-ratio;
 
-            &.pill {
+        & > * {
+            font-size: 0.75rem;
+            padding: 2.5px * $padding-ratio + 1 10px * $padding-ratio 2.5px *
+                $padding-ratio;
+        }
+
+        &.pill {
+            & > :first-child {
                 padding-left: 12.5px * $padding-ratio;
+            }
+
+            & > :last-child {
                 padding-right: 12.5px * $padding-ratio;
             }
         }
     }
 
-    &.lg {
-        & > * {
-            font-size: 1.0625rem;
-            padding: 4.75px * $padding-ratio + 1 14px * $padding-ratio
-                4.75px * $padding-ratio;
-            border-radius: 8px * $border-radius-ratio;
+    &.sm {
+        border-radius: 6px * $border-radius-ratio;
 
-            &.pill {
-                padding-left: 17.5px * $padding-ratio;
-                padding-right: 17.5px * $padding-ratio;
+        & > * {
+            font-size: 0.875rem;
+            padding: 3.5px * $padding-ratio + 1 12px * $padding-ratio 3.5px *
+                $padding-ratio;
+        }
+
+        &.pill {
+            & > :first-child {
+                padding-left: 15px * $padding-ratio;
+            }
+
+            & > :last-child {
+                padding-right: 15px * $padding-ratio;
+            }
+        }
+    }
+
+    &.lg {
+        border-radius: 8px * $border-radius-ratio;
+
+        & > * {
+            font-size: 1.125rem;
+            padding: 5.5px * $padding-ratio + 1 16px * $padding-ratio 5.5px *
+                $padding-ratio;
+        }
+
+        &.pill {
+            & > :first-child {
+                padding-left: 20px * $padding-ratio;
+            }
+
+            & > :last-child {
+                padding-right: 20px * $padding-ratio;
             }
         }
     }
 
     &.xl {
-        & > * {
-            font-size: 1.1875rem;
-            padding: 5.75px * $padding-ratio + 1 16px * $padding-ratio
-                5.75px * $padding-ratio;
-            border-radius: 9px * $border-radius-ratio;
+        border-radius: 9px * $border-radius-ratio;
 
-            &.pill {
-                padding-left: 20px * $padding-ratio;
-                padding-right: 20px * $padding-ratio;
+        & > * {
+            font-size: 1.25rem;
+            padding: 6.5px * $padding-ratio + 1 18px * $padding-ratio 6.5px *
+                $padding-ratio;
+        }
+
+        &.pill {
+            & > :first-child {
+                padding-left: 22.5px * $padding-ratio;
+            }
+
+            & > :last-child {
+                padding-right: 22.5px * $padding-ratio;
             }
         }
     }
