@@ -1,16 +1,21 @@
 .container {
     margin-left: auto !important;
     margin-right: auto !important;
-    width: $mob-container-width;
 }
 
-@media (min-width: $mob-tab-breakpoint) {
+@media (width < $mob-tab-breakpoint) {
+    .container {
+        width: $mob-container-width;
+    }
+}
+
+@media (width >= $mob-tab-breakpoint) and (width < $tab-pc-breakpoint) {
     .container {
         width: $tab-container-width;
     }
 }
 
-@media (min-width: $tab-pc-breakpoint) {
+@media (width >= $tab-pc-breakpoint) {
     .container {
         width: $pc-container-width;
         max-width: 1600px;

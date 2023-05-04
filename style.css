@@ -484,15 +484,19 @@ body:has(.canvas.open) {
 .container {
   margin-left: auto !important;
   margin-right: auto !important;
-  width: 92%;
 }
 
-@media (min-width: 600px) {
+@media (width < 600px) {
+  .container {
+    width: 92%;
+  }
+}
+@media (width >= 600px) and (width < 1000px) {
   .container {
     width: 84%;
   }
 }
-@media (min-width: 1000px) {
+@media (width >= 1000px) {
   .container {
     width: 76%;
     max-width: 1600px;
@@ -1155,7 +1159,7 @@ body:has(.canvas.open) {
   animation-name: slide-slow-sm;
 }
 
-@media (max-width: 600px) {
+@media (width < 600px) {
   .film-strip > * > * {
     width: 100%;
   }
@@ -1211,7 +1215,7 @@ body:has(.canvas.open) {
     }
   }
 }
-@media (min-width: 600px) and (max-width: 1000px) {
+@media (width >= 600px) and (width < 1000px) {
   .film-strip > * > * {
     width: 50%;
   }
@@ -1267,7 +1271,7 @@ body:has(.canvas.open) {
     }
   }
 }
-@media (min-width: 1000px) {
+@media (width >= 1000px) {
   .film-strip > * > * {
     width: 33.3333333333%;
   }
@@ -1419,7 +1423,7 @@ body:has(.canvas.open) {
   object-fit: cover;
 }
 
-@media (max-width: 600px) {
+@media (width < 600px) {
   .frame > :not(img) {
     padding: 16px;
   }
@@ -1428,7 +1432,7 @@ body:has(.canvas.open) {
     height: 192px;
   }
 }
-@media (min-width: 600px) {
+@media (width >= 600px) {
   .frame {
     display: flex;
   }
@@ -1713,32 +1717,7 @@ body:has(.modal.open) {
   display: block;
 }
 
-@media (min-width: 1000px) {
-  .navbar {
-    display: flex;
-    align-items: stretch;
-    width: 100%;
-  }
-  .navbar > :first-child {
-    padding: 22px 24px 22px 10%;
-  }
-  .navbar > :first-child > :last-child {
-    display: none;
-  }
-  .navbar > :last-child {
-    flex-grow: 1;
-    padding-right: 10%;
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    overflow-x: hidden;
-  }
-  .navbar > :last-child > * {
-    margin-left: 32px;
-    white-space: nowrap;
-  }
-}
-@media (max-width: 1000px) {
+@media (width < 1000px) {
   .navbar > :first-child {
     padding: 18px 24px;
     margin-bottom: -1px;
@@ -1771,6 +1750,31 @@ body:has(.modal.open) {
   }
   body:has(.navbar .open) {
     overflow: hidden;
+  }
+}
+@media (width >= 1000px) {
+  .navbar {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+  }
+  .navbar > :first-child {
+    padding: 22px 24px 22px 10%;
+  }
+  .navbar > :first-child > :last-child {
+    display: none;
+  }
+  .navbar > :last-child {
+    flex-grow: 1;
+    padding-right: 10%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    overflow-x: hidden;
+  }
+  .navbar > :last-child > * {
+    margin-left: 32px;
+    white-space: nowrap;
   }
 }
 .notice {
@@ -2194,7 +2198,7 @@ progress::-moz-progress-bar {
   color: var(--done-c, var(--accent-color)) !important;
 }
 
-@media (max-width: 600px) {
+@media (width < 600px) {
   .steps:not(.horizontal):not(.vertical) > * {
     display: flex;
     align-items: center;
@@ -2230,7 +2234,7 @@ progress::-moz-progress-bar {
     background-color: var(--bg-medium);
   }
 }
-@media (min-width: 600px) {
+@media (width > 600px) {
   .steps:not(.horizontal):not(.vertical) {
     display: flex;
     justify-content: space-between;
@@ -10202,7 +10206,7 @@ textarea.form.xl.pill {
   width: 100%;
 }
 
-@media (max-width: 600px) {
+@media (width < 600px) {
   .mob\:w-auto {
     width: auto !important;
   }
@@ -10338,7 +10342,7 @@ textarea.form.xl.pill {
     width: 100%;
   }
 }
-@media (min-width: 600px) and (max-width: 1000px) {
+@media (width >= 600px) and (width < 1000px) {
   .tab\:w-auto {
     width: auto !important;
   }
@@ -10474,7 +10478,7 @@ textarea.form.xl.pill {
     width: 100%;
   }
 }
-@media (min-width: 1000px) {
+@media (width >= 1000px) {
   .pc\:w-auto {
     width: auto !important;
   }

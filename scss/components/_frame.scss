@@ -8,7 +8,7 @@
     }
 }
 
-@media (max-width: $frame-breakpoint) {
+@media (width < $frame-breakpoint) {
     .frame {
         & > :not(img) {
             padding: 16px * $padding-ratio;
@@ -21,7 +21,7 @@
     }
 }
 
-@media (min-width: $frame-breakpoint) {
+@media (width >= $frame-breakpoint) {
     .frame {
         display: flex;
 

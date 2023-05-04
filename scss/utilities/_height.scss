@@ -77,15 +77,15 @@
     @include height("");
 
     @if ($width-height-prefixes) {
-        @media (max-width: $mob-tab-breakpoint) {
+        @media (width < $mob-tab-breakpoint) {
             @include height(mob\:);
         }
 
-        @media (min-width: $mob-tab-breakpoint) and (max-width: $tab-pc-breakpoint) {
+        @media (width >= $mob-tab-breakpoint) and (width < $tab-pc-breakpoint) {
             @include height(tab\:);
         }
 
-        @media (min-width: $tab-pc-breakpoint) {
+        @media (width >= $tab-pc-breakpoint) {
             @include height(pc\:);
         }
     }

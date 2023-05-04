@@ -84,7 +84,7 @@
     }
 }
 
-@media (max-width: $mob-tab-breakpoint) {
+@media (width < $mob-tab-breakpoint) {
     .film-strip > * > * {
         width: 100%;
     }
@@ -153,7 +153,7 @@
     }
 }
 
-@media (min-width: $mob-tab-breakpoint) and (max-width: $tab-pc-breakpoint) {
+@media (width >= $mob-tab-breakpoint) and (width < $tab-pc-breakpoint) {
     .film-strip > * > * {
         width: 50%;
     }
@@ -222,7 +222,7 @@
     }
 }
 
-@media (min-width: $tab-pc-breakpoint) {
+@media (width >= $tab-pc-breakpoint) {
     .film-strip > * > * {
         width: calc(100% / 3);
     }

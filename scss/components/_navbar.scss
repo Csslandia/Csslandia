@@ -30,38 +30,7 @@
     }
 }
 
-@media (min-width: $navbar-breakpoint) {
-    .navbar {
-        display: flex;
-        align-items: stretch;
-        width: 100%;
-
-        & > :first-child {
-            padding: 22px * $padding-ratio 24px * $padding-ratio 22px *
-                $padding-ratio 10%;
-
-            & > :last-child {
-                display: none;
-            }
-        }
-
-        & > :last-child {
-            flex-grow: 1;
-            padding-right: 10%;
-            display: flex;
-            justify-content: right;
-            align-items: center;
-            overflow-x: hidden;
-
-            & > * {
-                margin-left: 32px;
-                white-space: nowrap;
-            }
-        }
-    }
-}
-
-@media (max-width: $navbar-breakpoint) {
+@media (width < $navbar-breakpoint) {
     .navbar {
         & > :first-child {
             padding: 18px * $padding-ratio 24px * $padding-ratio;
@@ -103,5 +72,36 @@
 
     body:has(.navbar .open) {
         overflow: hidden;
+    }
+}
+
+@media (width >= $navbar-breakpoint) {
+    .navbar {
+        display: flex;
+        align-items: stretch;
+        width: 100%;
+
+        & > :first-child {
+            padding: 22px * $padding-ratio 24px * $padding-ratio 22px *
+                $padding-ratio 10%;
+
+            & > :last-child {
+                display: none;
+            }
+        }
+
+        & > :last-child {
+            flex-grow: 1;
+            padding-right: 10%;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            overflow-x: hidden;
+
+            & > * {
+                margin-left: 32px;
+                white-space: nowrap;
+            }
+        }
     }
 }
