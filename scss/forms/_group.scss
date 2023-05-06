@@ -2,9 +2,10 @@
     display: flex !important;
     align-items: stretch;
     border-radius: 9999px;
+    color: $form-c;
+    background-color: $form-bg-color;
     border-color: $form-bd-color;
     border-width: 0 !important;
-    background-color: $form-bg-color;
     width: fit-content;
 
     & > * {
@@ -78,28 +79,56 @@
     }
 }
 
-.group.pill > input[type="button"],
-.group.pill > input[type="submit"],
-.group.pill > input[type="reset"],
-.group.pill > button,
-.group.pill > .b,
-.group.pill > .btn,
-.group.pill > .button {
-    @include pill(6);
+@if $button-shape == "pill" {
+    .group > input[type="button"],
+    .group > input[type="submit"],
+    .group > input[type="reset"],
+    .group > button,
+    .group > .b,
+    .group > .btn,
+    .group > .button {
+        @include pill(6);
 
-    &.xs {
-        @include pill(4);
-    }
+        &.xs {
+            @include pill(4);
+        }
 
-    &.sm {
-        @include pill(5);
-    }
+        &.sm {
+            @include pill(5);
+        }
 
-    &.lg {
-        @include pill(7);
-    }
+        &.lg {
+            @include pill(7);
+        }
 
-    &.xl {
-        @include pill(8);
+        &.xl {
+            @include pill(8);
+        }
     }
+} @else {
+    .group.pill > input[type="button"],
+    .group.pill > input[type="submit"],
+    .group.pill > input[type="reset"],
+    .group.pill > button,
+    .group.pill > .b,
+    .group.pill > .btn,
+    .group.pill > .button {
+        @include pill(6);
+
+        &.xs {
+            @include pill(4);
+        }
+
+        &.sm {
+            @include pill(5);
+        }
+
+        &.lg {
+            @include pill(7);
+        }
+
+        &.xl {
+            @include pill(8);
+        }
+    } 
 }

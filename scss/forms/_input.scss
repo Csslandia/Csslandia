@@ -212,9 +212,10 @@ textarea.form {
     width: 100%;
     line-height: $form-line-height;
     box-shadow: none;
+    color: $form-c;
     background-color: $form-bg-color;
-    outline: none;
     border: $form-bd-width solid $form-bd-color;
+    outline: none;
 
     @if $form-shape == "pill" {
         border-radius: 9999px;
@@ -260,8 +261,9 @@ input[type="week"].form {
     width: 100%;
     line-height: $form-line-height;
     box-shadow: none;
-    background-color: $form-bg-color;
     box-sizing: border-box !important;
+    color: $form-c;
+    background-color: $form-bg-color;
     border: $form-bd-width solid $form-bd-color;
     outline: none;
 

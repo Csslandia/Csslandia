@@ -21,7 +21,7 @@ label {
     border-color: var(--verify-c, #f00) !important;
 }
 
-form.form {
+.form {
     & > :not(:last-child) {
         margin-bottom: $form-space;
     }

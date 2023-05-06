@@ -108,13 +108,13 @@
 
 .bg-a {
     background-color: var(--accent) !important;
-    color: var(--accent-color);
+    color: var(--accent-c);
 
     &:hover,
     &:focus,
     &:active {
         background-color: var(--accent);
-        color: var(--accent-color);
+        color: var(--accent-c);
     }
 }
 
@@ -139,7 +139,7 @@
     &:focus,
     &:active {
         background-color: var(--accent) !important;
-        color: var(--accent-color);
+        color: var(--accent-c);
     }
 }
 

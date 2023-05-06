@@ -5,7 +5,7 @@
   font-display: swap;
   font-style: normal;
   font-named-instance: "Regular";
-  src: url("font/Inter-roman.var.woff2") format("woff2"), url("https://cdn.jsdelivr.net/npm/csslandia/font/font/Inter-roman.var.woff2") format("woff2");
+  src: url("font/Inter-roman.var.woff2") format("woff2"), url("https://cdn.jsdelivr.net/npm/csslandia/font/Inter-roman.var.woff2") format("woff2");
 }
 @font-face {
   font-family: "Inter var";
@@ -13,7 +13,7 @@
   font-display: swap;
   font-style: italic;
   font-named-instance: "Italic";
-  src: url("font/Inter-italic.var.woff2") format("woff2"), url("https://cdn.jsdelivr.net/npm/csslandia/font/font/Inter-italic.var.woff2") format("woff2");
+  src: url("font/Inter-italic.var.woff2") format("woff2"), url("https://cdn.jsdelivr.net/npm/csslandia/font/Inter-italic.var.woff2") format("woff2");
 }
 html {
   font-family: "Inter var", sans-serif;
@@ -31,7 +31,7 @@ html {
   --bg-soft: #ddd;
   --bd: #ccc;
   --accent: #999;
-  --accent-color: var(--c-strong);
+  --accent-c: var(--c-strong);
 }
 
 :root.dark {
@@ -46,7 +46,7 @@ html {
   --bg-soft: #444;
   --bd: #555;
   --accent: #999;
-  --accent-color: var(--c-strong);
+  --accent-c: var(--c-strong);
   color-scheme: dark;
 }
 
@@ -68,6 +68,7 @@ html {
   color: var(--c-soft);
   min-height: 100vh;
   min-height: 100dvh;
+  height: 100%;
   scroll-behavior: smooth;
   transition: 0.25s;
   line-height: 1.4;
@@ -1335,6 +1336,37 @@ body:has(.canvas.open) {
     order: 0;
   }
 }
+.flip-card {
+  display: block;
+  border-radius: 12px;
+  width: 100%;
+  position: relative;
+  transition: transform 0.4s ease-in-out;
+  transform-style: preserve-3d;
+}
+.flip-card > * {
+  display: block;
+  background-color: var(--bg-medium);
+  border-radius: 12px;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateX(0deg);
+}
+.flip-card > :last-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotateY(-180deg);
+}
+.flip-card:hover, .flip-card:focus, .flip-card:active {
+  transform: rotateY(-180deg);
+}
+
+:has(> .flip-card) {
+  perspective: 1000px;
+}
+
 .folder {
   overflow: hidden;
 }
@@ -1913,19 +1945,19 @@ progress {
   border-radius: 9999px;
   background-color: var(--bg-medium);
   color: var(--bd);
-  height: 15px;
+  height: calc(7.5px + 0.46875rem);
 }
 progress.xs {
-  height: 10px;
+  height: calc(5px + 0.3125rem);
 }
 progress.sm {
-  height: 12px;
+  height: calc(6px + 0.375rem);
 }
 progress.lg {
-  height: 19px;
+  height: calc(9.5px + 0.59375rem);
 }
 progress.xl {
-  height: 24px;
+  height: calc(12px + 0.75rem);
 }
 progress::-webkit-progress-bar {
   border-radius: 9999px;
@@ -2195,7 +2227,7 @@ progress::-moz-progress-bar {
 }
 .steps > .done::before, .steps > .done + .done::after {
   background-color: var(--done-bg, var(--accent)) !important;
-  color: var(--done-c, var(--accent-color)) !important;
+  color: var(--done-c, var(--accent-c)) !important;
 }
 
 @media (width < 600px) {
@@ -2472,7 +2504,7 @@ label > input[type=checkbox], label > input[type=radio] {
   border-color: var(--verify-c, #f00) !important;
 }
 
-form.form > :not(:last-child) {
+.form > :not(:last-child) {
   margin-bottom: 8px;
 }
 
@@ -2527,13 +2559,13 @@ button.form,
   line-height: 1.5;
   font-weight: 500;
   white-space: nowrap;
+  color: inherit;
   background-color: transparent;
   border: 0.1rem solid transparent;
   user-select: none;
   transition: transform 0.25s;
   font-size: 0.9375rem;
   padding: 4.75px 12px 3.75px;
-  border-radius: 7px;
 }
 .tabs > :first-child > *.p-xs,
 .form input[type=button].p-xs,
@@ -2607,101 +2639,6 @@ button.form.p-xl,
 .button.p-xl {
   padding: 8.5px 18px 7.5px;
 }
-.tabs > :first-child > *.pill,
-.form input[type=button].pill,
-.form input[type=submit].pill,
-.form input[type=reset].pill,
-.form button.pill,
-.group input[type=button].pill,
-.group input[type=submit].pill,
-.group input[type=reset].pill,
-.group button.pill,
-input[type=button].form.pill,
-input[type=submit].form.pill,
-input[type=reset].form.pill,
-button.form.pill,
-.b.pill,
-.btn.pill,
-.button.pill {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.tabs > :first-child > *.pill.p-xs,
-.form input[type=button].pill.p-xs,
-.form input[type=submit].pill.p-xs,
-.form input[type=reset].pill.p-xs,
-.form button.pill.p-xs,
-.group input[type=button].pill.p-xs,
-.group input[type=submit].pill.p-xs,
-.group input[type=reset].pill.p-xs,
-.group button.pill.p-xs,
-input[type=button].form.pill.p-xs,
-input[type=submit].form.pill.p-xs,
-input[type=reset].form.pill.p-xs,
-button.form.pill.p-xs,
-.b.pill.p-xs,
-.btn.pill.p-xs,
-.button.pill.p-xs {
-  padding-left: 9px;
-  padding-right: 9px;
-}
-.tabs > :first-child > *.pill.p-sm,
-.form input[type=button].pill.p-sm,
-.form input[type=submit].pill.p-sm,
-.form input[type=reset].pill.p-sm,
-.form button.pill.p-sm,
-.group input[type=button].pill.p-sm,
-.group input[type=submit].pill.p-sm,
-.group input[type=reset].pill.p-sm,
-.group button.pill.p-sm,
-input[type=button].form.pill.p-sm,
-input[type=submit].form.pill.p-sm,
-input[type=reset].form.pill.p-sm,
-button.form.pill.p-sm,
-.b.pill.p-sm,
-.btn.pill.p-sm,
-.button.pill.p-sm {
-  padding-left: 12px;
-  padding-right: 12px;
-}
-.tabs > :first-child > *.pill.p-lg,
-.form input[type=button].pill.p-lg,
-.form input[type=submit].pill.p-lg,
-.form input[type=reset].pill.p-lg,
-.form button.pill.p-lg,
-.group input[type=button].pill.p-lg,
-.group input[type=submit].pill.p-lg,
-.group input[type=reset].pill.p-lg,
-.group button.pill.p-lg,
-input[type=button].form.pill.p-lg,
-input[type=submit].form.pill.p-lg,
-input[type=reset].form.pill.p-lg,
-button.form.pill.p-lg,
-.b.pill.p-lg,
-.btn.pill.p-lg,
-.button.pill.p-lg {
-  padding-left: 18px;
-  padding-right: 18px;
-}
-.tabs > :first-child > *.pill.p-xl,
-.form input[type=button].pill.p-xl,
-.form input[type=submit].pill.p-xl,
-.form input[type=reset].pill.p-xl,
-.form button.pill.p-xl,
-.group input[type=button].pill.p-xl,
-.group input[type=submit].pill.p-xl,
-.group input[type=reset].pill.p-xl,
-.group button.pill.p-xl,
-input[type=button].form.pill.p-xl,
-input[type=submit].form.pill.p-xl,
-input[type=reset].form.pill.p-xl,
-button.form.pill.p-xl,
-.b.pill.p-xl,
-.btn.pill.p-xl,
-.button.pill.p-xl {
-  padding-left: 21px;
-  padding-right: 21px;
-}
 .tabs > :first-child > *.xs,
 .form input[type=button].xs,
 .form input[type=submit].xs,
@@ -2720,7 +2657,6 @@ button.form.xs,
 .button.xs {
   font-size: 0.6875rem;
   padding: 2.75px 8px 1.75px;
-  border-radius: 5px;
 }
 .tabs > :first-child > *.xs.p-xs,
 .form input[type=button].xs.p-xs,
@@ -2794,101 +2730,6 @@ button.form.xs.p-xl,
 .button.xs.p-xl {
   padding: 4.5px 12px 3.5px;
 }
-.tabs > :first-child > *.xs.pill,
-.form input[type=button].xs.pill,
-.form input[type=submit].xs.pill,
-.form input[type=reset].xs.pill,
-.form button.xs.pill,
-.group input[type=button].xs.pill,
-.group input[type=submit].xs.pill,
-.group input[type=reset].xs.pill,
-.group button.xs.pill,
-input[type=button].form.xs.pill,
-input[type=submit].form.xs.pill,
-input[type=reset].form.xs.pill,
-button.form.xs.pill,
-.b.xs.pill,
-.btn.xs.pill,
-.button.xs.pill {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-.tabs > :first-child > *.xs.pill.p-xs,
-.form input[type=button].xs.pill.p-xs,
-.form input[type=submit].xs.pill.p-xs,
-.form input[type=reset].xs.pill.p-xs,
-.form button.xs.pill.p-xs,
-.group input[type=button].xs.pill.p-xs,
-.group input[type=submit].xs.pill.p-xs,
-.group input[type=reset].xs.pill.p-xs,
-.group button.xs.pill.p-xs,
-input[type=button].form.xs.pill.p-xs,
-input[type=submit].form.xs.pill.p-xs,
-input[type=reset].form.xs.pill.p-xs,
-button.form.xs.pill.p-xs,
-.b.xs.pill.p-xs,
-.btn.xs.pill.p-xs,
-.button.xs.pill.p-xs {
-  padding-left: 6px;
-  padding-right: 6px;
-}
-.tabs > :first-child > *.xs.pill.p-sm,
-.form input[type=button].xs.pill.p-sm,
-.form input[type=submit].xs.pill.p-sm,
-.form input[type=reset].xs.pill.p-sm,
-.form button.xs.pill.p-sm,
-.group input[type=button].xs.pill.p-sm,
-.group input[type=submit].xs.pill.p-sm,
-.group input[type=reset].xs.pill.p-sm,
-.group button.xs.pill.p-sm,
-input[type=button].form.xs.pill.p-sm,
-input[type=submit].form.xs.pill.p-sm,
-input[type=reset].form.xs.pill.p-sm,
-button.form.xs.pill.p-sm,
-.b.xs.pill.p-sm,
-.btn.xs.pill.p-sm,
-.button.xs.pill.p-sm {
-  padding-left: 8px;
-  padding-right: 8px;
-}
-.tabs > :first-child > *.xs.pill.p-lg,
-.form input[type=button].xs.pill.p-lg,
-.form input[type=submit].xs.pill.p-lg,
-.form input[type=reset].xs.pill.p-lg,
-.form button.xs.pill.p-lg,
-.group input[type=button].xs.pill.p-lg,
-.group input[type=submit].xs.pill.p-lg,
-.group input[type=reset].xs.pill.p-lg,
-.group button.xs.pill.p-lg,
-input[type=button].form.xs.pill.p-lg,
-input[type=submit].form.xs.pill.p-lg,
-input[type=reset].form.xs.pill.p-lg,
-button.form.xs.pill.p-lg,
-.b.xs.pill.p-lg,
-.btn.xs.pill.p-lg,
-.button.xs.pill.p-lg {
-  padding-left: 12px;
-  padding-right: 12px;
-}
-.tabs > :first-child > *.xs.pill.p-xl,
-.form input[type=button].xs.pill.p-xl,
-.form input[type=submit].xs.pill.p-xl,
-.form input[type=reset].xs.pill.p-xl,
-.form button.xs.pill.p-xl,
-.group input[type=button].xs.pill.p-xl,
-.group input[type=submit].xs.pill.p-xl,
-.group input[type=reset].xs.pill.p-xl,
-.group button.xs.pill.p-xl,
-input[type=button].form.xs.pill.p-xl,
-input[type=submit].form.xs.pill.p-xl,
-input[type=reset].form.xs.pill.p-xl,
-button.form.xs.pill.p-xl,
-.b.xs.pill.p-xl,
-.btn.xs.pill.p-xl,
-.button.xs.pill.p-xl {
-  padding-left: 14px;
-  padding-right: 14px;
-}
 .tabs > :first-child > *.sm,
 .form input[type=button].sm,
 .form input[type=submit].sm,
@@ -2907,7 +2748,6 @@ button.form.sm,
 .button.sm {
   font-size: 0.8125rem;
   padding: 3.75px 10px 2.75px;
-  border-radius: 6px;
 }
 .tabs > :first-child > *.sm.p-xs,
 .form input[type=button].sm.p-xs,
@@ -2981,101 +2821,6 @@ button.form.sm.p-xl,
 .button.sm.p-xl {
   padding: 6.5px 15px 5.5px;
 }
-.tabs > :first-child > *.sm.pill,
-.form input[type=button].sm.pill,
-.form input[type=submit].sm.pill,
-.form input[type=reset].sm.pill,
-.form button.sm.pill,
-.group input[type=button].sm.pill,
-.group input[type=submit].sm.pill,
-.group input[type=reset].sm.pill,
-.group button.sm.pill,
-input[type=button].form.sm.pill,
-input[type=submit].form.sm.pill,
-input[type=reset].form.sm.pill,
-button.form.sm.pill,
-.b.sm.pill,
-.btn.sm.pill,
-.button.sm.pill {
-  padding-left: 12.5px;
-  padding-right: 12.5px;
-}
-.tabs > :first-child > *.sm.pill.p-xs,
-.form input[type=button].sm.pill.p-xs,
-.form input[type=submit].sm.pill.p-xs,
-.form input[type=reset].sm.pill.p-xs,
-.form button.sm.pill.p-xs,
-.group input[type=button].sm.pill.p-xs,
-.group input[type=submit].sm.pill.p-xs,
-.group input[type=reset].sm.pill.p-xs,
-.group button.sm.pill.p-xs,
-input[type=button].form.sm.pill.p-xs,
-input[type=submit].form.sm.pill.p-xs,
-input[type=reset].form.sm.pill.p-xs,
-button.form.sm.pill.p-xs,
-.b.sm.pill.p-xs,
-.btn.sm.pill.p-xs,
-.button.sm.pill.p-xs {
-  padding-left: 7.5px;
-  padding-right: 7.5px;
-}
-.tabs > :first-child > *.sm.pill.p-sm,
-.form input[type=button].sm.pill.p-sm,
-.form input[type=submit].sm.pill.p-sm,
-.form input[type=reset].sm.pill.p-sm,
-.form button.sm.pill.p-sm,
-.group input[type=button].sm.pill.p-sm,
-.group input[type=submit].sm.pill.p-sm,
-.group input[type=reset].sm.pill.p-sm,
-.group button.sm.pill.p-sm,
-input[type=button].form.sm.pill.p-sm,
-input[type=submit].form.sm.pill.p-sm,
-input[type=reset].form.sm.pill.p-sm,
-button.form.sm.pill.p-sm,
-.b.sm.pill.p-sm,
-.btn.sm.pill.p-sm,
-.button.sm.pill.p-sm {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-.tabs > :first-child > *.sm.pill.p-lg,
-.form input[type=button].sm.pill.p-lg,
-.form input[type=submit].sm.pill.p-lg,
-.form input[type=reset].sm.pill.p-lg,
-.form button.sm.pill.p-lg,
-.group input[type=button].sm.pill.p-lg,
-.group input[type=submit].sm.pill.p-lg,
-.group input[type=reset].sm.pill.p-lg,
-.group button.sm.pill.p-lg,
-input[type=button].form.sm.pill.p-lg,
-input[type=submit].form.sm.pill.p-lg,
-input[type=reset].form.sm.pill.p-lg,
-button.form.sm.pill.p-lg,
-.b.sm.pill.p-lg,
-.btn.sm.pill.p-lg,
-.button.sm.pill.p-lg {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.tabs > :first-child > *.sm.pill.p-xl,
-.form input[type=button].sm.pill.p-xl,
-.form input[type=submit].sm.pill.p-xl,
-.form input[type=reset].sm.pill.p-xl,
-.form button.sm.pill.p-xl,
-.group input[type=button].sm.pill.p-xl,
-.group input[type=submit].sm.pill.p-xl,
-.group input[type=reset].sm.pill.p-xl,
-.group button.sm.pill.p-xl,
-input[type=button].form.sm.pill.p-xl,
-input[type=submit].form.sm.pill.p-xl,
-input[type=reset].form.sm.pill.p-xl,
-button.form.sm.pill.p-xl,
-.b.sm.pill.p-xl,
-.btn.sm.pill.p-xl,
-.button.sm.pill.p-xl {
-  padding-left: 17.5px;
-  padding-right: 17.5px;
-}
 .tabs > :first-child > *.lg,
 .form input[type=button].lg,
 .form input[type=submit].lg,
@@ -3094,7 +2839,6 @@ button.form.lg,
 .button.lg {
   font-size: 1.0625rem;
   padding: 5.75px 14px 4.75px;
-  border-radius: 8px;
 }
 .tabs > :first-child > *.lg.p-xs,
 .form input[type=button].lg.p-xs,
@@ -3168,101 +2912,6 @@ button.form.lg.p-xl,
 .button.lg.p-xl {
   padding: 10.5px 21px 9.5px;
 }
-.tabs > :first-child > *.lg.pill,
-.form input[type=button].lg.pill,
-.form input[type=submit].lg.pill,
-.form input[type=reset].lg.pill,
-.form button.lg.pill,
-.group input[type=button].lg.pill,
-.group input[type=submit].lg.pill,
-.group input[type=reset].lg.pill,
-.group button.lg.pill,
-input[type=button].form.lg.pill,
-input[type=submit].form.lg.pill,
-input[type=reset].form.lg.pill,
-button.form.lg.pill,
-.b.lg.pill,
-.btn.lg.pill,
-.button.lg.pill {
-  padding-left: 17.5px;
-  padding-right: 17.5px;
-}
-.tabs > :first-child > *.lg.pill.p-xs,
-.form input[type=button].lg.pill.p-xs,
-.form input[type=submit].lg.pill.p-xs,
-.form input[type=reset].lg.pill.p-xs,
-.form button.lg.pill.p-xs,
-.group input[type=button].lg.pill.p-xs,
-.group input[type=submit].lg.pill.p-xs,
-.group input[type=reset].lg.pill.p-xs,
-.group button.lg.pill.p-xs,
-input[type=button].form.lg.pill.p-xs,
-input[type=submit].form.lg.pill.p-xs,
-input[type=reset].form.lg.pill.p-xs,
-button.form.lg.pill.p-xs,
-.b.lg.pill.p-xs,
-.btn.lg.pill.p-xs,
-.button.lg.pill.p-xs {
-  padding-left: 10.5px;
-  padding-right: 10.5px;
-}
-.tabs > :first-child > *.lg.pill.p-sm,
-.form input[type=button].lg.pill.p-sm,
-.form input[type=submit].lg.pill.p-sm,
-.form input[type=reset].lg.pill.p-sm,
-.form button.lg.pill.p-sm,
-.group input[type=button].lg.pill.p-sm,
-.group input[type=submit].lg.pill.p-sm,
-.group input[type=reset].lg.pill.p-sm,
-.group button.lg.pill.p-sm,
-input[type=button].form.lg.pill.p-sm,
-input[type=submit].form.lg.pill.p-sm,
-input[type=reset].form.lg.pill.p-sm,
-button.form.lg.pill.p-sm,
-.b.lg.pill.p-sm,
-.btn.lg.pill.p-sm,
-.button.lg.pill.p-sm {
-  padding-left: 14px;
-  padding-right: 14px;
-}
-.tabs > :first-child > *.lg.pill.p-lg,
-.form input[type=button].lg.pill.p-lg,
-.form input[type=submit].lg.pill.p-lg,
-.form input[type=reset].lg.pill.p-lg,
-.form button.lg.pill.p-lg,
-.group input[type=button].lg.pill.p-lg,
-.group input[type=submit].lg.pill.p-lg,
-.group input[type=reset].lg.pill.p-lg,
-.group button.lg.pill.p-lg,
-input[type=button].form.lg.pill.p-lg,
-input[type=submit].form.lg.pill.p-lg,
-input[type=reset].form.lg.pill.p-lg,
-button.form.lg.pill.p-lg,
-.b.lg.pill.p-lg,
-.btn.lg.pill.p-lg,
-.button.lg.pill.p-lg {
-  padding-left: 21px;
-  padding-right: 21px;
-}
-.tabs > :first-child > *.lg.pill.p-xl,
-.form input[type=button].lg.pill.p-xl,
-.form input[type=submit].lg.pill.p-xl,
-.form input[type=reset].lg.pill.p-xl,
-.form button.lg.pill.p-xl,
-.group input[type=button].lg.pill.p-xl,
-.group input[type=submit].lg.pill.p-xl,
-.group input[type=reset].lg.pill.p-xl,
-.group button.lg.pill.p-xl,
-input[type=button].form.lg.pill.p-xl,
-input[type=submit].form.lg.pill.p-xl,
-input[type=reset].form.lg.pill.p-xl,
-button.form.lg.pill.p-xl,
-.b.lg.pill.p-xl,
-.btn.lg.pill.p-xl,
-.button.lg.pill.p-xl {
-  padding-left: 24.5px;
-  padding-right: 24.5px;
-}
 .tabs > :first-child > *.xl,
 .form input[type=button].xl,
 .form input[type=submit].xl,
@@ -3281,7 +2930,6 @@ button.form.xl,
 .button.xl {
   font-size: 1.1875rem;
   padding: 6.75px 16px 5.75px;
-  border-radius: 9px;
 }
 .tabs > :first-child > *.xl.p-xs,
 .form input[type=button].xl.p-xs,
@@ -3355,101 +3003,6 @@ button.form.xl.p-xl,
 .button.xl.p-xl {
   padding: 12.5px 24px 11.5px;
 }
-.tabs > :first-child > *.xl.pill,
-.form input[type=button].xl.pill,
-.form input[type=submit].xl.pill,
-.form input[type=reset].xl.pill,
-.form button.xl.pill,
-.group input[type=button].xl.pill,
-.group input[type=submit].xl.pill,
-.group input[type=reset].xl.pill,
-.group button.xl.pill,
-input[type=button].form.xl.pill,
-input[type=submit].form.xl.pill,
-input[type=reset].form.xl.pill,
-button.form.xl.pill,
-.b.xl.pill,
-.btn.xl.pill,
-.button.xl.pill {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-.tabs > :first-child > *.xl.pill.p-xs,
-.form input[type=button].xl.pill.p-xs,
-.form input[type=submit].xl.pill.p-xs,
-.form input[type=reset].xl.pill.p-xs,
-.form button.xl.pill.p-xs,
-.group input[type=button].xl.pill.p-xs,
-.group input[type=submit].xl.pill.p-xs,
-.group input[type=reset].xl.pill.p-xs,
-.group button.xl.pill.p-xs,
-input[type=button].form.xl.pill.p-xs,
-input[type=submit].form.xl.pill.p-xs,
-input[type=reset].form.xl.pill.p-xs,
-button.form.xl.pill.p-xs,
-.b.xl.pill.p-xs,
-.btn.xl.pill.p-xs,
-.button.xl.pill.p-xs {
-  padding-left: 12px;
-  padding-right: 12px;
-}
-.tabs > :first-child > *.xl.pill.p-sm,
-.form input[type=button].xl.pill.p-sm,
-.form input[type=submit].xl.pill.p-sm,
-.form input[type=reset].xl.pill.p-sm,
-.form button.xl.pill.p-sm,
-.group input[type=button].xl.pill.p-sm,
-.group input[type=submit].xl.pill.p-sm,
-.group input[type=reset].xl.pill.p-sm,
-.group button.xl.pill.p-sm,
-input[type=button].form.xl.pill.p-sm,
-input[type=submit].form.xl.pill.p-sm,
-input[type=reset].form.xl.pill.p-sm,
-button.form.xl.pill.p-sm,
-.b.xl.pill.p-sm,
-.btn.xl.pill.p-sm,
-.button.xl.pill.p-sm {
-  padding-left: 16px;
-  padding-right: 16px;
-}
-.tabs > :first-child > *.xl.pill.p-lg,
-.form input[type=button].xl.pill.p-lg,
-.form input[type=submit].xl.pill.p-lg,
-.form input[type=reset].xl.pill.p-lg,
-.form button.xl.pill.p-lg,
-.group input[type=button].xl.pill.p-lg,
-.group input[type=submit].xl.pill.p-lg,
-.group input[type=reset].xl.pill.p-lg,
-.group button.xl.pill.p-lg,
-input[type=button].form.xl.pill.p-lg,
-input[type=submit].form.xl.pill.p-lg,
-input[type=reset].form.xl.pill.p-lg,
-button.form.xl.pill.p-lg,
-.b.xl.pill.p-lg,
-.btn.xl.pill.p-lg,
-.button.xl.pill.p-lg {
-  padding-left: 24px;
-  padding-right: 24px;
-}
-.tabs > :first-child > *.xl.pill.p-xl,
-.form input[type=button].xl.pill.p-xl,
-.form input[type=submit].xl.pill.p-xl,
-.form input[type=reset].xl.pill.p-xl,
-.form button.xl.pill.p-xl,
-.group input[type=button].xl.pill.p-xl,
-.group input[type=submit].xl.pill.p-xl,
-.group input[type=reset].xl.pill.p-xl,
-.group button.xl.pill.p-xl,
-input[type=button].form.xl.pill.p-xl,
-input[type=submit].form.xl.pill.p-xl,
-input[type=reset].form.xl.pill.p-xl,
-button.form.xl.pill.p-xl,
-.b.xl.pill.p-xl,
-.btn.xl.pill.p-xl,
-.button.xl.pill.p-xl {
-  padding-left: 28px;
-  padding-right: 28px;
-}
 .tabs > :first-child > *.d3,
 .form input[type=button].d3,
 .form input[type=submit].d3,
@@ -3519,6 +3072,452 @@ button.form.d3:active,
   transform: translate(0, 0);
   box-shadow: none;
   outline: none;
+}
+
+.tabs > :first-child > *,
+.form input[type=button],
+.form input[type=submit],
+.form input[type=reset],
+.form button,
+input[type=button].form,
+input[type=submit].form,
+input[type=reset].form,
+button.form,
+.b,
+.btn,
+.button {
+  border-radius: 7px;
+}
+.tabs > :first-child > *.pill,
+.form input[type=button].pill,
+.form input[type=submit].pill,
+.form input[type=reset].pill,
+.form button.pill,
+input[type=button].form.pill,
+input[type=submit].form.pill,
+input[type=reset].form.pill,
+button.form.pill,
+.b.pill,
+.btn.pill,
+.button.pill {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.tabs > :first-child > *.pill.p-xs,
+.form input[type=button].pill.p-xs,
+.form input[type=submit].pill.p-xs,
+.form input[type=reset].pill.p-xs,
+.form button.pill.p-xs,
+input[type=button].form.pill.p-xs,
+input[type=submit].form.pill.p-xs,
+input[type=reset].form.pill.p-xs,
+button.form.pill.p-xs,
+.b.pill.p-xs,
+.btn.pill.p-xs,
+.button.pill.p-xs {
+  padding-left: 9px;
+  padding-right: 9px;
+}
+.tabs > :first-child > *.pill.p-sm,
+.form input[type=button].pill.p-sm,
+.form input[type=submit].pill.p-sm,
+.form input[type=reset].pill.p-sm,
+.form button.pill.p-sm,
+input[type=button].form.pill.p-sm,
+input[type=submit].form.pill.p-sm,
+input[type=reset].form.pill.p-sm,
+button.form.pill.p-sm,
+.b.pill.p-sm,
+.btn.pill.p-sm,
+.button.pill.p-sm {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.tabs > :first-child > *.pill.p-lg,
+.form input[type=button].pill.p-lg,
+.form input[type=submit].pill.p-lg,
+.form input[type=reset].pill.p-lg,
+.form button.pill.p-lg,
+input[type=button].form.pill.p-lg,
+input[type=submit].form.pill.p-lg,
+input[type=reset].form.pill.p-lg,
+button.form.pill.p-lg,
+.b.pill.p-lg,
+.btn.pill.p-lg,
+.button.pill.p-lg {
+  padding-left: 18px;
+  padding-right: 18px;
+}
+.tabs > :first-child > *.pill.p-xl,
+.form input[type=button].pill.p-xl,
+.form input[type=submit].pill.p-xl,
+.form input[type=reset].pill.p-xl,
+.form button.pill.p-xl,
+input[type=button].form.pill.p-xl,
+input[type=submit].form.pill.p-xl,
+input[type=reset].form.pill.p-xl,
+button.form.pill.p-xl,
+.b.pill.p-xl,
+.btn.pill.p-xl,
+.button.pill.p-xl {
+  padding-left: 21px;
+  padding-right: 21px;
+}
+.tabs > :first-child > *.xs,
+.form input[type=button].xs,
+.form input[type=submit].xs,
+.form input[type=reset].xs,
+.form button.xs,
+input[type=button].form.xs,
+input[type=submit].form.xs,
+input[type=reset].form.xs,
+button.form.xs,
+.b.xs,
+.btn.xs,
+.button.xs {
+  border-radius: 5px;
+}
+.tabs > :first-child > *.xs.pill,
+.form input[type=button].xs.pill,
+.form input[type=submit].xs.pill,
+.form input[type=reset].xs.pill,
+.form button.xs.pill,
+input[type=button].form.xs.pill,
+input[type=submit].form.xs.pill,
+input[type=reset].form.xs.pill,
+button.form.xs.pill,
+.b.xs.pill,
+.btn.xs.pill,
+.button.xs.pill {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.tabs > :first-child > *.xs.pill.p-xs,
+.form input[type=button].xs.pill.p-xs,
+.form input[type=submit].xs.pill.p-xs,
+.form input[type=reset].xs.pill.p-xs,
+.form button.xs.pill.p-xs,
+input[type=button].form.xs.pill.p-xs,
+input[type=submit].form.xs.pill.p-xs,
+input[type=reset].form.xs.pill.p-xs,
+button.form.xs.pill.p-xs,
+.b.xs.pill.p-xs,
+.btn.xs.pill.p-xs,
+.button.xs.pill.p-xs {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+.tabs > :first-child > *.xs.pill.p-sm,
+.form input[type=button].xs.pill.p-sm,
+.form input[type=submit].xs.pill.p-sm,
+.form input[type=reset].xs.pill.p-sm,
+.form button.xs.pill.p-sm,
+input[type=button].form.xs.pill.p-sm,
+input[type=submit].form.xs.pill.p-sm,
+input[type=reset].form.xs.pill.p-sm,
+button.form.xs.pill.p-sm,
+.b.xs.pill.p-sm,
+.btn.xs.pill.p-sm,
+.button.xs.pill.p-sm {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.tabs > :first-child > *.xs.pill.p-lg,
+.form input[type=button].xs.pill.p-lg,
+.form input[type=submit].xs.pill.p-lg,
+.form input[type=reset].xs.pill.p-lg,
+.form button.xs.pill.p-lg,
+input[type=button].form.xs.pill.p-lg,
+input[type=submit].form.xs.pill.p-lg,
+input[type=reset].form.xs.pill.p-lg,
+button.form.xs.pill.p-lg,
+.b.xs.pill.p-lg,
+.btn.xs.pill.p-lg,
+.button.xs.pill.p-lg {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.tabs > :first-child > *.xs.pill.p-xl,
+.form input[type=button].xs.pill.p-xl,
+.form input[type=submit].xs.pill.p-xl,
+.form input[type=reset].xs.pill.p-xl,
+.form button.xs.pill.p-xl,
+input[type=button].form.xs.pill.p-xl,
+input[type=submit].form.xs.pill.p-xl,
+input[type=reset].form.xs.pill.p-xl,
+button.form.xs.pill.p-xl,
+.b.xs.pill.p-xl,
+.btn.xs.pill.p-xl,
+.button.xs.pill.p-xl {
+  padding-left: 14px;
+  padding-right: 14px;
+}
+.tabs > :first-child > *.sm,
+.form input[type=button].sm,
+.form input[type=submit].sm,
+.form input[type=reset].sm,
+.form button.sm,
+input[type=button].form.sm,
+input[type=submit].form.sm,
+input[type=reset].form.sm,
+button.form.sm,
+.b.sm,
+.btn.sm,
+.button.sm {
+  border-radius: 6px;
+}
+.tabs > :first-child > *.sm.pill,
+.form input[type=button].sm.pill,
+.form input[type=submit].sm.pill,
+.form input[type=reset].sm.pill,
+.form button.sm.pill,
+input[type=button].form.sm.pill,
+input[type=submit].form.sm.pill,
+input[type=reset].form.sm.pill,
+button.form.sm.pill,
+.b.sm.pill,
+.btn.sm.pill,
+.button.sm.pill {
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.tabs > :first-child > *.sm.pill.p-xs,
+.form input[type=button].sm.pill.p-xs,
+.form input[type=submit].sm.pill.p-xs,
+.form input[type=reset].sm.pill.p-xs,
+.form button.sm.pill.p-xs,
+input[type=button].form.sm.pill.p-xs,
+input[type=submit].form.sm.pill.p-xs,
+input[type=reset].form.sm.pill.p-xs,
+button.form.sm.pill.p-xs,
+.b.sm.pill.p-xs,
+.btn.sm.pill.p-xs,
+.button.sm.pill.p-xs {
+  padding-left: 7.5px;
+  padding-right: 7.5px;
+}
+.tabs > :first-child > *.sm.pill.p-sm,
+.form input[type=button].sm.pill.p-sm,
+.form input[type=submit].sm.pill.p-sm,
+.form input[type=reset].sm.pill.p-sm,
+.form button.sm.pill.p-sm,
+input[type=button].form.sm.pill.p-sm,
+input[type=submit].form.sm.pill.p-sm,
+input[type=reset].form.sm.pill.p-sm,
+button.form.sm.pill.p-sm,
+.b.sm.pill.p-sm,
+.btn.sm.pill.p-sm,
+.button.sm.pill.p-sm {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.tabs > :first-child > *.sm.pill.p-lg,
+.form input[type=button].sm.pill.p-lg,
+.form input[type=submit].sm.pill.p-lg,
+.form input[type=reset].sm.pill.p-lg,
+.form button.sm.pill.p-lg,
+input[type=button].form.sm.pill.p-lg,
+input[type=submit].form.sm.pill.p-lg,
+input[type=reset].form.sm.pill.p-lg,
+button.form.sm.pill.p-lg,
+.b.sm.pill.p-lg,
+.btn.sm.pill.p-lg,
+.button.sm.pill.p-lg {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.tabs > :first-child > *.sm.pill.p-xl,
+.form input[type=button].sm.pill.p-xl,
+.form input[type=submit].sm.pill.p-xl,
+.form input[type=reset].sm.pill.p-xl,
+.form button.sm.pill.p-xl,
+input[type=button].form.sm.pill.p-xl,
+input[type=submit].form.sm.pill.p-xl,
+input[type=reset].form.sm.pill.p-xl,
+button.form.sm.pill.p-xl,
+.b.sm.pill.p-xl,
+.btn.sm.pill.p-xl,
+.button.sm.pill.p-xl {
+  padding-left: 17.5px;
+  padding-right: 17.5px;
+}
+.tabs > :first-child > *.lg,
+.form input[type=button].lg,
+.form input[type=submit].lg,
+.form input[type=reset].lg,
+.form button.lg,
+input[type=button].form.lg,
+input[type=submit].form.lg,
+input[type=reset].form.lg,
+button.form.lg,
+.b.lg,
+.btn.lg,
+.button.lg {
+  border-radius: 8px;
+}
+.tabs > :first-child > *.lg.pill,
+.form input[type=button].lg.pill,
+.form input[type=submit].lg.pill,
+.form input[type=reset].lg.pill,
+.form button.lg.pill,
+input[type=button].form.lg.pill,
+input[type=submit].form.lg.pill,
+input[type=reset].form.lg.pill,
+button.form.lg.pill,
+.b.lg.pill,
+.btn.lg.pill,
+.button.lg.pill {
+  padding-left: 17.5px;
+  padding-right: 17.5px;
+}
+.tabs > :first-child > *.lg.pill.p-xs,
+.form input[type=button].lg.pill.p-xs,
+.form input[type=submit].lg.pill.p-xs,
+.form input[type=reset].lg.pill.p-xs,
+.form button.lg.pill.p-xs,
+input[type=button].form.lg.pill.p-xs,
+input[type=submit].form.lg.pill.p-xs,
+input[type=reset].form.lg.pill.p-xs,
+button.form.lg.pill.p-xs,
+.b.lg.pill.p-xs,
+.btn.lg.pill.p-xs,
+.button.lg.pill.p-xs {
+  padding-left: 10.5px;
+  padding-right: 10.5px;
+}
+.tabs > :first-child > *.lg.pill.p-sm,
+.form input[type=button].lg.pill.p-sm,
+.form input[type=submit].lg.pill.p-sm,
+.form input[type=reset].lg.pill.p-sm,
+.form button.lg.pill.p-sm,
+input[type=button].form.lg.pill.p-sm,
+input[type=submit].form.lg.pill.p-sm,
+input[type=reset].form.lg.pill.p-sm,
+button.form.lg.pill.p-sm,
+.b.lg.pill.p-sm,
+.btn.lg.pill.p-sm,
+.button.lg.pill.p-sm {
+  padding-left: 14px;
+  padding-right: 14px;
+}
+.tabs > :first-child > *.lg.pill.p-lg,
+.form input[type=button].lg.pill.p-lg,
+.form input[type=submit].lg.pill.p-lg,
+.form input[type=reset].lg.pill.p-lg,
+.form button.lg.pill.p-lg,
+input[type=button].form.lg.pill.p-lg,
+input[type=submit].form.lg.pill.p-lg,
+input[type=reset].form.lg.pill.p-lg,
+button.form.lg.pill.p-lg,
+.b.lg.pill.p-lg,
+.btn.lg.pill.p-lg,
+.button.lg.pill.p-lg {
+  padding-left: 21px;
+  padding-right: 21px;
+}
+.tabs > :first-child > *.lg.pill.p-xl,
+.form input[type=button].lg.pill.p-xl,
+.form input[type=submit].lg.pill.p-xl,
+.form input[type=reset].lg.pill.p-xl,
+.form button.lg.pill.p-xl,
+input[type=button].form.lg.pill.p-xl,
+input[type=submit].form.lg.pill.p-xl,
+input[type=reset].form.lg.pill.p-xl,
+button.form.lg.pill.p-xl,
+.b.lg.pill.p-xl,
+.btn.lg.pill.p-xl,
+.button.lg.pill.p-xl {
+  padding-left: 24.5px;
+  padding-right: 24.5px;
+}
+.tabs > :first-child > *.xl,
+.form input[type=button].xl,
+.form input[type=submit].xl,
+.form input[type=reset].xl,
+.form button.xl,
+input[type=button].form.xl,
+input[type=submit].form.xl,
+input[type=reset].form.xl,
+button.form.xl,
+.b.xl,
+.btn.xl,
+.button.xl {
+  border-radius: 9px;
+}
+.tabs > :first-child > *.xl.pill,
+.form input[type=button].xl.pill,
+.form input[type=submit].xl.pill,
+.form input[type=reset].xl.pill,
+.form button.xl.pill,
+input[type=button].form.xl.pill,
+input[type=submit].form.xl.pill,
+input[type=reset].form.xl.pill,
+button.form.xl.pill,
+.b.xl.pill,
+.btn.xl.pill,
+.button.xl.pill {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.tabs > :first-child > *.xl.pill.p-xs,
+.form input[type=button].xl.pill.p-xs,
+.form input[type=submit].xl.pill.p-xs,
+.form input[type=reset].xl.pill.p-xs,
+.form button.xl.pill.p-xs,
+input[type=button].form.xl.pill.p-xs,
+input[type=submit].form.xl.pill.p-xs,
+input[type=reset].form.xl.pill.p-xs,
+button.form.xl.pill.p-xs,
+.b.xl.pill.p-xs,
+.btn.xl.pill.p-xs,
+.button.xl.pill.p-xs {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.tabs > :first-child > *.xl.pill.p-sm,
+.form input[type=button].xl.pill.p-sm,
+.form input[type=submit].xl.pill.p-sm,
+.form input[type=reset].xl.pill.p-sm,
+.form button.xl.pill.p-sm,
+input[type=button].form.xl.pill.p-sm,
+input[type=submit].form.xl.pill.p-sm,
+input[type=reset].form.xl.pill.p-sm,
+button.form.xl.pill.p-sm,
+.b.xl.pill.p-sm,
+.btn.xl.pill.p-sm,
+.button.xl.pill.p-sm {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.tabs > :first-child > *.xl.pill.p-lg,
+.form input[type=button].xl.pill.p-lg,
+.form input[type=submit].xl.pill.p-lg,
+.form input[type=reset].xl.pill.p-lg,
+.form button.xl.pill.p-lg,
+input[type=button].form.xl.pill.p-lg,
+input[type=submit].form.xl.pill.p-lg,
+input[type=reset].form.xl.pill.p-lg,
+button.form.xl.pill.p-lg,
+.b.xl.pill.p-lg,
+.btn.xl.pill.p-lg,
+.button.xl.pill.p-lg {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.tabs > :first-child > *.xl.pill.p-xl,
+.form input[type=button].xl.pill.p-xl,
+.form input[type=submit].xl.pill.p-xl,
+.form input[type=reset].xl.pill.p-xl,
+.form button.xl.pill.p-xl,
+input[type=button].form.xl.pill.p-xl,
+input[type=submit].form.xl.pill.p-xl,
+input[type=reset].form.xl.pill.p-xl,
+button.form.xl.pill.p-xl,
+.b.xl.pill.p-xl,
+.btn.xl.pill.p-xl,
+.button.xl.pill.p-xl {
+  padding-left: 28px;
+  padding-right: 28px;
 }
 
 .form input[type=button]:hover, .form input[type=button]:focus, .form input[type=button]:active,
@@ -3593,9 +3592,9 @@ input[type=checkbox].form {
   cursor: pointer;
   padding: 0;
   border: 0.1rem solid transparent;
-  border-radius: 0;
   height: 24px;
   width: 24px;
+  border-radius: 6px;
 }
 .form input[type=checkbox]:checked::before,
 .group input[type=radio]:checked::before,
@@ -3619,24 +3618,28 @@ input[type=checkbox].form:checked::before {
 input[type=checkbox].form.xs {
   height: 18px;
   width: 18px;
+  border-radius: 4.5px;
 }
 .form input[type=checkbox].sm,
 .group input[type=radio].sm,
 input[type=checkbox].form.sm {
   height: 21px;
   width: 21px;
+  border-radius: 5.25px;
 }
 .form input[type=checkbox].lg,
 .group input[type=radio].lg,
 input[type=checkbox].form.lg {
   height: 27px;
   width: 27px;
+  border-radius: 6.75px;
 }
 .form input[type=checkbox].xl,
 .group input[type=radio].xl,
 input[type=checkbox].form.xl {
   height: 30px;
   width: 30px;
+  border-radius: 7.5px;
 }
 
 .form input[type=radio],
@@ -3829,7 +3832,7 @@ input[type=color].form {
   background-color: var(--bg-medium);
   width: calc(15px + 2.16875rem);
   height: calc(10px + 1.5125rem);
-  border-radius: 0;
+  border-radius: 8px;
 }
 .form input[type=color]::-webkit-color-swatch,
 .group input[type=color]::-webkit-color-swatch,
@@ -3840,6 +3843,11 @@ input[type=color].form::-webkit-color-swatch {
 .group input[type=color]::-moz-color-swatch,
 input[type=color].form::-moz-color-swatch {
   border: none;
+}
+.form input[type=color]::-webkit-color-swatch,
+.group input[type=color]::-webkit-color-swatch,
+input[type=color].form::-webkit-color-swatch {
+  border-radius: 2px;
 }
 .form input[type=color]::-webkit-color-swatch-wrapper,
 .group input[type=color]::-webkit-color-swatch-wrapper,
@@ -3850,6 +3858,7 @@ input[type=color].form::-webkit-color-swatch-wrapper {
 .group input[type=color]::-moz-color-swatch,
 input[type=color].form::-moz-color-swatch {
   padding: 6px;
+  border-radius: 2px;
   width: calc(3px + 1.96875rem);
   height: calc(-2px + 1.3125rem);
 }
@@ -3858,6 +3867,12 @@ input[type=color].form::-moz-color-swatch {
 input[type=color].form.xs {
   width: calc(9px + 1.60625rem);
   height: calc(6px + 1.1375rem);
+  border-radius: 6px;
+}
+.form input[type=color].xs::-webkit-color-swatch,
+.group input[type=color].xs::-webkit-color-swatch,
+input[type=color].form.xs::-webkit-color-swatch {
+  border-radius: 2px;
 }
 .form input[type=color].xs::-webkit-color-swatch-wrapper,
 .group input[type=color].xs::-webkit-color-swatch-wrapper,
@@ -3868,6 +3883,7 @@ input[type=color].form.xs::-webkit-color-swatch-wrapper {
 .group input[type=color].xs::-moz-color-swatch,
 input[type=color].form.xs::-moz-color-swatch {
   padding: 4px;
+  border-radius: 2px;
   width: calc(1px + 1.40625rem);
   height: calc(-2px + 0.9375rem);
 }
@@ -3876,6 +3892,12 @@ input[type=color].form.xs::-moz-color-swatch {
 input[type=color].form.sm {
   width: calc(12px + 1.8875rem);
   height: calc(8px + 1.325rem);
+  border-radius: 7px;
+}
+.form input[type=color].sm::-webkit-color-swatch,
+.group input[type=color].sm::-webkit-color-swatch,
+input[type=color].form.sm::-webkit-color-swatch {
+  border-radius: 2px;
 }
 .form input[type=color].sm::-webkit-color-swatch-wrapper,
 .group input[type=color].sm::-webkit-color-swatch-wrapper,
@@ -3886,6 +3908,7 @@ input[type=color].form.sm::-webkit-color-swatch-wrapper {
 .group input[type=color].sm::-moz-color-swatch,
 input[type=color].form.sm::-moz-color-swatch {
   padding: 5px;
+  border-radius: 2px;
   width: calc(2px + 1.6875rem);
   height: calc(-2px + 1.125rem);
 }
@@ -3894,6 +3917,12 @@ input[type=color].form.sm::-moz-color-swatch {
 input[type=color].form.lg {
   width: calc(18px + 2.45rem);
   height: calc(12px + 1.7rem);
+  border-radius: 9px;
+}
+.form input[type=color].lg::-webkit-color-swatch,
+.group input[type=color].lg::-webkit-color-swatch,
+input[type=color].form.lg::-webkit-color-swatch {
+  border-radius: 2px;
 }
 .form input[type=color].lg::-webkit-color-swatch-wrapper,
 .group input[type=color].lg::-webkit-color-swatch-wrapper,
@@ -3904,6 +3933,7 @@ input[type=color].form.lg::-webkit-color-swatch-wrapper {
 .group input[type=color].lg::-moz-color-swatch,
 input[type=color].form.lg::-moz-color-swatch {
   padding: 7px;
+  border-radius: 2px;
   width: calc(4px + 2.25rem);
   height: calc(-2px + 1.5rem);
 }
@@ -3912,6 +3942,12 @@ input[type=color].form.lg::-moz-color-swatch {
 input[type=color].form.xl {
   width: calc(21px + 2.73125rem);
   height: calc(14px + 1.8875rem);
+  border-radius: 10px;
+}
+.form input[type=color].xl::-webkit-color-swatch,
+.group input[type=color].xl::-webkit-color-swatch,
+input[type=color].form.xl::-webkit-color-swatch {
+  border-radius: 2px;
 }
 .form input[type=color].xl::-webkit-color-swatch-wrapper,
 .group input[type=color].xl::-webkit-color-swatch-wrapper,
@@ -3922,18 +3958,9 @@ input[type=color].form.xl::-webkit-color-swatch-wrapper {
 .group input[type=color].xl::-moz-color-swatch,
 input[type=color].form.xl::-moz-color-swatch {
   padding: 8px;
+  border-radius: 2px;
   width: calc(5px + 2.53125rem);
   height: calc(-2px + 1.6875rem);
-}
-.form input[type=color]::-webkit-color-swatch,
-.group input[type=color]::-webkit-color-swatch,
-input[type=color].form::-webkit-color-swatch {
-  border-radius: 0;
-}
-.form input[type=color]::-moz-color-swatch,
-.group input[type=color]::-moz-color-swatch,
-input[type=color].form::-moz-color-swatch {
-  border-radius: 0;
 }
 .form input[type=color].pill::-webkit-color-swatch,
 .group input[type=color].pill::-webkit-color-swatch,
@@ -3964,15 +3991,16 @@ input[type=file].form {
   width: 100%;
   line-height: 1.5;
   box-shadow: none;
+  color: inherit;
   background-color: var(--bg-medium);
   border: none;
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 0;
   overflow: hidden;
-  border-radius: 0;
   padding-right: calc(14px + 0.1rem);
   font-size: 1rem;
+  border-radius: 8px;
 }
 .form input[type=file]::file-selector-button,
 .group input[type=file]::file-selector-button,
@@ -4036,6 +4064,7 @@ input[type=file].form[class*=" bd"].pill::file-selector-button {
 input[type=file].form.xs {
   padding-right: calc(10px + 0.1rem);
   font-size: 0.75rem;
+  border-radius: 6px;
 }
 .form input[type=file].xs::file-selector-button,
 .group input[type=file].xs::file-selector-button,
@@ -4088,6 +4117,7 @@ input[type=file].form.xs[class*=" bd"].pill::file-selector-button {
 input[type=file].form.sm {
   padding-right: calc(12px + 0.1rem);
   font-size: 0.875rem;
+  border-radius: 7px;
 }
 .form input[type=file].sm::file-selector-button,
 .group input[type=file].sm::file-selector-button,
@@ -4140,6 +4170,7 @@ input[type=file].form.sm[class*=" bd"].pill::file-selector-button {
 input[type=file].form.lg {
   padding-right: calc(16px + 0.1rem);
   font-size: 1.125rem;
+  border-radius: 9px;
 }
 .form input[type=file].lg::file-selector-button,
 .group input[type=file].lg::file-selector-button,
@@ -4192,6 +4223,7 @@ input[type=file].form.lg[class*=" bd"].pill::file-selector-button {
 input[type=file].form.xl {
   padding-right: calc(18px + 0.1rem);
   font-size: 1.25rem;
+  border-radius: 10px;
 }
 .form input[type=file].xl::file-selector-button,
 .group input[type=file].xl::file-selector-button,
@@ -4244,9 +4276,10 @@ input[type=file].form.xl[class*=" bd"].pill::file-selector-button {
   display: flex !important;
   align-items: stretch;
   border-radius: 9999px;
+  color: inherit;
+  background-color: var(--bg-medium);
   border-color: transparent;
   border-width: 0 !important;
-  background-color: var(--bg-medium);
   width: fit-content;
 }
 .group > * {
@@ -4491,12 +4524,13 @@ textarea.form {
   width: 100%;
   line-height: 1.5;
   box-shadow: none;
+  color: inherit;
   background-color: var(--bg-medium);
-  outline: none;
   border: 0.1rem solid transparent;
-  border-radius: 0;
+  outline: none;
   font-size: 1rem;
   padding: 6.5px 14px 5.5px;
+  border-radius: 8px;
 }
 .form input[type=text].p-xs,
 .form input[type=email].p-xs,
@@ -4793,6 +4827,7 @@ select.form.xs,
 textarea.form.xs {
   font-size: 0.75rem;
   padding: 4.5px 10px 3.5px;
+  border-radius: 6px;
 }
 .form input[type=text].xs.p-xs,
 .form input[type=email].xs.p-xs,
@@ -5089,6 +5124,7 @@ select.form.sm,
 textarea.form.sm {
   font-size: 0.875rem;
   padding: 5.5px 12px 4.5px;
+  border-radius: 7px;
 }
 .form input[type=text].sm.p-xs,
 .form input[type=email].sm.p-xs,
@@ -5385,6 +5421,7 @@ select.form.lg,
 textarea.form.lg {
   font-size: 1.125rem;
   padding: 7.5px 16px 6.5px;
+  border-radius: 9px;
 }
 .form input[type=text].lg.p-xs,
 .form input[type=email].lg.p-xs,
@@ -5681,6 +5718,7 @@ select.form.xl,
 textarea.form.xl {
   font-size: 1.25rem;
   padding: 8.5px 18px 7.5px;
+  border-radius: 10px;
 }
 .form input[type=text].xl.p-xs,
 .form input[type=email].xl.p-xs,
@@ -5968,14 +6006,15 @@ input[type=week].form {
   width: 100%;
   line-height: 1.5;
   box-shadow: none;
-  background-color: var(--bg-medium);
   box-sizing: border-box !important;
+  color: inherit;
+  background-color: var(--bg-medium);
   border: 0.1rem solid transparent;
   outline: none;
-  border-radius: 0;
   font-size: 1rem;
   padding: 5.5px 14px 4.5px;
   height: calc(12px + 1.7rem);
+  border-radius: 8px;
 }
 .form input[type=date].p-xs,
 .form input[type=datetime-local].p-xs,
@@ -6174,6 +6213,7 @@ input[type=week].form.xs {
   font-size: 0.75rem;
   padding: 3.5px 10px 2.5px;
   height: calc(8px + 1.325rem);
+  border-radius: 6px;
 }
 .form input[type=date].xs.p-xs,
 .form input[type=datetime-local].xs.p-xs,
@@ -6355,6 +6395,7 @@ input[type=week].form.sm {
   font-size: 0.875rem;
   padding: 4.5px 12px 3.5px;
   height: calc(10px + 1.5125rem);
+  border-radius: 7px;
 }
 .form input[type=date].sm.p-xs,
 .form input[type=datetime-local].sm.p-xs,
@@ -6536,6 +6577,7 @@ input[type=week].form.lg {
   font-size: 1.125rem;
   padding: 6.5px 16px 5.5px;
   height: calc(14px + 1.8875rem);
+  border-radius: 9px;
 }
 .form input[type=date].lg.p-xs,
 .form input[type=datetime-local].lg.p-xs,
@@ -6717,6 +6759,7 @@ input[type=week].form.xl {
   font-size: 1.25rem;
   padding: 7.5px 18px 6.5px;
   height: calc(16px + 2.075rem);
+  border-radius: 10px;
 }
 .form input[type=date].xl.p-xs,
 .form input[type=datetime-local].xl.p-xs,
@@ -7030,19 +7073,19 @@ input[type=range].form {
   background-color: var(--bg-medium);
   color: var(--bd);
   padding: 0;
-  height: 10px;
+  height: calc(5px + 0.3125rem);
 }
 .form input[type=range]::-webkit-slider-thumb,
 .group input[type=range]::-webkit-slider-thumb,
 input[type=range].form::-webkit-slider-thumb {
-  width: 18px;
-  height: 18px;
+  width: calc(9px + 0.5625rem);
+  height: calc(9px + 0.5625rem);
 }
 .form input[type=range]::-moz-range-thumb,
 .group input[type=range]::-moz-range-thumb,
 input[type=range].form::-moz-range-thumb {
-  width: 18px;
-  height: 18px;
+  width: calc(9px + 0.5625rem);
+  height: calc(9px + 0.5625rem);
 }
 .form input[type=range]::-webkit-slider-thumb,
 .group input[type=range]::-webkit-slider-thumb,
@@ -7067,70 +7110,70 @@ input[type=range].form::-moz-range-thumb {
 .form input[type=range].xs,
 .group input[type=range].xs,
 input[type=range].form.xs {
-  height: 6px;
+  height: calc(3px + 0.1875rem);
 }
 .form input[type=range].xs::-webkit-slider-thumb,
 .group input[type=range].xs::-webkit-slider-thumb,
 input[type=range].form.xs::-webkit-slider-thumb {
-  width: 10.8px;
-  height: 10.8px;
+  width: calc(5.4px + 0.3375rem);
+  height: calc(5.4px + 0.3375rem);
 }
 .form input[type=range].xs::-moz-range-thumb,
 .group input[type=range].xs::-moz-range-thumb,
 input[type=range].form.xs::-moz-range-thumb {
-  width: 10.8px;
-  height: 10.8px;
+  width: calc(5.4px + 0.3375rem);
+  height: calc(5.4px + 0.3375rem);
 }
 .form input[type=range].sm,
 .group input[type=range].sm,
 input[type=range].form.sm {
-  height: 8px;
+  height: calc(4px + 0.25rem);
 }
 .form input[type=range].sm::-webkit-slider-thumb,
 .group input[type=range].sm::-webkit-slider-thumb,
 input[type=range].form.sm::-webkit-slider-thumb {
-  width: 14.4px;
-  height: 14.4px;
+  width: calc(7.2px + 0.45rem);
+  height: calc(7.2px + 0.45rem);
 }
 .form input[type=range].sm::-moz-range-thumb,
 .group input[type=range].sm::-moz-range-thumb,
 input[type=range].form.sm::-moz-range-thumb {
-  width: 14.4px;
-  height: 14.4px;
+  width: calc(7.2px + 0.45rem);
+  height: calc(7.2px + 0.45rem);
 }
 .form input[type=range].lg,
 .group input[type=range].lg,
 input[type=range].form.lg {
-  height: 12px;
+  height: calc(6px + 0.375rem);
 }
 .form input[type=range].lg::-webkit-slider-thumb,
 .group input[type=range].lg::-webkit-slider-thumb,
 input[type=range].form.lg::-webkit-slider-thumb {
-  width: 21.6px;
-  height: 21.6px;
+  width: calc(10.8px + 0.675rem);
+  height: calc(10.8px + 0.675rem);
 }
 .form input[type=range].lg::-moz-range-thumb,
 .group input[type=range].lg::-moz-range-thumb,
 input[type=range].form.lg::-moz-range-thumb {
-  width: 21.6px;
-  height: 21.6px;
+  width: calc(10.8px + 0.675rem);
+  height: calc(10.8px + 0.675rem);
 }
 .form input[type=range].xl,
 .group input[type=range].xl,
 input[type=range].form.xl {
-  height: 14px;
+  height: calc(7px + 0.4375rem);
 }
 .form input[type=range].xl::-webkit-slider-thumb,
 .group input[type=range].xl::-webkit-slider-thumb,
 input[type=range].form.xl::-webkit-slider-thumb {
-  width: 25.2px;
-  height: 25.2px;
+  width: calc(12.6px + 0.7875rem);
+  height: calc(12.6px + 0.7875rem);
 }
 .form input[type=range].xl::-moz-range-thumb,
 .group input[type=range].xl::-moz-range-thumb,
 input[type=range].form.xl::-moz-range-thumb {
-  width: 25.2px;
-  height: 25.2px;
+  width: calc(12.6px + 0.7875rem);
+  height: calc(12.6px + 0.7875rem);
 }
 
 .form select,
@@ -10885,7 +10928,7 @@ textarea.form.xl.pill {
 }
 
 .bold {
-  font-weight: 600 !important;
+  font-weight: bold !important;
 }
 
 .italic {
@@ -12682,11 +12725,11 @@ html.dark .d\:bd-none {
 
 .bg-a {
   background-color: var(--accent) !important;
-  color: var(--accent-color);
+  color: var(--accent-c);
 }
 .bg-a:hover, .bg-a:focus, .bg-a:active {
   background-color: var(--accent);
-  color: var(--accent-color);
+  color: var(--accent-c);
 }
 
 .bd-a {
@@ -12702,7 +12745,7 @@ html.dark .d\:bd-none {
 
 .hover\:bg-a:hover, .hover\:bg-a:focus, .hover\:bg-a:active {
   background-color: var(--accent) !important;
-  color: var(--accent-color);
+  color: var(--accent-c);
 }
 
 .hover\:bd-a:hover, .hover\:bd-a:focus, .hover\:bd-a:active {
@@ -12747,7 +12790,7 @@ html.dark .d\:bd-none {
 
 @font-face {
   font-family: "Csslandia Icons";
-  src: url("font/Csslandia-icons.woff2") format("woff2"), url("https://cdn.jsdelivr.net/npm/csslandia/font/font/Csslandia-icons.woff2") format("woff2");
+  src: url("font/Csslandia-icons.woff2") format("woff2"), url("https://cdn.jsdelivr.net/npm/csslandia/font/Csslandia-icons.woff2") format("woff2");
 }
 [class^=i-],
 [class*=" i-"] {

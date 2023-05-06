@@ -6,7 +6,7 @@
         font-style: normal;
         font-named-instance: "Regular";
         src: url("font/Inter-roman.var.woff2") format("woff2"),
-            url("https://cdn.jsdelivr.net/npm/csslandia/font/font/Inter-roman.var.woff2")
+            url("https://cdn.jsdelivr.net/npm/csslandia/font/Inter-roman.var.woff2")
                 format("woff2");
     }
 
@@ -17,7 +17,7 @@
         font-style: italic;
         font-named-instance: "Italic";
         src: url("font/Inter-italic.var.woff2") format("woff2"),
-            url("https://cdn.jsdelivr.net/npm/csslandia/font/font/Inter-italic.var.woff2")
+            url("https://cdn.jsdelivr.net/npm/csslandia/font/Inter-italic.var.woff2")
                 format("woff2");
     }
     html {
@@ -42,7 +42,7 @@
         --bg-soft: #{$dark-bg-soft};
         --bd: #{$dark-bd};
         --accent: #{$dark-accent};
-        --accent-color: #{$dark-accent-color};
+        --accent-c: #{$dark-accent-c};
     }
 } @else {
     :root {
@@ -57,7 +57,7 @@
         --bg-soft: #{$light-bg-soft};
         --bd: #{$light-bd};
         --accent: #{$light-accent};
-        --accent-color: #{$light-accent-color};
+        --accent-c: #{$light-accent-c};
     }
 }
 
@@ -74,7 +74,7 @@
         --bg-soft: #{$dark-bg-soft};
         --bd: #{$dark-bd};
         --accent: #{$dark-accent};
-        --accent-color: #{$dark-accent-color};
+        --accent-c: #{$dark-accent-c};
         color-scheme: dark;
     }
 }
@@ -101,6 +101,7 @@ html {
     color: var(--c-soft);
     min-height: 100vh;
     min-height: 100dvh;
+    height: 100%;
     scroll-behavior: smooth;
     transition: 0.25s * $transition-ratio;
     line-height: $line-height;
@@ -111,14 +112,14 @@ html {
 }
 
 :where(a) {
-    color: $a-color;
+    color: $a-c;
     text-decoration: $a-decoration;
     cursor: pointer;
     transition: color 0.3s * $transition-ratio;
 }
 
 a:where(:hover, :focus, :active) {
-    color: $a-hover-color;
+    color: $a-hover-c;
     text-decoration: $a-hover-decoration;
 }
 
@@ -189,4 +190,3 @@ a:where(:hover, :focus, :active) {
         }
     }
 }
-

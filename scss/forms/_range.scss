@@ -1,14 +1,14 @@
 @mixin range-size($size) {
-    height: $size * 2px;
+    height: calc($size * 1px + $size * 0.0625rem);
 
     &::-webkit-slider-thumb {
-        width: $size * 3.6px;
-        height: $size * 3.6px;
+        width: calc($size * 1.8px + $size * 0.1125rem);
+        height: calc($size * 1.8px + $size * 0.1125rem);
     }
 
     &::-moz-range-thumb {
-        width: $size * 3.6px;
-        height: $size * 3.6px;
+        width: calc($size * 1.8px + $size * 0.1125rem);
+        height: calc($size * 1.8px + $size * 0.1125rem);
     }
 }
 

@@ -1,9 +1,7 @@
 $color-mode: both;
 
 $accent: #999;
-$accent-color: var(--c-strong);
-$selection-bg: false;
-$selection-c: false;
+$accent-c: var(--c-strong);
 
 $light-c-strong: #222;
 $light-c-soft: #000c;
@@ -12,7 +10,7 @@ $light-bg-medium: #eee;
 $light-bg-soft: #ddd;
 $light-bd: #ccc;
 $light-accent: $accent;
-$light-accent-color: $accent-color;
+$light-accent-c: $accent-c;
 
 $dark-c-strong: #fff;
 $dark-c-soft: #fffc;
@@ -21,36 +19,39 @@ $dark-bg-medium: #333;
 $dark-bg-soft: #444;
 $dark-bd: #555;
 $dark-accent: $accent;
-$dark-accent-color: $accent-color;
+$dark-accent-c: $accent-c;
+
+$selection-bg: false;
+$selection-c: false;
 
 $font: "Inter";
 $font-family: sans-serif;
-$line-height: 1.4;
 $italic-all: false;
+$line-height: 1.4;
 
 $padding-ratio: 1;
 $border-radius-ratio: 1;
 $transition-ratio: 1;
 
-$a-color: var(--c-soft);
-$a-hover-color: var(--c-strong);
+$a-c: var(--c-soft);
+$a-hover-c: var(--c-strong);
 $a-decoration: none;
 $a-hover-decoration: none;
 
+$button-shape: default;
+$button-c: inherit;
 $button-bg-color: transparent;
 $button-bd-color: transparent;
 $button-bd-width: 0.1rem;
-$button-shape: default;
 $button-line-height: 1.5;
 
+$form-shape: default;
+$form-c: inherit;
 $form-bg-color: var(--bg-medium);
 $form-bd-color: transparent;
 $form-bd-width: 0.1rem;
-$form-shape: angular;
 $form-line-height: 1.5;
 $form-space: 8px;
-
-$color-aspect-ratio: 1.5;
 
 $mob-tab-breakpoint: 600px;
 $tab-pc-breakpoint: 1000px;

@@ -91,7 +91,7 @@
         &::before,
         & + .done::after {
             background-color: var(--done-bg, var(--accent)) !important;
-            color: var(--done-c, var(--accent-color)) !important;
+            color: var(--done-c, var(--accent-c)) !important;
         }
     }
 }

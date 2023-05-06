@@ -21,29 +21,33 @@
         padding: ($size - 3.25px) * 2 * $padding-ratio + 1 ($size - 1px) * 3 *
             $padding-ratio ($size - 3.25px) * 2 * $padding-ratio;
     }
+}
 
+@mixin button-shape($size) {
     @if $button-shape == "pill" {
-        padding-left: ($size - 1px) * 2.5 * $padding-ratio;
-        padding-right: ($size - 1px) * 2.5 * $padding-ratio;
+        &:not(.angular):not([class^="br-"]):not([class*=" br-"]) {
+            padding-left: ($size - 1px) * 2.5 * $padding-ratio;
+            padding-right: ($size - 1px) * 2.5 * $padding-ratio;
 
-        &.p-xs {
-            padding-left: ($size - 1px) * 1.5 * $padding-ratio;
-            padding-right: ($size - 1px) * 1.5 * $padding-ratio;
-        }
+            &.p-xs {
+                padding-left: ($size - 1px) * 1.5 * $padding-ratio;
+                padding-right: ($size - 1px) * 1.5 * $padding-ratio;
+            }
 
-        &.p-sm {
-            padding-left: ($size - 1px) * 2 * $padding-ratio;
-            padding-right: ($size - 1px) * 2 * $padding-ratio;
-        }
+            &.p-sm {
+                padding-left: ($size - 1px) * 2 * $padding-ratio;
+                padding-right: ($size - 1px) * 2 * $padding-ratio;
+            }
 
-        &.p-lg {
-            padding-left: ($size - 1px) * 3 * $padding-ratio;
-            padding-right: ($size - 1px) * 3 * $padding-ratio;
-        }
+            &.p-lg {
+                padding-left: ($size - 1px) * 3 * $padding-ratio;
+                padding-right: ($size - 1px) * 3 * $padding-ratio;
+            }
 
-        &.p-xl {
-            padding-left: ($size - 1px) * 3.5 * $padding-ratio;
-            padding-right: ($size - 1px) * 3.5 * $padding-ratio;
+            &.p-xl {
+                padding-left: ($size - 1px) * 3.5 * $padding-ratio;
+                padding-right: ($size - 1px) * 3.5 * $padding-ratio;
+            }
         }
     } @else {
         @if $button-shape != "angular" {
@@ -99,6 +103,7 @@ button.form,
     line-height: $button-line-height;
     font-weight: 500;
     white-space: nowrap;
+    color: $button-c;
     background-color: $button-bg-color;
     border: $button-bd-width solid $button-bd-color;
     user-select: none;
@@ -140,6 +145,37 @@ button.form,
             box-shadow: none;
             outline: none;
         }
+    }
+}
+
+.tabs > :first-child > *,
+.form input[type="button"],
+.form input[type="submit"],
+.form input[type="reset"],
+.form button,
+input[type="button"].form,
+input[type="submit"].form,
+input[type="reset"].form,
+button.form,
+.b,
+.btn,
+.button {
+    @include button-shape(7);
+
+    &.xs {
+        @include button-shape(5);
+    }
+
+    &.sm {
+        @include button-shape(6);
+    }
+
+    &.lg {
+        @include button-shape(8);
+    }
+
+    &.xl {
+        @include button-shape(9);
     }
 }
 

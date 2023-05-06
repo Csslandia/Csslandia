@@ -1,7 +1,7 @@
 @mixin color-size($size) {
     width: calc(
-        ((($size * 2px - 5px) * $padding-ratio) + 1px) * $color-aspect-ratio +
-            ($size * 0.125rem * $form-line-height * $color-aspect-ratio + 2 * $form-bd-width)
+        ((($size * 2px - 5px) * $padding-ratio) + 1px) * 1.5 +
+            ($size * 0.125rem * $form-line-height * 1.5 + 2 * $form-bd-width)
     );
     height: calc(
         ((($size * 2px - 5px) * $padding-ratio) + 1px) +
@@ -29,11 +29,11 @@
 
         width: calc(
             (
-                    ((($size * 2px - 5px) * $padding-ratio) + 1px) * $color-aspect-ratio -
+                    ((($size * 2px - 5px) * $padding-ratio) + 1px) * 1.5 -
                         ($size - 1) * $padding-ratio * 2px
                 ) +
                 (
-                    $size * 0.125rem * $form-line-height * $color-aspect-ratio + 2 *
+                    $size * 0.125rem * $form-line-height * 1.5 + 2 *
                         $form-bd-width - $form-bd-width * 2
                 )
         );
