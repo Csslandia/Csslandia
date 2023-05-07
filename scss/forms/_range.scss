@@ -17,7 +17,11 @@
 input[type="range"].form {
     appearance: none;
     width: 100%;
-    border-radius: 9999px;
+    @if $form-shape == "angular" {
+        border-radius: 0;
+    } @else {
+        border-radius: 9999px;
+    }
     border: $form-bd-width solid $form-bd-color;
     cursor: pointer;
     background-color: $form-bg-color;

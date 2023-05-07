@@ -1,6 +1,6 @@
 .frame {
     background-color: var(--bg-medium);
-    border-radius: 12px * $border-radius-ratio;
+    border-radius: 0.75em * $border-radius-ratio;
     overflow: hidden;
 
     & > img {
@@ -27,6 +27,9 @@
 
         & > :not(img) {
             padding: 20px * $padding-ratio;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             flex-grow: 1;
         }
 

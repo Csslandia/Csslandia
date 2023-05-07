@@ -30,7 +30,7 @@
         max-width: calc(100vw - 32px);
         margin: 40px auto;
         background-color: var(--bg-strong);
-        border-radius: 12px * $border-radius-ratio;
+        border-radius: 0.75em * $border-radius-ratio;
         max-height: calc(100vh - 80px);
         max-height: calc(100dvh - 80px);
         height: fit-content;

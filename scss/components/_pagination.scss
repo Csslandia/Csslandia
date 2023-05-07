@@ -1,19 +1,21 @@
 .pagination {
     display: flex !important;
     width: fit-content;
-    border-radius: 7px * $border-radius-ratio;
+    border-radius: 0.5em * $border-radius-ratio;
     max-width: 100%;
     overflow-x: auto;
     border-color: $button-bd-color;
     border-style: unset !important;
+    font-size: 1rem;
+    font-weight: 500;
 
     & > * {
+        font-size: inherit;
+        font-weight: inherit;
         display: inline-block;
-        font-size: 1rem;
         line-height: $button-line-height;
         padding: 4.5px * $padding-ratio + 1 14px * $padding-ratio 4.5px *
             $padding-ratio;
-        font-weight: 500;
         white-space: nowrap;
         user-select: none;
         border-width: $button-bd-width;
@@ -59,10 +61,9 @@
     }
 
     &.xs {
-        border-radius: 5px * $border-radius-ratio;
+        font-size: 0.75rem;
 
         & > * {
-            font-size: 0.75rem;
             padding: 2.5px * $padding-ratio + 1 10px * $padding-ratio 2.5px *
                 $padding-ratio;
         }
@@ -79,10 +80,9 @@
     }
 
     &.sm {
-        border-radius: 6px * $border-radius-ratio;
+        font-size: 0.875rem;
 
         & > * {
-            font-size: 0.875rem;
             padding: 3.5px * $padding-ratio + 1 12px * $padding-ratio 3.5px *
                 $padding-ratio;
         }
@@ -99,10 +99,9 @@
     }
 
     &.lg {
-        border-radius: 8px * $border-radius-ratio;
+        font-size: 1.125rem;
 
         & > * {
-            font-size: 1.125rem;
             padding: 5.5px * $padding-ratio + 1 16px * $padding-ratio 5.5px *
                 $padding-ratio;
         }
@@ -119,10 +118,9 @@
     }
 
     &.xl {
-        border-radius: 9px * $border-radius-ratio;
+        font-size: 1.25rem;
 
         & > * {
-            font-size: 1.25rem;
             padding: 6.5px * $padding-ratio + 1 18px * $padding-ratio 6.5px *
                 $padding-ratio;
         }

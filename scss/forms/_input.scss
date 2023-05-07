@@ -24,60 +24,6 @@
             ($size - 1px) * 3 * $padding-ratio ($size - 2.5px + $padding) * 2 *
             $padding-ratio;
     }
-
-    @if $form-shape == "pill" {
-        padding-left: ($size - 1px) * 2.5 * $padding-ratio;
-        padding-right: ($size - 1px) * 2.5 * $padding-ratio;
-
-        &.p-xs {
-            padding-left: ($size - 1px) * 1.5 * $padding-ratio;
-            padding-right: ($size - 1px) * 1.5 * $padding-ratio;
-        }
-
-        &.p-sm {
-            padding-left: ($size - 1px) * 2 * $padding-ratio;
-            padding-right: ($size - 1px) * 2 * $padding-ratio;
-        }
-
-        &.p-lg {
-            padding-left: ($size - 1px) * 3 * $padding-ratio;
-            padding-right: ($size - 1px) * 3 * $padding-ratio;
-        }
-
-        &.p-xl {
-            padding-left: ($size - 1px) * 3.5 * $padding-ratio;
-            padding-right: ($size - 1px) * 3.5 * $padding-ratio;
-        }
-    } @else {
-        @if $form-shape != "angular" {
-            border-radius: $size * 1px * $border-radius-ratio;
-        }
-
-        &.pill {
-            padding-left: ($size - 1px) * 2.5 * $padding-ratio;
-            padding-right: ($size - 1px) * 2.5 * $padding-ratio;
-
-            &.p-xs {
-                padding-left: ($size - 1px) * 1.5 * $padding-ratio;
-                padding-right: ($size - 1px) * 1.5 * $padding-ratio;
-            }
-
-            &.p-sm {
-                padding-left: ($size - 1px) * 2 * $padding-ratio;
-                padding-right: ($size - 1px) * 2 * $padding-ratio;
-            }
-
-            &.p-lg {
-                padding-left: ($size - 1px) * 3 * $padding-ratio;
-                padding-right: ($size - 1px) * 3 * $padding-ratio;
-            }
-
-            &.p-xl {
-                padding-left: ($size - 1px) * 3.5 * $padding-ratio;
-                padding-right: ($size - 1px) * 3.5 * $padding-ratio;
-            }
-        }
-    }
 }
 
 @mixin datetime-size($size, $padding: 0) {
@@ -125,35 +71,35 @@
                 ($size * 0.125rem * $form-line-height + $form-bd-width * 2)
         );
     }
+}
 
+@mixin form-shape($size) {
     @if $form-shape == "pill" {
-        padding-left: ($size - 1px) * 2.5 * $padding-ratio;
-        padding-right: ($size - 1px) * 2.5 * $padding-ratio;
+        &:not(.angular):not([class^="br-"]):not([class*=" br-"]) {
+            padding-left: ($size - 1px) * 2.5 * $padding-ratio;
+            padding-right: ($size - 1px) * 2.5 * $padding-ratio;
 
-        &.p-xs {
-            padding-left: ($size - 1px) * 1.5 * $padding-ratio;
-            padding-right: ($size - 1px) * 1.5 * $padding-ratio;
-        }
+            &.p-xs {
+                padding-left: ($size - 1px) * 1.5 * $padding-ratio;
+                padding-right: ($size - 1px) * 1.5 * $padding-ratio;
+            }
 
-        &.p-sm {
-            padding-left: ($size - 1px) * 2 * $padding-ratio;
-            padding-right: ($size - 1px) * 2 * $padding-ratio;
-        }
+            &.p-sm {
+                padding-left: ($size - 1px) * 2 * $padding-ratio;
+                padding-right: ($size - 1px) * 2 * $padding-ratio;
+            }
 
-        &.p-lg {
-            padding-left: ($size - 1px) * 3 * $padding-ratio;
-            padding-right: ($size - 1px) * 3 * $padding-ratio;
-        }
+            &.p-lg {
+                padding-left: ($size - 1px) * 3 * $padding-ratio;
+                padding-right: ($size - 1px) * 3 * $padding-ratio;
+            }
 
-        &.p-xl {
-            padding-left: ($size - 1px) * 3.5 * $padding-ratio;
-            padding-right: ($size - 1px) * 3.5 * $padding-ratio;
+            &.p-xl {
+                padding-left: ($size - 1px) * 3.5 * $padding-ratio;
+                padding-right: ($size - 1px) * 3.5 * $padding-ratio;
+            }
         }
     } @else {
-        @if $form-shape != "angular" {
-            border-radius: $size * 1px * $border-radius-ratio;
-        }
-
         &.pill {
             padding-left: ($size - 1px) * 2.5 * $padding-ratio;
             padding-right: ($size - 1px) * 2.5 * $padding-ratio;
@@ -221,6 +167,8 @@ textarea.form {
         border-radius: 9999px;
     } @else if $form-shape == "angular" {
         border-radius: 0;
+    } @else {
+        border-radius: 0.5em * $border-radius-ratio;
     }
 
     @include input-size(8);
@@ -271,6 +219,8 @@ input[type="week"].form {
         border-radius: 9999px;
     } @else if $form-shape == "angular" {
         border-radius: 0;
+    } @else {
+        border-radius: 0.5em * $border-radius-ratio;
     }
 
     @include datetime-size(8, -1);
@@ -293,6 +243,51 @@ input[type="week"].form {
 
     &.xl {
         @include datetime-size(10, -1);
+    }
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"],
+.form input[type="number"],
+.form input[type="tel"],
+.form input[type="url"],
+.form input[type="search"],
+.form textarea,
+input[type="text"].form,
+input[type="email"].form,
+input[type="password"].form,
+input[type="number"].form,
+input[type="tel"].form,
+input[type="url"].form,
+input[type="search"].form,
+textarea.form,
+.form input[type="date"],
+.form input[type="datetime-local"],
+.form input[type="month"],
+.form input[type="time"],
+.form input[type="week"],
+input[type="date"].form,
+input[type="datetime-local"].form,
+input[type="month"].form,
+input[type="time"].form,
+input[type="week"].form {
+    @include form-shape(8);
+
+    &.xs {
+        @include form-shape(6);
+    }
+
+    &.sm {
+        @include form-shape(7);
+    }
+
+    &.lg {
+        @include form-shape(9);
+    }
+
+    &.xl {
+        @include form-shape(10);
     }
 }
 

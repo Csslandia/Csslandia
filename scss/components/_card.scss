@@ -1,7 +1,7 @@
 .card {
     display: block;
     background-color: var(--bg-medium);
-    border-radius: 12px * $border-radius-ratio;
+    border-radius: 0.75em * $border-radius-ratio;
     overflow: hidden;
     max-width: 100%;
 

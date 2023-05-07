@@ -1,6 +1,6 @@
 .flip-card {
     display: block;
-    border-radius: 12px * $border-radius-ratio;
+    border-radius: 0.75em * $border-radius-ratio;
     width: 100%;
     position: relative;
     transition: transform 0.4s * $transition-ratio ease-in-out;
@@ -9,7 +9,7 @@
     & > * {
         display: block;
         background-color: var(--bg-medium);
-        border-radius: 12px * $border-radius-ratio;
+        border-radius: inherit;
         width: 100%;
         height: 100%;
         backface-visibility: hidden;
@@ -31,5 +31,5 @@
 }
 
 :has(> .flip-card) {
-    perspective: 1000px;
+    perspective: 2000px;
 }

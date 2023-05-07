@@ -5,14 +5,13 @@
         overflow-x: auto;
         -ms-overflow-style: none;
         scrollbar-width: none;
-        padding-right: 16px * $border-radius-ratio;
-
-        @supports not selector(:has(*)) {
-            padding-left: 8px * $border-radius-ratio;
-        }
 
         &::-webkit-scrollbar {
             display: none;
+        }
+
+        & > :last-child {
+            margin-right: 1em * $border-radius-ratio;
         }
 
         & > * {
@@ -31,8 +30,8 @@
                     background-color: inherit !important;
                     display: block;
                     position: absolute;
-                    width: 8px * $border-radius-ratio;
-                    height: 8px * $border-radius-ratio;
+                    width: 0.5em * $border-radius-ratio;
+                    height: 0.5em * $border-radius-ratio;
                     bottom: -0.1rem;
                     z-index: 0;
                     mask-repeat: no-repeat;
@@ -42,16 +41,16 @@
                 }
 
                 &:not(:first-child)::before {
-                    left: calc(-8px * $border-radius-ratio - 0.1rem);
+                    left: calc(-0.5em * $border-radius-ratio - 0.1rem);
                     mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m16,0v16H0c8.84,0,16-7.16,16-16Z"/></svg>');
                     -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m16,0v16H0c8.84,0,16-7.16,16-16Z"/></svg>');
-                  }
+                }
 
                 &::after {
-                    right: calc(-8px * $border-radius-ratio - 0.1rem);
+                    right: calc(-0.5em * $border-radius-ratio - 0.1rem);
                     mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m0,0v16h16C7.16,16,0,8.84,0,0Z"/></svg>');
                     -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m0,0v16h16C7.16,16,0,8.84,0,0Z"/></svg>');
-                 }
+                }
 
                 &:hover,
                 &:focus,
@@ -62,15 +61,21 @@
         }
     }
     & > *:not(:first-child) {
-        border-radius: 8px * $border-radius-ratio;
+        border-radius: 0.5em * $border-radius-ratio;
         padding: 8px * $padding-ratio 12px * $padding-ratio;
     }
 
-    &:has(:first-child > :first-child.bg),
-    &:has(:first-child > :first-child[class^="bg-"]),
-    &:has(:first-child > :first-child[class*=" bg-"]) {
+    &:has(> :first-child > :first-child.bg),
+    &:has(> :first-child > :first-child[class^="bg-"]),
+    &:has(> :first-child > :first-child[class*=" bg-"]) {
         & > *:not(:first-child) {
             border-top-left-radius: 0px !important;
+        }
+    }
+
+    @supports not selector(:has(*)) {
+        & > :first-child > :first-child {
+            margin-left: 0.5em * $border-radius-ratio;
         }
     }
 }

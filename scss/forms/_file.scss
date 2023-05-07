@@ -2,10 +2,6 @@
     padding-right: calc(($size - 1) * 2px * $padding-ratio + $form-bd-width);
     font-size: $size * 0.125rem;
 
-    @if $form-shape != "pill" and $form-shape != "angular" {
-        border-radius: $size * 1px * $border-radius-ratio;
-    }
-
     &::file-selector-button {
         font-size: $size * 0.125rem;
         margin-right: ($size - 1) * 2px * $padding-ratio;
@@ -131,6 +127,8 @@ input[type="file"].form {
         border-radius: 9999px;
     } @else if $form-shape == "angular" {
         border-radius: 0;
+    } @else {
+        border-radius: 0.5em * $border-radius-ratio;
     }
 
     &::file-selector-button {

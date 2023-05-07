@@ -1,18 +1,29 @@
 @mixin select-size($size) {
-    background-size: $size * 0.125rem;
     background-position: right ($size * 2px - 2px) * $padding-ratio center;
     padding-right: ($size - 1px) * 4 * $padding-ratio + $size;
+}
 
+@mixin select-shape($size) {
     @if $form-shape == "pill" {
-        padding-left: ($size - 1) * 2.5px * $padding-ratio;
-        padding-right: ($size - 1) * 4.5px * $padding-ratio + $size;
-        background-position: right ($size - 1) * 2.5px * $padding-ratio center;
-    }
-
-    &.pill {
-        padding-left: ($size - 1) * 2.5px * $padding-ratio;
-        padding-right: ($size - 1) * 4.5px * $padding-ratio + $size;
-        background-position: right ($size - 1) * 2.5px * $padding-ratio center;
+        &:not(.angular):not([class^="br-"]):not([class*=" br-"]) {
+            padding-left: ($size - 1) * 2.5px * $padding-ratio;
+            padding-right: ($size - 1) * 4.5px * $padding-ratio + $size;
+            background-position: right
+                ($size - 1) *
+                2.5px *
+                $padding-ratio
+                center;
+        }
+    } @else {
+        &.pill {
+            padding-left: ($size - 1) * 2.5px * $padding-ratio;
+            padding-right: ($size - 1) * 4.5px * $padding-ratio + $size;
+            background-position: right
+                ($size - 1) *
+                2.5px *
+                $padding-ratio
+                center;
+        }
     }
 }
 
@@ -20,6 +31,7 @@
 .group select,
 select.form {
     cursor: pointer;
+    background-size: 1em;
     background-repeat: no-repeat;
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="%23222"><path d="M10.4,11.21l-3.32-2.67c-1.03-.83-.44-2.49,.88-2.49h6.64c1.32,0,1.91,1.66,.88,2.49l-3.32,2.67c-.51,.41-1.24,.41-1.76,0Z"/></svg>');
 
@@ -47,6 +59,27 @@ select.form {
 
     &.xl {
         @include select-size(10);
+    }
+}
+
+.form select,
+select.form {
+    @include select-shape(8);
+
+    &.xs {
+        @include select-shape(6);
+    }
+
+    &.sm {
+        @include select-shape(7);
+    }
+
+    &.lg {
+        @include select-shape(9);
+    }
+
+    &.xl {
+        @include select-shape(10);
     }
 }
 

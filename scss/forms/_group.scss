@@ -1,3 +1,28 @@
+@mixin pill($size) {
+    &:first-child {
+        padding-left: $size * 2.5px * $padding-ratio !important;
+    }
+
+    &:last-child {
+        padding-right: $size * 2.5px * $padding-ratio !important;
+
+        &:is(select) {
+            padding-right: $size * 4.5px * $padding-ratio + $size + 1 !important;
+            background-position: right $size * 2.5px * $padding-ratio center;
+        }
+    }
+}
+
+@mixin pill-button($size) {
+    &:first-child {
+        padding-left: $size * 2.5px * $padding-ratio !important;
+    }
+
+    &:last-child {
+        padding-right: $size * 2.5px * $padding-ratio !important;
+    }
+}
+
 .group {
     display: flex !important;
     align-items: stretch;
@@ -35,20 +60,6 @@
     }
 }
 
-@mixin pill($size) {
-    &:first-child {
-        padding-left: $size * 2.5px * $padding-ratio !important;
-    }
-
-    &:last-child {
-        padding-right: $size * 2.5px * $padding-ratio !important;
-
-        &:is(select) {
-            padding-right: $size * 4.5px * $padding-ratio + $size + 1 !important;
-        }
-    }
-}
-
 .group.pill > * {
     &:first-child {
         border-top-left-radius: 9999px !important;
@@ -59,76 +70,114 @@
         border-top-right-radius: 9999px !important;
         border-bottom-right-radius: 9999px !important;
     }
+}
 
-    @include pill(7);
+@if $form-shape == "pill" {
+    .group:not(.angular):not([class^="br-"]):not([class*=" br-"]) {
+        &
+            > :not(input[type="button"]):not(input[type="submit"]):not(
+                input[type="reset"]
+            ):not(button):not(.b):not(.btn):not(.button) {
+            @include pill(7);
 
-    &.xs {
-        @include pill(5);
+            &.xs {
+                @include pill(5);
+            }
+
+            &.sm {
+                @include pill(6);
+            }
+
+            &.lg {
+                @include pill(8);
+            }
+
+            &.xl {
+                @include pill(9);
+            }
+        }
     }
+} @else {
+    .group.pill {
+        &
+            > :not(input[type="button"]):not(input[type="submit"]):not(
+                input[type="reset"]
+            ):not(button):not(.b):not(.btn):not(.button) {
+            @include pill(7);
 
-    &.sm {
-        @include pill(6);
-    }
+            &.xs {
+                @include pill(5);
+            }
 
-    &.lg {
-        @include pill(8);
-    }
+            &.sm {
+                @include pill(6);
+            }
 
-    &.xl {
-        @include pill(9);
+            &.lg {
+                @include pill(8);
+            }
+
+            &.xl {
+                @include pill(9);
+            }
+        }
     }
 }
 
 @if $button-shape == "pill" {
-    .group > input[type="button"],
-    .group > input[type="submit"],
-    .group > input[type="reset"],
-    .group > button,
-    .group > .b,
-    .group > .btn,
-    .group > .button {
-        @include pill(6);
+    .group:not(.angular):not([class^="br-"]):not([class*=" br-"]) {
+        & > input[type="button"],
+        & > input[type="submit"],
+        & > input[type="reset"],
+        & > button,
+        & > .b,
+        & > .btn,
+        & > .button {
+            @include pill-button(6);
 
-        &.xs {
-            @include pill(4);
-        }
+            &.xs {
+                @include pill-button(4);
+            }
 
-        &.sm {
-            @include pill(5);
-        }
+            &.sm {
+                @include pill-button(5);
+            }
 
-        &.lg {
-            @include pill(7);
-        }
+            &.lg {
+                @include pill-button(7);
+            }
 
-        &.xl {
-            @include pill(8);
+            &.xl {
+                @include pill-button(8);
+            }
         }
     }
 } @else {
-    .group.pill > input[type="button"],
-    .group.pill > input[type="submit"],
-    .group.pill > input[type="reset"],
-    .group.pill > button,
-    .group.pill > .b,
-    .group.pill > .btn,
-    .group.pill > .button {
-        @include pill(6);
+    .group.pill {
+        & > input[type="button"],
+        & > input[type="submit"],
+        & > input[type="reset"],
+        & > button,
+        & > .b,
+        & > .btn,
+        & > .button {
+            @include pill-button(6);
 
-        &.xs {
-            @include pill(4);
-        }
+            &.xs {
+                @include pill-button(4);
+            }
 
-        &.sm {
-            @include pill(5);
-        }
+            &.sm {
+                @include pill-button(5);
+            }
 
-        &.lg {
-            @include pill(7);
-        }
+            &.lg {
+                @include pill-button(7);
+            }
 
-        &.xl {
-            @include pill(8);
+            &.xl {
+                @include pill-button(8);
+            }
         }
-    } 
+    }
 }

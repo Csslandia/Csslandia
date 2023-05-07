@@ -21,7 +21,7 @@ label {
     border-color: var(--verify-c, #f00) !important;
 }
 
-.form {
+form.form {
     & > :not(:last-child) {
         margin-bottom: $form-space;
     }
@@ -30,14 +30,13 @@ label {
 .horizontal {
     & > * {
         display: flex;
-        // flex-wrap: wrap;
         align-items: center;
 
         & > :first-child,
         & > :not(:last-child) {
             margin-right: 8px;
         }
-        
+
         & > label {
             width: 120px;
             max-width: 33%;
@@ -59,7 +58,6 @@ label {
         textarea {
             flex-grow: 1;
             flex-basis: min-content;
-            // width: fit-content
         }
     }
 }

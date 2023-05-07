@@ -88,6 +88,7 @@ a:where(:hover, :focus, :active) {
 
 :where(h1, h2, h3, h4, h5, h6, th) {
   color: var(--c-strong);
+  font-weight: 600;
 }
 
 [class^=c-] :where(a), [class^=c-] a:where(:hover, :focus, :active), [class^=c-] :where(h1, h2, h3, h4, h5, h6, th),
@@ -176,7 +177,7 @@ html.dark [disabled] {
   justify-content: space-between;
   align-items: center;
   background-color: var(--bg-medium);
-  border-radius: 8px;
+  border-radius: 0.5em;
   border: 0.1rem solid transparent;
   padding: 13px 18px 12px;
 }
@@ -269,7 +270,7 @@ body:has(.canvas.open) {
 .card {
   display: block;
   background-color: var(--bg-medium);
-  border-radius: 12px;
+  border-radius: 0.75em;
   overflow: hidden;
   max-width: 100%;
 }
@@ -512,7 +513,7 @@ body:has(.canvas.open) {
   position: absolute;
   width: fit-content;
   background-color: var(--bg-medium);
-  border-radius: 7px;
+  border-radius: 0.5em;
   font-size: 0.9375rem;
   overflow: hidden;
 }
@@ -1338,7 +1339,7 @@ body:has(.canvas.open) {
 }
 .flip-card {
   display: block;
-  border-radius: 12px;
+  border-radius: 0.75em;
   width: 100%;
   position: relative;
   transition: transform 0.4s ease-in-out;
@@ -1347,7 +1348,7 @@ body:has(.canvas.open) {
 .flip-card > * {
   display: block;
   background-color: var(--bg-medium);
-  border-radius: 12px;
+  border-radius: inherit;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
@@ -1364,7 +1365,7 @@ body:has(.canvas.open) {
 }
 
 :has(> .flip-card) {
-  perspective: 1000px;
+  perspective: 2000px;
 }
 
 .folder {
@@ -1448,7 +1449,7 @@ body:has(.canvas.open) {
 
 .frame {
   background-color: var(--bg-medium);
-  border-radius: 12px;
+  border-radius: 0.75em;
   overflow: hidden;
 }
 .frame > img {
@@ -1470,6 +1471,9 @@ body:has(.canvas.open) {
   }
   .frame > :not(img) {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     flex-grow: 1;
   }
   .frame > img {
@@ -1598,7 +1602,7 @@ body:has(.canvas.open) {
 
 .list {
   display: block;
-  border-radius: 9px;
+  border-radius: 0.6em;
   background-color: var(--bg-medium);
   overflow: hidden;
   width: fit-content;
@@ -1680,7 +1684,7 @@ body:has(.canvas.open) {
   max-width: calc(100vw - 32px);
   margin: 40px auto;
   background-color: var(--bg-strong);
-  border-radius: 12px;
+  border-radius: 0.75em;
   max-height: calc(100vh - 80px);
   max-height: calc(100dvh - 80px);
   height: fit-content;
@@ -1841,18 +1845,20 @@ body:has(.modal.open) {
 .pagination {
   display: flex !important;
   width: fit-content;
-  border-radius: 7px;
+  border-radius: 0.5em;
   max-width: 100%;
   overflow-x: auto;
   border-color: transparent;
   border-style: unset !important;
+  font-size: 1rem;
+  font-weight: 500;
 }
 .pagination > * {
+  font-size: inherit;
+  font-weight: inherit;
   display: inline-block;
-  font-size: 1rem;
   line-height: 1.5;
   padding: 5.5px 14px 4.5px;
-  font-weight: 500;
   white-space: nowrap;
   user-select: none;
   border-width: 0.1rem;
@@ -1887,10 +1893,9 @@ body:has(.modal.open) {
   padding-right: 17.5px;
 }
 .pagination.xs {
-  border-radius: 5px;
+  font-size: 0.75rem;
 }
 .pagination.xs > * {
-  font-size: 0.75rem;
   padding: 3.5px 10px 2.5px;
 }
 .pagination.xs.pill > :first-child {
@@ -1900,10 +1905,9 @@ body:has(.modal.open) {
   padding-right: 12.5px;
 }
 .pagination.sm {
-  border-radius: 6px;
+  font-size: 0.875rem;
 }
 .pagination.sm > * {
-  font-size: 0.875rem;
   padding: 4.5px 12px 3.5px;
 }
 .pagination.sm.pill > :first-child {
@@ -1913,10 +1917,9 @@ body:has(.modal.open) {
   padding-right: 15px;
 }
 .pagination.lg {
-  border-radius: 8px;
+  font-size: 1.125rem;
 }
 .pagination.lg > * {
-  font-size: 1.125rem;
   padding: 6.5px 16px 5.5px;
 }
 .pagination.lg.pill > :first-child {
@@ -1926,10 +1929,9 @@ body:has(.modal.open) {
   padding-right: 20px;
 }
 .pagination.xl {
-  border-radius: 9px;
+  font-size: 1.25rem;
 }
 .pagination.xl > * {
-  font-size: 1.25rem;
   padding: 7.5px 18px 6.5px;
 }
 .pagination.xl.pill > :first-child {
@@ -2315,15 +2317,12 @@ progress::-moz-progress-bar {
   overflow-x: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  padding-right: 16px;
-}
-@supports not selector(:has(*)) {
-  .tabs > :first-child {
-    padding-left: 8px;
-  }
 }
 .tabs > :first-child::-webkit-scrollbar {
   display: none;
+}
+.tabs > :first-child > :last-child {
+  margin-right: 1em;
 }
 .tabs > :first-child > * {
   border-bottom-left-radius: 0 !important;
@@ -2339,8 +2338,8 @@ progress::-moz-progress-bar {
   background-color: inherit !important;
   display: block;
   position: absolute;
-  width: 8px;
-  height: 8px;
+  width: 0.5em;
+  height: 0.5em;
   bottom: -0.1rem;
   z-index: 0;
   mask-repeat: no-repeat;
@@ -2349,12 +2348,12 @@ progress::-moz-progress-bar {
   -webkit-mask-position: center;
 }
 .tabs > :first-child > *[class^=bg]:not(:first-child)::before, .tabs > :first-child > *[class*=" bg"]:not(:first-child)::before {
-  left: calc(-8px - 0.1rem);
+  left: calc(-0.5em - 0.1rem);
   mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m16,0v16H0c8.84,0,16-7.16,16-16Z"/></svg>');
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m16,0v16H0c8.84,0,16-7.16,16-16Z"/></svg>');
 }
 .tabs > :first-child > *[class^=bg]::after, .tabs > :first-child > *[class*=" bg"]::after {
-  right: calc(-8px - 0.1rem);
+  right: calc(-0.5em - 0.1rem);
   mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m0,0v16h16C7.16,16,0,8.84,0,0Z"/></svg>');
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m0,0v16h16C7.16,16,0,8.84,0,0Z"/></svg>');
 }
@@ -2362,11 +2361,16 @@ progress::-moz-progress-bar {
   outline: none !important;
 }
 .tabs > *:not(:first-child) {
-  border-radius: 8px;
+  border-radius: 0.5em;
   padding: 8px 12px;
 }
-.tabs:has(:first-child > :first-child.bg) > *:not(:first-child), .tabs:has(:first-child > :first-child[class^=bg-]) > *:not(:first-child), .tabs:has(:first-child > :first-child[class*=" bg-"]) > *:not(:first-child) {
+.tabs:has(> :first-child > :first-child.bg) > *:not(:first-child), .tabs:has(> :first-child > :first-child[class^=bg-]) > *:not(:first-child), .tabs:has(> :first-child > :first-child[class*=" bg-"]) > *:not(:first-child) {
   border-top-left-radius: 0px !important;
+}
+@supports not selector(:has(*)) {
+  .tabs > :first-child > :first-child {
+    margin-left: 0.5em;
+  }
 }
 
 [data-tooltip] {
@@ -2392,7 +2396,7 @@ progress::-moz-progress-bar {
   pointer-events: none;
   white-space: nowrap;
   padding: 7px 12px;
-  border-radius: 7px;
+  border-radius: 0.5em;
   background-color: var(--tooltip-bg, var(--bg-soft));
   color: var(--tooltip-c, var(--c-soft));
 }
@@ -2504,7 +2508,7 @@ label > input[type=checkbox], label > input[type=radio] {
   border-color: var(--verify-c, #f00) !important;
 }
 
-.form > :not(:last-child) {
+form.form > :not(:last-child) {
   margin-bottom: 8px;
 }
 
@@ -2564,6 +2568,7 @@ button.form,
   border: 0.1rem solid transparent;
   user-select: none;
   transition: transform 0.25s;
+  border-radius: 0.5em;
   font-size: 0.9375rem;
   padding: 4.75px 12px 3.75px;
 }
@@ -3074,20 +3079,6 @@ button.form.d3:active,
   outline: none;
 }
 
-.tabs > :first-child > *,
-.form input[type=button],
-.form input[type=submit],
-.form input[type=reset],
-.form button,
-input[type=button].form,
-input[type=submit].form,
-input[type=reset].form,
-button.form,
-.b,
-.btn,
-.button {
-  border-radius: 7px;
-}
 .tabs > :first-child > *.pill,
 .form input[type=button].pill,
 .form input[type=submit].pill,
@@ -3097,9 +3088,9 @@ input[type=button].form.pill,
 input[type=submit].form.pill,
 input[type=reset].form.pill,
 button.form.pill,
-.b.pill,
-.btn.pill,
-.button.pill {
+:not(.group) > .b.pill,
+:not(.group) > .btn.pill,
+:not(.group) > .button.pill {
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -3112,9 +3103,9 @@ input[type=button].form.pill.p-xs,
 input[type=submit].form.pill.p-xs,
 input[type=reset].form.pill.p-xs,
 button.form.pill.p-xs,
-.b.pill.p-xs,
-.btn.pill.p-xs,
-.button.pill.p-xs {
+:not(.group) > .b.pill.p-xs,
+:not(.group) > .btn.pill.p-xs,
+:not(.group) > .button.pill.p-xs {
   padding-left: 9px;
   padding-right: 9px;
 }
@@ -3127,9 +3118,9 @@ input[type=button].form.pill.p-sm,
 input[type=submit].form.pill.p-sm,
 input[type=reset].form.pill.p-sm,
 button.form.pill.p-sm,
-.b.pill.p-sm,
-.btn.pill.p-sm,
-.button.pill.p-sm {
+:not(.group) > .b.pill.p-sm,
+:not(.group) > .btn.pill.p-sm,
+:not(.group) > .button.pill.p-sm {
   padding-left: 12px;
   padding-right: 12px;
 }
@@ -3142,9 +3133,9 @@ input[type=button].form.pill.p-lg,
 input[type=submit].form.pill.p-lg,
 input[type=reset].form.pill.p-lg,
 button.form.pill.p-lg,
-.b.pill.p-lg,
-.btn.pill.p-lg,
-.button.pill.p-lg {
+:not(.group) > .b.pill.p-lg,
+:not(.group) > .btn.pill.p-lg,
+:not(.group) > .button.pill.p-lg {
   padding-left: 18px;
   padding-right: 18px;
 }
@@ -3157,25 +3148,11 @@ input[type=button].form.pill.p-xl,
 input[type=submit].form.pill.p-xl,
 input[type=reset].form.pill.p-xl,
 button.form.pill.p-xl,
-.b.pill.p-xl,
-.btn.pill.p-xl,
-.button.pill.p-xl {
+:not(.group) > .b.pill.p-xl,
+:not(.group) > .btn.pill.p-xl,
+:not(.group) > .button.pill.p-xl {
   padding-left: 21px;
   padding-right: 21px;
-}
-.tabs > :first-child > *.xs,
-.form input[type=button].xs,
-.form input[type=submit].xs,
-.form input[type=reset].xs,
-.form button.xs,
-input[type=button].form.xs,
-input[type=submit].form.xs,
-input[type=reset].form.xs,
-button.form.xs,
-.b.xs,
-.btn.xs,
-.button.xs {
-  border-radius: 5px;
 }
 .tabs > :first-child > *.xs.pill,
 .form input[type=button].xs.pill,
@@ -3186,9 +3163,9 @@ input[type=button].form.xs.pill,
 input[type=submit].form.xs.pill,
 input[type=reset].form.xs.pill,
 button.form.xs.pill,
-.b.xs.pill,
-.btn.xs.pill,
-.button.xs.pill {
+:not(.group) > .b.xs.pill,
+:not(.group) > .btn.xs.pill,
+:not(.group) > .button.xs.pill {
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -3201,9 +3178,9 @@ input[type=button].form.xs.pill.p-xs,
 input[type=submit].form.xs.pill.p-xs,
 input[type=reset].form.xs.pill.p-xs,
 button.form.xs.pill.p-xs,
-.b.xs.pill.p-xs,
-.btn.xs.pill.p-xs,
-.button.xs.pill.p-xs {
+:not(.group) > .b.xs.pill.p-xs,
+:not(.group) > .btn.xs.pill.p-xs,
+:not(.group) > .button.xs.pill.p-xs {
   padding-left: 6px;
   padding-right: 6px;
 }
@@ -3216,9 +3193,9 @@ input[type=button].form.xs.pill.p-sm,
 input[type=submit].form.xs.pill.p-sm,
 input[type=reset].form.xs.pill.p-sm,
 button.form.xs.pill.p-sm,
-.b.xs.pill.p-sm,
-.btn.xs.pill.p-sm,
-.button.xs.pill.p-sm {
+:not(.group) > .b.xs.pill.p-sm,
+:not(.group) > .btn.xs.pill.p-sm,
+:not(.group) > .button.xs.pill.p-sm {
   padding-left: 8px;
   padding-right: 8px;
 }
@@ -3231,9 +3208,9 @@ input[type=button].form.xs.pill.p-lg,
 input[type=submit].form.xs.pill.p-lg,
 input[type=reset].form.xs.pill.p-lg,
 button.form.xs.pill.p-lg,
-.b.xs.pill.p-lg,
-.btn.xs.pill.p-lg,
-.button.xs.pill.p-lg {
+:not(.group) > .b.xs.pill.p-lg,
+:not(.group) > .btn.xs.pill.p-lg,
+:not(.group) > .button.xs.pill.p-lg {
   padding-left: 12px;
   padding-right: 12px;
 }
@@ -3246,25 +3223,11 @@ input[type=button].form.xs.pill.p-xl,
 input[type=submit].form.xs.pill.p-xl,
 input[type=reset].form.xs.pill.p-xl,
 button.form.xs.pill.p-xl,
-.b.xs.pill.p-xl,
-.btn.xs.pill.p-xl,
-.button.xs.pill.p-xl {
+:not(.group) > .b.xs.pill.p-xl,
+:not(.group) > .btn.xs.pill.p-xl,
+:not(.group) > .button.xs.pill.p-xl {
   padding-left: 14px;
   padding-right: 14px;
-}
-.tabs > :first-child > *.sm,
-.form input[type=button].sm,
-.form input[type=submit].sm,
-.form input[type=reset].sm,
-.form button.sm,
-input[type=button].form.sm,
-input[type=submit].form.sm,
-input[type=reset].form.sm,
-button.form.sm,
-.b.sm,
-.btn.sm,
-.button.sm {
-  border-radius: 6px;
 }
 .tabs > :first-child > *.sm.pill,
 .form input[type=button].sm.pill,
@@ -3275,9 +3238,9 @@ input[type=button].form.sm.pill,
 input[type=submit].form.sm.pill,
 input[type=reset].form.sm.pill,
 button.form.sm.pill,
-.b.sm.pill,
-.btn.sm.pill,
-.button.sm.pill {
+:not(.group) > .b.sm.pill,
+:not(.group) > .btn.sm.pill,
+:not(.group) > .button.sm.pill {
   padding-left: 12.5px;
   padding-right: 12.5px;
 }
@@ -3290,9 +3253,9 @@ input[type=button].form.sm.pill.p-xs,
 input[type=submit].form.sm.pill.p-xs,
 input[type=reset].form.sm.pill.p-xs,
 button.form.sm.pill.p-xs,
-.b.sm.pill.p-xs,
-.btn.sm.pill.p-xs,
-.button.sm.pill.p-xs {
+:not(.group) > .b.sm.pill.p-xs,
+:not(.group) > .btn.sm.pill.p-xs,
+:not(.group) > .button.sm.pill.p-xs {
   padding-left: 7.5px;
   padding-right: 7.5px;
 }
@@ -3305,9 +3268,9 @@ input[type=button].form.sm.pill.p-sm,
 input[type=submit].form.sm.pill.p-sm,
 input[type=reset].form.sm.pill.p-sm,
 button.form.sm.pill.p-sm,
-.b.sm.pill.p-sm,
-.btn.sm.pill.p-sm,
-.button.sm.pill.p-sm {
+:not(.group) > .b.sm.pill.p-sm,
+:not(.group) > .btn.sm.pill.p-sm,
+:not(.group) > .button.sm.pill.p-sm {
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -3320,9 +3283,9 @@ input[type=button].form.sm.pill.p-lg,
 input[type=submit].form.sm.pill.p-lg,
 input[type=reset].form.sm.pill.p-lg,
 button.form.sm.pill.p-lg,
-.b.sm.pill.p-lg,
-.btn.sm.pill.p-lg,
-.button.sm.pill.p-lg {
+:not(.group) > .b.sm.pill.p-lg,
+:not(.group) > .btn.sm.pill.p-lg,
+:not(.group) > .button.sm.pill.p-lg {
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -3335,25 +3298,11 @@ input[type=button].form.sm.pill.p-xl,
 input[type=submit].form.sm.pill.p-xl,
 input[type=reset].form.sm.pill.p-xl,
 button.form.sm.pill.p-xl,
-.b.sm.pill.p-xl,
-.btn.sm.pill.p-xl,
-.button.sm.pill.p-xl {
+:not(.group) > .b.sm.pill.p-xl,
+:not(.group) > .btn.sm.pill.p-xl,
+:not(.group) > .button.sm.pill.p-xl {
   padding-left: 17.5px;
   padding-right: 17.5px;
-}
-.tabs > :first-child > *.lg,
-.form input[type=button].lg,
-.form input[type=submit].lg,
-.form input[type=reset].lg,
-.form button.lg,
-input[type=button].form.lg,
-input[type=submit].form.lg,
-input[type=reset].form.lg,
-button.form.lg,
-.b.lg,
-.btn.lg,
-.button.lg {
-  border-radius: 8px;
 }
 .tabs > :first-child > *.lg.pill,
 .form input[type=button].lg.pill,
@@ -3364,9 +3313,9 @@ input[type=button].form.lg.pill,
 input[type=submit].form.lg.pill,
 input[type=reset].form.lg.pill,
 button.form.lg.pill,
-.b.lg.pill,
-.btn.lg.pill,
-.button.lg.pill {
+:not(.group) > .b.lg.pill,
+:not(.group) > .btn.lg.pill,
+:not(.group) > .button.lg.pill {
   padding-left: 17.5px;
   padding-right: 17.5px;
 }
@@ -3379,9 +3328,9 @@ input[type=button].form.lg.pill.p-xs,
 input[type=submit].form.lg.pill.p-xs,
 input[type=reset].form.lg.pill.p-xs,
 button.form.lg.pill.p-xs,
-.b.lg.pill.p-xs,
-.btn.lg.pill.p-xs,
-.button.lg.pill.p-xs {
+:not(.group) > .b.lg.pill.p-xs,
+:not(.group) > .btn.lg.pill.p-xs,
+:not(.group) > .button.lg.pill.p-xs {
   padding-left: 10.5px;
   padding-right: 10.5px;
 }
@@ -3394,9 +3343,9 @@ input[type=button].form.lg.pill.p-sm,
 input[type=submit].form.lg.pill.p-sm,
 input[type=reset].form.lg.pill.p-sm,
 button.form.lg.pill.p-sm,
-.b.lg.pill.p-sm,
-.btn.lg.pill.p-sm,
-.button.lg.pill.p-sm {
+:not(.group) > .b.lg.pill.p-sm,
+:not(.group) > .btn.lg.pill.p-sm,
+:not(.group) > .button.lg.pill.p-sm {
   padding-left: 14px;
   padding-right: 14px;
 }
@@ -3409,9 +3358,9 @@ input[type=button].form.lg.pill.p-lg,
 input[type=submit].form.lg.pill.p-lg,
 input[type=reset].form.lg.pill.p-lg,
 button.form.lg.pill.p-lg,
-.b.lg.pill.p-lg,
-.btn.lg.pill.p-lg,
-.button.lg.pill.p-lg {
+:not(.group) > .b.lg.pill.p-lg,
+:not(.group) > .btn.lg.pill.p-lg,
+:not(.group) > .button.lg.pill.p-lg {
   padding-left: 21px;
   padding-right: 21px;
 }
@@ -3424,25 +3373,11 @@ input[type=button].form.lg.pill.p-xl,
 input[type=submit].form.lg.pill.p-xl,
 input[type=reset].form.lg.pill.p-xl,
 button.form.lg.pill.p-xl,
-.b.lg.pill.p-xl,
-.btn.lg.pill.p-xl,
-.button.lg.pill.p-xl {
+:not(.group) > .b.lg.pill.p-xl,
+:not(.group) > .btn.lg.pill.p-xl,
+:not(.group) > .button.lg.pill.p-xl {
   padding-left: 24.5px;
   padding-right: 24.5px;
-}
-.tabs > :first-child > *.xl,
-.form input[type=button].xl,
-.form input[type=submit].xl,
-.form input[type=reset].xl,
-.form button.xl,
-input[type=button].form.xl,
-input[type=submit].form.xl,
-input[type=reset].form.xl,
-button.form.xl,
-.b.xl,
-.btn.xl,
-.button.xl {
-  border-radius: 9px;
 }
 .tabs > :first-child > *.xl.pill,
 .form input[type=button].xl.pill,
@@ -3453,9 +3388,9 @@ input[type=button].form.xl.pill,
 input[type=submit].form.xl.pill,
 input[type=reset].form.xl.pill,
 button.form.xl.pill,
-.b.xl.pill,
-.btn.xl.pill,
-.button.xl.pill {
+:not(.group) > .b.xl.pill,
+:not(.group) > .btn.xl.pill,
+:not(.group) > .button.xl.pill {
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -3468,9 +3403,9 @@ input[type=button].form.xl.pill.p-xs,
 input[type=submit].form.xl.pill.p-xs,
 input[type=reset].form.xl.pill.p-xs,
 button.form.xl.pill.p-xs,
-.b.xl.pill.p-xs,
-.btn.xl.pill.p-xs,
-.button.xl.pill.p-xs {
+:not(.group) > .b.xl.pill.p-xs,
+:not(.group) > .btn.xl.pill.p-xs,
+:not(.group) > .button.xl.pill.p-xs {
   padding-left: 12px;
   padding-right: 12px;
 }
@@ -3483,9 +3418,9 @@ input[type=button].form.xl.pill.p-sm,
 input[type=submit].form.xl.pill.p-sm,
 input[type=reset].form.xl.pill.p-sm,
 button.form.xl.pill.p-sm,
-.b.xl.pill.p-sm,
-.btn.xl.pill.p-sm,
-.button.xl.pill.p-sm {
+:not(.group) > .b.xl.pill.p-sm,
+:not(.group) > .btn.xl.pill.p-sm,
+:not(.group) > .button.xl.pill.p-sm {
   padding-left: 16px;
   padding-right: 16px;
 }
@@ -3498,9 +3433,9 @@ input[type=button].form.xl.pill.p-lg,
 input[type=submit].form.xl.pill.p-lg,
 input[type=reset].form.xl.pill.p-lg,
 button.form.xl.pill.p-lg,
-.b.xl.pill.p-lg,
-.btn.xl.pill.p-lg,
-.button.xl.pill.p-lg {
+:not(.group) > .b.xl.pill.p-lg,
+:not(.group) > .btn.xl.pill.p-lg,
+:not(.group) > .button.xl.pill.p-lg {
   padding-left: 24px;
   padding-right: 24px;
 }
@@ -3513,9 +3448,9 @@ input[type=button].form.xl.pill.p-xl,
 input[type=submit].form.xl.pill.p-xl,
 input[type=reset].form.xl.pill.p-xl,
 button.form.xl.pill.p-xl,
-.b.xl.pill.p-xl,
-.btn.xl.pill.p-xl,
-.button.xl.pill.p-xl {
+:not(.group) > .b.xl.pill.p-xl,
+:not(.group) > .btn.xl.pill.p-xl,
+:not(.group) > .button.xl.pill.p-xl {
   padding-left: 28px;
   padding-right: 28px;
 }
@@ -3592,9 +3527,30 @@ input[type=checkbox].form {
   cursor: pointer;
   padding: 0;
   border: 0.1rem solid transparent;
-  height: 24px;
-  width: 24px;
-  border-radius: 6px;
+  height: 1.5em;
+  width: 1.5em;
+  border-radius: 0.375em;
+  font-size: 1rem;
+}
+.form input[type=checkbox].xs,
+.group input[type=radio].xs,
+input[type=checkbox].form.xs {
+  font-size: 0.75rem;
+}
+.form input[type=checkbox].sm,
+.group input[type=radio].sm,
+input[type=checkbox].form.sm {
+  font-size: 0.875rem;
+}
+.form input[type=checkbox].lg,
+.group input[type=radio].lg,
+input[type=checkbox].form.lg {
+  font-size: 1.125rem;
+}
+.form input[type=checkbox].xl,
+.group input[type=radio].xl,
+input[type=checkbox].form.xl {
+  font-size: 1.25rem;
 }
 .form input[type=checkbox]:checked::before,
 .group input[type=radio]:checked::before,
@@ -3612,34 +3568,6 @@ input[type=checkbox].form:checked::before {
   -webkit-mask-position: center;
   mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M12.6,4.64c-.49-.49-1.28-.49-1.77,0l-4.07,4.07-1.59-1.59c-.49-.49-1.28-.49-1.77,0s-.49,1.28,0,1.77l2.47,2.47c.24,.24,.56,.37,.88,.37s.64-.12,.88-.37l4.95-4.95c.49-.49,.49-1.28,0-1.77Z"/></svg>');
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M12.6,4.64c-.49-.49-1.28-.49-1.77,0l-4.07,4.07-1.59-1.59c-.49-.49-1.28-.49-1.77,0s-.49,1.28,0,1.77l2.47,2.47c.24,.24,.56,.37,.88,.37s.64-.12,.88-.37l4.95-4.95c.49-.49,.49-1.28,0-1.77Z"/></svg>');
-}
-.form input[type=checkbox].xs,
-.group input[type=radio].xs,
-input[type=checkbox].form.xs {
-  height: 18px;
-  width: 18px;
-  border-radius: 4.5px;
-}
-.form input[type=checkbox].sm,
-.group input[type=radio].sm,
-input[type=checkbox].form.sm {
-  height: 21px;
-  width: 21px;
-  border-radius: 5.25px;
-}
-.form input[type=checkbox].lg,
-.group input[type=radio].lg,
-input[type=checkbox].form.lg {
-  height: 27px;
-  width: 27px;
-  border-radius: 6.75px;
-}
-.form input[type=checkbox].xl,
-.group input[type=radio].xl,
-input[type=checkbox].form.xl {
-  height: 30px;
-  width: 30px;
-  border-radius: 7.5px;
 }
 
 .form input[type=radio],
@@ -3998,9 +3926,9 @@ input[type=file].form {
   padding-bottom: 0;
   padding-left: 0;
   overflow: hidden;
+  border-radius: 0.5em;
   padding-right: calc(14px + 0.1rem);
   font-size: 1rem;
-  border-radius: 8px;
 }
 .form input[type=file]::file-selector-button,
 .group input[type=file]::file-selector-button,
@@ -4064,7 +3992,6 @@ input[type=file].form[class*=" bd"].pill::file-selector-button {
 input[type=file].form.xs {
   padding-right: calc(10px + 0.1rem);
   font-size: 0.75rem;
-  border-radius: 6px;
 }
 .form input[type=file].xs::file-selector-button,
 .group input[type=file].xs::file-selector-button,
@@ -4117,7 +4044,6 @@ input[type=file].form.xs[class*=" bd"].pill::file-selector-button {
 input[type=file].form.sm {
   padding-right: calc(12px + 0.1rem);
   font-size: 0.875rem;
-  border-radius: 7px;
 }
 .form input[type=file].sm::file-selector-button,
 .group input[type=file].sm::file-selector-button,
@@ -4170,7 +4096,6 @@ input[type=file].form.sm[class*=" bd"].pill::file-selector-button {
 input[type=file].form.lg {
   padding-right: calc(16px + 0.1rem);
   font-size: 1.125rem;
-  border-radius: 9px;
 }
 .form input[type=file].lg::file-selector-button,
 .group input[type=file].lg::file-selector-button,
@@ -4223,7 +4148,6 @@ input[type=file].form.lg[class*=" bd"].pill::file-selector-button {
 input[type=file].form.xl {
   padding-right: calc(18px + 0.1rem);
   font-size: 1.25rem;
-  border-radius: 10px;
 }
 .form input[type=file].xl::file-selector-button,
 .group input[type=file].xl::file-selector-button,
@@ -4311,186 +4235,87 @@ input[type=file].form.xl[class*=" bd"].pill::file-selector-button {
   border-top-right-radius: 9999px !important;
   border-bottom-right-radius: 9999px !important;
 }
-.group.pill > *:first-child {
+
+.group.pill > :not(input[type=button]):not(input[type=submit]):not(input[type=reset]):not(button):not(.b):not(.btn):not(.button):first-child {
   padding-left: 17.5px !important;
 }
-.group.pill > *:last-child {
+.group.pill > :not(input[type=button]):not(input[type=submit]):not(input[type=reset]):not(button):not(.b):not(.btn):not(.button):last-child {
   padding-right: 17.5px !important;
 }
-.group.pill > *:last-child:is(select) {
+.group.pill > :not(input[type=button]):not(input[type=submit]):not(input[type=reset]):not(button):not(.b):not(.btn):not(.button):last-child:is(select) {
   padding-right: 39.5px !important;
+  background-position: right 17.5px center;
 }
-.group.pill > *.xs:first-child {
+.group.pill > :not(input[type=button]):not(input[type=submit]):not(input[type=reset]):not(button):not(.b):not(.btn):not(.button).xs:first-child {
   padding-left: 12.5px !important;
 }
-.group.pill > *.xs:last-child {
+.group.pill > :not(input[type=button]):not(input[type=submit]):not(input[type=reset]):not(button):not(.b):not(.btn):not(.button).xs:last-child {
   padding-right: 12.5px !important;
 }
-.group.pill > *.xs:last-child:is(select) {
+.group.pill > :not(input[type=button]):not(input[type=submit]):not(input[type=reset]):not(button):not(.b):not(.btn):not(.button).xs:last-child:is(select) {
   padding-right: 28.5px !important;
+  background-position: right 12.5px center;
 }
-.group.pill > *.sm:first-child {
+.group.pill > :not(input[type=button]):not(input[type=submit]):not(input[type=reset]):not(button):not(.b):not(.btn):not(.button).sm:first-child {
   padding-left: 15px !important;
 }
-.group.pill > *.sm:last-child {
+.group.pill > :not(input[type=button]):not(input[type=submit]):not(input[type=reset]):not(button):not(.b):not(.btn):not(.button).sm:last-child {
   padding-right: 15px !important;
 }
-.group.pill > *.sm:last-child:is(select) {
+.group.pill > :not(input[type=button]):not(input[type=submit]):not(input[type=reset]):not(button):not(.b):not(.btn):not(.button).sm:last-child:is(select) {
   padding-right: 34px !important;
+  background-position: right 15px center;
 }
-.group.pill > *.lg:first-child {
+.group.pill > :not(input[type=button]):not(input[type=submit]):not(input[type=reset]):not(button):not(.b):not(.btn):not(.button).lg:first-child {
   padding-left: 20px !important;
 }
-.group.pill > *.lg:last-child {
+.group.pill > :not(input[type=button]):not(input[type=submit]):not(input[type=reset]):not(button):not(.b):not(.btn):not(.button).lg:last-child {
   padding-right: 20px !important;
 }
-.group.pill > *.lg:last-child:is(select) {
+.group.pill > :not(input[type=button]):not(input[type=submit]):not(input[type=reset]):not(button):not(.b):not(.btn):not(.button).lg:last-child:is(select) {
   padding-right: 45px !important;
+  background-position: right 20px center;
 }
-.group.pill > *.xl:first-child {
+.group.pill > :not(input[type=button]):not(input[type=submit]):not(input[type=reset]):not(button):not(.b):not(.btn):not(.button).xl:first-child {
   padding-left: 22.5px !important;
 }
-.group.pill > *.xl:last-child {
+.group.pill > :not(input[type=button]):not(input[type=submit]):not(input[type=reset]):not(button):not(.b):not(.btn):not(.button).xl:last-child {
   padding-right: 22.5px !important;
 }
-.group.pill > *.xl:last-child:is(select) {
+.group.pill > :not(input[type=button]):not(input[type=submit]):not(input[type=reset]):not(button):not(.b):not(.btn):not(.button).xl:last-child:is(select) {
   padding-right: 50.5px !important;
+  background-position: right 22.5px center;
 }
 
-.group.pill > input[type=button]:first-child,
-.group.pill > input[type=submit]:first-child,
-.group.pill > input[type=reset]:first-child,
-.group.pill > button:first-child,
-.group.pill > .b:first-child,
-.group.pill > .btn:first-child,
-.group.pill > .button:first-child {
+.group.pill > input[type=button]:first-child, .group.pill > input[type=submit]:first-child, .group.pill > input[type=reset]:first-child, .group.pill > button:first-child, .group.pill > .b:first-child, .group.pill > .btn:first-child, .group.pill > .button:first-child {
   padding-left: 15px !important;
 }
-.group.pill > input[type=button]:last-child,
-.group.pill > input[type=submit]:last-child,
-.group.pill > input[type=reset]:last-child,
-.group.pill > button:last-child,
-.group.pill > .b:last-child,
-.group.pill > .btn:last-child,
-.group.pill > .button:last-child {
+.group.pill > input[type=button]:last-child, .group.pill > input[type=submit]:last-child, .group.pill > input[type=reset]:last-child, .group.pill > button:last-child, .group.pill > .b:last-child, .group.pill > .btn:last-child, .group.pill > .button:last-child {
   padding-right: 15px !important;
 }
-.group.pill > input[type=button]:last-child:is(select),
-.group.pill > input[type=submit]:last-child:is(select),
-.group.pill > input[type=reset]:last-child:is(select),
-.group.pill > button:last-child:is(select),
-.group.pill > .b:last-child:is(select),
-.group.pill > .btn:last-child:is(select),
-.group.pill > .button:last-child:is(select) {
-  padding-right: 34px !important;
-}
-.group.pill > input[type=button].xs:first-child,
-.group.pill > input[type=submit].xs:first-child,
-.group.pill > input[type=reset].xs:first-child,
-.group.pill > button.xs:first-child,
-.group.pill > .b.xs:first-child,
-.group.pill > .btn.xs:first-child,
-.group.pill > .button.xs:first-child {
+.group.pill > input[type=button].xs:first-child, .group.pill > input[type=submit].xs:first-child, .group.pill > input[type=reset].xs:first-child, .group.pill > button.xs:first-child, .group.pill > .b.xs:first-child, .group.pill > .btn.xs:first-child, .group.pill > .button.xs:first-child {
   padding-left: 10px !important;
 }
-.group.pill > input[type=button].xs:last-child,
-.group.pill > input[type=submit].xs:last-child,
-.group.pill > input[type=reset].xs:last-child,
-.group.pill > button.xs:last-child,
-.group.pill > .b.xs:last-child,
-.group.pill > .btn.xs:last-child,
-.group.pill > .button.xs:last-child {
+.group.pill > input[type=button].xs:last-child, .group.pill > input[type=submit].xs:last-child, .group.pill > input[type=reset].xs:last-child, .group.pill > button.xs:last-child, .group.pill > .b.xs:last-child, .group.pill > .btn.xs:last-child, .group.pill > .button.xs:last-child {
   padding-right: 10px !important;
 }
-.group.pill > input[type=button].xs:last-child:is(select),
-.group.pill > input[type=submit].xs:last-child:is(select),
-.group.pill > input[type=reset].xs:last-child:is(select),
-.group.pill > button.xs:last-child:is(select),
-.group.pill > .b.xs:last-child:is(select),
-.group.pill > .btn.xs:last-child:is(select),
-.group.pill > .button.xs:last-child:is(select) {
-  padding-right: 23px !important;
-}
-.group.pill > input[type=button].sm:first-child,
-.group.pill > input[type=submit].sm:first-child,
-.group.pill > input[type=reset].sm:first-child,
-.group.pill > button.sm:first-child,
-.group.pill > .b.sm:first-child,
-.group.pill > .btn.sm:first-child,
-.group.pill > .button.sm:first-child {
+.group.pill > input[type=button].sm:first-child, .group.pill > input[type=submit].sm:first-child, .group.pill > input[type=reset].sm:first-child, .group.pill > button.sm:first-child, .group.pill > .b.sm:first-child, .group.pill > .btn.sm:first-child, .group.pill > .button.sm:first-child {
   padding-left: 12.5px !important;
 }
-.group.pill > input[type=button].sm:last-child,
-.group.pill > input[type=submit].sm:last-child,
-.group.pill > input[type=reset].sm:last-child,
-.group.pill > button.sm:last-child,
-.group.pill > .b.sm:last-child,
-.group.pill > .btn.sm:last-child,
-.group.pill > .button.sm:last-child {
+.group.pill > input[type=button].sm:last-child, .group.pill > input[type=submit].sm:last-child, .group.pill > input[type=reset].sm:last-child, .group.pill > button.sm:last-child, .group.pill > .b.sm:last-child, .group.pill > .btn.sm:last-child, .group.pill > .button.sm:last-child {
   padding-right: 12.5px !important;
 }
-.group.pill > input[type=button].sm:last-child:is(select),
-.group.pill > input[type=submit].sm:last-child:is(select),
-.group.pill > input[type=reset].sm:last-child:is(select),
-.group.pill > button.sm:last-child:is(select),
-.group.pill > .b.sm:last-child:is(select),
-.group.pill > .btn.sm:last-child:is(select),
-.group.pill > .button.sm:last-child:is(select) {
-  padding-right: 28.5px !important;
-}
-.group.pill > input[type=button].lg:first-child,
-.group.pill > input[type=submit].lg:first-child,
-.group.pill > input[type=reset].lg:first-child,
-.group.pill > button.lg:first-child,
-.group.pill > .b.lg:first-child,
-.group.pill > .btn.lg:first-child,
-.group.pill > .button.lg:first-child {
+.group.pill > input[type=button].lg:first-child, .group.pill > input[type=submit].lg:first-child, .group.pill > input[type=reset].lg:first-child, .group.pill > button.lg:first-child, .group.pill > .b.lg:first-child, .group.pill > .btn.lg:first-child, .group.pill > .button.lg:first-child {
   padding-left: 17.5px !important;
 }
-.group.pill > input[type=button].lg:last-child,
-.group.pill > input[type=submit].lg:last-child,
-.group.pill > input[type=reset].lg:last-child,
-.group.pill > button.lg:last-child,
-.group.pill > .b.lg:last-child,
-.group.pill > .btn.lg:last-child,
-.group.pill > .button.lg:last-child {
+.group.pill > input[type=button].lg:last-child, .group.pill > input[type=submit].lg:last-child, .group.pill > input[type=reset].lg:last-child, .group.pill > button.lg:last-child, .group.pill > .b.lg:last-child, .group.pill > .btn.lg:last-child, .group.pill > .button.lg:last-child {
   padding-right: 17.5px !important;
 }
-.group.pill > input[type=button].lg:last-child:is(select),
-.group.pill > input[type=submit].lg:last-child:is(select),
-.group.pill > input[type=reset].lg:last-child:is(select),
-.group.pill > button.lg:last-child:is(select),
-.group.pill > .b.lg:last-child:is(select),
-.group.pill > .btn.lg:last-child:is(select),
-.group.pill > .button.lg:last-child:is(select) {
-  padding-right: 39.5px !important;
-}
-.group.pill > input[type=button].xl:first-child,
-.group.pill > input[type=submit].xl:first-child,
-.group.pill > input[type=reset].xl:first-child,
-.group.pill > button.xl:first-child,
-.group.pill > .b.xl:first-child,
-.group.pill > .btn.xl:first-child,
-.group.pill > .button.xl:first-child {
+.group.pill > input[type=button].xl:first-child, .group.pill > input[type=submit].xl:first-child, .group.pill > input[type=reset].xl:first-child, .group.pill > button.xl:first-child, .group.pill > .b.xl:first-child, .group.pill > .btn.xl:first-child, .group.pill > .button.xl:first-child {
   padding-left: 20px !important;
 }
-.group.pill > input[type=button].xl:last-child,
-.group.pill > input[type=submit].xl:last-child,
-.group.pill > input[type=reset].xl:last-child,
-.group.pill > button.xl:last-child,
-.group.pill > .b.xl:last-child,
-.group.pill > .btn.xl:last-child,
-.group.pill > .button.xl:last-child {
+.group.pill > input[type=button].xl:last-child, .group.pill > input[type=submit].xl:last-child, .group.pill > input[type=reset].xl:last-child, .group.pill > button.xl:last-child, .group.pill > .b.xl:last-child, .group.pill > .btn.xl:last-child, .group.pill > .button.xl:last-child {
   padding-right: 20px !important;
-}
-.group.pill > input[type=button].xl:last-child:is(select),
-.group.pill > input[type=submit].xl:last-child:is(select),
-.group.pill > input[type=reset].xl:last-child:is(select),
-.group.pill > button.xl:last-child:is(select),
-.group.pill > .b.xl:last-child:is(select),
-.group.pill > .btn.xl:last-child:is(select),
-.group.pill > .button.xl:last-child:is(select) {
-  padding-right: 45px !important;
 }
 
 .form input[type=text],
@@ -4528,9 +4353,9 @@ textarea.form {
   background-color: var(--bg-medium);
   border: 0.1rem solid transparent;
   outline: none;
+  border-radius: 0.5em;
   font-size: 1rem;
   padding: 6.5px 14px 5.5px;
-  border-radius: 8px;
 }
 .form input[type=text].p-xs,
 .form input[type=email].p-xs,
@@ -4648,156 +4473,6 @@ select.form.p-xl,
 textarea.form.p-xl {
   padding: 12px 21px 11px;
 }
-.form input[type=text].pill,
-.form input[type=email].pill,
-.form input[type=password].pill,
-.form input[type=number].pill,
-.form input[type=tel].pill,
-.form input[type=url].pill,
-.form input[type=search].pill,
-.form select.pill,
-.form textarea.pill,
-.group input[type=text].pill,
-.group input[type=email].pill,
-.group input[type=password].pill,
-.group input[type=number].pill,
-.group input[type=tel].pill,
-.group input[type=url].pill,
-.group input[type=search].pill,
-.group select.pill,
-.group textarea.pill,
-input[type=text].form.pill,
-input[type=email].form.pill,
-input[type=password].form.pill,
-input[type=number].form.pill,
-input[type=tel].form.pill,
-input[type=url].form.pill,
-input[type=search].form.pill,
-select.form.pill,
-textarea.form.pill {
-  padding-left: 17.5px;
-  padding-right: 17.5px;
-}
-.form input[type=text].pill.p-xs,
-.form input[type=email].pill.p-xs,
-.form input[type=password].pill.p-xs,
-.form input[type=number].pill.p-xs,
-.form input[type=tel].pill.p-xs,
-.form input[type=url].pill.p-xs,
-.form input[type=search].pill.p-xs,
-.form select.pill.p-xs,
-.form textarea.pill.p-xs,
-.group input[type=text].pill.p-xs,
-.group input[type=email].pill.p-xs,
-.group input[type=password].pill.p-xs,
-.group input[type=number].pill.p-xs,
-.group input[type=tel].pill.p-xs,
-.group input[type=url].pill.p-xs,
-.group input[type=search].pill.p-xs,
-.group select.pill.p-xs,
-.group textarea.pill.p-xs,
-input[type=text].form.pill.p-xs,
-input[type=email].form.pill.p-xs,
-input[type=password].form.pill.p-xs,
-input[type=number].form.pill.p-xs,
-input[type=tel].form.pill.p-xs,
-input[type=url].form.pill.p-xs,
-input[type=search].form.pill.p-xs,
-select.form.pill.p-xs,
-textarea.form.pill.p-xs {
-  padding-left: 10.5px;
-  padding-right: 10.5px;
-}
-.form input[type=text].pill.p-sm,
-.form input[type=email].pill.p-sm,
-.form input[type=password].pill.p-sm,
-.form input[type=number].pill.p-sm,
-.form input[type=tel].pill.p-sm,
-.form input[type=url].pill.p-sm,
-.form input[type=search].pill.p-sm,
-.form select.pill.p-sm,
-.form textarea.pill.p-sm,
-.group input[type=text].pill.p-sm,
-.group input[type=email].pill.p-sm,
-.group input[type=password].pill.p-sm,
-.group input[type=number].pill.p-sm,
-.group input[type=tel].pill.p-sm,
-.group input[type=url].pill.p-sm,
-.group input[type=search].pill.p-sm,
-.group select.pill.p-sm,
-.group textarea.pill.p-sm,
-input[type=text].form.pill.p-sm,
-input[type=email].form.pill.p-sm,
-input[type=password].form.pill.p-sm,
-input[type=number].form.pill.p-sm,
-input[type=tel].form.pill.p-sm,
-input[type=url].form.pill.p-sm,
-input[type=search].form.pill.p-sm,
-select.form.pill.p-sm,
-textarea.form.pill.p-sm {
-  padding-left: 14px;
-  padding-right: 14px;
-}
-.form input[type=text].pill.p-lg,
-.form input[type=email].pill.p-lg,
-.form input[type=password].pill.p-lg,
-.form input[type=number].pill.p-lg,
-.form input[type=tel].pill.p-lg,
-.form input[type=url].pill.p-lg,
-.form input[type=search].pill.p-lg,
-.form select.pill.p-lg,
-.form textarea.pill.p-lg,
-.group input[type=text].pill.p-lg,
-.group input[type=email].pill.p-lg,
-.group input[type=password].pill.p-lg,
-.group input[type=number].pill.p-lg,
-.group input[type=tel].pill.p-lg,
-.group input[type=url].pill.p-lg,
-.group input[type=search].pill.p-lg,
-.group select.pill.p-lg,
-.group textarea.pill.p-lg,
-input[type=text].form.pill.p-lg,
-input[type=email].form.pill.p-lg,
-input[type=password].form.pill.p-lg,
-input[type=number].form.pill.p-lg,
-input[type=tel].form.pill.p-lg,
-input[type=url].form.pill.p-lg,
-input[type=search].form.pill.p-lg,
-select.form.pill.p-lg,
-textarea.form.pill.p-lg {
-  padding-left: 21px;
-  padding-right: 21px;
-}
-.form input[type=text].pill.p-xl,
-.form input[type=email].pill.p-xl,
-.form input[type=password].pill.p-xl,
-.form input[type=number].pill.p-xl,
-.form input[type=tel].pill.p-xl,
-.form input[type=url].pill.p-xl,
-.form input[type=search].pill.p-xl,
-.form select.pill.p-xl,
-.form textarea.pill.p-xl,
-.group input[type=text].pill.p-xl,
-.group input[type=email].pill.p-xl,
-.group input[type=password].pill.p-xl,
-.group input[type=number].pill.p-xl,
-.group input[type=tel].pill.p-xl,
-.group input[type=url].pill.p-xl,
-.group input[type=search].pill.p-xl,
-.group select.pill.p-xl,
-.group textarea.pill.p-xl,
-input[type=text].form.pill.p-xl,
-input[type=email].form.pill.p-xl,
-input[type=password].form.pill.p-xl,
-input[type=number].form.pill.p-xl,
-input[type=tel].form.pill.p-xl,
-input[type=url].form.pill.p-xl,
-input[type=search].form.pill.p-xl,
-select.form.pill.p-xl,
-textarea.form.pill.p-xl {
-  padding-left: 24.5px;
-  padding-right: 24.5px;
-}
 .form input[type=text].xs,
 .form input[type=email].xs,
 .form input[type=password].xs,
@@ -4827,7 +4502,6 @@ select.form.xs,
 textarea.form.xs {
   font-size: 0.75rem;
   padding: 4.5px 10px 3.5px;
-  border-radius: 6px;
 }
 .form input[type=text].xs.p-xs,
 .form input[type=email].xs.p-xs,
@@ -4945,156 +4619,6 @@ select.form.xs.p-xl,
 textarea.form.xs.p-xl {
   padding: 8px 15px 7px;
 }
-.form input[type=text].xs.pill,
-.form input[type=email].xs.pill,
-.form input[type=password].xs.pill,
-.form input[type=number].xs.pill,
-.form input[type=tel].xs.pill,
-.form input[type=url].xs.pill,
-.form input[type=search].xs.pill,
-.form select.xs.pill,
-.form textarea.xs.pill,
-.group input[type=text].xs.pill,
-.group input[type=email].xs.pill,
-.group input[type=password].xs.pill,
-.group input[type=number].xs.pill,
-.group input[type=tel].xs.pill,
-.group input[type=url].xs.pill,
-.group input[type=search].xs.pill,
-.group select.xs.pill,
-.group textarea.xs.pill,
-input[type=text].form.xs.pill,
-input[type=email].form.xs.pill,
-input[type=password].form.xs.pill,
-input[type=number].form.xs.pill,
-input[type=tel].form.xs.pill,
-input[type=url].form.xs.pill,
-input[type=search].form.xs.pill,
-select.form.xs.pill,
-textarea.form.xs.pill {
-  padding-left: 12.5px;
-  padding-right: 12.5px;
-}
-.form input[type=text].xs.pill.p-xs,
-.form input[type=email].xs.pill.p-xs,
-.form input[type=password].xs.pill.p-xs,
-.form input[type=number].xs.pill.p-xs,
-.form input[type=tel].xs.pill.p-xs,
-.form input[type=url].xs.pill.p-xs,
-.form input[type=search].xs.pill.p-xs,
-.form select.xs.pill.p-xs,
-.form textarea.xs.pill.p-xs,
-.group input[type=text].xs.pill.p-xs,
-.group input[type=email].xs.pill.p-xs,
-.group input[type=password].xs.pill.p-xs,
-.group input[type=number].xs.pill.p-xs,
-.group input[type=tel].xs.pill.p-xs,
-.group input[type=url].xs.pill.p-xs,
-.group input[type=search].xs.pill.p-xs,
-.group select.xs.pill.p-xs,
-.group textarea.xs.pill.p-xs,
-input[type=text].form.xs.pill.p-xs,
-input[type=email].form.xs.pill.p-xs,
-input[type=password].form.xs.pill.p-xs,
-input[type=number].form.xs.pill.p-xs,
-input[type=tel].form.xs.pill.p-xs,
-input[type=url].form.xs.pill.p-xs,
-input[type=search].form.xs.pill.p-xs,
-select.form.xs.pill.p-xs,
-textarea.form.xs.pill.p-xs {
-  padding-left: 7.5px;
-  padding-right: 7.5px;
-}
-.form input[type=text].xs.pill.p-sm,
-.form input[type=email].xs.pill.p-sm,
-.form input[type=password].xs.pill.p-sm,
-.form input[type=number].xs.pill.p-sm,
-.form input[type=tel].xs.pill.p-sm,
-.form input[type=url].xs.pill.p-sm,
-.form input[type=search].xs.pill.p-sm,
-.form select.xs.pill.p-sm,
-.form textarea.xs.pill.p-sm,
-.group input[type=text].xs.pill.p-sm,
-.group input[type=email].xs.pill.p-sm,
-.group input[type=password].xs.pill.p-sm,
-.group input[type=number].xs.pill.p-sm,
-.group input[type=tel].xs.pill.p-sm,
-.group input[type=url].xs.pill.p-sm,
-.group input[type=search].xs.pill.p-sm,
-.group select.xs.pill.p-sm,
-.group textarea.xs.pill.p-sm,
-input[type=text].form.xs.pill.p-sm,
-input[type=email].form.xs.pill.p-sm,
-input[type=password].form.xs.pill.p-sm,
-input[type=number].form.xs.pill.p-sm,
-input[type=tel].form.xs.pill.p-sm,
-input[type=url].form.xs.pill.p-sm,
-input[type=search].form.xs.pill.p-sm,
-select.form.xs.pill.p-sm,
-textarea.form.xs.pill.p-sm {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-.form input[type=text].xs.pill.p-lg,
-.form input[type=email].xs.pill.p-lg,
-.form input[type=password].xs.pill.p-lg,
-.form input[type=number].xs.pill.p-lg,
-.form input[type=tel].xs.pill.p-lg,
-.form input[type=url].xs.pill.p-lg,
-.form input[type=search].xs.pill.p-lg,
-.form select.xs.pill.p-lg,
-.form textarea.xs.pill.p-lg,
-.group input[type=text].xs.pill.p-lg,
-.group input[type=email].xs.pill.p-lg,
-.group input[type=password].xs.pill.p-lg,
-.group input[type=number].xs.pill.p-lg,
-.group input[type=tel].xs.pill.p-lg,
-.group input[type=url].xs.pill.p-lg,
-.group input[type=search].xs.pill.p-lg,
-.group select.xs.pill.p-lg,
-.group textarea.xs.pill.p-lg,
-input[type=text].form.xs.pill.p-lg,
-input[type=email].form.xs.pill.p-lg,
-input[type=password].form.xs.pill.p-lg,
-input[type=number].form.xs.pill.p-lg,
-input[type=tel].form.xs.pill.p-lg,
-input[type=url].form.xs.pill.p-lg,
-input[type=search].form.xs.pill.p-lg,
-select.form.xs.pill.p-lg,
-textarea.form.xs.pill.p-lg {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.form input[type=text].xs.pill.p-xl,
-.form input[type=email].xs.pill.p-xl,
-.form input[type=password].xs.pill.p-xl,
-.form input[type=number].xs.pill.p-xl,
-.form input[type=tel].xs.pill.p-xl,
-.form input[type=url].xs.pill.p-xl,
-.form input[type=search].xs.pill.p-xl,
-.form select.xs.pill.p-xl,
-.form textarea.xs.pill.p-xl,
-.group input[type=text].xs.pill.p-xl,
-.group input[type=email].xs.pill.p-xl,
-.group input[type=password].xs.pill.p-xl,
-.group input[type=number].xs.pill.p-xl,
-.group input[type=tel].xs.pill.p-xl,
-.group input[type=url].xs.pill.p-xl,
-.group input[type=search].xs.pill.p-xl,
-.group select.xs.pill.p-xl,
-.group textarea.xs.pill.p-xl,
-input[type=text].form.xs.pill.p-xl,
-input[type=email].form.xs.pill.p-xl,
-input[type=password].form.xs.pill.p-xl,
-input[type=number].form.xs.pill.p-xl,
-input[type=tel].form.xs.pill.p-xl,
-input[type=url].form.xs.pill.p-xl,
-input[type=search].form.xs.pill.p-xl,
-select.form.xs.pill.p-xl,
-textarea.form.xs.pill.p-xl {
-  padding-left: 17.5px;
-  padding-right: 17.5px;
-}
 .form input[type=text].sm,
 .form input[type=email].sm,
 .form input[type=password].sm,
@@ -5124,7 +4648,6 @@ select.form.sm,
 textarea.form.sm {
   font-size: 0.875rem;
   padding: 5.5px 12px 4.5px;
-  border-radius: 7px;
 }
 .form input[type=text].sm.p-xs,
 .form input[type=email].sm.p-xs,
@@ -5242,156 +4765,6 @@ select.form.sm.p-xl,
 textarea.form.sm.p-xl {
   padding: 10px 18px 9px;
 }
-.form input[type=text].sm.pill,
-.form input[type=email].sm.pill,
-.form input[type=password].sm.pill,
-.form input[type=number].sm.pill,
-.form input[type=tel].sm.pill,
-.form input[type=url].sm.pill,
-.form input[type=search].sm.pill,
-.form select.sm.pill,
-.form textarea.sm.pill,
-.group input[type=text].sm.pill,
-.group input[type=email].sm.pill,
-.group input[type=password].sm.pill,
-.group input[type=number].sm.pill,
-.group input[type=tel].sm.pill,
-.group input[type=url].sm.pill,
-.group input[type=search].sm.pill,
-.group select.sm.pill,
-.group textarea.sm.pill,
-input[type=text].form.sm.pill,
-input[type=email].form.sm.pill,
-input[type=password].form.sm.pill,
-input[type=number].form.sm.pill,
-input[type=tel].form.sm.pill,
-input[type=url].form.sm.pill,
-input[type=search].form.sm.pill,
-select.form.sm.pill,
-textarea.form.sm.pill {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.form input[type=text].sm.pill.p-xs,
-.form input[type=email].sm.pill.p-xs,
-.form input[type=password].sm.pill.p-xs,
-.form input[type=number].sm.pill.p-xs,
-.form input[type=tel].sm.pill.p-xs,
-.form input[type=url].sm.pill.p-xs,
-.form input[type=search].sm.pill.p-xs,
-.form select.sm.pill.p-xs,
-.form textarea.sm.pill.p-xs,
-.group input[type=text].sm.pill.p-xs,
-.group input[type=email].sm.pill.p-xs,
-.group input[type=password].sm.pill.p-xs,
-.group input[type=number].sm.pill.p-xs,
-.group input[type=tel].sm.pill.p-xs,
-.group input[type=url].sm.pill.p-xs,
-.group input[type=search].sm.pill.p-xs,
-.group select.sm.pill.p-xs,
-.group textarea.sm.pill.p-xs,
-input[type=text].form.sm.pill.p-xs,
-input[type=email].form.sm.pill.p-xs,
-input[type=password].form.sm.pill.p-xs,
-input[type=number].form.sm.pill.p-xs,
-input[type=tel].form.sm.pill.p-xs,
-input[type=url].form.sm.pill.p-xs,
-input[type=search].form.sm.pill.p-xs,
-select.form.sm.pill.p-xs,
-textarea.form.sm.pill.p-xs {
-  padding-left: 9px;
-  padding-right: 9px;
-}
-.form input[type=text].sm.pill.p-sm,
-.form input[type=email].sm.pill.p-sm,
-.form input[type=password].sm.pill.p-sm,
-.form input[type=number].sm.pill.p-sm,
-.form input[type=tel].sm.pill.p-sm,
-.form input[type=url].sm.pill.p-sm,
-.form input[type=search].sm.pill.p-sm,
-.form select.sm.pill.p-sm,
-.form textarea.sm.pill.p-sm,
-.group input[type=text].sm.pill.p-sm,
-.group input[type=email].sm.pill.p-sm,
-.group input[type=password].sm.pill.p-sm,
-.group input[type=number].sm.pill.p-sm,
-.group input[type=tel].sm.pill.p-sm,
-.group input[type=url].sm.pill.p-sm,
-.group input[type=search].sm.pill.p-sm,
-.group select.sm.pill.p-sm,
-.group textarea.sm.pill.p-sm,
-input[type=text].form.sm.pill.p-sm,
-input[type=email].form.sm.pill.p-sm,
-input[type=password].form.sm.pill.p-sm,
-input[type=number].form.sm.pill.p-sm,
-input[type=tel].form.sm.pill.p-sm,
-input[type=url].form.sm.pill.p-sm,
-input[type=search].form.sm.pill.p-sm,
-select.form.sm.pill.p-sm,
-textarea.form.sm.pill.p-sm {
-  padding-left: 12px;
-  padding-right: 12px;
-}
-.form input[type=text].sm.pill.p-lg,
-.form input[type=email].sm.pill.p-lg,
-.form input[type=password].sm.pill.p-lg,
-.form input[type=number].sm.pill.p-lg,
-.form input[type=tel].sm.pill.p-lg,
-.form input[type=url].sm.pill.p-lg,
-.form input[type=search].sm.pill.p-lg,
-.form select.sm.pill.p-lg,
-.form textarea.sm.pill.p-lg,
-.group input[type=text].sm.pill.p-lg,
-.group input[type=email].sm.pill.p-lg,
-.group input[type=password].sm.pill.p-lg,
-.group input[type=number].sm.pill.p-lg,
-.group input[type=tel].sm.pill.p-lg,
-.group input[type=url].sm.pill.p-lg,
-.group input[type=search].sm.pill.p-lg,
-.group select.sm.pill.p-lg,
-.group textarea.sm.pill.p-lg,
-input[type=text].form.sm.pill.p-lg,
-input[type=email].form.sm.pill.p-lg,
-input[type=password].form.sm.pill.p-lg,
-input[type=number].form.sm.pill.p-lg,
-input[type=tel].form.sm.pill.p-lg,
-input[type=url].form.sm.pill.p-lg,
-input[type=search].form.sm.pill.p-lg,
-select.form.sm.pill.p-lg,
-textarea.form.sm.pill.p-lg {
-  padding-left: 18px;
-  padding-right: 18px;
-}
-.form input[type=text].sm.pill.p-xl,
-.form input[type=email].sm.pill.p-xl,
-.form input[type=password].sm.pill.p-xl,
-.form input[type=number].sm.pill.p-xl,
-.form input[type=tel].sm.pill.p-xl,
-.form input[type=url].sm.pill.p-xl,
-.form input[type=search].sm.pill.p-xl,
-.form select.sm.pill.p-xl,
-.form textarea.sm.pill.p-xl,
-.group input[type=text].sm.pill.p-xl,
-.group input[type=email].sm.pill.p-xl,
-.group input[type=password].sm.pill.p-xl,
-.group input[type=number].sm.pill.p-xl,
-.group input[type=tel].sm.pill.p-xl,
-.group input[type=url].sm.pill.p-xl,
-.group input[type=search].sm.pill.p-xl,
-.group select.sm.pill.p-xl,
-.group textarea.sm.pill.p-xl,
-input[type=text].form.sm.pill.p-xl,
-input[type=email].form.sm.pill.p-xl,
-input[type=password].form.sm.pill.p-xl,
-input[type=number].form.sm.pill.p-xl,
-input[type=tel].form.sm.pill.p-xl,
-input[type=url].form.sm.pill.p-xl,
-input[type=search].form.sm.pill.p-xl,
-select.form.sm.pill.p-xl,
-textarea.form.sm.pill.p-xl {
-  padding-left: 21px;
-  padding-right: 21px;
-}
 .form input[type=text].lg,
 .form input[type=email].lg,
 .form input[type=password].lg,
@@ -5421,7 +4794,6 @@ select.form.lg,
 textarea.form.lg {
   font-size: 1.125rem;
   padding: 7.5px 16px 6.5px;
-  border-radius: 9px;
 }
 .form input[type=text].lg.p-xs,
 .form input[type=email].lg.p-xs,
@@ -5539,156 +4911,6 @@ select.form.lg.p-xl,
 textarea.form.lg.p-xl {
   padding: 14px 24px 13px;
 }
-.form input[type=text].lg.pill,
-.form input[type=email].lg.pill,
-.form input[type=password].lg.pill,
-.form input[type=number].lg.pill,
-.form input[type=tel].lg.pill,
-.form input[type=url].lg.pill,
-.form input[type=search].lg.pill,
-.form select.lg.pill,
-.form textarea.lg.pill,
-.group input[type=text].lg.pill,
-.group input[type=email].lg.pill,
-.group input[type=password].lg.pill,
-.group input[type=number].lg.pill,
-.group input[type=tel].lg.pill,
-.group input[type=url].lg.pill,
-.group input[type=search].lg.pill,
-.group select.lg.pill,
-.group textarea.lg.pill,
-input[type=text].form.lg.pill,
-input[type=email].form.lg.pill,
-input[type=password].form.lg.pill,
-input[type=number].form.lg.pill,
-input[type=tel].form.lg.pill,
-input[type=url].form.lg.pill,
-input[type=search].form.lg.pill,
-select.form.lg.pill,
-textarea.form.lg.pill {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-.form input[type=text].lg.pill.p-xs,
-.form input[type=email].lg.pill.p-xs,
-.form input[type=password].lg.pill.p-xs,
-.form input[type=number].lg.pill.p-xs,
-.form input[type=tel].lg.pill.p-xs,
-.form input[type=url].lg.pill.p-xs,
-.form input[type=search].lg.pill.p-xs,
-.form select.lg.pill.p-xs,
-.form textarea.lg.pill.p-xs,
-.group input[type=text].lg.pill.p-xs,
-.group input[type=email].lg.pill.p-xs,
-.group input[type=password].lg.pill.p-xs,
-.group input[type=number].lg.pill.p-xs,
-.group input[type=tel].lg.pill.p-xs,
-.group input[type=url].lg.pill.p-xs,
-.group input[type=search].lg.pill.p-xs,
-.group select.lg.pill.p-xs,
-.group textarea.lg.pill.p-xs,
-input[type=text].form.lg.pill.p-xs,
-input[type=email].form.lg.pill.p-xs,
-input[type=password].form.lg.pill.p-xs,
-input[type=number].form.lg.pill.p-xs,
-input[type=tel].form.lg.pill.p-xs,
-input[type=url].form.lg.pill.p-xs,
-input[type=search].form.lg.pill.p-xs,
-select.form.lg.pill.p-xs,
-textarea.form.lg.pill.p-xs {
-  padding-left: 12px;
-  padding-right: 12px;
-}
-.form input[type=text].lg.pill.p-sm,
-.form input[type=email].lg.pill.p-sm,
-.form input[type=password].lg.pill.p-sm,
-.form input[type=number].lg.pill.p-sm,
-.form input[type=tel].lg.pill.p-sm,
-.form input[type=url].lg.pill.p-sm,
-.form input[type=search].lg.pill.p-sm,
-.form select.lg.pill.p-sm,
-.form textarea.lg.pill.p-sm,
-.group input[type=text].lg.pill.p-sm,
-.group input[type=email].lg.pill.p-sm,
-.group input[type=password].lg.pill.p-sm,
-.group input[type=number].lg.pill.p-sm,
-.group input[type=tel].lg.pill.p-sm,
-.group input[type=url].lg.pill.p-sm,
-.group input[type=search].lg.pill.p-sm,
-.group select.lg.pill.p-sm,
-.group textarea.lg.pill.p-sm,
-input[type=text].form.lg.pill.p-sm,
-input[type=email].form.lg.pill.p-sm,
-input[type=password].form.lg.pill.p-sm,
-input[type=number].form.lg.pill.p-sm,
-input[type=tel].form.lg.pill.p-sm,
-input[type=url].form.lg.pill.p-sm,
-input[type=search].form.lg.pill.p-sm,
-select.form.lg.pill.p-sm,
-textarea.form.lg.pill.p-sm {
-  padding-left: 16px;
-  padding-right: 16px;
-}
-.form input[type=text].lg.pill.p-lg,
-.form input[type=email].lg.pill.p-lg,
-.form input[type=password].lg.pill.p-lg,
-.form input[type=number].lg.pill.p-lg,
-.form input[type=tel].lg.pill.p-lg,
-.form input[type=url].lg.pill.p-lg,
-.form input[type=search].lg.pill.p-lg,
-.form select.lg.pill.p-lg,
-.form textarea.lg.pill.p-lg,
-.group input[type=text].lg.pill.p-lg,
-.group input[type=email].lg.pill.p-lg,
-.group input[type=password].lg.pill.p-lg,
-.group input[type=number].lg.pill.p-lg,
-.group input[type=tel].lg.pill.p-lg,
-.group input[type=url].lg.pill.p-lg,
-.group input[type=search].lg.pill.p-lg,
-.group select.lg.pill.p-lg,
-.group textarea.lg.pill.p-lg,
-input[type=text].form.lg.pill.p-lg,
-input[type=email].form.lg.pill.p-lg,
-input[type=password].form.lg.pill.p-lg,
-input[type=number].form.lg.pill.p-lg,
-input[type=tel].form.lg.pill.p-lg,
-input[type=url].form.lg.pill.p-lg,
-input[type=search].form.lg.pill.p-lg,
-select.form.lg.pill.p-lg,
-textarea.form.lg.pill.p-lg {
-  padding-left: 24px;
-  padding-right: 24px;
-}
-.form input[type=text].lg.pill.p-xl,
-.form input[type=email].lg.pill.p-xl,
-.form input[type=password].lg.pill.p-xl,
-.form input[type=number].lg.pill.p-xl,
-.form input[type=tel].lg.pill.p-xl,
-.form input[type=url].lg.pill.p-xl,
-.form input[type=search].lg.pill.p-xl,
-.form select.lg.pill.p-xl,
-.form textarea.lg.pill.p-xl,
-.group input[type=text].lg.pill.p-xl,
-.group input[type=email].lg.pill.p-xl,
-.group input[type=password].lg.pill.p-xl,
-.group input[type=number].lg.pill.p-xl,
-.group input[type=tel].lg.pill.p-xl,
-.group input[type=url].lg.pill.p-xl,
-.group input[type=search].lg.pill.p-xl,
-.group select.lg.pill.p-xl,
-.group textarea.lg.pill.p-xl,
-input[type=text].form.lg.pill.p-xl,
-input[type=email].form.lg.pill.p-xl,
-input[type=password].form.lg.pill.p-xl,
-input[type=number].form.lg.pill.p-xl,
-input[type=tel].form.lg.pill.p-xl,
-input[type=url].form.lg.pill.p-xl,
-input[type=search].form.lg.pill.p-xl,
-select.form.lg.pill.p-xl,
-textarea.form.lg.pill.p-xl {
-  padding-left: 28px;
-  padding-right: 28px;
-}
 .form input[type=text].xl,
 .form input[type=email].xl,
 .form input[type=password].xl,
@@ -5718,7 +4940,6 @@ select.form.xl,
 textarea.form.xl {
   font-size: 1.25rem;
   padding: 8.5px 18px 7.5px;
-  border-radius: 10px;
 }
 .form input[type=text].xl.p-xs,
 .form input[type=email].xl.p-xs,
@@ -5836,156 +5057,6 @@ select.form.xl.p-xl,
 textarea.form.xl.p-xl {
   padding: 16px 27px 15px;
 }
-.form input[type=text].xl.pill,
-.form input[type=email].xl.pill,
-.form input[type=password].xl.pill,
-.form input[type=number].xl.pill,
-.form input[type=tel].xl.pill,
-.form input[type=url].xl.pill,
-.form input[type=search].xl.pill,
-.form select.xl.pill,
-.form textarea.xl.pill,
-.group input[type=text].xl.pill,
-.group input[type=email].xl.pill,
-.group input[type=password].xl.pill,
-.group input[type=number].xl.pill,
-.group input[type=tel].xl.pill,
-.group input[type=url].xl.pill,
-.group input[type=search].xl.pill,
-.group select.xl.pill,
-.group textarea.xl.pill,
-input[type=text].form.xl.pill,
-input[type=email].form.xl.pill,
-input[type=password].form.xl.pill,
-input[type=number].form.xl.pill,
-input[type=tel].form.xl.pill,
-input[type=url].form.xl.pill,
-input[type=search].form.xl.pill,
-select.form.xl.pill,
-textarea.form.xl.pill {
-  padding-left: 22.5px;
-  padding-right: 22.5px;
-}
-.form input[type=text].xl.pill.p-xs,
-.form input[type=email].xl.pill.p-xs,
-.form input[type=password].xl.pill.p-xs,
-.form input[type=number].xl.pill.p-xs,
-.form input[type=tel].xl.pill.p-xs,
-.form input[type=url].xl.pill.p-xs,
-.form input[type=search].xl.pill.p-xs,
-.form select.xl.pill.p-xs,
-.form textarea.xl.pill.p-xs,
-.group input[type=text].xl.pill.p-xs,
-.group input[type=email].xl.pill.p-xs,
-.group input[type=password].xl.pill.p-xs,
-.group input[type=number].xl.pill.p-xs,
-.group input[type=tel].xl.pill.p-xs,
-.group input[type=url].xl.pill.p-xs,
-.group input[type=search].xl.pill.p-xs,
-.group select.xl.pill.p-xs,
-.group textarea.xl.pill.p-xs,
-input[type=text].form.xl.pill.p-xs,
-input[type=email].form.xl.pill.p-xs,
-input[type=password].form.xl.pill.p-xs,
-input[type=number].form.xl.pill.p-xs,
-input[type=tel].form.xl.pill.p-xs,
-input[type=url].form.xl.pill.p-xs,
-input[type=search].form.xl.pill.p-xs,
-select.form.xl.pill.p-xs,
-textarea.form.xl.pill.p-xs {
-  padding-left: 13.5px;
-  padding-right: 13.5px;
-}
-.form input[type=text].xl.pill.p-sm,
-.form input[type=email].xl.pill.p-sm,
-.form input[type=password].xl.pill.p-sm,
-.form input[type=number].xl.pill.p-sm,
-.form input[type=tel].xl.pill.p-sm,
-.form input[type=url].xl.pill.p-sm,
-.form input[type=search].xl.pill.p-sm,
-.form select.xl.pill.p-sm,
-.form textarea.xl.pill.p-sm,
-.group input[type=text].xl.pill.p-sm,
-.group input[type=email].xl.pill.p-sm,
-.group input[type=password].xl.pill.p-sm,
-.group input[type=number].xl.pill.p-sm,
-.group input[type=tel].xl.pill.p-sm,
-.group input[type=url].xl.pill.p-sm,
-.group input[type=search].xl.pill.p-sm,
-.group select.xl.pill.p-sm,
-.group textarea.xl.pill.p-sm,
-input[type=text].form.xl.pill.p-sm,
-input[type=email].form.xl.pill.p-sm,
-input[type=password].form.xl.pill.p-sm,
-input[type=number].form.xl.pill.p-sm,
-input[type=tel].form.xl.pill.p-sm,
-input[type=url].form.xl.pill.p-sm,
-input[type=search].form.xl.pill.p-sm,
-select.form.xl.pill.p-sm,
-textarea.form.xl.pill.p-sm {
-  padding-left: 18px;
-  padding-right: 18px;
-}
-.form input[type=text].xl.pill.p-lg,
-.form input[type=email].xl.pill.p-lg,
-.form input[type=password].xl.pill.p-lg,
-.form input[type=number].xl.pill.p-lg,
-.form input[type=tel].xl.pill.p-lg,
-.form input[type=url].xl.pill.p-lg,
-.form input[type=search].xl.pill.p-lg,
-.form select.xl.pill.p-lg,
-.form textarea.xl.pill.p-lg,
-.group input[type=text].xl.pill.p-lg,
-.group input[type=email].xl.pill.p-lg,
-.group input[type=password].xl.pill.p-lg,
-.group input[type=number].xl.pill.p-lg,
-.group input[type=tel].xl.pill.p-lg,
-.group input[type=url].xl.pill.p-lg,
-.group input[type=search].xl.pill.p-lg,
-.group select.xl.pill.p-lg,
-.group textarea.xl.pill.p-lg,
-input[type=text].form.xl.pill.p-lg,
-input[type=email].form.xl.pill.p-lg,
-input[type=password].form.xl.pill.p-lg,
-input[type=number].form.xl.pill.p-lg,
-input[type=tel].form.xl.pill.p-lg,
-input[type=url].form.xl.pill.p-lg,
-input[type=search].form.xl.pill.p-lg,
-select.form.xl.pill.p-lg,
-textarea.form.xl.pill.p-lg {
-  padding-left: 27px;
-  padding-right: 27px;
-}
-.form input[type=text].xl.pill.p-xl,
-.form input[type=email].xl.pill.p-xl,
-.form input[type=password].xl.pill.p-xl,
-.form input[type=number].xl.pill.p-xl,
-.form input[type=tel].xl.pill.p-xl,
-.form input[type=url].xl.pill.p-xl,
-.form input[type=search].xl.pill.p-xl,
-.form select.xl.pill.p-xl,
-.form textarea.xl.pill.p-xl,
-.group input[type=text].xl.pill.p-xl,
-.group input[type=email].xl.pill.p-xl,
-.group input[type=password].xl.pill.p-xl,
-.group input[type=number].xl.pill.p-xl,
-.group input[type=tel].xl.pill.p-xl,
-.group input[type=url].xl.pill.p-xl,
-.group input[type=search].xl.pill.p-xl,
-.group select.xl.pill.p-xl,
-.group textarea.xl.pill.p-xl,
-input[type=text].form.xl.pill.p-xl,
-input[type=email].form.xl.pill.p-xl,
-input[type=password].form.xl.pill.p-xl,
-input[type=number].form.xl.pill.p-xl,
-input[type=tel].form.xl.pill.p-xl,
-input[type=url].form.xl.pill.p-xl,
-input[type=search].form.xl.pill.p-xl,
-select.form.xl.pill.p-xl,
-textarea.form.xl.pill.p-xl {
-  padding-left: 31.5px;
-  padding-right: 31.5px;
-}
 
 .form input[type=date],
 .form input[type=datetime-local],
@@ -6011,10 +5082,10 @@ input[type=week].form {
   background-color: var(--bg-medium);
   border: 0.1rem solid transparent;
   outline: none;
+  border-radius: 0.5em;
   font-size: 1rem;
   padding: 5.5px 14px 4.5px;
   height: calc(12px + 1.7rem);
-  border-radius: 8px;
 }
 .form input[type=date].p-xs,
 .form input[type=datetime-local].p-xs,
@@ -6088,96 +5159,6 @@ input[type=week].form.p-xl {
   padding: 10px 21px 9px;
   height: calc(23px + 1.7rem);
 }
-.form input[type=date].pill,
-.form input[type=datetime-local].pill,
-.form input[type=month].pill,
-.form input[type=time].pill,
-.form input[type=week].pill,
-.group input[type=date].pill,
-.group input[type=datetime-local].pill,
-.group input[type=month].pill,
-.group input[type=time].pill,
-.group input[type=week].pill,
-input[type=date].form.pill,
-input[type=datetime-local].form.pill,
-input[type=month].form.pill,
-input[type=time].form.pill,
-input[type=week].form.pill {
-  padding-left: 17.5px;
-  padding-right: 17.5px;
-}
-.form input[type=date].pill.p-xs,
-.form input[type=datetime-local].pill.p-xs,
-.form input[type=month].pill.p-xs,
-.form input[type=time].pill.p-xs,
-.form input[type=week].pill.p-xs,
-.group input[type=date].pill.p-xs,
-.group input[type=datetime-local].pill.p-xs,
-.group input[type=month].pill.p-xs,
-.group input[type=time].pill.p-xs,
-.group input[type=week].pill.p-xs,
-input[type=date].form.pill.p-xs,
-input[type=datetime-local].form.pill.p-xs,
-input[type=month].form.pill.p-xs,
-input[type=time].form.pill.p-xs,
-input[type=week].form.pill.p-xs {
-  padding-left: 10.5px;
-  padding-right: 10.5px;
-}
-.form input[type=date].pill.p-sm,
-.form input[type=datetime-local].pill.p-sm,
-.form input[type=month].pill.p-sm,
-.form input[type=time].pill.p-sm,
-.form input[type=week].pill.p-sm,
-.group input[type=date].pill.p-sm,
-.group input[type=datetime-local].pill.p-sm,
-.group input[type=month].pill.p-sm,
-.group input[type=time].pill.p-sm,
-.group input[type=week].pill.p-sm,
-input[type=date].form.pill.p-sm,
-input[type=datetime-local].form.pill.p-sm,
-input[type=month].form.pill.p-sm,
-input[type=time].form.pill.p-sm,
-input[type=week].form.pill.p-sm {
-  padding-left: 14px;
-  padding-right: 14px;
-}
-.form input[type=date].pill.p-lg,
-.form input[type=datetime-local].pill.p-lg,
-.form input[type=month].pill.p-lg,
-.form input[type=time].pill.p-lg,
-.form input[type=week].pill.p-lg,
-.group input[type=date].pill.p-lg,
-.group input[type=datetime-local].pill.p-lg,
-.group input[type=month].pill.p-lg,
-.group input[type=time].pill.p-lg,
-.group input[type=week].pill.p-lg,
-input[type=date].form.pill.p-lg,
-input[type=datetime-local].form.pill.p-lg,
-input[type=month].form.pill.p-lg,
-input[type=time].form.pill.p-lg,
-input[type=week].form.pill.p-lg {
-  padding-left: 21px;
-  padding-right: 21px;
-}
-.form input[type=date].pill.p-xl,
-.form input[type=datetime-local].pill.p-xl,
-.form input[type=month].pill.p-xl,
-.form input[type=time].pill.p-xl,
-.form input[type=week].pill.p-xl,
-.group input[type=date].pill.p-xl,
-.group input[type=datetime-local].pill.p-xl,
-.group input[type=month].pill.p-xl,
-.group input[type=time].pill.p-xl,
-.group input[type=week].pill.p-xl,
-input[type=date].form.pill.p-xl,
-input[type=datetime-local].form.pill.p-xl,
-input[type=month].form.pill.p-xl,
-input[type=time].form.pill.p-xl,
-input[type=week].form.pill.p-xl {
-  padding-left: 24.5px;
-  padding-right: 24.5px;
-}
 .form input[type=date]::-webkit-calendar-picker-indicator,
 .form input[type=datetime-local]::-webkit-calendar-picker-indicator,
 .form input[type=month]::-webkit-calendar-picker-indicator,
@@ -6213,7 +5194,6 @@ input[type=week].form.xs {
   font-size: 0.75rem;
   padding: 3.5px 10px 2.5px;
   height: calc(8px + 1.325rem);
-  border-radius: 6px;
 }
 .form input[type=date].xs.p-xs,
 .form input[type=datetime-local].xs.p-xs,
@@ -6287,96 +5267,6 @@ input[type=week].form.xs.p-xl {
   padding: 6px 15px 5px;
   height: calc(15px + 1.325rem);
 }
-.form input[type=date].xs.pill,
-.form input[type=datetime-local].xs.pill,
-.form input[type=month].xs.pill,
-.form input[type=time].xs.pill,
-.form input[type=week].xs.pill,
-.group input[type=date].xs.pill,
-.group input[type=datetime-local].xs.pill,
-.group input[type=month].xs.pill,
-.group input[type=time].xs.pill,
-.group input[type=week].xs.pill,
-input[type=date].form.xs.pill,
-input[type=datetime-local].form.xs.pill,
-input[type=month].form.xs.pill,
-input[type=time].form.xs.pill,
-input[type=week].form.xs.pill {
-  padding-left: 12.5px;
-  padding-right: 12.5px;
-}
-.form input[type=date].xs.pill.p-xs,
-.form input[type=datetime-local].xs.pill.p-xs,
-.form input[type=month].xs.pill.p-xs,
-.form input[type=time].xs.pill.p-xs,
-.form input[type=week].xs.pill.p-xs,
-.group input[type=date].xs.pill.p-xs,
-.group input[type=datetime-local].xs.pill.p-xs,
-.group input[type=month].xs.pill.p-xs,
-.group input[type=time].xs.pill.p-xs,
-.group input[type=week].xs.pill.p-xs,
-input[type=date].form.xs.pill.p-xs,
-input[type=datetime-local].form.xs.pill.p-xs,
-input[type=month].form.xs.pill.p-xs,
-input[type=time].form.xs.pill.p-xs,
-input[type=week].form.xs.pill.p-xs {
-  padding-left: 7.5px;
-  padding-right: 7.5px;
-}
-.form input[type=date].xs.pill.p-sm,
-.form input[type=datetime-local].xs.pill.p-sm,
-.form input[type=month].xs.pill.p-sm,
-.form input[type=time].xs.pill.p-sm,
-.form input[type=week].xs.pill.p-sm,
-.group input[type=date].xs.pill.p-sm,
-.group input[type=datetime-local].xs.pill.p-sm,
-.group input[type=month].xs.pill.p-sm,
-.group input[type=time].xs.pill.p-sm,
-.group input[type=week].xs.pill.p-sm,
-input[type=date].form.xs.pill.p-sm,
-input[type=datetime-local].form.xs.pill.p-sm,
-input[type=month].form.xs.pill.p-sm,
-input[type=time].form.xs.pill.p-sm,
-input[type=week].form.xs.pill.p-sm {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-.form input[type=date].xs.pill.p-lg,
-.form input[type=datetime-local].xs.pill.p-lg,
-.form input[type=month].xs.pill.p-lg,
-.form input[type=time].xs.pill.p-lg,
-.form input[type=week].xs.pill.p-lg,
-.group input[type=date].xs.pill.p-lg,
-.group input[type=datetime-local].xs.pill.p-lg,
-.group input[type=month].xs.pill.p-lg,
-.group input[type=time].xs.pill.p-lg,
-.group input[type=week].xs.pill.p-lg,
-input[type=date].form.xs.pill.p-lg,
-input[type=datetime-local].form.xs.pill.p-lg,
-input[type=month].form.xs.pill.p-lg,
-input[type=time].form.xs.pill.p-lg,
-input[type=week].form.xs.pill.p-lg {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.form input[type=date].xs.pill.p-xl,
-.form input[type=datetime-local].xs.pill.p-xl,
-.form input[type=month].xs.pill.p-xl,
-.form input[type=time].xs.pill.p-xl,
-.form input[type=week].xs.pill.p-xl,
-.group input[type=date].xs.pill.p-xl,
-.group input[type=datetime-local].xs.pill.p-xl,
-.group input[type=month].xs.pill.p-xl,
-.group input[type=time].xs.pill.p-xl,
-.group input[type=week].xs.pill.p-xl,
-input[type=date].form.xs.pill.p-xl,
-input[type=datetime-local].form.xs.pill.p-xl,
-input[type=month].form.xs.pill.p-xl,
-input[type=time].form.xs.pill.p-xl,
-input[type=week].form.xs.pill.p-xl {
-  padding-left: 17.5px;
-  padding-right: 17.5px;
-}
 .form input[type=date].sm,
 .form input[type=datetime-local].sm,
 .form input[type=month].sm,
@@ -6395,7 +5285,6 @@ input[type=week].form.sm {
   font-size: 0.875rem;
   padding: 4.5px 12px 3.5px;
   height: calc(10px + 1.5125rem);
-  border-radius: 7px;
 }
 .form input[type=date].sm.p-xs,
 .form input[type=datetime-local].sm.p-xs,
@@ -6469,96 +5358,6 @@ input[type=week].form.sm.p-xl {
   padding: 8px 18px 7px;
   height: calc(19px + 1.5125rem);
 }
-.form input[type=date].sm.pill,
-.form input[type=datetime-local].sm.pill,
-.form input[type=month].sm.pill,
-.form input[type=time].sm.pill,
-.form input[type=week].sm.pill,
-.group input[type=date].sm.pill,
-.group input[type=datetime-local].sm.pill,
-.group input[type=month].sm.pill,
-.group input[type=time].sm.pill,
-.group input[type=week].sm.pill,
-input[type=date].form.sm.pill,
-input[type=datetime-local].form.sm.pill,
-input[type=month].form.sm.pill,
-input[type=time].form.sm.pill,
-input[type=week].form.sm.pill {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.form input[type=date].sm.pill.p-xs,
-.form input[type=datetime-local].sm.pill.p-xs,
-.form input[type=month].sm.pill.p-xs,
-.form input[type=time].sm.pill.p-xs,
-.form input[type=week].sm.pill.p-xs,
-.group input[type=date].sm.pill.p-xs,
-.group input[type=datetime-local].sm.pill.p-xs,
-.group input[type=month].sm.pill.p-xs,
-.group input[type=time].sm.pill.p-xs,
-.group input[type=week].sm.pill.p-xs,
-input[type=date].form.sm.pill.p-xs,
-input[type=datetime-local].form.sm.pill.p-xs,
-input[type=month].form.sm.pill.p-xs,
-input[type=time].form.sm.pill.p-xs,
-input[type=week].form.sm.pill.p-xs {
-  padding-left: 9px;
-  padding-right: 9px;
-}
-.form input[type=date].sm.pill.p-sm,
-.form input[type=datetime-local].sm.pill.p-sm,
-.form input[type=month].sm.pill.p-sm,
-.form input[type=time].sm.pill.p-sm,
-.form input[type=week].sm.pill.p-sm,
-.group input[type=date].sm.pill.p-sm,
-.group input[type=datetime-local].sm.pill.p-sm,
-.group input[type=month].sm.pill.p-sm,
-.group input[type=time].sm.pill.p-sm,
-.group input[type=week].sm.pill.p-sm,
-input[type=date].form.sm.pill.p-sm,
-input[type=datetime-local].form.sm.pill.p-sm,
-input[type=month].form.sm.pill.p-sm,
-input[type=time].form.sm.pill.p-sm,
-input[type=week].form.sm.pill.p-sm {
-  padding-left: 12px;
-  padding-right: 12px;
-}
-.form input[type=date].sm.pill.p-lg,
-.form input[type=datetime-local].sm.pill.p-lg,
-.form input[type=month].sm.pill.p-lg,
-.form input[type=time].sm.pill.p-lg,
-.form input[type=week].sm.pill.p-lg,
-.group input[type=date].sm.pill.p-lg,
-.group input[type=datetime-local].sm.pill.p-lg,
-.group input[type=month].sm.pill.p-lg,
-.group input[type=time].sm.pill.p-lg,
-.group input[type=week].sm.pill.p-lg,
-input[type=date].form.sm.pill.p-lg,
-input[type=datetime-local].form.sm.pill.p-lg,
-input[type=month].form.sm.pill.p-lg,
-input[type=time].form.sm.pill.p-lg,
-input[type=week].form.sm.pill.p-lg {
-  padding-left: 18px;
-  padding-right: 18px;
-}
-.form input[type=date].sm.pill.p-xl,
-.form input[type=datetime-local].sm.pill.p-xl,
-.form input[type=month].sm.pill.p-xl,
-.form input[type=time].sm.pill.p-xl,
-.form input[type=week].sm.pill.p-xl,
-.group input[type=date].sm.pill.p-xl,
-.group input[type=datetime-local].sm.pill.p-xl,
-.group input[type=month].sm.pill.p-xl,
-.group input[type=time].sm.pill.p-xl,
-.group input[type=week].sm.pill.p-xl,
-input[type=date].form.sm.pill.p-xl,
-input[type=datetime-local].form.sm.pill.p-xl,
-input[type=month].form.sm.pill.p-xl,
-input[type=time].form.sm.pill.p-xl,
-input[type=week].form.sm.pill.p-xl {
-  padding-left: 21px;
-  padding-right: 21px;
-}
 .form input[type=date].lg,
 .form input[type=datetime-local].lg,
 .form input[type=month].lg,
@@ -6577,7 +5376,6 @@ input[type=week].form.lg {
   font-size: 1.125rem;
   padding: 6.5px 16px 5.5px;
   height: calc(14px + 1.8875rem);
-  border-radius: 9px;
 }
 .form input[type=date].lg.p-xs,
 .form input[type=datetime-local].lg.p-xs,
@@ -6651,96 +5449,6 @@ input[type=week].form.lg.p-xl {
   padding: 12px 24px 11px;
   height: calc(27px + 1.8875rem);
 }
-.form input[type=date].lg.pill,
-.form input[type=datetime-local].lg.pill,
-.form input[type=month].lg.pill,
-.form input[type=time].lg.pill,
-.form input[type=week].lg.pill,
-.group input[type=date].lg.pill,
-.group input[type=datetime-local].lg.pill,
-.group input[type=month].lg.pill,
-.group input[type=time].lg.pill,
-.group input[type=week].lg.pill,
-input[type=date].form.lg.pill,
-input[type=datetime-local].form.lg.pill,
-input[type=month].form.lg.pill,
-input[type=time].form.lg.pill,
-input[type=week].form.lg.pill {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-.form input[type=date].lg.pill.p-xs,
-.form input[type=datetime-local].lg.pill.p-xs,
-.form input[type=month].lg.pill.p-xs,
-.form input[type=time].lg.pill.p-xs,
-.form input[type=week].lg.pill.p-xs,
-.group input[type=date].lg.pill.p-xs,
-.group input[type=datetime-local].lg.pill.p-xs,
-.group input[type=month].lg.pill.p-xs,
-.group input[type=time].lg.pill.p-xs,
-.group input[type=week].lg.pill.p-xs,
-input[type=date].form.lg.pill.p-xs,
-input[type=datetime-local].form.lg.pill.p-xs,
-input[type=month].form.lg.pill.p-xs,
-input[type=time].form.lg.pill.p-xs,
-input[type=week].form.lg.pill.p-xs {
-  padding-left: 12px;
-  padding-right: 12px;
-}
-.form input[type=date].lg.pill.p-sm,
-.form input[type=datetime-local].lg.pill.p-sm,
-.form input[type=month].lg.pill.p-sm,
-.form input[type=time].lg.pill.p-sm,
-.form input[type=week].lg.pill.p-sm,
-.group input[type=date].lg.pill.p-sm,
-.group input[type=datetime-local].lg.pill.p-sm,
-.group input[type=month].lg.pill.p-sm,
-.group input[type=time].lg.pill.p-sm,
-.group input[type=week].lg.pill.p-sm,
-input[type=date].form.lg.pill.p-sm,
-input[type=datetime-local].form.lg.pill.p-sm,
-input[type=month].form.lg.pill.p-sm,
-input[type=time].form.lg.pill.p-sm,
-input[type=week].form.lg.pill.p-sm {
-  padding-left: 16px;
-  padding-right: 16px;
-}
-.form input[type=date].lg.pill.p-lg,
-.form input[type=datetime-local].lg.pill.p-lg,
-.form input[type=month].lg.pill.p-lg,
-.form input[type=time].lg.pill.p-lg,
-.form input[type=week].lg.pill.p-lg,
-.group input[type=date].lg.pill.p-lg,
-.group input[type=datetime-local].lg.pill.p-lg,
-.group input[type=month].lg.pill.p-lg,
-.group input[type=time].lg.pill.p-lg,
-.group input[type=week].lg.pill.p-lg,
-input[type=date].form.lg.pill.p-lg,
-input[type=datetime-local].form.lg.pill.p-lg,
-input[type=month].form.lg.pill.p-lg,
-input[type=time].form.lg.pill.p-lg,
-input[type=week].form.lg.pill.p-lg {
-  padding-left: 24px;
-  padding-right: 24px;
-}
-.form input[type=date].lg.pill.p-xl,
-.form input[type=datetime-local].lg.pill.p-xl,
-.form input[type=month].lg.pill.p-xl,
-.form input[type=time].lg.pill.p-xl,
-.form input[type=week].lg.pill.p-xl,
-.group input[type=date].lg.pill.p-xl,
-.group input[type=datetime-local].lg.pill.p-xl,
-.group input[type=month].lg.pill.p-xl,
-.group input[type=time].lg.pill.p-xl,
-.group input[type=week].lg.pill.p-xl,
-input[type=date].form.lg.pill.p-xl,
-input[type=datetime-local].form.lg.pill.p-xl,
-input[type=month].form.lg.pill.p-xl,
-input[type=time].form.lg.pill.p-xl,
-input[type=week].form.lg.pill.p-xl {
-  padding-left: 28px;
-  padding-right: 28px;
-}
 .form input[type=date].xl,
 .form input[type=datetime-local].xl,
 .form input[type=month].xl,
@@ -6759,7 +5467,6 @@ input[type=week].form.xl {
   font-size: 1.25rem;
   padding: 7.5px 18px 6.5px;
   height: calc(16px + 2.075rem);
-  border-radius: 10px;
 }
 .form input[type=date].xl.p-xs,
 .form input[type=datetime-local].xl.p-xs,
@@ -6833,16 +5540,608 @@ input[type=week].form.xl.p-xl {
   padding: 14px 27px 13px;
   height: calc(31px + 2.075rem);
 }
+
+.form input[type=text].pill,
+.form input[type=email].pill,
+.form input[type=password].pill,
+.form input[type=number].pill,
+.form input[type=tel].pill,
+.form input[type=url].pill,
+.form input[type=search].pill,
+.form textarea.pill,
+input[type=text].form.pill,
+input[type=email].form.pill,
+input[type=password].form.pill,
+input[type=number].form.pill,
+input[type=tel].form.pill,
+input[type=url].form.pill,
+input[type=search].form.pill,
+textarea.form.pill,
+.form input[type=date].pill,
+.form input[type=datetime-local].pill,
+.form input[type=month].pill,
+.form input[type=time].pill,
+.form input[type=week].pill,
+input[type=date].form.pill,
+input[type=datetime-local].form.pill,
+input[type=month].form.pill,
+input[type=time].form.pill,
+input[type=week].form.pill {
+  padding-left: 17.5px;
+  padding-right: 17.5px;
+}
+.form input[type=text].pill.p-xs,
+.form input[type=email].pill.p-xs,
+.form input[type=password].pill.p-xs,
+.form input[type=number].pill.p-xs,
+.form input[type=tel].pill.p-xs,
+.form input[type=url].pill.p-xs,
+.form input[type=search].pill.p-xs,
+.form textarea.pill.p-xs,
+input[type=text].form.pill.p-xs,
+input[type=email].form.pill.p-xs,
+input[type=password].form.pill.p-xs,
+input[type=number].form.pill.p-xs,
+input[type=tel].form.pill.p-xs,
+input[type=url].form.pill.p-xs,
+input[type=search].form.pill.p-xs,
+textarea.form.pill.p-xs,
+.form input[type=date].pill.p-xs,
+.form input[type=datetime-local].pill.p-xs,
+.form input[type=month].pill.p-xs,
+.form input[type=time].pill.p-xs,
+.form input[type=week].pill.p-xs,
+input[type=date].form.pill.p-xs,
+input[type=datetime-local].form.pill.p-xs,
+input[type=month].form.pill.p-xs,
+input[type=time].form.pill.p-xs,
+input[type=week].form.pill.p-xs {
+  padding-left: 10.5px;
+  padding-right: 10.5px;
+}
+.form input[type=text].pill.p-sm,
+.form input[type=email].pill.p-sm,
+.form input[type=password].pill.p-sm,
+.form input[type=number].pill.p-sm,
+.form input[type=tel].pill.p-sm,
+.form input[type=url].pill.p-sm,
+.form input[type=search].pill.p-sm,
+.form textarea.pill.p-sm,
+input[type=text].form.pill.p-sm,
+input[type=email].form.pill.p-sm,
+input[type=password].form.pill.p-sm,
+input[type=number].form.pill.p-sm,
+input[type=tel].form.pill.p-sm,
+input[type=url].form.pill.p-sm,
+input[type=search].form.pill.p-sm,
+textarea.form.pill.p-sm,
+.form input[type=date].pill.p-sm,
+.form input[type=datetime-local].pill.p-sm,
+.form input[type=month].pill.p-sm,
+.form input[type=time].pill.p-sm,
+.form input[type=week].pill.p-sm,
+input[type=date].form.pill.p-sm,
+input[type=datetime-local].form.pill.p-sm,
+input[type=month].form.pill.p-sm,
+input[type=time].form.pill.p-sm,
+input[type=week].form.pill.p-sm {
+  padding-left: 14px;
+  padding-right: 14px;
+}
+.form input[type=text].pill.p-lg,
+.form input[type=email].pill.p-lg,
+.form input[type=password].pill.p-lg,
+.form input[type=number].pill.p-lg,
+.form input[type=tel].pill.p-lg,
+.form input[type=url].pill.p-lg,
+.form input[type=search].pill.p-lg,
+.form textarea.pill.p-lg,
+input[type=text].form.pill.p-lg,
+input[type=email].form.pill.p-lg,
+input[type=password].form.pill.p-lg,
+input[type=number].form.pill.p-lg,
+input[type=tel].form.pill.p-lg,
+input[type=url].form.pill.p-lg,
+input[type=search].form.pill.p-lg,
+textarea.form.pill.p-lg,
+.form input[type=date].pill.p-lg,
+.form input[type=datetime-local].pill.p-lg,
+.form input[type=month].pill.p-lg,
+.form input[type=time].pill.p-lg,
+.form input[type=week].pill.p-lg,
+input[type=date].form.pill.p-lg,
+input[type=datetime-local].form.pill.p-lg,
+input[type=month].form.pill.p-lg,
+input[type=time].form.pill.p-lg,
+input[type=week].form.pill.p-lg {
+  padding-left: 21px;
+  padding-right: 21px;
+}
+.form input[type=text].pill.p-xl,
+.form input[type=email].pill.p-xl,
+.form input[type=password].pill.p-xl,
+.form input[type=number].pill.p-xl,
+.form input[type=tel].pill.p-xl,
+.form input[type=url].pill.p-xl,
+.form input[type=search].pill.p-xl,
+.form textarea.pill.p-xl,
+input[type=text].form.pill.p-xl,
+input[type=email].form.pill.p-xl,
+input[type=password].form.pill.p-xl,
+input[type=number].form.pill.p-xl,
+input[type=tel].form.pill.p-xl,
+input[type=url].form.pill.p-xl,
+input[type=search].form.pill.p-xl,
+textarea.form.pill.p-xl,
+.form input[type=date].pill.p-xl,
+.form input[type=datetime-local].pill.p-xl,
+.form input[type=month].pill.p-xl,
+.form input[type=time].pill.p-xl,
+.form input[type=week].pill.p-xl,
+input[type=date].form.pill.p-xl,
+input[type=datetime-local].form.pill.p-xl,
+input[type=month].form.pill.p-xl,
+input[type=time].form.pill.p-xl,
+input[type=week].form.pill.p-xl {
+  padding-left: 24.5px;
+  padding-right: 24.5px;
+}
+.form input[type=text].xs.pill,
+.form input[type=email].xs.pill,
+.form input[type=password].xs.pill,
+.form input[type=number].xs.pill,
+.form input[type=tel].xs.pill,
+.form input[type=url].xs.pill,
+.form input[type=search].xs.pill,
+.form textarea.xs.pill,
+input[type=text].form.xs.pill,
+input[type=email].form.xs.pill,
+input[type=password].form.xs.pill,
+input[type=number].form.xs.pill,
+input[type=tel].form.xs.pill,
+input[type=url].form.xs.pill,
+input[type=search].form.xs.pill,
+textarea.form.xs.pill,
+.form input[type=date].xs.pill,
+.form input[type=datetime-local].xs.pill,
+.form input[type=month].xs.pill,
+.form input[type=time].xs.pill,
+.form input[type=week].xs.pill,
+input[type=date].form.xs.pill,
+input[type=datetime-local].form.xs.pill,
+input[type=month].form.xs.pill,
+input[type=time].form.xs.pill,
+input[type=week].form.xs.pill {
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.form input[type=text].xs.pill.p-xs,
+.form input[type=email].xs.pill.p-xs,
+.form input[type=password].xs.pill.p-xs,
+.form input[type=number].xs.pill.p-xs,
+.form input[type=tel].xs.pill.p-xs,
+.form input[type=url].xs.pill.p-xs,
+.form input[type=search].xs.pill.p-xs,
+.form textarea.xs.pill.p-xs,
+input[type=text].form.xs.pill.p-xs,
+input[type=email].form.xs.pill.p-xs,
+input[type=password].form.xs.pill.p-xs,
+input[type=number].form.xs.pill.p-xs,
+input[type=tel].form.xs.pill.p-xs,
+input[type=url].form.xs.pill.p-xs,
+input[type=search].form.xs.pill.p-xs,
+textarea.form.xs.pill.p-xs,
+.form input[type=date].xs.pill.p-xs,
+.form input[type=datetime-local].xs.pill.p-xs,
+.form input[type=month].xs.pill.p-xs,
+.form input[type=time].xs.pill.p-xs,
+.form input[type=week].xs.pill.p-xs,
+input[type=date].form.xs.pill.p-xs,
+input[type=datetime-local].form.xs.pill.p-xs,
+input[type=month].form.xs.pill.p-xs,
+input[type=time].form.xs.pill.p-xs,
+input[type=week].form.xs.pill.p-xs {
+  padding-left: 7.5px;
+  padding-right: 7.5px;
+}
+.form input[type=text].xs.pill.p-sm,
+.form input[type=email].xs.pill.p-sm,
+.form input[type=password].xs.pill.p-sm,
+.form input[type=number].xs.pill.p-sm,
+.form input[type=tel].xs.pill.p-sm,
+.form input[type=url].xs.pill.p-sm,
+.form input[type=search].xs.pill.p-sm,
+.form textarea.xs.pill.p-sm,
+input[type=text].form.xs.pill.p-sm,
+input[type=email].form.xs.pill.p-sm,
+input[type=password].form.xs.pill.p-sm,
+input[type=number].form.xs.pill.p-sm,
+input[type=tel].form.xs.pill.p-sm,
+input[type=url].form.xs.pill.p-sm,
+input[type=search].form.xs.pill.p-sm,
+textarea.form.xs.pill.p-sm,
+.form input[type=date].xs.pill.p-sm,
+.form input[type=datetime-local].xs.pill.p-sm,
+.form input[type=month].xs.pill.p-sm,
+.form input[type=time].xs.pill.p-sm,
+.form input[type=week].xs.pill.p-sm,
+input[type=date].form.xs.pill.p-sm,
+input[type=datetime-local].form.xs.pill.p-sm,
+input[type=month].form.xs.pill.p-sm,
+input[type=time].form.xs.pill.p-sm,
+input[type=week].form.xs.pill.p-sm {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.form input[type=text].xs.pill.p-lg,
+.form input[type=email].xs.pill.p-lg,
+.form input[type=password].xs.pill.p-lg,
+.form input[type=number].xs.pill.p-lg,
+.form input[type=tel].xs.pill.p-lg,
+.form input[type=url].xs.pill.p-lg,
+.form input[type=search].xs.pill.p-lg,
+.form textarea.xs.pill.p-lg,
+input[type=text].form.xs.pill.p-lg,
+input[type=email].form.xs.pill.p-lg,
+input[type=password].form.xs.pill.p-lg,
+input[type=number].form.xs.pill.p-lg,
+input[type=tel].form.xs.pill.p-lg,
+input[type=url].form.xs.pill.p-lg,
+input[type=search].form.xs.pill.p-lg,
+textarea.form.xs.pill.p-lg,
+.form input[type=date].xs.pill.p-lg,
+.form input[type=datetime-local].xs.pill.p-lg,
+.form input[type=month].xs.pill.p-lg,
+.form input[type=time].xs.pill.p-lg,
+.form input[type=week].xs.pill.p-lg,
+input[type=date].form.xs.pill.p-lg,
+input[type=datetime-local].form.xs.pill.p-lg,
+input[type=month].form.xs.pill.p-lg,
+input[type=time].form.xs.pill.p-lg,
+input[type=week].form.xs.pill.p-lg {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.form input[type=text].xs.pill.p-xl,
+.form input[type=email].xs.pill.p-xl,
+.form input[type=password].xs.pill.p-xl,
+.form input[type=number].xs.pill.p-xl,
+.form input[type=tel].xs.pill.p-xl,
+.form input[type=url].xs.pill.p-xl,
+.form input[type=search].xs.pill.p-xl,
+.form textarea.xs.pill.p-xl,
+input[type=text].form.xs.pill.p-xl,
+input[type=email].form.xs.pill.p-xl,
+input[type=password].form.xs.pill.p-xl,
+input[type=number].form.xs.pill.p-xl,
+input[type=tel].form.xs.pill.p-xl,
+input[type=url].form.xs.pill.p-xl,
+input[type=search].form.xs.pill.p-xl,
+textarea.form.xs.pill.p-xl,
+.form input[type=date].xs.pill.p-xl,
+.form input[type=datetime-local].xs.pill.p-xl,
+.form input[type=month].xs.pill.p-xl,
+.form input[type=time].xs.pill.p-xl,
+.form input[type=week].xs.pill.p-xl,
+input[type=date].form.xs.pill.p-xl,
+input[type=datetime-local].form.xs.pill.p-xl,
+input[type=month].form.xs.pill.p-xl,
+input[type=time].form.xs.pill.p-xl,
+input[type=week].form.xs.pill.p-xl {
+  padding-left: 17.5px;
+  padding-right: 17.5px;
+}
+.form input[type=text].sm.pill,
+.form input[type=email].sm.pill,
+.form input[type=password].sm.pill,
+.form input[type=number].sm.pill,
+.form input[type=tel].sm.pill,
+.form input[type=url].sm.pill,
+.form input[type=search].sm.pill,
+.form textarea.sm.pill,
+input[type=text].form.sm.pill,
+input[type=email].form.sm.pill,
+input[type=password].form.sm.pill,
+input[type=number].form.sm.pill,
+input[type=tel].form.sm.pill,
+input[type=url].form.sm.pill,
+input[type=search].form.sm.pill,
+textarea.form.sm.pill,
+.form input[type=date].sm.pill,
+.form input[type=datetime-local].sm.pill,
+.form input[type=month].sm.pill,
+.form input[type=time].sm.pill,
+.form input[type=week].sm.pill,
+input[type=date].form.sm.pill,
+input[type=datetime-local].form.sm.pill,
+input[type=month].form.sm.pill,
+input[type=time].form.sm.pill,
+input[type=week].form.sm.pill {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.form input[type=text].sm.pill.p-xs,
+.form input[type=email].sm.pill.p-xs,
+.form input[type=password].sm.pill.p-xs,
+.form input[type=number].sm.pill.p-xs,
+.form input[type=tel].sm.pill.p-xs,
+.form input[type=url].sm.pill.p-xs,
+.form input[type=search].sm.pill.p-xs,
+.form textarea.sm.pill.p-xs,
+input[type=text].form.sm.pill.p-xs,
+input[type=email].form.sm.pill.p-xs,
+input[type=password].form.sm.pill.p-xs,
+input[type=number].form.sm.pill.p-xs,
+input[type=tel].form.sm.pill.p-xs,
+input[type=url].form.sm.pill.p-xs,
+input[type=search].form.sm.pill.p-xs,
+textarea.form.sm.pill.p-xs,
+.form input[type=date].sm.pill.p-xs,
+.form input[type=datetime-local].sm.pill.p-xs,
+.form input[type=month].sm.pill.p-xs,
+.form input[type=time].sm.pill.p-xs,
+.form input[type=week].sm.pill.p-xs,
+input[type=date].form.sm.pill.p-xs,
+input[type=datetime-local].form.sm.pill.p-xs,
+input[type=month].form.sm.pill.p-xs,
+input[type=time].form.sm.pill.p-xs,
+input[type=week].form.sm.pill.p-xs {
+  padding-left: 9px;
+  padding-right: 9px;
+}
+.form input[type=text].sm.pill.p-sm,
+.form input[type=email].sm.pill.p-sm,
+.form input[type=password].sm.pill.p-sm,
+.form input[type=number].sm.pill.p-sm,
+.form input[type=tel].sm.pill.p-sm,
+.form input[type=url].sm.pill.p-sm,
+.form input[type=search].sm.pill.p-sm,
+.form textarea.sm.pill.p-sm,
+input[type=text].form.sm.pill.p-sm,
+input[type=email].form.sm.pill.p-sm,
+input[type=password].form.sm.pill.p-sm,
+input[type=number].form.sm.pill.p-sm,
+input[type=tel].form.sm.pill.p-sm,
+input[type=url].form.sm.pill.p-sm,
+input[type=search].form.sm.pill.p-sm,
+textarea.form.sm.pill.p-sm,
+.form input[type=date].sm.pill.p-sm,
+.form input[type=datetime-local].sm.pill.p-sm,
+.form input[type=month].sm.pill.p-sm,
+.form input[type=time].sm.pill.p-sm,
+.form input[type=week].sm.pill.p-sm,
+input[type=date].form.sm.pill.p-sm,
+input[type=datetime-local].form.sm.pill.p-sm,
+input[type=month].form.sm.pill.p-sm,
+input[type=time].form.sm.pill.p-sm,
+input[type=week].form.sm.pill.p-sm {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.form input[type=text].sm.pill.p-lg,
+.form input[type=email].sm.pill.p-lg,
+.form input[type=password].sm.pill.p-lg,
+.form input[type=number].sm.pill.p-lg,
+.form input[type=tel].sm.pill.p-lg,
+.form input[type=url].sm.pill.p-lg,
+.form input[type=search].sm.pill.p-lg,
+.form textarea.sm.pill.p-lg,
+input[type=text].form.sm.pill.p-lg,
+input[type=email].form.sm.pill.p-lg,
+input[type=password].form.sm.pill.p-lg,
+input[type=number].form.sm.pill.p-lg,
+input[type=tel].form.sm.pill.p-lg,
+input[type=url].form.sm.pill.p-lg,
+input[type=search].form.sm.pill.p-lg,
+textarea.form.sm.pill.p-lg,
+.form input[type=date].sm.pill.p-lg,
+.form input[type=datetime-local].sm.pill.p-lg,
+.form input[type=month].sm.pill.p-lg,
+.form input[type=time].sm.pill.p-lg,
+.form input[type=week].sm.pill.p-lg,
+input[type=date].form.sm.pill.p-lg,
+input[type=datetime-local].form.sm.pill.p-lg,
+input[type=month].form.sm.pill.p-lg,
+input[type=time].form.sm.pill.p-lg,
+input[type=week].form.sm.pill.p-lg {
+  padding-left: 18px;
+  padding-right: 18px;
+}
+.form input[type=text].sm.pill.p-xl,
+.form input[type=email].sm.pill.p-xl,
+.form input[type=password].sm.pill.p-xl,
+.form input[type=number].sm.pill.p-xl,
+.form input[type=tel].sm.pill.p-xl,
+.form input[type=url].sm.pill.p-xl,
+.form input[type=search].sm.pill.p-xl,
+.form textarea.sm.pill.p-xl,
+input[type=text].form.sm.pill.p-xl,
+input[type=email].form.sm.pill.p-xl,
+input[type=password].form.sm.pill.p-xl,
+input[type=number].form.sm.pill.p-xl,
+input[type=tel].form.sm.pill.p-xl,
+input[type=url].form.sm.pill.p-xl,
+input[type=search].form.sm.pill.p-xl,
+textarea.form.sm.pill.p-xl,
+.form input[type=date].sm.pill.p-xl,
+.form input[type=datetime-local].sm.pill.p-xl,
+.form input[type=month].sm.pill.p-xl,
+.form input[type=time].sm.pill.p-xl,
+.form input[type=week].sm.pill.p-xl,
+input[type=date].form.sm.pill.p-xl,
+input[type=datetime-local].form.sm.pill.p-xl,
+input[type=month].form.sm.pill.p-xl,
+input[type=time].form.sm.pill.p-xl,
+input[type=week].form.sm.pill.p-xl {
+  padding-left: 21px;
+  padding-right: 21px;
+}
+.form input[type=text].lg.pill,
+.form input[type=email].lg.pill,
+.form input[type=password].lg.pill,
+.form input[type=number].lg.pill,
+.form input[type=tel].lg.pill,
+.form input[type=url].lg.pill,
+.form input[type=search].lg.pill,
+.form textarea.lg.pill,
+input[type=text].form.lg.pill,
+input[type=email].form.lg.pill,
+input[type=password].form.lg.pill,
+input[type=number].form.lg.pill,
+input[type=tel].form.lg.pill,
+input[type=url].form.lg.pill,
+input[type=search].form.lg.pill,
+textarea.form.lg.pill,
+.form input[type=date].lg.pill,
+.form input[type=datetime-local].lg.pill,
+.form input[type=month].lg.pill,
+.form input[type=time].lg.pill,
+.form input[type=week].lg.pill,
+input[type=date].form.lg.pill,
+input[type=datetime-local].form.lg.pill,
+input[type=month].form.lg.pill,
+input[type=time].form.lg.pill,
+input[type=week].form.lg.pill {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.form input[type=text].lg.pill.p-xs,
+.form input[type=email].lg.pill.p-xs,
+.form input[type=password].lg.pill.p-xs,
+.form input[type=number].lg.pill.p-xs,
+.form input[type=tel].lg.pill.p-xs,
+.form input[type=url].lg.pill.p-xs,
+.form input[type=search].lg.pill.p-xs,
+.form textarea.lg.pill.p-xs,
+input[type=text].form.lg.pill.p-xs,
+input[type=email].form.lg.pill.p-xs,
+input[type=password].form.lg.pill.p-xs,
+input[type=number].form.lg.pill.p-xs,
+input[type=tel].form.lg.pill.p-xs,
+input[type=url].form.lg.pill.p-xs,
+input[type=search].form.lg.pill.p-xs,
+textarea.form.lg.pill.p-xs,
+.form input[type=date].lg.pill.p-xs,
+.form input[type=datetime-local].lg.pill.p-xs,
+.form input[type=month].lg.pill.p-xs,
+.form input[type=time].lg.pill.p-xs,
+.form input[type=week].lg.pill.p-xs,
+input[type=date].form.lg.pill.p-xs,
+input[type=datetime-local].form.lg.pill.p-xs,
+input[type=month].form.lg.pill.p-xs,
+input[type=time].form.lg.pill.p-xs,
+input[type=week].form.lg.pill.p-xs {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.form input[type=text].lg.pill.p-sm,
+.form input[type=email].lg.pill.p-sm,
+.form input[type=password].lg.pill.p-sm,
+.form input[type=number].lg.pill.p-sm,
+.form input[type=tel].lg.pill.p-sm,
+.form input[type=url].lg.pill.p-sm,
+.form input[type=search].lg.pill.p-sm,
+.form textarea.lg.pill.p-sm,
+input[type=text].form.lg.pill.p-sm,
+input[type=email].form.lg.pill.p-sm,
+input[type=password].form.lg.pill.p-sm,
+input[type=number].form.lg.pill.p-sm,
+input[type=tel].form.lg.pill.p-sm,
+input[type=url].form.lg.pill.p-sm,
+input[type=search].form.lg.pill.p-sm,
+textarea.form.lg.pill.p-sm,
+.form input[type=date].lg.pill.p-sm,
+.form input[type=datetime-local].lg.pill.p-sm,
+.form input[type=month].lg.pill.p-sm,
+.form input[type=time].lg.pill.p-sm,
+.form input[type=week].lg.pill.p-sm,
+input[type=date].form.lg.pill.p-sm,
+input[type=datetime-local].form.lg.pill.p-sm,
+input[type=month].form.lg.pill.p-sm,
+input[type=time].form.lg.pill.p-sm,
+input[type=week].form.lg.pill.p-sm {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.form input[type=text].lg.pill.p-lg,
+.form input[type=email].lg.pill.p-lg,
+.form input[type=password].lg.pill.p-lg,
+.form input[type=number].lg.pill.p-lg,
+.form input[type=tel].lg.pill.p-lg,
+.form input[type=url].lg.pill.p-lg,
+.form input[type=search].lg.pill.p-lg,
+.form textarea.lg.pill.p-lg,
+input[type=text].form.lg.pill.p-lg,
+input[type=email].form.lg.pill.p-lg,
+input[type=password].form.lg.pill.p-lg,
+input[type=number].form.lg.pill.p-lg,
+input[type=tel].form.lg.pill.p-lg,
+input[type=url].form.lg.pill.p-lg,
+input[type=search].form.lg.pill.p-lg,
+textarea.form.lg.pill.p-lg,
+.form input[type=date].lg.pill.p-lg,
+.form input[type=datetime-local].lg.pill.p-lg,
+.form input[type=month].lg.pill.p-lg,
+.form input[type=time].lg.pill.p-lg,
+.form input[type=week].lg.pill.p-lg,
+input[type=date].form.lg.pill.p-lg,
+input[type=datetime-local].form.lg.pill.p-lg,
+input[type=month].form.lg.pill.p-lg,
+input[type=time].form.lg.pill.p-lg,
+input[type=week].form.lg.pill.p-lg {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.form input[type=text].lg.pill.p-xl,
+.form input[type=email].lg.pill.p-xl,
+.form input[type=password].lg.pill.p-xl,
+.form input[type=number].lg.pill.p-xl,
+.form input[type=tel].lg.pill.p-xl,
+.form input[type=url].lg.pill.p-xl,
+.form input[type=search].lg.pill.p-xl,
+.form textarea.lg.pill.p-xl,
+input[type=text].form.lg.pill.p-xl,
+input[type=email].form.lg.pill.p-xl,
+input[type=password].form.lg.pill.p-xl,
+input[type=number].form.lg.pill.p-xl,
+input[type=tel].form.lg.pill.p-xl,
+input[type=url].form.lg.pill.p-xl,
+input[type=search].form.lg.pill.p-xl,
+textarea.form.lg.pill.p-xl,
+.form input[type=date].lg.pill.p-xl,
+.form input[type=datetime-local].lg.pill.p-xl,
+.form input[type=month].lg.pill.p-xl,
+.form input[type=time].lg.pill.p-xl,
+.form input[type=week].lg.pill.p-xl,
+input[type=date].form.lg.pill.p-xl,
+input[type=datetime-local].form.lg.pill.p-xl,
+input[type=month].form.lg.pill.p-xl,
+input[type=time].form.lg.pill.p-xl,
+input[type=week].form.lg.pill.p-xl {
+  padding-left: 28px;
+  padding-right: 28px;
+}
+.form input[type=text].xl.pill,
+.form input[type=email].xl.pill,
+.form input[type=password].xl.pill,
+.form input[type=number].xl.pill,
+.form input[type=tel].xl.pill,
+.form input[type=url].xl.pill,
+.form input[type=search].xl.pill,
+.form textarea.xl.pill,
+input[type=text].form.xl.pill,
+input[type=email].form.xl.pill,
+input[type=password].form.xl.pill,
+input[type=number].form.xl.pill,
+input[type=tel].form.xl.pill,
+input[type=url].form.xl.pill,
+input[type=search].form.xl.pill,
+textarea.form.xl.pill,
 .form input[type=date].xl.pill,
 .form input[type=datetime-local].xl.pill,
 .form input[type=month].xl.pill,
 .form input[type=time].xl.pill,
 .form input[type=week].xl.pill,
-.group input[type=date].xl.pill,
-.group input[type=datetime-local].xl.pill,
-.group input[type=month].xl.pill,
-.group input[type=time].xl.pill,
-.group input[type=week].xl.pill,
 input[type=date].form.xl.pill,
 input[type=datetime-local].form.xl.pill,
 input[type=month].form.xl.pill,
@@ -6851,16 +6150,27 @@ input[type=week].form.xl.pill {
   padding-left: 22.5px;
   padding-right: 22.5px;
 }
+.form input[type=text].xl.pill.p-xs,
+.form input[type=email].xl.pill.p-xs,
+.form input[type=password].xl.pill.p-xs,
+.form input[type=number].xl.pill.p-xs,
+.form input[type=tel].xl.pill.p-xs,
+.form input[type=url].xl.pill.p-xs,
+.form input[type=search].xl.pill.p-xs,
+.form textarea.xl.pill.p-xs,
+input[type=text].form.xl.pill.p-xs,
+input[type=email].form.xl.pill.p-xs,
+input[type=password].form.xl.pill.p-xs,
+input[type=number].form.xl.pill.p-xs,
+input[type=tel].form.xl.pill.p-xs,
+input[type=url].form.xl.pill.p-xs,
+input[type=search].form.xl.pill.p-xs,
+textarea.form.xl.pill.p-xs,
 .form input[type=date].xl.pill.p-xs,
 .form input[type=datetime-local].xl.pill.p-xs,
 .form input[type=month].xl.pill.p-xs,
 .form input[type=time].xl.pill.p-xs,
 .form input[type=week].xl.pill.p-xs,
-.group input[type=date].xl.pill.p-xs,
-.group input[type=datetime-local].xl.pill.p-xs,
-.group input[type=month].xl.pill.p-xs,
-.group input[type=time].xl.pill.p-xs,
-.group input[type=week].xl.pill.p-xs,
 input[type=date].form.xl.pill.p-xs,
 input[type=datetime-local].form.xl.pill.p-xs,
 input[type=month].form.xl.pill.p-xs,
@@ -6869,16 +6179,27 @@ input[type=week].form.xl.pill.p-xs {
   padding-left: 13.5px;
   padding-right: 13.5px;
 }
+.form input[type=text].xl.pill.p-sm,
+.form input[type=email].xl.pill.p-sm,
+.form input[type=password].xl.pill.p-sm,
+.form input[type=number].xl.pill.p-sm,
+.form input[type=tel].xl.pill.p-sm,
+.form input[type=url].xl.pill.p-sm,
+.form input[type=search].xl.pill.p-sm,
+.form textarea.xl.pill.p-sm,
+input[type=text].form.xl.pill.p-sm,
+input[type=email].form.xl.pill.p-sm,
+input[type=password].form.xl.pill.p-sm,
+input[type=number].form.xl.pill.p-sm,
+input[type=tel].form.xl.pill.p-sm,
+input[type=url].form.xl.pill.p-sm,
+input[type=search].form.xl.pill.p-sm,
+textarea.form.xl.pill.p-sm,
 .form input[type=date].xl.pill.p-sm,
 .form input[type=datetime-local].xl.pill.p-sm,
 .form input[type=month].xl.pill.p-sm,
 .form input[type=time].xl.pill.p-sm,
 .form input[type=week].xl.pill.p-sm,
-.group input[type=date].xl.pill.p-sm,
-.group input[type=datetime-local].xl.pill.p-sm,
-.group input[type=month].xl.pill.p-sm,
-.group input[type=time].xl.pill.p-sm,
-.group input[type=week].xl.pill.p-sm,
 input[type=date].form.xl.pill.p-sm,
 input[type=datetime-local].form.xl.pill.p-sm,
 input[type=month].form.xl.pill.p-sm,
@@ -6887,16 +6208,27 @@ input[type=week].form.xl.pill.p-sm {
   padding-left: 18px;
   padding-right: 18px;
 }
+.form input[type=text].xl.pill.p-lg,
+.form input[type=email].xl.pill.p-lg,
+.form input[type=password].xl.pill.p-lg,
+.form input[type=number].xl.pill.p-lg,
+.form input[type=tel].xl.pill.p-lg,
+.form input[type=url].xl.pill.p-lg,
+.form input[type=search].xl.pill.p-lg,
+.form textarea.xl.pill.p-lg,
+input[type=text].form.xl.pill.p-lg,
+input[type=email].form.xl.pill.p-lg,
+input[type=password].form.xl.pill.p-lg,
+input[type=number].form.xl.pill.p-lg,
+input[type=tel].form.xl.pill.p-lg,
+input[type=url].form.xl.pill.p-lg,
+input[type=search].form.xl.pill.p-lg,
+textarea.form.xl.pill.p-lg,
 .form input[type=date].xl.pill.p-lg,
 .form input[type=datetime-local].xl.pill.p-lg,
 .form input[type=month].xl.pill.p-lg,
 .form input[type=time].xl.pill.p-lg,
 .form input[type=week].xl.pill.p-lg,
-.group input[type=date].xl.pill.p-lg,
-.group input[type=datetime-local].xl.pill.p-lg,
-.group input[type=month].xl.pill.p-lg,
-.group input[type=time].xl.pill.p-lg,
-.group input[type=week].xl.pill.p-lg,
 input[type=date].form.xl.pill.p-lg,
 input[type=datetime-local].form.xl.pill.p-lg,
 input[type=month].form.xl.pill.p-lg,
@@ -6905,16 +6237,27 @@ input[type=week].form.xl.pill.p-lg {
   padding-left: 27px;
   padding-right: 27px;
 }
+.form input[type=text].xl.pill.p-xl,
+.form input[type=email].xl.pill.p-xl,
+.form input[type=password].xl.pill.p-xl,
+.form input[type=number].xl.pill.p-xl,
+.form input[type=tel].xl.pill.p-xl,
+.form input[type=url].xl.pill.p-xl,
+.form input[type=search].xl.pill.p-xl,
+.form textarea.xl.pill.p-xl,
+input[type=text].form.xl.pill.p-xl,
+input[type=email].form.xl.pill.p-xl,
+input[type=password].form.xl.pill.p-xl,
+input[type=number].form.xl.pill.p-xl,
+input[type=tel].form.xl.pill.p-xl,
+input[type=url].form.xl.pill.p-xl,
+input[type=search].form.xl.pill.p-xl,
+textarea.form.xl.pill.p-xl,
 .form input[type=date].xl.pill.p-xl,
 .form input[type=datetime-local].xl.pill.p-xl,
 .form input[type=month].xl.pill.p-xl,
 .form input[type=time].xl.pill.p-xl,
 .form input[type=week].xl.pill.p-xl,
-.group input[type=date].xl.pill.p-xl,
-.group input[type=datetime-local].xl.pill.p-xl,
-.group input[type=month].xl.pill.p-xl,
-.group input[type=time].xl.pill.p-xl,
-.group input[type=week].xl.pill.p-xl,
 input[type=date].form.xl.pill.p-xl,
 input[type=datetime-local].form.xl.pill.p-xl,
 input[type=month].form.xl.pill.p-xl,
@@ -7180,9 +6523,9 @@ input[type=range].form.xl::-moz-range-thumb {
 .group select,
 select.form {
   cursor: pointer;
+  background-size: 1em;
   background-repeat: no-repeat;
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="%23222"><path d="M10.4,11.21l-3.32-2.67c-1.03-.83-.44-2.49,.88-2.49h6.64c1.32,0,1.91,1.66,.88,2.49l-3.32,2.67c-.51,.41-1.24,.41-1.76,0Z"/></svg>');
-  background-size: 1rem;
   background-position: right 14px center;
   padding-right: 36px;
 }
@@ -7196,64 +6539,56 @@ select.form option {
 select.form.bg-none option {
   background-color: var(--bg-medium);
 }
+.form select.xs,
+.group select.xs,
+select.form.xs {
+  background-position: right 10px center;
+  padding-right: 26px;
+}
+.form select.sm,
+.group select.sm,
+select.form.sm {
+  background-position: right 12px center;
+  padding-right: 31px;
+}
+.form select.lg,
+.group select.lg,
+select.form.lg {
+  background-position: right 16px center;
+  padding-right: 41px;
+}
+.form select.xl,
+.group select.xl,
+select.form.xl {
+  background-position: right 18px center;
+  padding-right: 46px;
+}
+
 .form select.pill,
-.group select.pill,
 select.form.pill {
   padding-left: 17.5px;
   padding-right: 39.5px;
   background-position: right 17.5px center;
 }
-.form select.xs,
-.group select.xs,
-select.form.xs {
-  background-size: 0.75rem;
-  background-position: right 10px center;
-  padding-right: 26px;
-}
 .form select.xs.pill,
-.group select.xs.pill,
 select.form.xs.pill {
   padding-left: 12.5px;
   padding-right: 28.5px;
   background-position: right 12.5px center;
 }
-.form select.sm,
-.group select.sm,
-select.form.sm {
-  background-size: 0.875rem;
-  background-position: right 12px center;
-  padding-right: 31px;
-}
 .form select.sm.pill,
-.group select.sm.pill,
 select.form.sm.pill {
   padding-left: 15px;
   padding-right: 34px;
   background-position: right 15px center;
 }
-.form select.lg,
-.group select.lg,
-select.form.lg {
-  background-size: 1.125rem;
-  background-position: right 16px center;
-  padding-right: 41px;
-}
 .form select.lg.pill,
-.group select.lg.pill,
 select.form.lg.pill {
   padding-left: 20px;
   padding-right: 45px;
   background-position: right 20px center;
 }
-.form select.xl,
-.group select.xl,
-select.form.xl {
-  background-size: 1.25rem;
-  background-position: right 18px center;
-  padding-right: 46px;
-}
 .form select.xl.pill,
-.group select.xl.pill,
 select.form.xl.pill {
   padding-left: 22.5px;
   padding-right: 50.5px;
@@ -12739,9 +12074,6 @@ html.dark .d\:bd-none {
 .hover\:c-a:hover, .hover\:c-a:focus, .hover\:c-a:active {
   color: var(--accent) !important;
 }
-.hover\:c-a:hover *, .hover\:c-a:focus *, .hover\:c-a:active * {
-  color: var(--accent);
-}
 
 .hover\:bg-a:hover, .hover\:bg-a:focus, .hover\:bg-a:active {
   background-color: var(--accent) !important;
@@ -12750,9 +12082,6 @@ html.dark .d\:bd-none {
 
 .hover\:bd-a:hover, .hover\:bd-a:focus, .hover\:bd-a:active {
   border-color: var(--accent) !important;
-}
-.hover\:bd-a:hover *, .hover\:bd-a:focus *, .hover\:bd-a:active * {
-  border-color: var(--accent);
 }
 
 .c {

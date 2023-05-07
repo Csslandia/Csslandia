@@ -128,9 +128,9 @@
     &:active {
         color: var(--accent) !important;
 
-        & * {
-            color: var(--accent);
-        }
+        // & * {
+        //     color: var(--accent);
+        // }
     }
 }
 
@@ -149,9 +149,9 @@
     &:active {
         border-color: var(--accent) !important;
 
-        & * {
-            border-color: var(--accent);
-        }
+        // & * {
+        //     border-color: var(--accent);
+        // }
     }
 }
 
