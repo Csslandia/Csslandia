@@ -1,119 +1,8 @@
-@mixin file-size($size) {
-    padding-right: calc(($size - 1) * 2px * $padding-ratio + $form-bd-width);
-    font-size: $size * 0.125rem;
-
-    &::file-selector-button {
-        font-size: $size * 0.125rem;
-        margin-right: ($size - 1) * 2px * $padding-ratio;
-        padding: calc(
-                ((($size - 2.5) * $padding-ratio + 1) * 1px) + $form-bd-width
-            )
-            ($size - 1) * 2px * $padding-ratio
-            calc(($size - 2.5) * 1px * $padding-ratio + $form-bd-width)
-            calc(($size - 1) * 2px * $padding-ratio + $form-bd-width);
-    }
-
-    @if $form-shape == "pill" {
-        padding-right: calc(
-            ($size - 1) * 2.5px * $padding-ratio + $form-bd-width
-        );
-
-        &::file-selector-button {
-            padding-left: calc(
-                ($size - 1) * 2.5px * $padding-ratio + $form-bd-width
-            );
-        }
-    }
-
-    &.pill {
-        padding-right: calc(
-            ($size - 1) * 2.5px * $padding-ratio + $form-bd-width
-        );
-
-        &::file-selector-button {
-            padding-left: calc(
-                ($size - 1) * 2.5px * $padding-ratio + $form-bd-width
-            );
-        }
-    }
-
-    @if $form-bd-color != transparent {
-        border: $form-bd-width solid $form-bd-color;
-        padding-right: ($size - 1) * 2px * $padding-ratio;
-
-        &::file-selector-button {
-            padding: ($size - 2.5) *
-                1px *
-                $padding-ratio +
-                1
-                ($size - 1) *
-                2px *
-                $padding-ratio
-                ($size - 2.5) *
-                1px *
-                $padding-ratio;
-        }
-
-        @if $form-shape == "pill" {
-            padding-right: ($size - 1) * 2.5px * $padding-ratio;
-
-            &::file-selector-button {
-                padding-left: ($size - 1) * 2.5px * $padding-ratio;
-            }
-        }
-
-        &.pill {
-            padding-right: ($size - 1) * 2.5px * $padding-ratio;
-
-            &::file-selector-button {
-                padding-left: ($size - 1) * 2.5px * $padding-ratio;
-            }
-        }
-    } @else {
-        &[class^="bd"],
-        &[class*=" bd"] {
-            border: $form-bd-width solid;
-            padding-right: ($size - 1) * 2px * $padding-ratio;
-
-            &::file-selector-button {
-                padding: ($size - 2.5) *
-                    1px *
-                    $padding-ratio +
-                    1
-                    ($size - 1) *
-                    2px *
-                    $padding-ratio
-                    ($size - 2.5) *
-                    1px *
-                    $padding-ratio;
-            }
-
-            @if $form-shape == "pill" {
-                padding-right: ($size - 1) * 2.5px * $padding-ratio;
-
-                &::file-selector-button {
-                    padding-left: ($size - 1) * 2.5px * $padding-ratio;
-                }
-            }
-
-            &.pill {
-                padding-right: ($size - 1) * 2.5px * $padding-ratio;
-
-                &::file-selector-button {
-                    padding-left: ($size - 1) * 2.5px * $padding-ratio;
-                }
-            }
-        }
-    }
-}
-
-.form input[type="file"],
-.group input[type="file"],
+:where(.form, .group) input[type="file"],
 input[type="file"].form {
     appearance: none;
     cursor: pointer;
     width: 100%;
-    line-height: $form-line-height;
     box-shadow: none;
     color: $form-c;
     background-color: $form-bg-color;
@@ -122,6 +11,8 @@ input[type="file"].form {
     padding-bottom: 0;
     padding-left: 0;
     overflow: hidden;
+    font-size: 1rem;
+    padding-right: calc(0.875em * $padding-ratio + $form-bd-width);
 
     @if $form-shape == "pill" {
         border-radius: 9999px;
@@ -134,28 +25,109 @@ input[type="file"].form {
     &::file-selector-button {
         appearance: none;
         cursor: pointer;
-        line-height: $form-line-height;
+        font-size: inherit;
+        line-height: inherit;
         border: none;
         background-color: var(--bg-soft);
         color: var(--c-soft);
         border-radius: 0 !important;
+        margin-right: 0.875em * $padding-ratio;
+        padding: calc(0.45em * $padding-ratio + $form-bd-width) 0.875em *
+            $padding-ratio calc(0.4em * $padding-ratio + $form-bd-width)
+            calc(0.875em * $padding-ratio + $form-bd-width);
     }
 
-    @include file-size(8);
+    @if $form-shape == "pill" {
+        padding-right: calc(1.09375em * $padding-ratio + $form-bd-width);
+
+        &::file-selector-button {
+            padding-left: calc(1.09375em * $padding-ratio + $form-bd-width);
+        }
+    }
+
+    &.pill {
+        padding-right: calc(1.09375em * $padding-ratio + $form-bd-width);
+
+        &::file-selector-button {
+            padding-left: calc(1.09375em * $padding-ratio + $form-bd-width);
+        }
+    }
+
+    @if $form-bd-color != transparent {
+        border: $form-bd-width solid $form-bd-color;
+        padding-right: 0.875em * $padding-ratio;
+
+        &::file-selector-button {
+            padding: 0.45em *
+                $padding-ratio
+                0.875em *
+                $padding-ratio
+                0.4em *
+                $padding-ratio;
+        }
+
+        @if $form-shape == "pill" {
+            padding-right: 1.09375em * $padding-ratio;
+
+            &::file-selector-button {
+                padding-left: 1.09375em * $padding-ratio;
+            }
+        }
+
+        &.pill {
+            padding-right: 1.09375em * $padding-ratio;
+
+            &::file-selector-button {
+                padding-left: 1.09375em * $padding-ratio;
+            }
+        }
+    } @else {
+        &.bd,
+        &[class^="bd-"],
+        &[class*=" bd-"] {
+            border: $form-bd-width solid;
+            padding-right: 0.875em * $padding-ratio;
+
+            &::file-selector-button {
+                padding: 0.45em *
+                    $padding-ratio
+                    0.875em *
+                    $padding-ratio
+                    0.4em *
+                    $padding-ratio;
+            }
+
+            @if $form-shape == "pill" {
+                padding-right: 1.09375em * $padding-ratio;
+
+                &::file-selector-button {
+                    padding-left: 1.09375em * $padding-ratio;
+                }
+            }
+
+            &.pill {
+                padding-right: 1.09375em * $padding-ratio;
+
+                &::file-selector-button {
+                    padding-left: 1.09375em * $padding-ratio;
+                }
+            }
+        }
+    }
 
     &.xs {
-        @include file-size(6);
+        font-size: 0.75rem;
     }
 
     &.sm {
-        @include file-size(7);
+        font-size: 0.875rem;
     }
 
     &.lg {
-        @include file-size(9);
+        font-size: 1.125rem;
     }
 
     &.xl {
-        @include file-size(10);
+        font-size: 1.25rem;
     }
 }

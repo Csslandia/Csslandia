@@ -17,36 +17,30 @@ $m: "-";
 
     @for $i from 0 to 21 {
         .#{$prefix}mx-#{$i} {
-            margin-left: nth($i) !important;
-            margin-right: nth($i) !important;
+            margin-inline: nth($i) !important;
         }
     }
     @for $i from 1 to 21 {
         .#{$prefix}mx--#{$i} {
-            margin-left: #{$m}+ nth($i) !important;
-            margin-right: #{$m}+ nth($i) !important;
+            margin-inline: #{$m}+ nth($i) !important;
         }
     }
     .#{$prefix}mx-auto {
-        margin-left: auto !important;
-        margin-right: auto !important;
+        margin-inline: auto !important;
     }
 
     @for $i from 0 to 21 {
         .#{$prefix}my-#{$i} {
-            margin-top: nth($i) !important;
-            margin-bottom: nth($i) !important;
+            margin-block: nth($i) !important;
         }
     }
     @for $i from 1 to 21 {
         .#{$prefix}my--#{$i} {
-            margin-top: #{$m}+ nth($i) !important;
-            margin-bottom: #{$m}+ nth($i) !important;
+            margin-block: #{$m}+ nth($i) !important;
         }
     }
     .#{$prefix}my-auto {
-        margin-top: auto !important;
-        margin-bottom: auto !important;
+        margin-block: auto !important;
     }
 
     @for $i from 0 to 21 {

@@ -1,58 +1,6 @@
-@mixin chat($size) {
-    & * {
-        &.recieved,
-        &.sent {
-            &:not(img) {
-                font-size: $size * 0.125rem;
-                padding: ($size + 2) * 0.75px * $padding-ratio ($size + 2) *
-                    1.5px * $padding-ratio;
-            }
-        }
-
-        &.recieved {
-            border-top-right-radius: $size * $line-height + ($size + 2) * 0.75px;
-            border-bottom-right-radius: $size * $line-height + ($size + 2) *
-                0.75px;
-            margin-right: auto;
-        }
-
-        &.sent {
-            border-top-left-radius: $size * $line-height + ($size + 2) * 0.75px;
-            border-bottom-left-radius: $size * $line-height + ($size + 2) *
-                0.75px;
-            margin-left: auto;
-        }
-
-        &:first-child {
-            border-top-right-radius: $size * $line-height + ($size + 2) * 0.75px;
-            border-top-left-radius: $size * $line-height + ($size + 2) * 0.75px;
-        }
-
-        &:last-child {
-            border-bottom-right-radius: $size * $line-height + ($size + 2) *
-                0.75px;
-            border-bottom-left-radius: $size * $line-height + ($size + 2) *
-                0.75px;
-        }
-
-        &:not(.recieved) + .recieved {
-            border-top-left-radius: $size * $line-height + ($size + 2) * 0.75px;
-        }
-        &:not(.sent) + .sent {
-            border-top-right-radius: $size * $line-height + ($size + 2) * 0.75px;
-        }
-        &.recieved:has(+ :not(.recieved)) {
-            border-bottom-left-radius: $size * $line-height + ($size + 2) *
-                0.75px;
-        }
-        &.sent:has(+ :not(.sent)) {
-            border-bottom-right-radius: $size * $line-height + ($size + 2) *
-                0.75px;
-        }
-    }
-}
-
 .chat {
+    font-size: 1rem;
+
     & * {
         &.recieved,
         &.sent {
@@ -65,27 +13,59 @@
             &:not(img) {
                 width: fit-content;
                 background-color: var(--bg-medium);
+                padding: 0.5em 1em;
             }
+        }
+
+        &.recieved {
+            border-top-right-radius: 1.2em;
+            border-bottom-right-radius: 1.2em;
+            margin-right: auto;
+        }
+
+        &.sent {
+            border-top-left-radius: 1.2em;
+            border-bottom-left-radius: 1.2em;
+            margin-left: auto;
+        }
+
+        &:first-child {
+            border-top-right-radius: 1.2em;
+            border-top-left-radius: 1.2em;
+        }
+
+        &:last-child {
+            border-bottom-right-radius: 1.2em;
+            border-bottom-left-radius: 1.2em;
+        }
+
+        &:not(.recieved) + .recieved {
+            border-top-left-radius: 1.2em;
+        }
+        &:not(.sent) + .sent {
+            border-top-right-radius: 1.2em;
+        }
+        &.recieved:has(+ :not(.recieved)) {
+            border-bottom-left-radius: 1.2em;
+        }
+        &.sent:has(+ :not(.sent)) {
+            border-bottom-right-radius: 1.2em;
         }
     }
 
-    line-height: 1.4;
-
-    @include chat(8);
-
     &.xs {
-        @include chat(6);
+        font-size: 0.75rem;
     }
 
     &.sm {
-        @include chat(7);
+        font-size: 0.875rem;
     }
 
     &.lg {
-        @include chat(9);
+        font-size: 1.125rem;
     }
 
     &.xl {
-        @include chat(10);
+        font-size: 1.25rem;
     }
 }

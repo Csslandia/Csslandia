@@ -1,102 +1,23 @@
-@mixin button-size($size) {
-    font-size: ($size + 0.5) * 0.125rem;
-    padding: ($size - 3.25px) * $padding-ratio + 1 ($size - 1px) * 2 *
-        $padding-ratio ($size - 3.25px) * $padding-ratio;
-
-    &.p-xs {
-        padding: 1px ($size - 1px) * $padding-ratio 0;
-    }
-
-    &.p-sm {
-        padding: ($size - 3.25px) * 0.5 * $padding-ratio + 1 ($size - 1px) * 1.5 *
-            $padding-ratio ($size - 3.25px) * 0.5 * $padding-ratio;
-    }
-
-    &.p-lg {
-        padding: ($size - 3.25px) * 1.5 * $padding-ratio + 1 ($size - 1px) * 2.5 *
-            $padding-ratio ($size - 3.25px) * 1.5 * $padding-ratio;
-    }
-
-    &.p-xl {
-        padding: ($size - 3.25px) * 2 * $padding-ratio + 1 ($size - 1px) * 3 *
-            $padding-ratio ($size - 3.25px) * 2 * $padding-ratio;
-    }
-}
-
-@mixin button-shape($size) {
-    @if $button-shape == "pill" {
-        &:not(.angular):not([class^="br-"]):not([class*=" br-"]) {
-            padding-left: ($size - 1px) * 2.5 * $padding-ratio;
-            padding-right: ($size - 1px) * 2.5 * $padding-ratio;
-
-            &.p-xs {
-                padding-left: ($size - 1px) * 1.5 * $padding-ratio;
-                padding-right: ($size - 1px) * 1.5 * $padding-ratio;
-            }
-
-            &.p-sm {
-                padding-left: ($size - 1px) * 2 * $padding-ratio;
-                padding-right: ($size - 1px) * 2 * $padding-ratio;
-            }
-
-            &.p-lg {
-                padding-left: ($size - 1px) * 3 * $padding-ratio;
-                padding-right: ($size - 1px) * 3 * $padding-ratio;
-            }
-
-            &.p-xl {
-                padding-left: ($size - 1px) * 3.5 * $padding-ratio;
-                padding-right: ($size - 1px) * 3.5 * $padding-ratio;
-            }
-        }
-    } @else {
-        &.pill {
-            padding-left: ($size - 1px) * 2.5 * $padding-ratio;
-            padding-right: ($size - 1px) * 2.5 * $padding-ratio;
-
-            &.p-xs {
-                padding-left: ($size - 1px) * 1.5 * $padding-ratio;
-                padding-right: ($size - 1px) * 1.5 * $padding-ratio;
-            }
-
-            &.p-sm {
-                padding-left: ($size - 1px) * 2 * $padding-ratio;
-                padding-right: ($size - 1px) * 2 * $padding-ratio;
-            }
-
-            &.p-lg {
-                padding-left: ($size - 1px) * 3 * $padding-ratio;
-                padding-right: ($size - 1px) * 3 * $padding-ratio;
-            }
-
-            &.p-xl {
-                padding-left: ($size - 1px) * 3.5 * $padding-ratio;
-                padding-right: ($size - 1px) * 3.5 * $padding-ratio;
-            }
-        }
-    }
-}
-
 .tabs > :first-child > *,
-.form input[type="button"],
-.form input[type="submit"],
-.form input[type="reset"],
-.form button,
-.group input[type="button"],
-.group input[type="submit"],
-.group input[type="reset"],
-.group button,
-input[type="button"].form,
-input[type="submit"].form,
-input[type="reset"].form,
-button.form,
+:where(.form, .group)
+    :where(
+        input[type="button"],
+        input[type="submit"],
+        input[type="reset"],
+        button
+    ),
+:where(
+        input[type="button"],
+        input[type="submit"],
+        input[type="reset"],
+        button
+    ).form,
 .b,
 .btn,
 .button {
     appearance: none;
     cursor: pointer;
     display: inline-block;
-    line-height: $button-line-height;
     font-weight: 500;
     white-space: nowrap;
     color: $button-c;
@@ -104,6 +25,9 @@ button.form,
     border: $button-bd-width solid $button-bd-color;
     user-select: none;
     transition: transform 0.25s * $transition-ratio;
+    font-size: 0.9375rem;
+    padding: 0.3875em * $padding-ratio 0.8em * $padding-ratio 0.3125em *
+        $padding-ratio;
 
     @if $button-shape == "pill" {
         border-radius: 9999px;
@@ -113,26 +37,44 @@ button.form,
         border-radius: 0.5em * $border-radius-ratio;
     }
 
-    @include button-size(7);
-
     &.xs {
-        @include button-size(5);
+        font-size: 0.6875rem;
     }
 
     &.sm {
-        @include button-size(6);
+        font-size: 0.8125rem;
     }
 
     &.lg {
-        @include button-size(8);
+        font-size: 1.0625rem;
     }
 
     &.xl {
-        @include button-size(9);
+        font-size: 1.1875rem;
+    }
+
+    &.p-xs {
+        padding: 0.0875em * $padding-ratio 0.4em * $padding-ratio 0.0125em *
+            $padding-ratio;
+    }
+
+    &.p-sm {
+        padding: 0.2375em * $padding-ratio 0.6em * $padding-ratio 0.1625em *
+            $padding-ratio;
+    }
+
+    &.p-lg {
+        padding: 0.5375em * $padding-ratio 1em * $padding-ratio 0.4625em *
+            $padding-ratio;
+    }
+
+    &.p-xl {
+        padding: 0.6875em * $padding-ratio 1.2em * $padding-ratio 0.6125em *
+            $padding-ratio;
     }
 
     &.d3 {
-        box-shadow: 4px 4px var(--d3, var(--bd));
+        box-shadow: 4px 4px var(--d3-c, var(--bd));
         transform: translate(-4px, -4px);
         transition: transform 0s !important;
 
@@ -147,48 +89,88 @@ button.form,
 }
 
 .tabs > :first-child > *,
-.form input[type="button"],
-.form input[type="submit"],
-.form input[type="reset"],
-.form button,
-input[type="button"].form,
-input[type="submit"].form,
-input[type="reset"].form,
-button.form,
+.form
+    :where(
+        input[type="button"],
+        input[type="submit"],
+        input[type="reset"],
+        button
+    ),
+:where(
+        input[type="button"],
+        input[type="submit"],
+        input[type="reset"],
+        button
+    ).form,
 :not(.group) > .b,
 :not(.group) > .btn,
 :not(.group) > .button {
-    @include button-shape(7);
+    @if $button-shape == "pill" {
+        &:not(.angular):not([class^="br-"]):not([class*=" br-"]) {
+            padding-left: 1em * $padding-ratio;
+            padding-right: 1em * $padding-ratio;
 
-    &.xs {
-        @include button-shape(5);
-    }
+            &.p-xs {
+                padding-left: 0.5em * $padding-ratio;
+                padding-right: 0.5em * $padding-ratio;
+            }
 
-    &.sm {
-        @include button-shape(6);
-    }
+            &.p-sm {
+                padding-left: 0.75em * $padding-ratio;
+                padding-right: 0.75em * $padding-ratio;
+            }
 
-    &.lg {
-        @include button-shape(8);
-    }
+            &.p-lg {
+                padding-left: 1.25em * $padding-ratio;
+                padding-right: 1.25em * $padding-ratio;
+            }
 
-    &.xl {
-        @include button-shape(9);
+            &.p-xl {
+                padding-left: 1.5em * $padding-ratio;
+                padding-right: 1.5em * $padding-ratio;
+            }
+        }
+    } @else {
+        &.pill {
+            padding-left: 1em * $padding-ratio;
+            padding-right: 1em * $padding-ratio;
+
+            &.p-xs {
+                padding-left: 0.5em * $padding-ratio;
+                padding-right: 0.5em * $padding-ratio;
+            }
+
+            &.p-sm {
+                padding-left: 0.75em * $padding-ratio;
+                padding-right: 0.75em * $padding-ratio;
+            }
+
+            &.p-lg {
+                padding-left: 1.25em * $padding-ratio;
+                padding-right: 1.25em * $padding-ratio;
+            }
+
+            &.p-xl {
+                padding-left: 1.5em * $padding-ratio;
+                padding-right: 1.5em * $padding-ratio;
+            }
+        }
     }
 }
 
-.form input[type="button"],
-.form input[type="submit"],
-.form input[type="reset"],
-.form button,
-.group input[type="button"],
-.group input[type="submit"],
-.group input[type="reset"],
-.group button,
-input[type="button"].form,
-input[type="submit"].form,
-input[type="reset"].form,
-button.form,
+:where(.form, .group)
+    :where(
+        input[type="button"],
+        input[type="submit"],
+        input[type="reset"],
+        button
+    ),
+:where(
+        input[type="button"],
+        input[type="submit"],
+        input[type="reset"],
+        button
+    ).form,
 .b,
 .btn,
 .button {

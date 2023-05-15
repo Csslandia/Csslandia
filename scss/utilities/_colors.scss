@@ -127,10 +127,6 @@
     &:focus,
     &:active {
         color: var(--accent) !important;
-
-        // & * {
-        //     color: var(--accent);
-        // }
     }
 }
 
@@ -148,10 +144,6 @@
     &:focus,
     &:active {
         border-color: var(--accent) !important;
-
-        // & * {
-        //     border-color: var(--accent);
-        // }
     }
 }
 

@@ -10,24 +10,20 @@
 
     @for $i from 0 to 21 {
         .#{$prefix}px-#{$i} {
-            padding-left: nth($i) !important;
-            padding-right: nth($i) !important;
+            padding-inline: nth($i) !important;
         }
     }
     .#{$prefix}px-auto {
-        padding-left: auto !important;
-        padding-right: auto !important;
+        padding-inline: auto !important;
     }
 
     @for $i from 0 to 21 {
         .#{$prefix}py-#{$i} {
-            padding-top: nth($i) !important;
-            padding-bottom: nth($i) !important;
+            padding-block: nth($i) !important;
         }
     }
     .#{$prefix}py-auto {
-        padding-top: auto !important;
-        padding-bottom: auto !important;
+        padding-block: auto !important;
     }
 
     @for $i from 0 to 21 {

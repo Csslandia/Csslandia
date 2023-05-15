@@ -128,8 +128,19 @@
     -webkit-text-fill-color: transparent;
 }
 
+.upside-down {
+    transform: scale(-1, -1);
+    text-align: right;
+}
+
 .vertical:not(.steps) {
-    writing-mode: vertical-rl;
+    writing-mode: vertical-lr;
+}
+
+.vertical-upside-down {
+    writing-mode: vertical-lr;
+    transform: scale(-1, -1);
+    text-align: right;
 }
 
 @for $i from 1 to 10 {

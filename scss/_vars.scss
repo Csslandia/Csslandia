@@ -27,7 +27,6 @@ $selection-c: false;
 $font: "Inter";
 $font-family: sans-serif;
 $italic-all: false;
-$line-height: 1.4;
 
 $padding-ratio: 1;
 $border-radius-ratio: 1;
@@ -43,14 +42,12 @@ $button-c: inherit;
 $button-bg-color: transparent;
 $button-bd-color: transparent;
 $button-bd-width: 0.1rem;
-$button-line-height: 1.5;
 
 $form-shape: default;
 $form-c: inherit;
 $form-bg-color: var(--bg-medium);
 $form-bd-color: transparent;
 $form-bd-width: 0.1rem;
-$form-line-height: 1.5;
 $form-space: 8px;
 
 $mob-tab-breakpoint: 600px;

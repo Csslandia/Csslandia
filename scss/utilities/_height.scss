@@ -90,3 +90,63 @@
         }
     }
 }
+
+@mixin percentage-height($prefix) {
+    .#{$prefix}h-10\% {
+        height: 10% !important;
+    }
+
+    .#{$prefix}h-20\% {
+        height: 20% !important;
+    }
+
+    .#{$prefix}h-30\% {
+        height: 30% !important;
+    }
+
+    .#{$prefix}h-40\% {
+        height: 40% !important;
+    }
+
+    .#{$prefix}h-50\% {
+        height: 50% !important;
+    }
+
+    .#{$prefix}h-60\% {
+        height: 60% !important;
+    }
+
+    .#{$prefix}h-70\% {
+        height: 70% !important;
+    }
+
+    .#{$prefix}h-80\% {
+        height: 80% !important;
+    }
+
+    .#{$prefix}h-90\% {
+        height: 90% !important;
+    }
+
+    .#{$prefix}h-100\% {
+        height: 100% !important;
+    }
+}
+
+@if ($width-height) {
+    @include percentage-height("");
+
+    @if ($width-height-prefixes) {
+        @media (width < $mob-tab-breakpoint) {
+            @include percentage-height(mob\:);
+        }
+
+        @media (width >= $mob-tab-breakpoint) and (width < $tab-pc-breakpoint) {
+            @include percentage-height(tab\:);
+        }
+
+        @media (width >= $tab-pc-breakpoint) {
+            @include percentage-height(pc\:);
+        }
+    }
+}

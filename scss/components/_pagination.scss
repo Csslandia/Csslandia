@@ -13,8 +13,7 @@
         font-size: inherit;
         font-weight: inherit;
         display: inline-block;
-        line-height: $button-line-height;
-        padding: 4.5px * $padding-ratio + 1 14px * $padding-ratio 4.5px *
+        padding: 0.35em * $padding-ratio 0.875em * $padding-ratio 0.275em *
             $padding-ratio;
         white-space: nowrap;
         user-select: none;
@@ -52,87 +51,27 @@
 
     &.pill {
         & > :first-child {
-            padding-left: 17.5px * $padding-ratio;
+            padding-left: 1.0625em * $padding-ratio;
         }
 
         & > :last-child {
-            padding-right: 17.5px * $padding-ratio;
+            padding-right: 1.0625em * $padding-ratio;
         }
     }
 
     &.xs {
         font-size: 0.75rem;
-
-        & > * {
-            padding: 2.5px * $padding-ratio + 1 10px * $padding-ratio 2.5px *
-                $padding-ratio;
-        }
-
-        &.pill {
-            & > :first-child {
-                padding-left: 12.5px * $padding-ratio;
-            }
-
-            & > :last-child {
-                padding-right: 12.5px * $padding-ratio;
-            }
-        }
     }
 
     &.sm {
         font-size: 0.875rem;
-
-        & > * {
-            padding: 3.5px * $padding-ratio + 1 12px * $padding-ratio 3.5px *
-                $padding-ratio;
-        }
-
-        &.pill {
-            & > :first-child {
-                padding-left: 15px * $padding-ratio;
-            }
-
-            & > :last-child {
-                padding-right: 15px * $padding-ratio;
-            }
-        }
     }
 
     &.lg {
         font-size: 1.125rem;
-
-        & > * {
-            padding: 5.5px * $padding-ratio + 1 16px * $padding-ratio 5.5px *
-                $padding-ratio;
-        }
-
-        &.pill {
-            & > :first-child {
-                padding-left: 20px * $padding-ratio;
-            }
-
-            & > :last-child {
-                padding-right: 20px * $padding-ratio;
-            }
-        }
     }
 
     &.xl {
         font-size: 1.25rem;
-
-        & > * {
-            padding: 6.5px * $padding-ratio + 1 18px * $padding-ratio 6.5px *
-                $padding-ratio;
-        }
-
-        &.pill {
-            & > :first-child {
-                padding-left: 22.5px * $padding-ratio;
-            }
-
-            & > :last-child {
-                padding-right: 22.5px * $padding-ratio;
-            }
-        }
     }
 }

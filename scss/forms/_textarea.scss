@@ -1,26 +1,4 @@
-@mixin textarea-size($size) {
-    min-height: calc(
-        ((($size * 2px - 5px) * $padding-ratio) + 1px) +
-            ($size * 0.125rem * $form-line-height + 2 * $form-bd-width)
-    );
-
-    @if $form-shape == "pill" {
-        border-radius: calc(
-            ((($size * 1px - 2.5px) * $padding-ratio) + 0.5px) +
-                ($size * 0.0625rem * $form-line-height + $form-bd-width)
-        ) !important;
-    }
-
-    &.pill {
-        border-radius: calc(
-            ((($size * 1px - 2.5px) * $padding-ratio) + 0.5px) +
-                ($size * 0.0625rem * $form-line-height + $form-bd-width)
-        ) !important;
-    }
-}
-
-.form textarea,
-.group textarea,
+:where(.form, .group) textarea,
 textarea.form {
     @if $font == "Inter" {
         font-family: "Inter var", sans-serif;
@@ -29,22 +7,13 @@ textarea.form {
     }
     resize: vertical;
     vertical-align: top;
+    min-height: calc(1.4em + 0.85em + $form-bd-width * 2);
 
-    @include textarea-size(8);
-
-    &.xs {
-        @include textarea-size(6);
+    @if $form-shape == "pill" {
+        border-radius: calc(0.7em + 0.425em + $form-bd-width) !important;
     }
 
-    &.sm {
-        @include textarea-size(7);
-    }
-
-    &.lg {
-        @include textarea-size(9);
-    }
-
-    &.xl {
-        @include textarea-size(10);
+    &.pill {
+        border-radius: calc(0.7em + 0.425em + $form-bd-width) !important;
     }
 }

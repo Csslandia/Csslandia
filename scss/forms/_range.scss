@@ -1,34 +1,20 @@
-@mixin range-size($size) {
-    height: calc($size * 1px + $size * 0.0625rem);
-
-    &::-webkit-slider-thumb {
-        width: calc($size * 1.8px + $size * 0.1125rem);
-        height: calc($size * 1.8px + $size * 0.1125rem);
-    }
-
-    &::-moz-range-thumb {
-        width: calc($size * 1.8px + $size * 0.1125rem);
-        height: calc($size * 1.8px + $size * 0.1125rem);
-    }
-}
-
-.form input[type="range"],
-.group input[type="range"],
+:where(.form, .group) input[type="range"],
 input[type="range"].form {
     appearance: none;
     width: 100%;
+    background-color: $form-bg-color;
+    border: $form-bd-width solid $form-bd-color;
+    cursor: pointer;
+    color: var(--bd);
+    padding: 0;
+    height: 0.625em;
+    font-size: 1rem;
+
     @if $form-shape == "angular" {
         border-radius: 0;
     } @else {
         border-radius: 9999px;
     }
-    border: $form-bd-width solid $form-bd-color;
-    cursor: pointer;
-    background-color: $form-bg-color;
-    color: var(--bd);
-    padding: 0;
-
-    @include range-size(5);
 
     &::-webkit-slider-thumb {
         appearance: none;
@@ -37,6 +23,8 @@ input[type="range"].form {
         color: inherit;
         background-color: currentColor;
         cursor: pointer;
+        width: 1.125em;
+        height: 1.125em;
     }
 
     &::-moz-range-thumb {
@@ -46,21 +34,23 @@ input[type="range"].form {
         color: inherit;
         background-color: currentColor;
         cursor: pointer;
+        width: 1.125em;
+        height: 1.125em;
     }
 
     &.xs {
-        @include range-size(3);
+        font-size: 0.6rem;
     }
 
     &.sm {
-        @include range-size(4);
+        font-size: 0.8rem;
     }
 
     &.lg {
-        @include range-size(6);
+        font-size: 1.2rem;
     }
 
     &.xl {
-        @include range-size(7);
+        font-size: 1.4rem;
     }
 }

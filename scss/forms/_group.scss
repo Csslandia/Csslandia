@@ -1,28 +1,3 @@
-@mixin pill($size) {
-    &:first-child {
-        padding-left: $size * 2.5px * $padding-ratio !important;
-    }
-
-    &:last-child {
-        padding-right: $size * 2.5px * $padding-ratio !important;
-
-        &:is(select) {
-            padding-right: $size * 4.5px * $padding-ratio + $size + 1 !important;
-            background-position: right $size * 2.5px * $padding-ratio center;
-        }
-    }
-}
-
-@mixin pill-button($size) {
-    &:first-child {
-        padding-left: $size * 2.5px * $padding-ratio !important;
-    }
-
-    &:last-child {
-        padding-right: $size * 2.5px * $padding-ratio !important;
-    }
-}
-
 .group {
     display: flex !important;
     align-items: stretch;
@@ -73,52 +48,62 @@
 }
 
 @if $form-shape == "pill" {
-    .group:not(.angular):not([class^="br-"]):not([class*=" br-"]) {
-        &
-            > :not(input[type="button"]):not(input[type="submit"]):not(
-                input[type="reset"]
-            ):not(button):not(.b):not(.btn):not(.button) {
-            @include pill(7);
+    .group:not(.angular):not([class^="br-"]):not([class*=" br-"])
+        > :not(
+            :where(
+                    input[type="button"],
+                    input[type="submit"],
+                    input[type="reset"],
+                    button,
+                    .b,
+                    .btn,
+                    .button
+                )
+        ) {
+        &:first-child {
+            padding-left: 1.09375em * $padding-ratio;
+        }
 
-            &.xs {
-                @include pill(5);
-            }
+        &:last-child {
+            padding-right: 1.09375em * $padding-ratio;
 
-            &.sm {
-                @include pill(6);
-            }
-
-            &.lg {
-                @include pill(8);
-            }
-
-            &.xl {
-                @include pill(9);
+            &:is(select) {
+                background-position: right
+                    1.09375em *
+                    $padding-ratio
+                    top
+                    calc(50% + 0.0625em);
+                padding-right: 1.96875 * $padding-ratio + 0.5em;
             }
         }
     }
 } @else {
-    .group.pill {
-        &
-            > :not(input[type="button"]):not(input[type="submit"]):not(
-                input[type="reset"]
-            ):not(button):not(.b):not(.btn):not(.button) {
-            @include pill(7);
+    .group.pill
+        > :not(
+            :where(
+                    input[type="button"],
+                    input[type="submit"],
+                    input[type="reset"],
+                    button,
+                    .b,
+                    .btn,
+                    .button
+                )
+        ) {
+        &:first-child {
+            padding-left: 1.09375em * $padding-ratio;
+        }
 
-            &.xs {
-                @include pill(5);
-            }
+        &:last-child {
+            padding-right: 1.09375em * $padding-ratio;
 
-            &.sm {
-                @include pill(6);
-            }
-
-            &.lg {
-                @include pill(8);
-            }
-
-            &.xl {
-                @include pill(9);
+            &:is(select) {
+                background-position: right
+                    1.09375em *
+                    $padding-ratio
+                    top
+                    calc(50% + 0.0625em);
+                padding-right: 1.96875 * $padding-ratio + 0.5em;
             }
         }
     }
@@ -126,58 +111,42 @@
 
 @if $button-shape == "pill" {
     .group:not(.angular):not([class^="br-"]):not([class*=" br-"]) {
-        & > input[type="button"],
-        & > input[type="submit"],
-        & > input[type="reset"],
-        & > button,
-        & > .b,
-        & > .btn,
-        & > .button {
-            @include pill-button(6);
-
-            &.xs {
-                @include pill-button(4);
+        &
+            > :where(
+                input[type="button"],
+                input[type="submit"],
+                input[type="reset"],
+                button,
+                .b,
+                .btn,
+                .button
+            ) {
+            &:first-child {
+                padding-left: 1em * $padding-ratio;
             }
 
-            &.sm {
-                @include pill-button(5);
-            }
-
-            &.lg {
-                @include pill-button(7);
-            }
-
-            &.xl {
-                @include pill-button(8);
+            &:last-child {
+                padding-right: 1em * $padding-ratio;
             }
         }
     }
 } @else {
-    .group.pill {
-        & > input[type="button"],
-        & > input[type="submit"],
-        & > input[type="reset"],
-        & > button,
-        & > .b,
-        & > .btn,
-        & > .button {
-            @include pill-button(6);
+    .group.pill
+        > :where(
+            input[type="button"],
+            input[type="submit"],
+            input[type="reset"],
+            button,
+            .b,
+            .btn,
+            .button
+        ) {
+        &:first-child {
+            padding-left: 1em * $padding-ratio;
+        }
 
-            &.xs {
-                @include pill-button(4);
-            }
-
-            &.sm {
-                @include pill-button(5);
-            }
-
-            &.lg {
-                @include pill-button(7);
-            }
-
-            &.xl {
-                @include pill-button(8);
-            }
+        &:last-child {
+            padding-right: 1em * $padding-ratio;
         }
     }
 }

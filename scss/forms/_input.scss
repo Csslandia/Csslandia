@@ -1,345 +1,269 @@
-@mixin input-size($size, $padding: 0) {
-    font-size: $size * 0.125rem;
-    padding: ($size - 2.5px + $padding) * $padding-ratio + 1 ($size - 1px) * 2 *
-        $padding-ratio ($size - 2.5px + $padding) * $padding-ratio;
+:where(.form, .group)
+    :where(
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        input[type="tel"],
+        input[type="url"],
+        input[type="search"],
+        select,
+        textarea,
+        input[type="date"],
+        input[type="datetime-local"],
+        input[type="month"],
+        input[type="time"],
+        input[type="week"]
+    ),
+:where(
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        input[type="tel"],
+        input[type="url"],
+        input[type="search"],
+        select,
+        textarea,
+        input[type="date"],
+        input[type="datetime-local"],
+        input[type="month"],
+        input[type="time"],
+        input[type="week"]
+    ).form {
+    appearance: none;
+    width: 100%;
+    box-shadow: none;
+    color: $form-c;
+    background-color: $form-bg-color;
+    border: $form-bd-width solid $form-bd-color;
+    outline: none;
+    font-size: 1rem;
 
-    &.p-xs {
-        padding: 1px ($size - 1px) * $padding-ratio 0;
-    }
-
-    &.p-sm {
-        padding: ($size - 2.5px + $padding) * 0.5 * $padding-ratio + 1
-            ($size - 1px) * 1.5 * $padding-ratio ($size - 2.5px + $padding) *
-            0.5 * $padding-ratio;
-    }
-
-    &.p-lg {
-        padding: ($size - 2.5px + $padding) * 1.5 * $padding-ratio + 1
-            ($size - 1px) * 2.5 * $padding-ratio ($size - 2.5px + $padding) *
-            1.5 * $padding-ratio;
-    }
-
-    &.p-xl {
-        padding: ($size - 2.5px + $padding) * 2 * $padding-ratio + 1
-            ($size - 1px) * 3 * $padding-ratio ($size - 2.5px + $padding) * 2 *
-            $padding-ratio;
-    }
-}
-
-@mixin datetime-size($size, $padding: 0) {
-    font-size: $size * 0.125rem;
-    padding: ($size - 2.5px + $padding) * $padding-ratio + 1 ($size - 1px) * 2 *
-        $padding-ratio ($size - 2.5px + $padding) * $padding-ratio;
-    height: calc(
-        (($size - 2.5) * $padding-ratio * 2px + 1px) +
-            ($size * 0.125rem * $form-line-height + $form-bd-width * 2)
-    );
-
-    &.p-xs {
-        padding: 1px ($size - 1px) * $padding-ratio 0;
-        height: calc(
-            1px + ($size * 0.125rem * $form-line-height + $form-bd-width * 2)
-        );
-    }
-
-    &.p-sm {
-        padding: ($size - 2.5px + $padding) * 0.5 * $padding-ratio + 1
-            ($size - 1px) * 1.5 * $padding-ratio ($size - 2.5px + $padding) *
-            0.5 * $padding-ratio;
-        height: calc(
-            (($size - 2.5) * $padding-ratio * 1px + 1px) +
-                ($size * 0.125rem * $form-line-height + $form-bd-width * 2)
-        );
-    }
-
-    &.p-lg {
-        padding: ($size - 2.5px + $padding) * 1.5 * $padding-ratio + 1
-            ($size - 1px) * 2.5 * $padding-ratio ($size - 2.5px + $padding) *
-            1.5 * $padding-ratio;
-        height: calc(
-            (($size - 2.5) * $padding-ratio * 3px + 1px) +
-                ($size * 0.125rem * $form-line-height + $form-bd-width * 2)
-        );
-    }
-
-    &.p-xl {
-        padding: ($size - 2.5px + $padding) * 2 * $padding-ratio + 1
-            ($size - 1px) * 3 * $padding-ratio ($size - 2.5px + $padding) * 2 *
-            $padding-ratio;
-        height: calc(
-            (($size - 2.5) * $padding-ratio * 4px + 1px) +
-                ($size * 0.125rem * $form-line-height + $form-bd-width * 2)
-        );
-    }
-}
-
-@mixin form-shape($size) {
     @if $form-shape == "pill" {
+        border-radius: 9999px;
+    } @else if $form-shape == "angular" {
+        border-radius: 0;
+    } @else {
+        border-radius: 0.5em * $border-radius-ratio;
+    }
+
+    &.xs {
+        font-size: 0.75rem;
+    }
+
+    &.sm {
+        font-size: 0.875rem;
+    }
+
+    &.lg {
+        font-size: 1.125rem;
+    }
+
+    &.xl {
+        font-size: 1.25rem;
+    }
+
+    @if $button-shape == "pill" {
         &:not(.angular):not([class^="br-"]):not([class*=" br-"]) {
-            padding-left: ($size - 1px) * 2.5 * $padding-ratio;
-            padding-right: ($size - 1px) * 2.5 * $padding-ratio;
+            padding-left: 1.09375em * $padding-ratio;
+            padding-right: 1.09375em * $padding-ratio;
 
             &.p-xs {
-                padding-left: ($size - 1px) * 1.5 * $padding-ratio;
-                padding-right: ($size - 1px) * 1.5 * $padding-ratio;
+                padding-left: 0.546875em * $padding-ratio;
+                padding-right: 0.546875em * $padding-ratio;
             }
 
             &.p-sm {
-                padding-left: ($size - 1px) * 2 * $padding-ratio;
-                padding-right: ($size - 1px) * 2 * $padding-ratio;
+                padding-left: 0.8203125em * $padding-ratio;
+                padding-right: 0.8203125em * $padding-ratio;
             }
 
             &.p-lg {
-                padding-left: ($size - 1px) * 3 * $padding-ratio;
-                padding-right: ($size - 1px) * 3 * $padding-ratio;
+                padding-left: 1.3671875em * $padding-ratio;
+                padding-right: 1.3671875em * $padding-ratio;
             }
 
             &.p-xl {
-                padding-left: ($size - 1px) * 3.5 * $padding-ratio;
-                padding-right: ($size - 1px) * 3.5 * $padding-ratio;
+                padding-left: 1.640625em * $padding-ratio;
+                padding-right: 1.640625em * $padding-ratio;
             }
         }
     } @else {
         &.pill {
-            padding-left: ($size - 1px) * 2.5 * $padding-ratio;
-            padding-right: ($size - 1px) * 2.5 * $padding-ratio;
+            padding-left: 1.09375em * $padding-ratio;
+            padding-right: 1.09375em * $padding-ratio;
 
             &.p-xs {
-                padding-left: ($size - 1px) * 1.5 * $padding-ratio;
-                padding-right: ($size - 1px) * 1.5 * $padding-ratio;
+                padding-left: 0.546875em * $padding-ratio;
+                padding-right: 0.546875em * $padding-ratio;
             }
 
             &.p-sm {
-                padding-left: ($size - 1px) * 2 * $padding-ratio;
-                padding-right: ($size - 1px) * 2 * $padding-ratio;
+                padding-left: 0.8203125em * $padding-ratio;
+                padding-right: 0.8203125em * $padding-ratio;
             }
 
             &.p-lg {
-                padding-left: ($size - 1px) * 3 * $padding-ratio;
-                padding-right: ($size - 1px) * 3 * $padding-ratio;
+                padding-left: 1.3671875em * $padding-ratio;
+                padding-right: 1.3671875em * $padding-ratio;
             }
 
             &.p-xl {
-                padding-left: ($size - 1px) * 3.5 * $padding-ratio;
-                padding-right: ($size - 1px) * 3.5 * $padding-ratio;
+                padding-left: 1.640625em * $padding-ratio;
+                padding-right: 1.640625em * $padding-ratio;
             }
         }
     }
 }
 
-.form input[type="text"],
-.form input[type="email"],
-.form input[type="password"],
-.form input[type="number"],
-.form input[type="tel"],
-.form input[type="url"],
-.form input[type="search"],
-.form select,
-.form textarea,
-.group input[type="text"],
-.group input[type="email"],
-.group input[type="password"],
-.group input[type="number"],
-.group input[type="tel"],
-.group input[type="url"],
-.group input[type="search"],
-.group select,
-.group textarea,
-input[type="text"].form,
-input[type="email"].form,
-input[type="password"].form,
-input[type="number"].form,
-input[type="tel"].form,
-input[type="url"].form,
-input[type="search"].form,
-select.form,
-textarea.form {
-    appearance: none;
-    width: 100%;
-    line-height: $form-line-height;
-    box-shadow: none;
-    color: $form-c;
-    background-color: $form-bg-color;
-    border: $form-bd-width solid $form-bd-color;
-    outline: none;
+:where(.form, .group)
+    :where(
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        input[type="tel"],
+        input[type="url"],
+        input[type="search"],
+        select,
+        textarea
+    ),
+:where(
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        input[type="tel"],
+        input[type="url"],
+        input[type="search"],
+        select,
+        textarea
+    ).form {
+    padding: 0.45em * $padding-ratio 0.875em * $padding-ratio 0.4em *
+        $padding-ratio;
 
-    @if $form-shape == "pill" {
-        border-radius: 9999px;
-    } @else if $form-shape == "angular" {
-        border-radius: 0;
-    } @else {
-        border-radius: 0.5em * $border-radius-ratio;
+    &.p-xs {
+        padding: 0.15em * $padding-ratio 0.4375em * $padding-ratio 0.1em *
+            $padding-ratio;
     }
 
-    @include input-size(8);
-
-    &.xs {
-        @include input-size(6);
+    &.p-sm {
+        padding: 0.3em * $padding-ratio 0.65625em * $padding-ratio 0.25em *
+            $padding-ratio;
     }
 
-    &.sm {
-        @include input-size(7);
+    &.p-lg {
+        padding: 0.6em * $padding-ratio 1.09375em * $padding-ratio 0.55em *
+            $padding-ratio;
     }
 
-    &.lg {
-        @include input-size(9);
-    }
-
-    &.xl {
-        @include input-size(10);
+    &.p-xl {
+        padding: 0.75em * $padding-ratio 1.3125em * $padding-ratio 0.7em *
+            $padding-ratio;
     }
 }
 
-.form input[type="date"],
-.form input[type="datetime-local"],
-.form input[type="month"],
-.form input[type="time"],
-.form input[type="week"],
-.group input[type="date"],
-.group input[type="datetime-local"],
-.group input[type="month"],
-.group input[type="time"],
-.group input[type="week"],
-input[type="date"].form,
-input[type="datetime-local"].form,
-input[type="month"].form,
-input[type="time"].form,
-input[type="week"].form {
-    appearance: none;
-    width: 100%;
-    line-height: $form-line-height;
-    box-shadow: none;
-    box-sizing: border-box !important;
-    color: $form-c;
-    background-color: $form-bg-color;
-    border: $form-bd-width solid $form-bd-color;
-    outline: none;
-
-    @if $form-shape == "pill" {
-        border-radius: 9999px;
-    } @else if $form-shape == "angular" {
-        border-radius: 0;
-    } @else {
-        border-radius: 0.5em * $border-radius-ratio;
-    }
-
-    @include datetime-size(8, -1);
+:where(.form, .group)
+    :where(
+        input[type="date"],
+        input[type="datetime-local"],
+        input[type="month"],
+        input[type="time"],
+        input[type="week"]
+    ),
+:where(
+        input[type="date"],
+        input[type="datetime-local"],
+        input[type="month"],
+        input[type="time"],
+        input[type="week"]
+    ).form {
+    padding: calc(0.45em * $padding-ratio - 0.0625rem) 0.875em * $padding-ratio
+        calc(0.4em * $padding-ratio - 0.0625rem);
+    min-height: calc(1.4em + 0.85em + $form-bd-width * 2) !important;
 
     &::-webkit-calendar-picker-indicator {
         cursor: pointer;
     }
 
-    &.xs {
-        @include datetime-size(6, -1);
+    &.p-xs {
+        padding: calc(0.15em * $padding-ratio - 0.0625rem) 0.4375em *
+            $padding-ratio calc(0.1em * $padding-ratio - 0.0625rem);
     }
 
-    &.sm {
-        @include datetime-size(7, -1);
+    &.p-sm {
+        padding: calc(0.3em * $padding-ratio - 0.0625rem) 0.65625em *
+            $padding-ratio calc(0.25em * $padding-ratio - 0.0625rem);
     }
 
-    &.lg {
-        @include datetime-size(9, -1);
+    &.p-lg {
+        padding: calc(0.6em * $padding-ratio - 0.0625rem) 1.09375em *
+            $padding-ratio calc(0.55em * $padding-ratio - 0.0625rem);
     }
 
-    &.xl {
-        @include datetime-size(10, -1);
-    }
-}
-
-.form input[type="text"],
-.form input[type="email"],
-.form input[type="password"],
-.form input[type="number"],
-.form input[type="tel"],
-.form input[type="url"],
-.form input[type="search"],
-.form textarea,
-input[type="text"].form,
-input[type="email"].form,
-input[type="password"].form,
-input[type="number"].form,
-input[type="tel"].form,
-input[type="url"].form,
-input[type="search"].form,
-textarea.form,
-.form input[type="date"],
-.form input[type="datetime-local"],
-.form input[type="month"],
-.form input[type="time"],
-.form input[type="week"],
-input[type="date"].form,
-input[type="datetime-local"].form,
-input[type="month"].form,
-input[type="time"].form,
-input[type="week"].form {
-    @include form-shape(8);
-
-    &.xs {
-        @include form-shape(6);
-    }
-
-    &.sm {
-        @include form-shape(7);
-    }
-
-    &.lg {
-        @include form-shape(9);
-    }
-
-    &.xl {
-        @include form-shape(10);
+    &.p-xl {
+        padding: calc(0.75em * $padding-ratio - 0.0625rem) 1.3125em *
+            $padding-ratio calc(0.7em * $padding-ratio - 0.0625rem);
     }
 }
 
-@mixin moz($size) {
-    padding-top: $size * 1px * $padding-ratio + 1;
-    padding-bottom: $size * 1px * $padding-ratio;
+:where(.form, .group) input[type="number"],
+input[type="number"].form {
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
 }
 
 @-moz-document url-prefix() {
-    .form input[type="number"],
-    .group input[type="number"],
+    :where(.form, .group) input[type="number"],
     input[type="number"].form {
         appearance: textfield;
     }
 
-    .form input[type="date"],
-    .form input[type="datetime-local"],
-    .form input[type="month"],
-    .form input[type="time"],
-    .form input[type="week"],
-    .group input[type="date"],
-    .group input[type="datetime-local"],
-    .group input[type="month"],
-    .group input[type="time"],
-    .group input[type="week"],
-    input[type="date"].form,
-    input[type="datetime-local"].form,
-    input[type="month"].form,
-    input[type="time"].form,
-    input[type="week"].form {
-        @include moz(5.5);
+    :where(.form, .group)
+        :where(
+            input[type="date"],
+            input[type="datetime-local"],
+            input[type="month"],
+            input[type="time"],
+            input[type="week"]
+        ),
+    :where(
+            input[type="date"],
+            input[type="datetime-local"],
+            input[type="month"],
+            input[type="time"],
+            input[type="week"]
+        ).form {
+        padding-top: 0.45em * $padding-ratio;
+        padding-bottom: 0.4em * $padding-ratio;
 
-        &.xs {
-            @include moz(3.5);
+        &.p-xs {
+            padding-top: 0.15em * $padding-ratio;
+            padding-bottom: 0.1em * $padding-ratio;
         }
 
-        &.sm {
-            @include moz(4.5);
+        &.p-sm {
+            padding-top: 0.3em * $padding-ratio;
+            padding-bottom: 0.25em * $padding-ratio;
         }
 
-        &.lg {
-            @include moz(6.5);
+        &.p-lg {
+            padding-top: 0.6em * $padding-ratio;
+            padding-bottom: 0.55em * $padding-ratio;
         }
 
-        &.xl {
-            @include moz(7.5);
+        &.p-xl {
+            padding-top: 0.75em * $padding-ratio;
+            padding-bottom: 0.7em * $padding-ratio;
         }
     }
 }
 
-.form input[type="search"],
-.group input[type="search"],
+:where(.form, .group) input[type="search"],
 input[type="search"].form {
     &::-webkit-search-cancel-button {
         appearance: none;
@@ -354,22 +278,5 @@ input[type="search"].form {
         -webkit-mask-position: center;
         mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m.88,15.12c.49.49,1.28.49,1.77,0l5.35-5.35,5.35,5.35c.49.49,1.28.49,1.77,0s.49-1.28,0-1.77l-5.35-5.35,5.35-5.35c.49-.49.49-1.28,0-1.77s-1.28-.49-1.77,0l-5.35,5.35L2.65.88c-.49-.49-1.28-.49-1.77,0s-.49,1.28,0,1.77l5.35,5.35L.88,13.35c-.49.49-.49,1.28,0,1.77Z"/></svg>');
         -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m.88,15.12c.49.49,1.28.49,1.77,0l5.35-5.35,5.35,5.35c.49.49,1.28.49,1.77,0s.49-1.28,0-1.77l-5.35-5.35,5.35-5.35c.49-.49.49-1.28,0-1.77s-1.28-.49-1.77,0l-5.35,5.35L2.65.88c-.49-.49-1.28-.49-1.77,0s-.49,1.28,0,1.77l5.35,5.35L.88,13.35c-.49.49-.49,1.28,0,1.77Z"/></svg>');
-    }
-
-    &.xs::-webkit-search-cancel-button {
-        height: 8px;
-        width: 8px;
-    }
-    &.sm::-webkit-search-cancel-button {
-        height: 9px;
-        width: 9px;
-    }
-    &.lg::-webkit-search-cancel-button {
-        height: 11px;
-        width: 11px;
-    }
-    &.xl::-webkit-search-cancel-button {
-        height: 12px;
-        width: 12px;
     }
 }

@@ -1,19 +1,15 @@
-@mixin radio-size($size) {
-    height: $size * 3px;
-    width: $size * 3px;
-}
-
 .form input[type="radio"],
-.group input[type="radio"],
 input[type="radio"].form {
     appearance: none;
     vertical-align: middle;
     cursor: pointer;
     padding: 0;
+    background-color: $form-bg-color;
     border: $form-bd-width solid $form-bd-color;
     border-radius: 50%;
-
-    @include radio-size(8);
+    width: 1.5em;
+    height: 1.5em;
+    font-size: 1rem;
 
     &:checked {
         &::before {
@@ -34,18 +30,18 @@ input[type="radio"].form {
     }
 
     &.xs {
-        @include radio-size(6);
+        font-size: 0.75rem;
     }
 
     &.sm {
-        @include radio-size(7);
+        font-size: 0.875rem;
     }
 
     &.lg {
-        @include radio-size(9);
+        font-size: 1.125rem;
     }
 
     &.xl {
-        @include radio-size(10);
+        font-size: 1.25rem;
     }
 }

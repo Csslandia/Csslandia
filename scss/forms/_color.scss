@@ -1,88 +1,13 @@
-@mixin color-size($size) {
-    width: calc(
-        ((($size * 2px - 5px) * $padding-ratio) + 1px) * 1.5 +
-            ($size * 0.125rem * $form-line-height * 1.5 + 2 * $form-bd-width)
-    );
-    height: calc(
-        ((($size * 2px - 5px) * $padding-ratio) + 1px) +
-            ($size * 0.125rem * $form-line-height + 2 * $form-bd-width)
-    );
-
-    @if $form-shape != "pill" and $form-shape != "angular" {
-        border-radius: ($size + 1px) * $border-radius-ratio;
-
-        &::-webkit-color-swatch {
-            border-radius: ($size + 1px) * $border-radius-ratio - ($size - 1px);
-        }
-    }
-
-    &::-webkit-color-swatch-wrapper {
-        padding: ($size - 1px) * $padding-ratio;
-    }
-
-    &::-moz-color-swatch {
-        padding: ($size - 1px) * $padding-ratio;
-
-        @if $form-shape != "pill" and $form-shape != "angular" {
-            border-radius: ($size + 1px) * $border-radius-ratio - ($size - 1px);
-        }
-
-        width: calc(
-            (
-                    ((($size * 2px - 5px) * $padding-ratio) + 1px) * 1.5 -
-                        ($size - 1) * $padding-ratio * 2px
-                ) +
-                (
-                    $size * 0.125rem * $form-line-height * 1.5 + 2 *
-                        $form-bd-width - $form-bd-width * 2
-                )
-        );
-        height: calc(
-            (
-                    ((($size * 2px - 5px) * $padding-ratio) + 1px) - ($size - 1) *
-                        $padding-ratio * 2px
-                ) +
-                (
-                    $size * 0.125rem * $form-line-height + 2 * $form-bd-width -
-                        $form-bd-width * 2
-                )
-        );
-    }
-}
-
-.form input[type="color"],
-.group input[type="color"],
+:where(.form, .group) input[type="color"],
 input[type="color"].form {
     appearance: none;
     cursor: pointer;
+    background-color: $form-bg-color;
     border: $form-bd-width solid $form-bd-color;
     background-color: $form-bg-color;
-
-    &::-webkit-color-swatch {
-        border: none;
-    }
-
-    &::-moz-color-swatch {
-        border: none;
-    }
-
-    @include color-size(7);
-
-    &.xs {
-        @include color-size(5);
-    }
-
-    &.sm {
-        @include color-size(6);
-    }
-
-    &.lg {
-        @include color-size(8);
-    }
-
-    &.xl {
-        @include color-size(9);
-    }
+    width: 3em;
+    height: 2em;
+    font-size: 1rem;
 
     @if $form-shape == "pill" {
         border-radius: 9999px;
@@ -104,6 +29,12 @@ input[type="color"].form {
         &::-moz-color-swatch {
             border-radius: 0;
         }
+    } @else {
+        border-radius: 0.5em * $border-radius-ratio;
+
+        &::-webkit-color-swatch {
+            border-radius: 0.5em * $border-radius-ratio - 0.375em;
+        }
     }
 
     &.pill {
@@ -123,5 +54,39 @@ input[type="color"].form {
         &::-moz-color-swatch {
             border-radius: 0;
         }
+    }
+
+    &::-webkit-color-swatch {
+        border: none;
+    }
+
+    &::-webkit-color-swatch-wrapper {
+        padding: 0.375em * $padding-ratio;
+    }
+
+    &::-moz-color-swatch {
+        border: none;
+        width: calc(2.25em - $form-bd-width * 2);
+        height: calc(1.25em - $form-bd-width * 2);
+
+        @if $form-shape != "pill" and $form-shape != "angular" {
+            border-radius: 0.5em * $border-radius-ratio - 0.375em;
+        }
+    }
+
+    &.xs {
+        font-size: 0.75rem;
+    }
+
+    &.sm {
+        font-size: 0.875rem;
+    }
+
+    &.lg {
+        font-size: 1.125rem;
+    }
+
+    &.xl {
+        font-size: 1.25rem;
     }
 }

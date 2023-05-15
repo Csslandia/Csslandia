@@ -1,9 +1,6 @@
 .modal {
     position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    inset: 0;
     width: 100vw;
     height: 100vh;
     height: 100dvh;
@@ -43,7 +40,8 @@
         flex-direction: column;
 
         & > *:not(:last-child) {
-            padding: 16px * $padding-ratio calc(10px * $padding-ratio + 2% * $padding-ratio);
+            padding: 16px * $padding-ratio
+                calc(10px * $padding-ratio + 2% * $padding-ratio);
             border-bottom: 1px solid var(--bd);
         }
 
@@ -59,7 +57,8 @@
         }
 
         & > :last-child {
-            padding: 16px * $padding-ratio calc(10px * $padding-ratio + 2% * $padding-ratio);
+            padding: 16px * $padding-ratio
+                calc(10px * $padding-ratio + 2% * $padding-ratio);
             width: fit-content;
         }
     }
