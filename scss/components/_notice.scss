@@ -6,8 +6,8 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    padding: 14px * $padding-ratio calc(38px * $padding-ratio + 0.75em) 13px *
-        $padding-ratio 19px * $padding-ratio;
+    padding: 0.95em * $padding-ratio calc(2.5em * $padding-ratio + 0.75em) 0.875em *
+        $padding-ratio 1.25em * $padding-ratio;
 
     &::after {
         content: "";
@@ -15,13 +15,11 @@
         background-color: currentColor !important;
         width: 0.75em;
         height: 0.75em;
-
         display: block;
         position: absolute;
-        right: 18px * $padding-ratio;
-        top: calc(50% + 1px);
+        right: 1.25em * $padding-ratio;
+        top: calc(50% + 0.0375em);
         transform: translateY(-50%);
-
         mask-repeat: no-repeat;
         -webkit-mask-repeat: no-repeat;
         mask-position: center;

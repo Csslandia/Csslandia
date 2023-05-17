@@ -14,12 +14,12 @@
         width: 100%;
 
         tr:not(:last-child) {
-            border-bottom: 1px solid;
+            border-bottom: 0.05rem solid;
         }
 
         th,
         td {
-            padding: 9px * $padding-ratio 12px * $padding-ratio;
+            padding: 0.65em * $padding-ratio 0.8em * $padding-ratio;
             color: inherit;
             text-align: inherit;
         }
@@ -32,61 +32,31 @@
     &.bd-all {
         th,
         td {
-            border: 1px solid;
+            border: 0.05rem solid;
         }
     }
 
-    &.xs {
-        table {
-            font-size: 0.625rem;
-        }
-
-        th,
-        td {
-            padding: 6px * $padding-ratio 8px * $padding-ratio;
-        }
+    &.xs table {
+        font-size: 0.625rem;
     }
 
-    &.sm {
-        table {
-            font-size: 0.75rem;
-        }
-
-        th,
-        td {
-            padding: 7.5px * $padding-ratio 10px * $padding-ratio;
-        }
+    &.sm table {
+        font-size: 0.75rem;
     }
 
-    &.lg {
-        table {
-            font-size: 1rem;
-        }
-
-        th,
-        td {
-            padding: 11.5px * $padding-ratio 14px * $padding-ratio;
-        }
+    &.lg table {
+        font-size: 1rem;
     }
 
-    &.xl {
-        table {
-            font-size: 1.125rem;
-        }
-
-        th,
-        td {
-            padding: 12px * $padding-ratio 16px * $padding-ratio;
-        }
+    &.xl table {
+        font-size: 1.125rem;
     }
 
-    &.zebra {
-        tr {
-            border-bottom: none !important;
+    &.zebra tr {
+        border-bottom: none !important;
 
-            &:nth-child(2n) {
-                background-color: var(--bg-medium);
-            }
+        &:nth-child(2n) {
+            background-color: var(--bg-medium);
         }
     }
 }

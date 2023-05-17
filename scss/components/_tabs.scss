@@ -62,14 +62,14 @@
     }
     & > *:not(:first-child) {
         border-radius: 0.5em * $border-radius-ratio;
-        padding: 8px * $padding-ratio 12px * $padding-ratio;
+        padding: 0.5em * $padding-ratio 0.75em * $padding-ratio;
     }
 
     &:has(> :first-child > :first-child.bg),
     &:has(> :first-child > :first-child[class^="bg-"]),
     &:has(> :first-child > :first-child[class*=" bg-"]) {
         & > *:not(:first-child) {
-            border-top-left-radius: 0px !important;
+            border-top-left-radius: 0 !important;
         }
     }
 

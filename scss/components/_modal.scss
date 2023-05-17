@@ -23,15 +23,15 @@
     }
 
     & > * {
-        padding-top: 4px;
+        padding-top: 0.25rem;
         max-width: calc(100vw - 32px);
-        margin: 40px auto;
+        margin: 2.5rem auto;
         background-color: var(--bg-strong);
-        border-radius: 0.75em * $border-radius-ratio;
+        border-radius: 0.75rem * $border-radius-ratio;
         max-height: calc(100vh - 80px);
         max-height: calc(100dvh - 80px);
         height: fit-content;
-        width: 512px;
+        width: 32rem;
         transform: translateY(-40px);
         transition: opacity 0.4s * $transition-ratio,
             transform 0.4s * $transition-ratio;
@@ -40,9 +40,9 @@
         flex-direction: column;
 
         & > *:not(:last-child) {
-            padding: 16px * $padding-ratio
-                calc(10px * $padding-ratio + 2% * $padding-ratio);
-            border-bottom: 1px solid var(--bd);
+            padding: 1rem * $padding-ratio
+                calc(0.625rem * $padding-ratio + 2% * $padding-ratio);
+            border-bottom: 0.05rem solid var(--bd);
         }
 
         & > :first-child {
@@ -57,8 +57,8 @@
         }
 
         & > :last-child {
-            padding: 16px * $padding-ratio
-                calc(10px * $padding-ratio + 2% * $padding-ratio);
+            padding: 1rem * $padding-ratio
+                calc(0.625rem * $padding-ratio + 2% * $padding-ratio);
             width: fit-content;
         }
     }

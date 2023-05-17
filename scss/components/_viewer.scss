@@ -19,8 +19,8 @@
 
     & > button {
         position: absolute;
-        top: calc(1vw + 16px);
-        right: calc(1vw + 16px);
+        top: calc(1vw + 1em);
+        right: calc(1vw + 1em);
         color: $dark-c-strong;
     }
 

@@ -68,51 +68,11 @@
         &:not(.angular):not([class^="br-"]):not([class*=" br-"]) {
             padding-left: 1.09375em * $padding-ratio;
             padding-right: 1.09375em * $padding-ratio;
-
-            &.p-xs {
-                padding-left: 0.546875em * $padding-ratio;
-                padding-right: 0.546875em * $padding-ratio;
-            }
-
-            &.p-sm {
-                padding-left: 0.8203125em * $padding-ratio;
-                padding-right: 0.8203125em * $padding-ratio;
-            }
-
-            &.p-lg {
-                padding-left: 1.3671875em * $padding-ratio;
-                padding-right: 1.3671875em * $padding-ratio;
-            }
-
-            &.p-xl {
-                padding-left: 1.640625em * $padding-ratio;
-                padding-right: 1.640625em * $padding-ratio;
-            }
         }
     } @else {
         &.pill {
             padding-left: 1.09375em * $padding-ratio;
             padding-right: 1.09375em * $padding-ratio;
-
-            &.p-xs {
-                padding-left: 0.546875em * $padding-ratio;
-                padding-right: 0.546875em * $padding-ratio;
-            }
-
-            &.p-sm {
-                padding-left: 0.8203125em * $padding-ratio;
-                padding-right: 0.8203125em * $padding-ratio;
-            }
-
-            &.p-lg {
-                padding-left: 1.3671875em * $padding-ratio;
-                padding-right: 1.3671875em * $padding-ratio;
-            }
-
-            &.p-xl {
-                padding-left: 1.640625em * $padding-ratio;
-                padding-right: 1.640625em * $padding-ratio;
-            }
         }
     }
 }
@@ -142,26 +102,6 @@
     ).form {
     padding: 0.45em * $padding-ratio 0.875em * $padding-ratio 0.4em *
         $padding-ratio;
-
-    &.p-xs {
-        padding: 0.15em * $padding-ratio 0.4375em * $padding-ratio 0.1em *
-            $padding-ratio;
-    }
-
-    &.p-sm {
-        padding: 0.3em * $padding-ratio 0.65625em * $padding-ratio 0.25em *
-            $padding-ratio;
-    }
-
-    &.p-lg {
-        padding: 0.6em * $padding-ratio 1.09375em * $padding-ratio 0.55em *
-            $padding-ratio;
-    }
-
-    &.p-xl {
-        padding: 0.75em * $padding-ratio 1.3125em * $padding-ratio 0.7em *
-            $padding-ratio;
-    }
 }
 
 :where(.form, .group)
@@ -185,26 +125,6 @@
 
     &::-webkit-calendar-picker-indicator {
         cursor: pointer;
-    }
-
-    &.p-xs {
-        padding: calc(0.15em * $padding-ratio - 0.0625rem) 0.4375em *
-            $padding-ratio calc(0.1em * $padding-ratio - 0.0625rem);
-    }
-
-    &.p-sm {
-        padding: calc(0.3em * $padding-ratio - 0.0625rem) 0.65625em *
-            $padding-ratio calc(0.25em * $padding-ratio - 0.0625rem);
-    }
-
-    &.p-lg {
-        padding: calc(0.6em * $padding-ratio - 0.0625rem) 1.09375em *
-            $padding-ratio calc(0.55em * $padding-ratio - 0.0625rem);
-    }
-
-    &.p-xl {
-        padding: calc(0.75em * $padding-ratio - 0.0625rem) 1.3125em *
-            $padding-ratio calc(0.7em * $padding-ratio - 0.0625rem);
     }
 }
 
@@ -240,26 +160,6 @@ input[type="number"].form {
         ).form {
         padding-top: 0.45em * $padding-ratio;
         padding-bottom: 0.4em * $padding-ratio;
-
-        &.p-xs {
-            padding-top: 0.15em * $padding-ratio;
-            padding-bottom: 0.1em * $padding-ratio;
-        }
-
-        &.p-sm {
-            padding-top: 0.3em * $padding-ratio;
-            padding-bottom: 0.25em * $padding-ratio;
-        }
-
-        &.p-lg {
-            padding-top: 0.6em * $padding-ratio;
-            padding-bottom: 0.55em * $padding-ratio;
-        }
-
-        &.p-xl {
-            padding-top: 0.75em * $padding-ratio;
-            padding-bottom: 0.7em * $padding-ratio;
-        }
     }
 }
 

@@ -2,11 +2,11 @@
     overflow: hidden;
 
     & > :first-child {
-        border-bottom: 1px solid var(--bd);
+        border-bottom: 0.05rem solid var(--bd);
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 12px * $padding-ratio 16px * $padding-ratio;
+        padding: 0.75em * $padding-ratio 1em * $padding-ratio;
         cursor: pointer;
     }
 
@@ -36,11 +36,11 @@
                 content: "";
                 color: inherit;
                 background-color: currentColor !important;
-                width: 0.15rem;
-                height: 0.75rem;
+                width: 0.15em;
+                height: 0.75em;
                 border-radius: 9999px;
                 position: relative;
-                right: 0.45rem;
+                right: 0.45em;
                 order: 1;
                 opacity: 1;
                 transition: opacity 0.4s * $transition-ratio;
@@ -49,8 +49,8 @@
                 content: "";
                 color: inherit;
                 background-color: currentColor !important;
-                width: 0.75rem;
-                height: 0.15rem;
+                width: 0.75em;
+                height: 0.15em;
                 border-radius: 9999px;
                 position: relative;
                 right: 0;
@@ -83,7 +83,7 @@
             clip-path: inset(0 0 0 0);
             max-height: 100vh;
             max-height: 100dvh;
-            padding: 12px * $padding-ratio;
+            padding: 0.75em * $padding-ratio;
             transition: clip-path 0.4s * $transition-ratio ease-in-out,
                 max-height 0.4s * $transition-ratio ease-in-out,
                 padding-top 0.4s * $transition-ratio ease-in-out,

@@ -1,6 +1,6 @@
 label {
     font-size: 0.875rem;
-    margin-bottom: 4px;
+    margin-bottom: 0.25em;
     display: block;
 
     &:has(> input[type="checkbox"]),
@@ -16,29 +16,46 @@ label {
     }
 }
 
+form.form {
+    & > :not(:last-child):not(label:not(:has(*))) {
+        margin-bottom: $form-space;
+    }
+
+    @supports not selector(:has(*)) {
+        & > :not(:last-child) {
+            margin-bottom: $form-space;
+        }
+    }
+}
+
 .verify:invalid:not(:focus) {
     color: var(--verify-c, #f00) !important;
     border-color: var(--verify-c, #f00) !important;
 }
 
-form.form {
-    & > :not(:last-child) {
-        margin-bottom: $form-space;
-    }
-}
-
 .horizontal {
-    & > * {
+    &
+        > *:not(
+            :where(
+                    input[type="button"],
+                    input[type="submit"],
+                    input[type="reset"],
+                    button,
+                    .b,
+                    .btn,
+                    .button
+                )
+        ) {
         display: flex;
         align-items: center;
 
         & > :first-child,
         & > :not(:last-child) {
-            margin-right: 8px;
+            margin-right: 0.5em;
         }
 
         & > label {
-            width: 120px;
+            width: 8em;
             max-width: 33%;
         }
 

@@ -64,10 +64,10 @@
 }
 
 .monospace {
-    font-family: monospace !important;
+    font-family: ui-monospace, monospace !important;
 }
 .serif {
-    font-family: serif !important;
+    font-family: ui-serif, serif !important;
 }
 
 .text-center {
@@ -115,16 +115,17 @@
 }
 
 .stroke-thin {
-    -webkit-text-stroke: 0.5px currentColor;
+    -webkit-text-stroke: 0.0125em currentColor;
     -webkit-text-fill-color: transparent;
 }
+
 .stroke {
-    -webkit-text-stroke: 1.5px currentColor;
+    -webkit-text-stroke: 0.025em currentColor;
     -webkit-text-fill-color: transparent;
 }
 
 .stroke-bold {
-    -webkit-text-stroke: 2.5px currentColor;
+    -webkit-text-stroke: 0.0375em currentColor;
     -webkit-text-fill-color: transparent;
 }
 
@@ -153,4 +154,8 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.hyphens {
+    hyphens: auto;
 }

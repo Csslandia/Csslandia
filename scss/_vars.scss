@@ -4,7 +4,7 @@ $accent: #999;
 $accent-c: var(--c-strong);
 
 $light-c-strong: #222;
-$light-c-soft: #000c;
+$light-c-soft: #333;
 $light-bg-strong: #fff;
 $light-bg-medium: #eee;
 $light-bg-soft: #ddd;
@@ -13,7 +13,7 @@ $light-accent: $accent;
 $light-accent-c: $accent-c;
 
 $dark-c-strong: #fff;
-$dark-c-soft: #fffc;
+$dark-c-soft: #eee;
 $dark-bg-strong: #222;
 $dark-bg-medium: #333;
 $dark-bg-soft: #444;
@@ -48,7 +48,7 @@ $form-c: inherit;
 $form-bg-color: var(--bg-medium);
 $form-bd-color: transparent;
 $form-bd-width: 0.1rem;
-$form-space: 8px;
+$form-space: 0.5rem;
 
 $mob-tab-breakpoint: 600px;
 $tab-pc-breakpoint: 1000px;

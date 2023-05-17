@@ -19,13 +19,37 @@
     & > :not(:first-child) {
         border-top-left-radius: 0 !important;
         border-bottom-left-radius: 0 !important;
-        border-left-width: 1px !important;
+        border-left-width: $form-bd-width * 0.5 !important;
+
+        &:where(
+                input[type="button"],
+                input[type="submit"],
+                input[type="reset"],
+                button,
+                .b,
+                .btn,
+                .button
+            ) {
+            border-left-width: $button-bd-width * 0.5 !important;
+        }
     }
 
     & > :not(:last-child) {
         border-top-right-radius: 0 !important;
         border-bottom-right-radius: 0 !important;
-        border-right-width: 1px !important;
+        border-right-width: $form-bd-width * 0.5 !important;
+
+        &:where(
+                input[type="button"],
+                input[type="submit"],
+                input[type="reset"],
+                button,
+                .b,
+                .btn,
+                .button
+            ) {
+            border-right-width: $button-bd-width * 0.5 !important;
+        }
     }
 
     &.angular {

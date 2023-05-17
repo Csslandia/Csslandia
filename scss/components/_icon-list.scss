@@ -4,12 +4,12 @@
 
     & > * {
         &:not(:last-child) {
-            padding-bottom: 12px;
+            padding-bottom: 0.8em;
         }
 
         & [class^="i-"],
         & [class*=" i-"] {
-            padding-right: 4px;
+            padding-right: 0.25em;
         }
     }
 }

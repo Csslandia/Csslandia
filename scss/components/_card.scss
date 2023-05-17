@@ -6,26 +6,26 @@
     max-width: 100%;
 
     & > *:not(:last-child):not(img) {
-        border-bottom: 1px solid var(--bd);
+        border-bottom: 0.05rem solid var(--bd);
     }
 
     & > * {
-        padding: 12px * $padding-ratio 16px * $padding-ratio;
+        padding: 0.75em * $padding-ratio 1em * $padding-ratio;
     }
 
     & > :first-child {
-        margin-top: 4px;
+        margin-top: 0.25em;
     }
 
     & > :last-child {
-        margin-bottom: 4px;
+        margin-bottom: 0.25em;
     }
 
     & > img {
         width: 100%;
         object-fit: cover;
         padding: 0 !important;
-        margin-bottom: 4px;
+        margin-bottom: 0.25em;
     }
 
     & > img:first-child {

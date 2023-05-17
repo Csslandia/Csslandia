@@ -3,63 +3,63 @@
         @return 0;
     }
     @if $n == 1 {
-        @return 1px;
+        @return 0.0625rem;
     }
     @if $n == 2 {
-        @return 2px;
+        @return 0.125rem;
     }
     @if $n == 3 {
-        @return 3px;
+        @return 0.1875rem;
     }
     @if $n == 4 {
-        @return 4px;
+        @return 0.25rem;
     }
     @if $n == 5 {
-        @return 6px;
+        @return 0.375rem;
     }
     @if $n == 6 {
-        @return 8px;
+        @return 0.5rem;
     }
     @if $n == 7 {
-        @return 12px;
+        @return 0.75rem;
     }
     @if $n == 8 {
-        @return 16px;
+        @return 1rem;
     }
     @if $n == 9 {
-        @return 24px;
+        @return 1.5rem;
     }
     @if $n == 10 {
-        @return 32px;
+        @return 2rem;
     }
     @if $n == 11 {
-        @return 48px;
+        @return 3rem;
     }
     @if $n == 12 {
-        @return 64px;
+        @return 4rem;
     }
     @if $n == 13 {
-        @return 96px;
+        @return 6rem;
     }
     @if $n == 14 {
-        @return 128px;
+        @return 8rem;
     }
     @if $n == 15 {
-        @return 192px;
+        @return 12rem;
     }
     @if $n == 16 {
-        @return 256px;
+        @return 16rem;
     }
     @if $n == 17 {
-        @return 384px;
+        @return 24rem;
     }
     @if $n == 18 {
-        @return 512px;
+        @return 32rem;
     }
     @if $n == 19 {
-        @return 768px;
+        @return 48rem;
     }
     @if $n == 20 {
-        @return 1024px;
+        @return 64rem;
     }
 }

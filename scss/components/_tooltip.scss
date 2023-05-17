@@ -16,7 +16,7 @@
 
     &::before {
         content: "";
-        border: 7px solid transparent;
+        border: 0.5em solid transparent;
     }
 
     &::after {
@@ -26,7 +26,7 @@
         user-select: none;
         pointer-events: none;
         white-space: nowrap;
-        padding: 7px * $padding-ratio 12px * $padding-ratio;
+        padding: 0.5em * $padding-ratio 0.85em * $padding-ratio;
         border-radius: 0.5em * $border-radius-ratio;
         background-color: var(--tooltip-bg, var(--bg-soft));
         color: var(--tooltip-c, var(--c-soft));
@@ -56,23 +56,23 @@
     }
 
     &:not(.left):not(.right):not(.bottom)::before {
-        bottom: calc(100% + 8px);
+        bottom: calc(100% + 0.5em);
         border-bottom-width: 0;
         border-top-color: var(--tooltip-bg, var(--bg-soft));
     }
 
     &:not(.left):not(.right):not(.bottom)::after {
-        bottom: calc(100% + 14px);
+        bottom: calc(100% + 1em);
     }
 
     &.bottom::before {
-        top: calc(100% + 8px);
+        top: calc(100% + 0.5em);
         border-top-width: 0;
         border-bottom-color: var(--tooltip-bg, var(--bg-soft));
     }
 
     &.bottom::after {
-        top: calc(100% + 14px);
+        top: calc(100% + 1em);
     }
 
     &.left::before,
@@ -86,20 +86,20 @@
     &.left::before {
         border-right-width: 0;
         border-left-color: var(--tooltip-bg, var(--bg-soft));
-        right: calc(100% + 8px);
+        right: calc(100% + 0.5em);
     }
 
     &.left::after {
-        right: calc(100% + 14px);
+        right: calc(100% + 1em);
     }
 
     &.right::before {
         border-left-width: 0;
         border-right-color: var(--tooltip-bg, var(--bg-soft));
-        left: calc(100% + 8px);
+        left: calc(100% + 0.5em);
     }
 
     &.right::after {
-        left: calc(100% + 14px);
+        left: calc(100% + 1em);
     }
 }

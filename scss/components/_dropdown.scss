@@ -13,9 +13,9 @@
 
         & > * {
             display: block;
-            padding: calc(7px * $padding-ratio + $button-bd-width)
-                calc(12px * $padding-ratio + $button-bd-width)
-                calc(6px * $padding-ratio + $button-bd-width);
+            padding: calc(0.475em * $padding-ratio + $button-bd-width)
+                calc(0.8em * $padding-ratio + $button-bd-width)
+                calc(0.4em * $padding-ratio + $button-bd-width);
             white-space: nowrap;
 
             &:hover {
@@ -23,7 +23,7 @@
             }
 
             &:not(:last-child) {
-                border-bottom: 1px solid var(--bd);
+                border-bottom: 0.05rem solid var(--bd);
             }
         }
     }

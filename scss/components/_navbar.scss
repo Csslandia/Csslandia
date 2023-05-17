@@ -2,7 +2,7 @@
     background-color: var(--bg-strong);
     width: 100%;
     white-space: nowrap;
-    line-height: 1.5;
+    font-size: 1rem;
 
     & > :first-child {
         display: flex;
@@ -10,7 +10,7 @@
         align-items: center;
 
         & img {
-            height: 22px;
+            height: 1.375em;
         }
 
         & > :first-child {
@@ -21,7 +21,7 @@
     }
 
     & > :last-child {
-        font-size: 0.875rem;
+        font-size: 0.875em;
         font-weight: 500;
 
         & > * {
@@ -33,8 +33,8 @@
 @media (width < $navbar-breakpoint) {
     .navbar {
         & > :first-child {
-            padding: 18px * $padding-ratio 24px * $padding-ratio;
-            margin-bottom: -1px;
+            padding: 1.125em * $padding-ratio 1.5em * $padding-ratio;
+            margin-bottom: -0.05rem;
         }
 
         & > :last-child {
@@ -51,21 +51,17 @@
 
             & > * {
                 display: block;
-                padding: 12px * $padding-ratio 24px * $padding-ratio;
+                padding: 0.75em * $padding-ratio 1.7142857143em * $padding-ratio;
 
                 &:last-child {
-                    padding-top: 13px;
-                }
-
-                &:last-child {
-                    padding-bottom: 16px;
+                    padding-bottom: 1em;
                 }
             }
 
             &.open {
                 clip-path: inset(0 0 0 0);
-                max-height: calc(100vh - 58px);
-                max-height: calc(100dvh - 58px);
+                max-height: calc(100vh - 3.65em);
+                max-height: calc(100dvh - 3.65em);
             }
         }
     }
@@ -82,7 +78,7 @@
         width: 100%;
 
         & > :first-child {
-            padding: 22px * $padding-ratio 24px * $padding-ratio 22px *
+            padding: 1.375em * $padding-ratio 1.5em * $padding-ratio 1.375em *
                 $padding-ratio 10%;
 
             & > :last-child {
@@ -99,7 +95,7 @@
             overflow-x: hidden;
 
             & > * {
-                margin-left: 32px;
+                margin-left: 1.5em;
                 white-space: nowrap;
             }
         }

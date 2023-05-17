@@ -1,0 +1,21 @@
+.scroll-snap {
+    &:not(.horizontal) {
+        scroll-snap-type: y mandatory;
+        overflow-y: auto;
+        height: 100vh;
+        height: 100dvh;
+    }
+
+    & > * {
+        height: 100%;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+    }
+
+    &.horizontal {
+        scroll-snap-type: x mandatory;
+        overflow-x: auto;
+        width: 100%;
+        display: flex;
+    }
+}
