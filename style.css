@@ -107,6 +107,7 @@ a:where(:hover, :focus, :active) {
 
 :where(img, video, canvas) {
   display: block;
+  max-width: 100%;
 }
 
 :where(input[type=button],
@@ -370,6 +371,7 @@ body:has(.canvas.open) {
 .container {
   margin-left: auto !important;
   margin-right: auto !important;
+  max-width: 100rem;
 }
 
 @media (width < 600px) {
@@ -385,7 +387,6 @@ body:has(.canvas.open) {
 @media (width >= 1000px) {
   .container {
     width: 76%;
-    max-width: 100rem;
   }
 }
 .dropdown {
@@ -795,14 +796,14 @@ body:has(.modal.open) {
     width: 100%;
   }
   .navbar > :first-child {
-    padding: 1.375em 1.5em 1.375em 10%;
+    padding: 1.375em 1.5em 1.375em 12%;
   }
   .navbar > :first-child > :last-child {
     display: none;
   }
   .navbar > :last-child {
     flex-grow: 1;
-    padding-right: 10%;
+    padding-right: 12%;
     display: flex;
     justify-content: right;
     align-items: center;
@@ -811,6 +812,22 @@ body:has(.modal.open) {
   .navbar > :last-child > * {
     margin-left: 1.5em;
     white-space: nowrap;
+  }
+}
+@media (width >= 1000px) and (width >= 600px) and (width < 1000px) {
+  .navbar > :first-child {
+    padding-left: 8%;
+  }
+  .navbar > :last-child {
+    padding-right: 8%;
+  }
+}
+@media (width >= 1000px) and (width < 600px) {
+  .navbar > :first-child {
+    padding-left: 4%;
+  }
+  .navbar > :last-child {
+    padding-right: 4%;
   }
 }
 .notice {
@@ -1259,6 +1276,10 @@ progress::-moz-progress-bar {
 }
 .tabs > :first-child > *[class^=bg]:hover, .tabs > :first-child > *[class^=bg]:focus, .tabs > :first-child > *[class^=bg]:active, .tabs > :first-child > *[class*=" bg"]:hover, .tabs > :first-child > *[class*=" bg"]:focus, .tabs > :first-child > *[class*=" bg"]:active {
   outline: none !important;
+}
+.tabs > :first-child > *:focus-visible {
+  outline: none;
+  transform: scale(1.05);
 }
 .tabs > *:not(:first-child) {
   border-radius: 0.5em;

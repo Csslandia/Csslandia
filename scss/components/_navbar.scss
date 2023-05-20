@@ -79,7 +79,7 @@
 
         & > :first-child {
             padding: 1.375em * $padding-ratio 1.5em * $padding-ratio 1.375em *
-                $padding-ratio 10%;
+                $padding-ratio 50% - $pc-container-width * 0.5;
 
             & > :last-child {
                 display: none;
@@ -88,7 +88,7 @@
 
         & > :last-child {
             flex-grow: 1;
-            padding-right: 10%;
+            padding-right: 50% - $pc-container-width * 0.5;
             display: flex;
             justify-content: right;
             align-items: center;
@@ -98,6 +98,30 @@
                 margin-left: 1.5em;
                 white-space: nowrap;
             }
+        }
+    }
+}
+
+@media (width >= $navbar-breakpoint) and (width >= $mob-tab-breakpoint) and (width < $tab-pc-breakpoint) {
+    .navbar {
+        & > :first-child {
+            padding-left: 50% - $tab-container-width * 0.5;
+        }
+
+        & > :last-child {
+            padding-right: 50% - $tab-container-width * 0.5;
+        }
+    }
+}
+
+@media (width >= $navbar-breakpoint) and (width < $mob-tab-breakpoint) {
+    .navbar {
+        & > :first-child {
+            padding-left: 50% - $mob-container-width * 0.5;
+        }
+
+        & > :last-child {
+            padding-right: 50% - $mob-container-width * 0.5;
         }
     }
 }

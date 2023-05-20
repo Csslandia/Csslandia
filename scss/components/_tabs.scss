@@ -58,6 +58,11 @@
                     outline: none !important;
                 }
             }
+
+            &:focus-visible {
+                outline: none;
+                transform: scale(1.05);
+            }
         }
     }
     & > *:not(:first-child) {

@@ -144,6 +144,7 @@ a:where(:hover, :focus, :active) {
 
 :where(img, video, canvas) {
     display: block;
+    max-width: 100%;
 }
 
 :where(
