@@ -6,7 +6,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    padding: 0.95em * $padding-ratio calc(2.5em * $padding-ratio + 0.75em) 0.875em *
+    padding: 0.95em * $padding-ratio calc(2.5em * $padding-ratio + 0.75em) 0.9em *
         $padding-ratio 1.25em * $padding-ratio;
 
     &::after {
@@ -18,7 +18,7 @@
         display: block;
         position: absolute;
         right: 1.25em * $padding-ratio;
-        top: calc(50% + 0.0375em);
+        top: calc(50% + 0.025em);
         transform: translateY(-50%);
         mask-repeat: no-repeat;
         -webkit-mask-repeat: no-repeat;

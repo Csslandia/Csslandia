@@ -6,7 +6,7 @@
     max-width: 100%;
 
     & > *:not(:last-child):not(img) {
-        border-bottom: 0.05rem solid var(--bd);
+        border-bottom: 0.0625rem solid var(--bd);
     }
 
     & > * {

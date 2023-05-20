@@ -47,7 +47,7 @@
         border-color: transparent !important;
     }
 
-    @if $color-mode != light and dark {
+    @if $color-mode != light and $color-mode != dark {
         html.dark {
             @each $c in $grays {
                 .d\:c-#{$c}#{$c}#{$c} {

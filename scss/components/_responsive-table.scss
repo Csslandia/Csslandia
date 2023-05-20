@@ -14,7 +14,7 @@
         width: 100%;
 
         tr:not(:last-child) {
-            border-bottom: 0.05rem solid;
+            border-bottom: 0.0625rem solid;
         }
 
         th,
@@ -32,7 +32,7 @@
     &.bd-all {
         th,
         td {
-            border: 0.05rem solid;
+            border: 0.0625rem solid;
         }
     }
 

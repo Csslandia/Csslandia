@@ -59,20 +59,23 @@ form.form {
             max-width: 33%;
         }
 
-        & > input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        input[type="number"],
-        input[type="tel"],
-        input[type="url"],
-        input[type="search"],
-        input[type="date"],
-        input[type="datetime-local"],
-        input[type="month"],
-        input[type="time"],
-        input[type="week"],
-        select,
-        textarea {
+        &
+            > :where(
+                input[type="text"],
+                input[type="email"],
+                input[type="password"],
+                input[type="number"],
+                input[type="tel"],
+                input[type="url"],
+                input[type="search"],
+                input[type="date"],
+                input[type="datetime-local"],
+                input[type="month"],
+                input[type="time"],
+                input[type="week"],
+                select,
+                textarea
+            ) {
             flex-grow: 1;
             flex-basis: min-content;
         }

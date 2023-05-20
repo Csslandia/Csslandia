@@ -12,7 +12,7 @@
         padding: 0.5625em * $padding-ratio 1em * $padding-ratio;
 
         &:not(:last-child) {
-            border-bottom: 0.05rem solid;
+            border-bottom: 0.0625rem solid;
             border-color: inherit;
         }
     }

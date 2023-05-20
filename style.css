@@ -74,6 +74,7 @@ html {
   line-height: 1.4;
 }
 
+/*! purgecss start ignore */
 :where(a) {
   color: var(--c-soft);
   text-decoration: none;
@@ -132,6 +133,7 @@ html.dark [disabled] {
   opacity: 0.75 !important;
 }
 
+/*! purgecss end ignore */
 .fade {
   opacity: 0;
   visibility: hidden;
@@ -194,7 +196,7 @@ a.slide.open {
   background-color: var(--bg-medium);
   border-radius: 0.625em;
   border: 0.1rem solid transparent;
-  padding: 0.825em 1.125em 0.75em;
+  padding: 0.8em 1.125em 0.75em;
 }
 
 [data-badge] {
@@ -287,7 +289,7 @@ body:has(.canvas.open) {
   max-width: 100%;
 }
 .card > *:not(:last-child):not(img) {
-  border-bottom: 0.05rem solid var(--bd);
+  border-bottom: 0.0625rem solid var(--bd);
 }
 .card > * {
   padding: 0.75em 1em;
@@ -411,7 +413,7 @@ body:has(.canvas.open) {
   background-color: var(--bg-soft);
 }
 .dropdown > div > *:not(:last-child) {
-  border-bottom: 0.05rem solid var(--bd);
+  border-bottom: 0.0625rem solid var(--bd);
 }
 .dropdown:not(.right) > div {
   left: 0;
@@ -430,7 +432,7 @@ body:has(.canvas.open) {
   overflow: hidden;
 }
 .folder > :first-child {
-  border-bottom: 0.05rem solid var(--bd);
+  border-bottom: 0.0625rem solid var(--bd);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -621,7 +623,7 @@ body:has(.canvas.open) {
   padding: 0.5625em 1em;
 }
 .list > *:not(:last-child) {
-  border-bottom: 0.05rem solid;
+  border-bottom: 0.0625rem solid;
   border-color: inherit;
 }
 .list:not([class^=bg-]) > *:where(:hover, :focus, :active), .list:not([class*=" bg-"]) > *:where(:hover, :focus, :active) {
@@ -700,7 +702,7 @@ body:has(.canvas.open) {
 }
 .modal > * > *:not(:last-child) {
   padding: 1rem calc(0.625rem + 2%);
-  border-bottom: 0.05rem solid var(--bd);
+  border-bottom: 0.0625rem solid var(--bd);
 }
 .modal > * > :first-child {
   display: flex;
@@ -760,7 +762,7 @@ body:has(.modal.open) {
 @media (width < 1000px) {
   .navbar > :first-child {
     padding: 1.125em 1.5em;
-    margin-bottom: -0.05rem;
+    margin-bottom: -0.0625rem;
   }
   .navbar > :last-child {
     width: 100%;
@@ -838,7 +840,7 @@ body:has(.modal.open) {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding: 0.95em 3.25em 0.875em 1.25em;
+  padding: 0.95em 3.25em 0.9em 1.25em;
 }
 .notice::after {
   content: "";
@@ -849,7 +851,7 @@ body:has(.modal.open) {
   display: block;
   position: absolute;
   right: 1.25em;
-  top: calc(50% + 0.0375em);
+  top: calc(50% + 0.025em);
   transform: translateY(-50%);
   mask-repeat: no-repeat;
   -webkit-mask-repeat: no-repeat;
@@ -974,7 +976,7 @@ progress::-moz-progress-bar {
   width: 100%;
 }
 .responsive-table table tr:not(:last-child) {
-  border-bottom: 0.05rem solid;
+  border-bottom: 0.0625rem solid;
 }
 .responsive-table table th,
 .responsive-table table td {
@@ -987,7 +989,7 @@ progress::-moz-progress-bar {
 }
 .responsive-table.bd-all th,
 .responsive-table.bd-all td {
-  border: 0.05rem solid;
+  border: 0.0625rem solid;
 }
 .responsive-table.xs table {
   font-size: 0.625rem;
@@ -1234,12 +1236,10 @@ progress::-moz-progress-bar {
   overflow-x: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  padding-right: 2em;
 }
 .tabs > :first-child::-webkit-scrollbar {
   display: none;
-}
-.tabs > :first-child > :last-child {
-  margin-right: 2em;
 }
 .tabs > :first-child > * {
   border-bottom-left-radius: 0 !important;
@@ -1257,7 +1257,7 @@ progress::-moz-progress-bar {
   position: absolute;
   width: 0.5em;
   height: 0.5em;
-  bottom: -0.1rem;
+  bottom: -0.125rem;
   z-index: 0;
   mask-repeat: no-repeat;
   -webkit-mask-repeat: no-repeat;
@@ -1265,12 +1265,12 @@ progress::-moz-progress-bar {
   -webkit-mask-position: center;
 }
 .tabs > :first-child > *[class^=bg]:not(:first-child)::before, .tabs > :first-child > *[class*=" bg"]:not(:first-child)::before {
-  left: calc(-0.5em - 0.1rem);
+  left: calc(-0.5em - 0.075rem);
   mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m16,0v16H0c8.84,0,16-7.16,16-16Z"/></svg>');
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m16,0v16H0c8.84,0,16-7.16,16-16Z"/></svg>');
 }
 .tabs > :first-child > *[class^=bg]::after, .tabs > :first-child > *[class*=" bg"]::after {
-  right: calc(-0.5em - 0.1rem);
+  right: calc(-0.5em - 0.075rem);
   mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m0,0v16h16C7.16,16,0,8.84,0,0Z"/></svg>');
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m0,0v16h16C7.16,16,0,8.84,0,0Z"/></svg>');
 }
@@ -1476,98 +1476,20 @@ input[type=reset],
 button,
 .b,
 .btn,
-.button)) > input[type=text],
-.horizontal > *:not(:where(input[type=button],
-input[type=submit],
-input[type=reset],
-button,
-.b,
-.btn,
-.button)) input[type=email],
-.horizontal > *:not(:where(input[type=button],
-input[type=submit],
-input[type=reset],
-button,
-.b,
-.btn,
-.button)) input[type=password],
-.horizontal > *:not(:where(input[type=button],
-input[type=submit],
-input[type=reset],
-button,
-.b,
-.btn,
-.button)) input[type=number],
-.horizontal > *:not(:where(input[type=button],
-input[type=submit],
-input[type=reset],
-button,
-.b,
-.btn,
-.button)) input[type=tel],
-.horizontal > *:not(:where(input[type=button],
-input[type=submit],
-input[type=reset],
-button,
-.b,
-.btn,
-.button)) input[type=url],
-.horizontal > *:not(:where(input[type=button],
-input[type=submit],
-input[type=reset],
-button,
-.b,
-.btn,
-.button)) input[type=search],
-.horizontal > *:not(:where(input[type=button],
-input[type=submit],
-input[type=reset],
-button,
-.b,
-.btn,
-.button)) input[type=date],
-.horizontal > *:not(:where(input[type=button],
-input[type=submit],
-input[type=reset],
-button,
-.b,
-.btn,
-.button)) input[type=datetime-local],
-.horizontal > *:not(:where(input[type=button],
-input[type=submit],
-input[type=reset],
-button,
-.b,
-.btn,
-.button)) input[type=month],
-.horizontal > *:not(:where(input[type=button],
-input[type=submit],
-input[type=reset],
-button,
-.b,
-.btn,
-.button)) input[type=time],
-.horizontal > *:not(:where(input[type=button],
-input[type=submit],
-input[type=reset],
-button,
-.b,
-.btn,
-.button)) input[type=week],
-.horizontal > *:not(:where(input[type=button],
-input[type=submit],
-input[type=reset],
-button,
-.b,
-.btn,
-.button)) select,
-.horizontal > *:not(:where(input[type=button],
-input[type=submit],
-input[type=reset],
-button,
-.b,
-.btn,
-.button)) textarea {
+.button)) > :where(input[type=text],
+input[type=email],
+input[type=password],
+input[type=number],
+input[type=tel],
+input[type=url],
+input[type=search],
+input[type=date],
+input[type=datetime-local],
+input[type=month],
+input[type=time],
+input[type=week],
+select,
+textarea) {
   flex-grow: 1;
   flex-basis: min-content;
 }
@@ -1595,7 +1517,7 @@ button).form,
   user-select: none;
   transition: transform 0.25s;
   font-size: 0.9375rem;
-  padding: 0.3875em 0.8em 0.3125em;
+  padding: 0.375em 0.8em 0.325em;
   border-radius: 0.5em;
 }
 .tabs > :first-child > *.xs,
@@ -1666,7 +1588,7 @@ button).form.p-xs,
 .b.p-xs,
 .btn.p-xs,
 .button.p-xs {
-  padding: 0.0875em 0.4em 0.0125em;
+  padding: 0.075em 0.4em 0.025em;
 }
 .tabs > :first-child > *.p-sm,
 :where(.form, .group) :where(input[type=button],
@@ -1680,7 +1602,7 @@ button).form.p-sm,
 .b.p-sm,
 .btn.p-sm,
 .button.p-sm {
-  padding: 0.2375em 0.6em 0.1625em;
+  padding: 0.225em 0.6em 0.175em;
 }
 .tabs > :first-child > *.p-lg,
 :where(.form, .group) :where(input[type=button],
@@ -1694,7 +1616,7 @@ button).form.p-lg,
 .b.p-lg,
 .btn.p-lg,
 .button.p-lg {
-  padding: 0.5375em 1em 0.4625em;
+  padding: 0.525em 1em 0.475em;
 }
 .tabs > :first-child > *.p-xl,
 :where(.form, .group) :where(input[type=button],
@@ -1708,7 +1630,7 @@ button).form.p-xl,
 .b.p-xl,
 .btn.p-xl,
 .button.p-xl {
-  padding: 0.6875em 1.2em 0.6125em;
+  padding: 0.675em 1.2em 0.625em;
 }
 .tabs > :first-child > *.d3,
 :where(.form, .group) :where(input[type=button],
@@ -1726,40 +1648,18 @@ button).form.d3,
   transform: translate(-0.25em, -0.25em);
   transition: transform 0s !important;
 }
-.tabs > :first-child > *.d3:hover, .tabs > :first-child > *.d3:focus, .tabs > :first-child > *.d3:active,
+.tabs > :first-child > *.d3:where(:hover, :focus, :active),
 :where(.form, .group) :where(input[type=button],
 input[type=submit],
 input[type=reset],
-button).d3:hover,
-:where(.form, .group) :where(input[type=button],
-input[type=submit],
-input[type=reset],
-button).d3:focus,
-:where(.form, .group) :where(input[type=button],
-input[type=submit],
-input[type=reset],
-button).d3:active,
+button).d3:where(:hover, :focus, :active),
 :where(input[type=button],
 input[type=submit],
 input[type=reset],
-button).form.d3:hover,
-:where(input[type=button],
-input[type=submit],
-input[type=reset],
-button).form.d3:focus,
-:where(input[type=button],
-input[type=submit],
-input[type=reset],
-button).form.d3:active,
-.b.d3:hover,
-.b.d3:focus,
-.b.d3:active,
-.btn.d3:hover,
-.btn.d3:focus,
-.btn.d3:active,
-.button.d3:hover,
-.button.d3:focus,
-.button.d3:active {
+button).form.d3:where(:hover, :focus, :active),
+.b.d3:where(:hover, :focus, :active),
+.btn.d3:where(:hover, :focus, :active),
+.button.d3:where(:hover, :focus, :active) {
   transform: translate(0, 0);
   box-shadow: none;
   outline: none;
@@ -1844,34 +1744,14 @@ button).form.pill.p-xl,
 :where(.form, .group) :where(input[type=button],
 input[type=submit],
 input[type=reset],
-button):hover, :where(.form, .group) :where(input[type=button],
-input[type=submit],
-input[type=reset],
-button):focus, :where(.form, .group) :where(input[type=button],
-input[type=submit],
-input[type=reset],
-button):active,
+button):where(:hover, :focus, :active),
 :where(input[type=button],
 input[type=submit],
 input[type=reset],
-button).form:hover,
-:where(input[type=button],
-input[type=submit],
-input[type=reset],
-button).form:focus,
-:where(input[type=button],
-input[type=submit],
-input[type=reset],
-button).form:active,
-.b:hover,
-.b:focus,
-.b:active,
-.btn:hover,
-.btn:focus,
-.btn:active,
-.button:hover,
-.button:focus,
-.button:active {
+button).form:where(:hover, :focus, :active),
+.b:where(:hover, :focus, :active),
+.btn:where(:hover, :focus, :active),
+.button:where(:hover, :focus, :active) {
   opacity: 0.92;
 }
 :where(.form, .group) :where(input[type=button],
@@ -5217,63 +5097,63 @@ textarea.form.pill {
 }
 
 .bw-1 {
-  border-width: 0.05rem !important;
+  border-width: 0.0625hrem !important;
 }
 
 .bw-2 {
-  border-width: 0.1rem !important;
+  border-width: 0.125hrem !important;
 }
 
 .bw-3 {
-  border-width: 0.15rem !important;
+  border-width: 0.1875hrem !important;
 }
 
 .bw-4 {
-  border-width: 0.2rem !important;
+  border-width: 0.25hrem !important;
 }
 
 .bw-5 {
-  border-width: 0.25rem !important;
+  border-width: 0.3125hrem !important;
 }
 
 .bw-6 {
-  border-width: 0.3rem !important;
+  border-width: 0.375hrem !important;
 }
 
 .bw-7 {
-  border-width: 0.35rem !important;
+  border-width: 0.4375hrem !important;
 }
 
 .bw-8 {
-  border-width: 0.4rem !important;
+  border-width: 0.5hrem !important;
 }
 
 .bw-9 {
-  border-width: 0.45rem !important;
+  border-width: 0.5625hrem !important;
 }
 
 .bw-10 {
-  border-width: 0.5rem !important;
+  border-width: 0.625hrem !important;
 }
 
 .bw-11 {
-  border-width: 0.6rem !important;
+  border-width: 0.75rem !important;
 }
 
 .bw-12 {
-  border-width: 0.7rem !important;
+  border-width: 0.875rem !important;
 }
 
 .bw-13 {
-  border-width: 0.8rem !important;
+  border-width: 1rem !important;
 }
 
 .bw-14 {
-  border-width: 0.9rem !important;
+  border-width: 1.125rem !important;
 }
 
 .bw-15 {
-  border-width: 1rem !important;
+  border-width: 1.25rem !important;
 }
 
 :not(.flexbox).x-center {

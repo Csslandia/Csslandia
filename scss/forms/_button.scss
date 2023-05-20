@@ -26,7 +26,7 @@
     user-select: none;
     transition: transform 0.25s * $transition-ratio;
     font-size: 0.9375rem;
-    padding: 0.3875em * $padding-ratio 0.8em * $padding-ratio 0.3125em *
+    padding: 0.375em * $padding-ratio 0.8em * $padding-ratio 0.325em *
         $padding-ratio;
 
     @if $button-shape == "pill" {
@@ -54,22 +54,22 @@
     }
 
     &.p-xs {
-        padding: 0.0875em * $padding-ratio 0.4em * $padding-ratio 0.0125em *
+        padding: 0.075em * $padding-ratio 0.4em * $padding-ratio 0.025em *
             $padding-ratio;
     }
 
     &.p-sm {
-        padding: 0.2375em * $padding-ratio 0.6em * $padding-ratio 0.1625em *
+        padding: 0.225em * $padding-ratio 0.6em * $padding-ratio 0.175em *
             $padding-ratio;
     }
 
     &.p-lg {
-        padding: 0.5375em * $padding-ratio 1em * $padding-ratio 0.4625em *
+        padding: 0.525em * $padding-ratio 1em * $padding-ratio 0.475em *
             $padding-ratio;
     }
 
     &.p-xl {
-        padding: 0.6875em * $padding-ratio 1.2em * $padding-ratio 0.6125em *
+        padding: 0.675em * $padding-ratio 1.2em * $padding-ratio 0.625em *
             $padding-ratio;
     }
 
@@ -78,9 +78,7 @@
         transform: translate(-0.25em, -0.25em);
         transition: transform 0s !important;
 
-        &:hover,
-        &:focus,
-        &:active {
+        &:where(:hover, :focus, :active) {
             transform: translate(0, 0);
             box-shadow: none;
             outline: none;
@@ -174,9 +172,7 @@
 .b,
 .btn,
 .button {
-    &:hover,
-    &:focus,
-    &:active {
+    &:where(:hover, :focus, :active) {
         opacity: 0.92;
     }
     &:focus-visible {

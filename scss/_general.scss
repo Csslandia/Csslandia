@@ -61,7 +61,7 @@
     }
 }
 
-@if $color-mode != light and dark {
+@if $color-mode != light and $color-mode != dark {
     :root.dark {
         --c-strong: #{$dark-c-strong};
         --c-soft: #{$dark-c-soft};
@@ -90,7 +90,7 @@
     font-family: inherit;
     line-height: inherit;
     text-decoration: none;
-    
+
     @if $italic-all {
         font-style: italic;
     }
@@ -111,6 +111,7 @@ html {
     }
 }
 
+/*! purgecss start ignore */
 :where(a) {
     color: $a-c;
     text-decoration: $a-decoration;
@@ -183,7 +184,7 @@ a:where(:hover, :focus, :active) {
     }
 }
 
-@if $color-mode != light and dark {
+@if $color-mode != light and $color-mode != dark {
     html.dark {
         .disabled,
         :disabled,
@@ -192,3 +193,4 @@ a:where(:hover, :focus, :active) {
         }
     }
 }
+/*! purgecss end ignore */
