@@ -4,17 +4,11 @@
             padding: nth($i) !important;
         }
     }
-    .#{$prefix}p-auto {
-        padding: auto !important;
-    }
 
     @for $i from 0 to 21 {
         .#{$prefix}px-#{$i} {
             padding-inline: nth($i) !important;
         }
-    }
-    .#{$prefix}px-auto {
-        padding-inline: auto !important;
     }
 
     @for $i from 0 to 21 {
@@ -22,17 +16,11 @@
             padding-block: nth($i) !important;
         }
     }
-    .#{$prefix}py-auto {
-        padding-block: auto !important;
-    }
 
     @for $i from 0 to 21 {
         .#{$prefix}pl-#{$i} {
             padding-left: nth($i) !important;
         }
-    }
-    .#{$prefix}pl-auto {
-        padding-left: auto !important;
     }
 
     @for $i from 0 to 21 {
@@ -40,26 +28,17 @@
             padding-right: nth($i) !important;
         }
     }
-    .#{$prefix}pr-auto {
-        padding-right: auto !important;
-    }
 
     @for $i from 0 to 21 {
         .#{$prefix}pt-#{$i} {
             padding-top: nth($i) !important;
         }
     }
-    .#{$prefix}pt-auto {
-        padding-top: auto !important;
-    }
 
     @for $i from 0 to 21 {
         .#{$prefix}pb-#{$i} {
             padding-bottom: nth($i) !important;
         }
-    }
-    .#{$prefix}pb-auto {
-        padding-bottom: auto !important;
     }
 }
 

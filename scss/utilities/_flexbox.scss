@@ -35,7 +35,8 @@
         width: 30% !important;
     }
 
-    .#{$prefix}w-33\% {
+    .#{$prefix}w-33\%,
+    .#{$prefix}w-34\% {
         width: calc(100% / 3) !important;
     }
 

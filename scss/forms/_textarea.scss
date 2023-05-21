@@ -7,7 +7,7 @@ textarea.form {
     }
     resize: vertical;
     vertical-align: top;
-    min-height: calc(1.4em + 0.85em + $form-bd-width * 2);
+    min-height: calc(1.4em + 0.85em * $padding-ratio + $form-bd-width * 2);
 
     @if $form-shape == "pill" {
         border-radius: calc(0.7em + 0.425em + $form-bd-width) !important;

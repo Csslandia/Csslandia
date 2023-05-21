@@ -4,6 +4,10 @@
     white-space: nowrap;
     font-size: 1rem;
 
+    & * {
+        color: inherit;
+    }
+
     & > :first-child {
         display: flex;
         justify-content: space-between;
@@ -54,7 +58,7 @@
                 padding: 0.75em * $padding-ratio 1.7142857143em * $padding-ratio;
 
                 &:last-child {
-                    padding-bottom: 1em;
+                    padding-bottom: 1em * $padding-ratio;
                 }
             }
 

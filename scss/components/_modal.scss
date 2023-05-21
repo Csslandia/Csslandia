@@ -39,27 +39,27 @@
         display: flex;
         flex-direction: column;
 
-        & > *:not(:last-child) {
-            padding: 1rem * $padding-ratio
-                calc(0.625rem * $padding-ratio + 2% * $padding-ratio);
-            border-bottom: 0.0625rem solid var(--bd);
-        }
+        & > * {
+            padding: 1rem calc(0.625rem + 2%);
 
-        & > :first-child {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+            &:not(:last-child) {
+                border-bottom: 0.0625rem solid var(--bd);
+            }
 
-        & > *:not(:first-child):not(:last-child) {
-            overflow-x: visible;
-            overflow-y: auto;
-        }
+            &:first-child {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
 
-        & > :last-child {
-            padding: 1rem * $padding-ratio
-                calc(0.625rem * $padding-ratio + 2% * $padding-ratio);
-            width: fit-content;
+            &:not(:first-child):not(:last-child) {
+                overflow-x: visible;
+                overflow-y: auto;
+            }
+
+            &:last-child {
+                width: fit-content;
+            }
         }
     }
 

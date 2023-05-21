@@ -10,10 +10,9 @@
         white-space: nowrap;
         background-color: var(--badge-bg, var(--bg-soft));
         color: var(--badge-c, var(--c-soft));
-        padding: 0.25em * $padding-ratio 0.5em * $padding-ratio;
+        padding: 0.2em * $padding-ratio 0.5em * $padding-ratio 0.1em;
         border-radius: 9999px;
         font-size: 0.875rem;
-        line-height: 1rem;
         z-index: 1;
     }
 

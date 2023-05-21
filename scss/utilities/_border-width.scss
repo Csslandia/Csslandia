@@ -4,7 +4,7 @@
 
 @for $i from 1 to 11 {
     .bw-#{$i} {
-        border-width: $i * 0.0625hrem !important;
+        border-width: $i * 0.0625rem !important;
     }
 }
 

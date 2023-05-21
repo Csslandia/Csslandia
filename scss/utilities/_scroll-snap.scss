@@ -6,16 +6,16 @@
         height: 100dvh;
     }
 
-    & > * {
-        height: 100%;
-        scroll-snap-align: start;
-        scroll-snap-stop: always;
-    }
-
     &.horizontal {
         scroll-snap-type: x mandatory;
         overflow-x: auto;
         width: 100%;
         display: flex;
+    }
+
+    & > * {
+        height: 100%;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
     }
 }

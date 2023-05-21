@@ -20,7 +20,7 @@
     }
 }
 
-a.slide {
+a.fade {
     transition: visibility 0.4s * $transition-ratio step-end,
         pointer-events 0.4s * $transition-ratio step-end,
         max-height 0.4s * $transition-ratio step-end,

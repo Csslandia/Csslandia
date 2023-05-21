@@ -8,7 +8,7 @@ $m: "-";
     }
     @for $i from 1 to 21 {
         .#{$prefix}m--#{$i} {
-            margin: #{$m}+ nth($i) !important;
+            margin: #{$m} + nth($i) !important;
         }
     }
     .#{$prefix}m-auto {
@@ -22,7 +22,7 @@ $m: "-";
     }
     @for $i from 1 to 21 {
         .#{$prefix}mx--#{$i} {
-            margin-inline: #{$m}+ nth($i) !important;
+            margin-inline: #{$m} + nth($i) !important;
         }
     }
     .#{$prefix}mx-auto {
@@ -36,7 +36,7 @@ $m: "-";
     }
     @for $i from 1 to 21 {
         .#{$prefix}my--#{$i} {
-            margin-block: #{$m}+ nth($i) !important;
+            margin-block: #{$m} + nth($i) !important;
         }
     }
     .#{$prefix}my-auto {
@@ -50,7 +50,7 @@ $m: "-";
     }
     @for $i from 1 to 21 {
         .#{$prefix}ml--#{$i} {
-            margin-left: #{$m}+ nth($i) !important;
+            margin-left: #{$m} + nth($i) !important;
         }
     }
     .#{$prefix}ml-auto {
@@ -64,7 +64,7 @@ $m: "-";
     }
     @for $i from 1 to 21 {
         .#{$prefix}mr--#{$i} {
-            margin-right: #{$m}+ nth($i) !important;
+            margin-right: #{$m} + nth($i) !important;
         }
     }
     .#{$prefix}mr-auto {
@@ -78,7 +78,7 @@ $m: "-";
     }
     @for $i from 1 to 21 {
         .#{$prefix}mt--#{$i} {
-            margin-top: #{$m}+ nth($i) !important;
+            margin-top: #{$m} + nth($i) !important;
         }
     }
     .#{$prefix}mt-auto {
@@ -92,7 +92,7 @@ $m: "-";
     }
     @for $i from 1 to 21 {
         .#{$prefix}mb--#{$i} {
-            margin-bottom: #{$m}+ nth($i) !important;
+            margin-bottom: #{$m} + nth($i) !important;
         }
     }
     .#{$prefix}mb-auto {

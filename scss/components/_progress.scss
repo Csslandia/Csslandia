@@ -4,19 +4,23 @@ progress {
     border-radius: 9999px;
     background-color: var(--bg-medium);
     color: var(--bd);
-    height: 0.9375rem;
+    height: 0.875em;
+    font-size: 1rem;
 
     &.xs {
-        height: 0.625rem;
+        font-size: 0.6rem;
     }
+
     &.sm {
-        height: 0.75rem;
+        font-size: 0.8rem;
     }
+
     &.lg {
-        height: 1.1875rem;
+        font-size: 1.2rem;
     }
+
     &.xl {
-        height: 1.5rem;
+        font-size: 1.4rem;
     }
 
     &::-webkit-progress-bar {

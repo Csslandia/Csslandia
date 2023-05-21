@@ -76,8 +76,8 @@
     }
 
     @supports not selector(:has(*)) {
-        & > :first-child > :first-child {
-            margin-left: 0.5em * $border-radius-ratio;
+        & > :first-child {
+            padding-left: 0.5em * $border-radius-ratio;
         }
     }
 }

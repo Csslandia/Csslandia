@@ -5,8 +5,8 @@
     background-color: transparent;
     cursor: pointer;
     padding: 0 !important;
-    width: 1.38em;
-    height: 0.92em;
+    width: 1.5em;
+    height: 1em;
     font-size: 1rem;
 
     & > *,
@@ -14,7 +14,7 @@
     &::after {
         content: "";
         width: 100%;
-        height: 0.12em;
+        height: 0.125em;
         position: absolute;
         top: 0;
         left: 0;
@@ -26,13 +26,13 @@
     }
 
     & > * {
-        top: 0.4em;
+        top: 0.4375em;
         opacity: 1;
         transition: opacity 0.25s * $transition-ratio ease-in-out;
     }
 
     &::after {
-        top: 0.8em;
+        top: 0.875em;
     }
 
     &.open {
@@ -42,7 +42,7 @@
 
         &::before,
         &::after {
-            top: 0.4em;
+            top: 0.4375em;
         }
 
         &::before {
@@ -55,18 +55,18 @@
     }
 
     &.xs {
-        font-size: 0.5rem;
+        font-size: 0.6rem;
     }
 
     &.sm {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
     }
 
     &.lg {
-        font-size: 1.25rem;
+        font-size: 1.2rem;
     }
 
     &.xl {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
 }

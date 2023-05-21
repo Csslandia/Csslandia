@@ -13,7 +13,7 @@
 
         & > * {
             display: block;
-            padding: calc(0.475em * $padding-ratio + $button-bd-width)
+            padding: calc(0.45em * $padding-ratio + $button-bd-width)
                 calc(0.8em * $padding-ratio + $button-bd-width)
                 calc(0.4em * $padding-ratio + $button-bd-width);
             white-space: nowrap;

@@ -61,7 +61,7 @@ input[type="color"].form {
     }
 
     &::-webkit-color-swatch-wrapper {
-        padding: 0.375em * $padding-ratio;
+        padding: 0.375em;
     }
 
     &::-moz-color-swatch {
