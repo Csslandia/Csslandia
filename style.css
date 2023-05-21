@@ -7935,6 +7935,7 @@ html.dark .d\:bd-none {
 [class^=i-],
 [class*=" i-"] {
   font-size: inherit;
+  line-height: 1;
 }
 [class^=i-]:before,
 [class*=" i-"]:before {
