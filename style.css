@@ -1347,17 +1347,17 @@ progress::-moz-progress-bar {
   transform: translateX(-50%);
 }
 [data-tooltip]:not(.left):not(.right):not(.bottom)::before {
-  bottom: calc(100% + 0.5em);
-  border-bottom-width: 0;
+  bottom: calc(100% + 0.5rem);
   border-top-color: var(--tooltip-bg, var(--bg-soft));
+  border-bottom-width: 0;
 }
 [data-tooltip]:not(.left):not(.right):not(.bottom)::after {
   bottom: calc(100% + 1em);
 }
 [data-tooltip].bottom::before {
-  top: calc(100% + 0.5em);
-  border-top-width: 0;
+  top: calc(100% + 0.5rem);
   border-bottom-color: var(--tooltip-bg, var(--bg-soft));
+  border-top-width: 0;
 }
 [data-tooltip].bottom::after {
   top: calc(100% + 1em);
@@ -1367,17 +1367,17 @@ progress::-moz-progress-bar {
   transform: translateY(-50%);
 }
 [data-tooltip].left::before {
-  border-right-width: 0;
+  right: calc(100% + 0.5rem);
   border-left-color: var(--tooltip-bg, var(--bg-soft));
-  right: calc(100% + 0.5em);
+  border-right-width: 0;
 }
 [data-tooltip].left::after {
   right: calc(100% + 1em);
 }
 [data-tooltip].right::before {
-  border-left-width: 0;
+  left: calc(100% + 0.5rem);
   border-right-color: var(--tooltip-bg, var(--bg-soft));
-  left: calc(100% + 0.5em);
+  border-left-width: 0;
 }
 [data-tooltip].right::after {
   left: calc(100% + 1em);

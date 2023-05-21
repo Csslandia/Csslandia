@@ -16,7 +16,7 @@
 
     &::before {
         content: "";
-        border: 0.5em solid transparent;
+        border: 0.5rem solid transparent;
     }
 
     &::after {
@@ -56,9 +56,9 @@
     }
 
     &:not(.left):not(.right):not(.bottom)::before {
-        bottom: calc(100% + 0.5em);
-        border-bottom-width: 0;
+        bottom: calc(100% + 0.5rem);
         border-top-color: var(--tooltip-bg, var(--bg-soft));
+        border-bottom-width: 0;
     }
 
     &:not(.left):not(.right):not(.bottom)::after {
@@ -66,9 +66,9 @@
     }
 
     &.bottom::before {
-        top: calc(100% + 0.5em);
-        border-top-width: 0;
+        top: calc(100% + 0.5rem);
         border-bottom-color: var(--tooltip-bg, var(--bg-soft));
+        border-top-width: 0;
     }
 
     &.bottom::after {
@@ -84,9 +84,9 @@
     }
 
     &.left::before {
-        border-right-width: 0;
+        right: calc(100% + 0.5rem);
         border-left-color: var(--tooltip-bg, var(--bg-soft));
-        right: calc(100% + 0.5em);
+        border-right-width: 0;
     }
 
     &.left::after {
@@ -94,9 +94,9 @@
     }
 
     &.right::before {
-        border-left-width: 0;
+        left: calc(100% + 0.5rem);
         border-right-color: var(--tooltip-bg, var(--bg-soft));
-        left: calc(100% + 0.5em);
+        border-left-width: 0;
     }
 
     &.right::after {
