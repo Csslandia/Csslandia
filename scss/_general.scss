@@ -156,6 +156,7 @@ a:where(:hover, :focus, :active) {
     ) {
     background-color: transparent;
     border-color: transparent;
+    border-width: 0;
     cursor: pointer;
 }
 

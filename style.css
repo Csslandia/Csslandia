@@ -117,6 +117,7 @@ input[type=reset],
 button) {
   background-color: transparent;
   border-color: transparent;
+  border-width: 0;
   cursor: pointer;
 }
 
@@ -1316,7 +1317,7 @@ progress::-moz-progress-bar {
 }
 [data-tooltip]::before {
   content: "";
-  border: 0.5em solid transparent;
+  border: 0.5rem solid transparent;
 }
 [data-tooltip]::after {
   content: attr(data-tooltip);
