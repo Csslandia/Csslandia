@@ -1419,7 +1419,6 @@ body:has(.viewer.open) {
 
 label {
   font-size: 0.875rem;
-  margin-bottom: 0.25em;
   display: block;
 }
 label:has(> input[type=checkbox]), label:has(> input[type=radio]) {
@@ -1431,6 +1430,9 @@ label > input[type=checkbox], label > input[type=radio] {
   margin-top: -2px;
 }
 
+form.form > label {
+  margin-bottom: 0.25em;
+}
 form.form > :not(:last-child):not(label:not(:has(*))) {
   margin-bottom: 0.5rem;
 }
@@ -1479,6 +1481,7 @@ button,
 .button)) > label {
   width: 8em;
   max-width: 33%;
+  margin-bottom: 0;
 }
 .horizontal > *:not(:where(input[type=button],
 input[type=submit],

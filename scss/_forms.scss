@@ -1,6 +1,5 @@
 label {
     font-size: 0.875rem;
-    margin-bottom: 0.25em;
     display: block;
 
     &:has(> input[type="checkbox"]),
@@ -17,6 +16,10 @@ label {
 }
 
 form.form {
+    & > label {
+        margin-bottom: 0.25em;
+    }
+
     & > :not(:last-child):not(label:not(:has(*))) {
         margin-bottom: $form-space;
     }
@@ -57,6 +60,7 @@ form.form {
         & > label {
             width: 8em;
             max-width: 33%;
+            margin-bottom: 0;
         }
 
         &
