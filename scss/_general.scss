@@ -169,29 +169,10 @@ a:where(:hover, :focus, :active) {
     }
 }
 
-@if $color-mode == dark {
-    .disabled,
-    :disabled,
-    [disabled] {
-        opacity: 0.75 !important;
-        cursor: default !important;
-    }
-} @else {
-    .disabled,
-    :disabled,
-    [disabled] {
-        opacity: 0.6 !important;
-        cursor: default !important;
-    }
-}
-
-@if $color-mode != light and $color-mode != dark {
-    html.dark {
-        .disabled,
-        :disabled,
-        [disabled] {
-            opacity: 0.75 !important;
-        }
-    }
+.disabled,
+:disabled,
+[disabled] {
+    opacity: 0.6666666667 !important;
+    cursor: default !important;
 }
 /*! purgecss end ignore */

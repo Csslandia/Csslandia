@@ -124,14 +124,8 @@ button) {
 .disabled,
 :disabled,
 [disabled] {
-  opacity: 0.6 !important;
+  opacity: 0.6666666667 !important;
   cursor: default !important;
-}
-
-html.dark .disabled,
-html.dark :disabled,
-html.dark [disabled] {
-  opacity: 0.75 !important;
 }
 
 /*! purgecss end ignore */
@@ -1480,7 +1474,7 @@ button,
 .btn,
 .button)) > label {
   width: 8em;
-  max-width: 33%;
+  max-width: 30%;
   margin-bottom: 0;
 }
 .horizontal > *:not(:where(input[type=button],
@@ -7938,7 +7932,7 @@ html.dark .d\:bd-none {
 [class^=i-],
 [class*=" i-"] {
   font-size: inherit;
-  line-height: 1;
+  line-height: 0;
 }
 [class^=i-]:before,
 [class*=" i-"]:before {
