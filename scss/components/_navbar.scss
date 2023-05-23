@@ -3,6 +3,7 @@
     width: 100%;
     white-space: nowrap;
     font-size: 1rem;
+    font-weight: 500;
 
     & * {
         color: inherit;
@@ -26,7 +27,6 @@
 
     & > :last-child {
         font-size: 0.875em;
-        font-weight: 500;
 
         & > * {
             display: block;

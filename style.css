@@ -732,6 +732,7 @@ body:has(.modal.open) {
   width: 100%;
   white-space: nowrap;
   font-size: 1rem;
+  font-weight: 500;
 }
 .navbar * {
   color: inherit;
@@ -751,7 +752,6 @@ body:has(.modal.open) {
 }
 .navbar > :last-child {
   font-size: 0.875em;
-  font-weight: 500;
 }
 .navbar > :last-child > * {
   display: block;
