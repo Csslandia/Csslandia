@@ -16,9 +16,7 @@
         z-index: 1;
     }
 
-    &:hover,
-    &:focus,
-    &:active {
+    &:where(:hover, :focus, :active) {
         opacity: 1 !important;
     }
 }

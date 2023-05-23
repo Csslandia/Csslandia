@@ -1,9 +1,7 @@
 [data-tooltip] {
     position: relative;
 
-    &:hover,
-    &:focus,
-    &:active {
+    &:where(:hover, :focus, :active) {
         z-index: 42;
     }
 

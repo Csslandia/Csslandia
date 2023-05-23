@@ -42,9 +42,7 @@
             border-left-width: $button-bd-width * 0.5 !important;
         }
 
-        &:hover,
-        &:focus,
-        &:active {
+        &:where(:hover, :focus, :active) {
             opacity: 0.92;
         }
     }

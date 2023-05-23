@@ -99,9 +99,7 @@
 .c-a {
     color: var(--accent) !important;
 
-    &:hover,
-    &:focus,
-    &:active {
+    &:where(:hover, :focus, :active) {
         color: var(--accent);
     }
 }
@@ -110,9 +108,7 @@
     background-color: var(--accent) !important;
     color: var(--accent-c);
 
-    &:hover,
-    &:focus,
-    &:active {
+    &:where(:hover, :focus, :active) {
         background-color: var(--accent);
         color: var(--accent-c);
     }
@@ -120,31 +116,6 @@
 
 .bd-a {
     border-color: var(--accent) !important;
-}
-
-.hover\:c-a {
-    &:hover,
-    &:focus,
-    &:active {
-        color: var(--accent) !important;
-    }
-}
-
-.hover\:bg-a {
-    &:hover,
-    &:focus,
-    &:active {
-        background-color: var(--accent) !important;
-        color: var(--accent-c);
-    }
-}
-
-.hover\:bd-a {
-    &:hover,
-    &:focus,
-    &:active {
-        border-color: var(--accent) !important;
-    }
 }
 
 .c {
@@ -161,6 +132,36 @@
 }
 
 .bg-soft {
+    background-color: var(--bg-soft) !important;
+}
+
+.hover\:c-a:is(:hover, :focus, :active) {
+    color: var(--accent) !important;
+}
+
+.hover\:bg-a:is(:hover, :focus, :active) {
+    background-color: var(--accent) !important;
+    color: var(--accent-c);
+}
+
+.hover\:bd-a:is(:hover, :focus, :active) {
+    border-color: var(--accent) !important;
+}
+
+.hover\:c:is(:hover, :focus, :active) {
+    color: var(--c-strong) !important;
+}
+
+.hover\:bg-strong:is(:hover, :focus, :active) {
+    background-color: var(--bg-strong) !important;
+}
+
+.hover\:bg:is(:hover, :focus, :active),
+.hover\:bg-medium:is(:hover, :focus, :active) {
+    background-color: var(--bg-medium) !important;
+}
+
+.hover\:bg-soft:is(:hover, :focus, :active) {
     background-color: var(--bg-soft) !important;
 }
 

@@ -49,9 +49,7 @@
                     -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m0,0v16h16C7.16,16,0,8.84,0,0Z"/></svg>');
                 }
 
-                &:hover,
-                &:focus,
-                &:active {
+                &:where(:hover, :focus, :active) {
                     outline: none !important;
                 }
             }

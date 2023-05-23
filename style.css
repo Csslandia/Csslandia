@@ -211,7 +211,7 @@ a.slide.open {
   font-size: 0.875rem;
   z-index: 1;
 }
-[data-badge]:hover, [data-badge]:focus, [data-badge]:active {
+[data-badge]:where(:hover, :focus, :active) {
   opacity: 1 !important;
 }
 
@@ -623,7 +623,7 @@ body:has(.canvas.open) {
 .list:not([class^=bg-]) > *:where(:hover, :focus, :active), .list:not([class*=" bg-"]) > *:where(:hover, :focus, :active) {
   background-color: var(--bg-soft);
 }
-.list > *:hover, .list > *:focus, .list > *:active {
+.list > *:where(:hover, :focus, :active) {
   opacity: 0.92;
 }
 
@@ -899,7 +899,7 @@ body:has(.modal.open) {
   border-bottom-left-radius: 0;
   border-left-width: 0.05rem !important;
 }
-.pagination > *:hover, .pagination > *:focus, .pagination > *:active {
+.pagination > *:where(:hover, :focus, :active) {
   opacity: 0.92;
 }
 .pagination.pill > :first-child {
@@ -1278,7 +1278,7 @@ progress::-moz-progress-bar {
   mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m0,0v16h16C7.16,16,0,8.84,0,0Z"/></svg>');
   -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m0,0v16h16C7.16,16,0,8.84,0,0Z"/></svg>');
 }
-.tabs > :first-child > *[class^=bg]:hover, .tabs > :first-child > *[class^=bg]:focus, .tabs > :first-child > *[class^=bg]:active, .tabs > :first-child > *[class*=" bg"]:hover, .tabs > :first-child > *[class*=" bg"]:focus, .tabs > :first-child > *[class*=" bg"]:active {
+.tabs > :first-child > *[class^=bg]:where(:hover, :focus, :active), .tabs > :first-child > *[class*=" bg"]:where(:hover, :focus, :active) {
   outline: none !important;
 }
 .tabs > :first-child > *:focus-visible {
@@ -1301,7 +1301,7 @@ progress::-moz-progress-bar {
 [data-tooltip] {
   position: relative;
 }
-[data-tooltip]:hover, [data-tooltip]:focus, [data-tooltip]:active {
+[data-tooltip]:where(:hover, :focus, :active) {
   z-index: 42;
 }
 [data-tooltip]::before, [data-tooltip]::after {
@@ -7862,7 +7862,7 @@ html.dark .d\:bd-none {
 .c-a {
   color: var(--accent) !important;
 }
-.c-a:hover, .c-a:focus, .c-a:active {
+.c-a:where(:hover, :focus, :active) {
   color: var(--accent);
 }
 
@@ -7870,25 +7870,12 @@ html.dark .d\:bd-none {
   background-color: var(--accent) !important;
   color: var(--accent-c);
 }
-.bg-a:hover, .bg-a:focus, .bg-a:active {
+.bg-a:where(:hover, :focus, :active) {
   background-color: var(--accent);
   color: var(--accent-c);
 }
 
 .bd-a {
-  border-color: var(--accent) !important;
-}
-
-.hover\:c-a:hover, .hover\:c-a:focus, .hover\:c-a:active {
-  color: var(--accent) !important;
-}
-
-.hover\:bg-a:hover, .hover\:bg-a:focus, .hover\:bg-a:active {
-  background-color: var(--accent) !important;
-  color: var(--accent-c);
-}
-
-.hover\:bd-a:hover, .hover\:bd-a:focus, .hover\:bd-a:active {
   border-color: var(--accent) !important;
 }
 
@@ -7906,6 +7893,36 @@ html.dark .d\:bd-none {
 }
 
 .bg-soft {
+  background-color: var(--bg-soft) !important;
+}
+
+.hover\:c-a:is(:hover, :focus, :active) {
+  color: var(--accent) !important;
+}
+
+.hover\:bg-a:is(:hover, :focus, :active) {
+  background-color: var(--accent) !important;
+  color: var(--accent-c);
+}
+
+.hover\:bd-a:is(:hover, :focus, :active) {
+  border-color: var(--accent) !important;
+}
+
+.hover\:c:is(:hover, :focus, :active) {
+  color: var(--c-strong) !important;
+}
+
+.hover\:bg-strong:is(:hover, :focus, :active) {
+  background-color: var(--bg-strong) !important;
+}
+
+.hover\:bg:is(:hover, :focus, :active),
+.hover\:bg-medium:is(:hover, :focus, :active) {
+  background-color: var(--bg-medium) !important;
+}
+
+.hover\:bg-soft:is(:hover, :focus, :active) {
   background-color: var(--bg-soft) !important;
 }
 

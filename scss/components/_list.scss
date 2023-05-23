@@ -24,14 +24,10 @@
                 background-color: var(--bg-soft);
             }
         }
-
-
     }
 
     & > * {
-        &:hover,
-        &:focus,
-        &:active {
+        &:where(:hover, :focus, :active) {
             opacity: 0.92;
         }
     }
