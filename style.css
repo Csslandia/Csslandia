@@ -20,6 +20,10 @@ html {
 }
 
 :root {
+  --accent: #999;
+}
+
+:root {
   --c-strong: #222;
   --c-soft: #333;
   --bg-strong: #fff;
@@ -30,7 +34,6 @@ html {
   --bg-medium-8: #eeec;
   --bg-soft: #ddd;
   --bd: #ccc;
-  --accent: #999;
 }
 
 :root.dark {
@@ -44,7 +47,6 @@ html {
   --bg-medium-8: #333c;
   --bg-soft: #444;
   --bd: #555;
-  --accent: #999;
   color-scheme: dark;
 }
 

@@ -29,6 +29,13 @@
     }
 }
 
+:root {
+    --accent: #{$accent};
+    @if $accent-c {
+        --accent-c: #{$accent-c};
+    }
+}
+
 @if $color-mode == dark {
     :root {
         --c-strong: #{$dark-c-strong};
@@ -41,10 +48,7 @@
         --bg-medium-8: #{$dark-bg-medium}c;
         --bg-soft: #{$dark-bg-soft};
         --bd: #{$dark-bd};
-        --accent: #{$dark-accent};
-        @if $accent-c {
-            --accent-c: #{$dark-accent-c};
-        }
+        color-scheme: dark;
     }
 } @else {
     :root {
@@ -58,10 +62,6 @@
         --bg-medium-8: #{$light-bg-medium}c;
         --bg-soft: #{$light-bg-soft};
         --bd: #{$light-bd};
-        --accent: #{$light-accent};
-        @if $accent-c {
-            --accent-c: #{$light-accent-c};
-        }
     }
 }
 
@@ -77,10 +77,6 @@
         --bg-medium-8: #{$dark-bg-medium}c;
         --bg-soft: #{$dark-bg-soft};
         --bd: #{$dark-bd};
-        --accent: #{$dark-accent};
-        @if $accent-c {
-            --accent-c: #{$dark-accent-c};
-        }
         color-scheme: dark;
     }
 }
