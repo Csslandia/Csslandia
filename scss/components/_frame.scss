@@ -3,7 +3,7 @@
     border-radius: 0.75em * $border-radius-ratio;
     overflow: hidden;
 
-    & > img {
+    & > img:not([src$=".svg"]) {
         object-fit: cover;
     }
 }

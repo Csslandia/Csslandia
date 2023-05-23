@@ -506,7 +506,7 @@ body:has(.canvas.open) {
   border-radius: 0.75em;
   overflow: hidden;
 }
-.frame > img {
+.frame > img:not([src$=".svg"]) {
   object-fit: cover;
 }
 
