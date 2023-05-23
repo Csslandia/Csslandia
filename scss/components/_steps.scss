@@ -84,7 +84,11 @@
         &::before,
         & + .done::after {
             background-color: var(--done-bg, var(--accent)) !important;
-            color: var(--done-c, var(--accent-c)) !important;
+            @if $accent-c {
+                color: var(--done-c, var(--accent-c)) !important;
+            } @else {
+                color: var(--done-c) !important;
+            }
         }
     }
 }

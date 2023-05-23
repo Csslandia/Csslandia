@@ -31,7 +31,6 @@ html {
   --bg-soft: #ddd;
   --bd: #ccc;
   --accent: #999;
-  --accent-c: var(--c-strong);
 }
 
 :root.dark {
@@ -46,7 +45,6 @@ html {
   --bg-soft: #444;
   --bd: #555;
   --accent: #999;
-  --accent-c: var(--c-strong);
   color-scheme: dark;
 }
 
@@ -1186,7 +1184,7 @@ progress::-moz-progress-bar {
 }
 .steps > .done::before, .steps > .done + .done::after {
   background-color: var(--done-bg, var(--accent)) !important;
-  color: var(--done-c, var(--accent-c)) !important;
+  color: var(--done-c) !important;
 }
 
 @media (width < 600px) {
@@ -7868,11 +7866,9 @@ html.dark .d\:bd-none {
 
 .bg-a {
   background-color: var(--accent) !important;
-  color: var(--accent-c);
 }
 .bg-a:where(:hover, :focus, :active) {
   background-color: var(--accent);
-  color: var(--accent-c);
 }
 
 .bd-a {
@@ -7902,7 +7898,6 @@ html.dark .d\:bd-none {
 
 .hover\:bg-a:is(:hover, :focus, :active) {
   background-color: var(--accent) !important;
-  color: var(--accent-c);
 }
 
 .hover\:bd-a:is(:hover, :focus, :active) {

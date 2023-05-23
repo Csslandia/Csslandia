@@ -42,7 +42,9 @@
         --bg-soft: #{$dark-bg-soft};
         --bd: #{$dark-bd};
         --accent: #{$dark-accent};
-        --accent-c: #{$dark-accent-c};
+        @if $accent-c {
+            --accent-c: #{$dark-accent-c};
+        }
     }
 } @else {
     :root {
@@ -57,7 +59,9 @@
         --bg-soft: #{$light-bg-soft};
         --bd: #{$light-bd};
         --accent: #{$light-accent};
-        --accent-c: #{$light-accent-c};
+        @if $accent-c {
+            --accent-c: #{$light-accent-c};
+        }
     }
 }
 
@@ -74,7 +78,9 @@
         --bg-soft: #{$dark-bg-soft};
         --bd: #{$dark-bd};
         --accent: #{$dark-accent};
-        --accent-c: #{$dark-accent-c};
+        @if $accent-c {
+            --accent-c: #{$dark-accent-c};
+        }
         color-scheme: dark;
     }
 }
