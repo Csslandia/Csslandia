@@ -23,14 +23,10 @@
         }
     }
 
-    .#{$prefix}w-100vw {
-        width: 100vw !important;
-    }
-    .#{$prefix}min-w-100vw {
-        min-width: 100vw !important;
-    }
-    .#{$prefix}max-w-100vw {
-        max-width: 100vw !important;
+    @for $i from 1 to 11 {
+        .#{$prefix}w-#{$i * 10}vw {
+            width: #{$i * 10}vw !important;
+        }
     }
 
     .#{$prefix}w-min {
@@ -69,6 +65,7 @@
         max-width: max-content !important;
     }
 }
+
 @if ($width-height) {
     @include width("");
 
