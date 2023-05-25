@@ -4,8 +4,8 @@ select.form {
     background-size: 0.5625em;
     background-repeat: no-repeat;
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="%23222"><path d="m1.034,8.0203l5.4943,4.0012c.8772.6389,2.0663.6389,2.9435,0l5.4943-4.0012c1.9565-1.4249.9486-4.5209-1.4717-4.5209H2.5057C.0854,3.4994-.9225,6.5954,1.034,8.0203Z"/></svg>');
-    background-position: right 0.875em * $padding-ratio top calc(50% + 0.0625em);
-    padding-right: 1.75em * $padding-ratio + 0.5em;
+    background-position: right 0.875em * $padding-ratio-x top calc(50% + 0.0625em);
+    padding-right: 1.75em * $padding-ratio-x + 0.5em;
 
     & option {
         background-color: inherit;
@@ -25,7 +25,7 @@ select.form {
                 $padding-ratio
                 top
                 calc(50% + 0.0625em);
-            padding-right: 1.96875 * $padding-ratio + 0.5em;
+            padding-right: 1.96875 * $padding-ratio-x + 0.5em;
         }
     } @else {
         &.pill {
@@ -34,7 +34,7 @@ select.form {
                 $padding-ratio
                 top
                 calc(50% + 0.0625em);
-            padding-right: 1.96875 * $padding-ratio + 0.5em;
+            padding-right: 1.96875 * $padding-ratio-x + 0.5em;
         }
     }
 }

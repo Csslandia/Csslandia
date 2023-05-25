@@ -12,7 +12,7 @@ input[type="file"].form {
     padding-left: 0;
     overflow: hidden;
     font-size: 1rem;
-    padding-right: calc(0.875em * $padding-ratio + $form-bd-width);
+    padding-right: calc(0.875em * $padding-ratio-x + $form-bd-width);
 
     @if $form-shape == "pill" {
         border-radius: 9999px;
@@ -31,54 +31,54 @@ input[type="file"].form {
         background-color: var(--bg-soft);
         color: var(--c-soft);
         border-radius: 0 !important;
-        margin-right: 0.875em * $padding-ratio;
+        margin-right: 0.875em * $padding-ratio-x;
         padding: calc(0.45em * $padding-ratio + $form-bd-width) 0.875em *
-            $padding-ratio calc(0.4em * $padding-ratio + $form-bd-width)
-            calc(0.875em * $padding-ratio + $form-bd-width);
+            $padding-ratio-x calc(0.4em * $padding-ratio + $form-bd-width)
+            calc(0.875em * $padding-ratio-x + $form-bd-width);
     }
 
     @if $form-shape == "pill" {
-        padding-right: calc(1.09375em * $padding-ratio + $form-bd-width);
+        padding-right: calc(1.09375em * $padding-ratio-x + $form-bd-width);
 
         &::file-selector-button {
-            padding-left: calc(1.09375em * $padding-ratio + $form-bd-width);
+            padding-left: calc(1.09375em * $padding-ratio-x + $form-bd-width);
         }
     }
 
     &.pill {
-        padding-right: calc(1.09375em * $padding-ratio + $form-bd-width);
+        padding-right: calc(1.09375em * $padding-ratio-x + $form-bd-width);
 
         &::file-selector-button {
-            padding-left: calc(1.09375em * $padding-ratio + $form-bd-width);
+            padding-left: calc(1.09375em * $padding-ratio-x + $form-bd-width);
         }
     }
 
     @if $form-bd-color != transparent {
         border: $form-bd-width solid $form-bd-color;
-        padding-right: 0.875em * $padding-ratio;
+        padding-right: 0.875em * $padding-ratio-x;
 
         &::file-selector-button {
             padding: 0.45em *
                 $padding-ratio
                 0.875em *
-                $padding-ratio
+                $padding-ratio-x
                 0.4em *
                 $padding-ratio;
         }
 
         @if $form-shape == "pill" {
-            padding-right: 1.09375em * $padding-ratio;
+            padding-right: 1.09375em * $padding-ratio-x;
 
             &::file-selector-button {
-                padding-left: 1.09375em * $padding-ratio;
+                padding-left: 1.09375em * $padding-ratio-x;
             }
         }
 
         &.pill {
-            padding-right: 1.09375em * $padding-ratio;
+            padding-right: 1.09375em * $padding-ratio-x;
 
             &::file-selector-button {
-                padding-left: 1.09375em * $padding-ratio;
+                padding-left: 1.09375em * $padding-ratio-x;
             }
         }
     } @else {
@@ -86,30 +86,30 @@ input[type="file"].form {
         &[class^="bd-"],
         &[class*=" bd-"] {
             border: $form-bd-width solid;
-            padding-right: 0.875em * $padding-ratio;
+            padding-right: 0.875em * $padding-ratio-x;
 
             &::file-selector-button {
                 padding: 0.45em *
                     $padding-ratio
                     0.875em *
-                    $padding-ratio
+                    $padding-ratio-x
                     0.4em *
                     $padding-ratio;
             }
 
             @if $form-shape == "pill" {
-                padding-right: 1.09375em * $padding-ratio;
+                padding-right: 1.09375em * $padding-ratio-x;
 
                 &::file-selector-button {
-                    padding-left: 1.09375em * $padding-ratio;
+                    padding-left: 1.09375em * $padding-ratio-x;
                 }
             }
 
             &.pill {
-                padding-right: 1.09375em * $padding-ratio;
+                padding-right: 1.09375em * $padding-ratio-x;
 
                 &::file-selector-button {
-                    padding-left: 1.09375em * $padding-ratio;
+                    padding-left: 1.09375em * $padding-ratio-x;
                 }
             }
         }

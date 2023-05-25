@@ -86,6 +86,8 @@ form.form {
     }
 }
 
+$padding-ratio-x: ($padding-ratio - 1) * 0.5 + 1;
+
 @import "forms/button";
 @import "forms/checkbox-radio-switch";
 @import "forms/color";

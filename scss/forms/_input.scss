@@ -66,13 +66,13 @@
 
     @if $button-shape == "pill" {
         &:not(.angular):not([class^="br-"]):not([class*=" br-"]) {
-            padding-left: 1.09375em * $padding-ratio;
-            padding-right: 1.09375em * $padding-ratio;
+            padding-left: 1.09375em * $padding-ratio-x;
+            padding-right: 1.09375em * $padding-ratio-x;
         }
     } @else {
         &.pill {
-            padding-left: 1.09375em * $padding-ratio;
-            padding-right: 1.09375em * $padding-ratio;
+            padding-left: 1.09375em * $padding-ratio-x;
+            padding-right: 1.09375em * $padding-ratio-x;
         }
     }
 }
@@ -100,9 +100,10 @@
         select,
         textarea
     ).form {
-    padding: 0.45em * $padding-ratio 0.875em * $padding-ratio 0.4em *
+    padding: 0.45em * $padding-ratio 0.875em * $padding-ratio-x 0.4em *
         $padding-ratio;
 }
+
 
 :where(.form, .group)
     :where(
@@ -119,7 +120,7 @@
         input[type="time"],
         input[type="week"]
     ).form {
-    padding: calc(0.45em * $padding-ratio - 0.0625rem) 0.875em * $padding-ratio
+    padding: calc(0.45em * $padding-ratio - 0.0625rem) 0.875em * $padding-ratio-x
         calc(0.4em * $padding-ratio - 0.0625rem);
     min-height: calc(1.4em + 0.85em + $form-bd-width * 2) !important;
 

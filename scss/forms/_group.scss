@@ -85,19 +85,19 @@
                 )
         ) {
         &:first-child {
-            padding-left: 1.09375em * $padding-ratio;
+            padding-left: 1.09375em * $padding-ratio-x;
         }
 
         &:last-child {
-            padding-right: 1.09375em * $padding-ratio;
+            padding-right: 1.09375em * $padding-ratio-x;
 
             &:is(select) {
                 background-position: right
                     1.09375em *
-                    $padding-ratio
+                    $padding-ratio-x
                     top
                     calc(50% + 0.0625em);
-                padding-right: 1.96875 * $padding-ratio + 0.5em;
+                padding-right: 1.96875 * $padding-ratio-x + 0.5em;
             }
         }
     }
@@ -115,19 +115,19 @@
                 )
         ) {
         &:first-child {
-            padding-left: 1.09375em * $padding-ratio;
+            padding-left: 1.09375em * $padding-ratio-x;
         }
 
         &:last-child {
-            padding-right: 1.09375em * $padding-ratio;
+            padding-right: 1.09375em * $padding-ratio-x;
 
             &:is(select) {
                 background-position: right
                     1.09375em *
-                    $padding-ratio
+                    $padding-ratio-x
                     top
                     calc(50% + 0.0625em);
-                padding-right: 1.96875 * $padding-ratio + 0.5em;
+                padding-right: 1.96875 * $padding-ratio-x + 0.5em;
             }
         }
     }
