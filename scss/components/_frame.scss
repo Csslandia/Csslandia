@@ -11,7 +11,7 @@
 @media (width < $frame-breakpoint) {
     .frame {
         & > :not(img) {
-            padding: 1em;
+            padding: 1em * $padding-ratio;
         }
 
         & > img {
@@ -26,7 +26,7 @@
         display: flex;
 
         & > :not(img) {
-            padding: 1.25em;
+            padding: 1.25em * $padding-ratio;
             display: flex;
             flex-direction: column;
             justify-content: space-between;

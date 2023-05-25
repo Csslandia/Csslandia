@@ -25,6 +25,12 @@
     &.slow {
         animation-duration: 32s;
     }
+
+    &.right {
+        & > * {
+            animation-name: marquee-right;
+        }
+    }
 }
 
 @keyframes marquee {
@@ -33,5 +39,14 @@
     }
     100% {
         transform: translateX(-50%);
+    }
+}
+
+@keyframes marquee-right {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
     }
 }

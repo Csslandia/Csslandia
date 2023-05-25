@@ -650,6 +650,9 @@ body:has(.canvas.open) {
 .marquee.slow {
   animation-duration: 32s;
 }
+.marquee.right > * {
+  animation-name: marquee-right;
+}
 
 @keyframes marquee {
   0% {
@@ -657,6 +660,14 @@ body:has(.canvas.open) {
   }
   100% {
     transform: translateX(-50%);
+  }
+}
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 .modal {
