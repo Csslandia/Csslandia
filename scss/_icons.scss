@@ -1,8 +1,7 @@
 @if $icons {
     @font-face {
         font-family: "Csslandia Icons";
-        src: url("font/Csslandia-icons.woff2")
-                format("woff2"),
+        src: url("font/Csslandia-icons.woff2") format("woff2"),
             url("https://cdn.jsdelivr.net/npm/csslandia/font/Csslandia-icons.woff2")
                 format("woff2");
     }
@@ -12,7 +11,7 @@
         font-size: inherit;
         line-height: 0;
 
-        &:before {
+        &::before {
             font-family: "Csslandia Icons" !important;
             font-style: normal;
             font-weight: normal;
@@ -28,7 +27,7 @@
         &.xs {
             vertical-align: baseline;
 
-            &:before {
+            &::before {
                 font-size: 0.5em;
             }
         }
@@ -36,738 +35,738 @@
         &.sm {
             vertical-align: baseline;
 
-            &:before {
+            &::before {
                 font-size: 0.75em;
             }
         }
 
-        &.lg:before {
+        &.lg::before {
             font-size: 1.25em;
         }
 
-        &.xl:before {
+        &.xl::before {
             font-size: 1.5em;
         }
     }
 
-    .i-aa:before {
+    .i-aa::before {
         content: "\f101";
     }
-    .i-alarm:before {
+    .i-alarm::before {
         content: "\f102";
     }
-    .i-arrow-down-left:before {
+    .i-arrow-down-left::before {
         content: "\f103";
     }
-    .i-arrow-down-line:before {
+    .i-arrow-down-line::before {
         content: "\f104";
     }
-    .i-arrow-down-right:before {
+    .i-arrow-down-right::before {
         content: "\f105";
     }
-    .i-arrow-down:before {
+    .i-arrow-down::before {
         content: "\f106";
     }
-    .i-arrow-left-line:before {
+    .i-arrow-left-line::before {
         content: "\f107";
     }
-    .i-arrow-left:before {
+    .i-arrow-left::before {
         content: "\f108";
     }
-    .i-arrow-right-line:before {
+    .i-arrow-right-line::before {
         content: "\f109";
     }
-    .i-arrow-right:before {
+    .i-arrow-right::before {
         content: "\f10a";
     }
-    .i-arrow-turn-bottom-left:before {
+    .i-arrow-turn-bottom-left::before {
         content: "\f10b";
     }
-    .i-arrow-turn-bottom-right:before {
+    .i-arrow-turn-bottom-right::before {
         content: "\f10c";
     }
-    .i-arrow-turn-top-left:before {
+    .i-arrow-turn-top-left::before {
         content: "\f10d";
     }
-    .i-arrow-turn-top-right:before {
+    .i-arrow-turn-top-right::before {
         content: "\f10e";
     }
-    .i-arrow-up-left:before {
+    .i-arrow-up-left::before {
         content: "\f10f";
     }
-    .i-arrow-up-line:before {
+    .i-arrow-up-line::before {
         content: "\f110";
     }
-    .i-arrow-up-right:before {
+    .i-arrow-up-right::before {
         content: "\f111";
     }
-    .i-arrow-up:before {
+    .i-arrow-up::before {
         content: "\f112";
     }
-    .i-arrows-in:before {
+    .i-arrows-in::before {
         content: "\f113";
     }
-    .i-arrows-left-right:before {
+    .i-arrows-left-right::before {
         content: "\f114";
     }
-    .i-arrows-out:before {
+    .i-arrows-out::before {
         content: "\f115";
     }
-    .i-arrows-up-down:before {
+    .i-arrows-up-down::before {
         content: "\f116";
     }
-    .i-avatar:before {
+    .i-avatar::before {
         content: "\f117";
     }
-    .i-backward-circle:before {
+    .i-backward-circle::before {
         content: "\f118";
     }
-    .i-bag:before {
+    .i-bag::before {
         content: "\f119";
     }
-    .i-barcode-scan-slash:before {
+    .i-barcode-scan-slash::before {
         content: "\f11a";
     }
-    .i-barcode-scan:before {
+    .i-barcode-scan::before {
         content: "\f11b";
     }
-    .i-barcode-slash:before {
+    .i-barcode-slash::before {
         content: "\f11c";
     }
-    .i-barcode:before {
+    .i-barcode::before {
         content: "\f11d";
     }
-    .i-basket:before {
+    .i-basket::before {
         content: "\f11e";
     }
-    .i-battery-full:before {
+    .i-battery-full::before {
         content: "\f11f";
     }
-    .i-battery-half:before {
+    .i-battery-half::before {
         content: "\f120";
     }
-    .i-battery:before {
+    .i-battery::before {
         content: "\f121";
     }
-    .i-bell-slash:before {
+    .i-bell-slash::before {
         content: "\f122";
     }
-    .i-bell:before {
+    .i-bell::before {
         content: "\f123";
     }
-    .i-block:before {
+    .i-block::before {
         content: "\f124";
     }
-    .i-bluetooth-slash:before {
+    .i-bluetooth-slash::before {
         content: "\f125";
     }
-    .i-bluetooth:before {
+    .i-bluetooth::before {
         content: "\f126";
     }
-    .i-bold:before {
+    .i-bold::before {
         content: "\f127";
     }
-    .i-book:before {
+    .i-book::before {
         content: "\f128";
     }
-    .i-bookmark:before {
+    .i-bookmark::before {
         content: "\f129";
     }
-    .i-bubble-dots:before {
+    .i-bubble-dots::before {
         content: "\f12a";
     }
-    .i-bubble-square-dots:before {
+    .i-bubble-square-dots::before {
         content: "\f12b";
     }
-    .i-bubble-square:before {
+    .i-bubble-square::before {
         content: "\f12c";
     }
-    .i-bubble:before {
+    .i-bubble::before {
         content: "\f12d";
     }
-    .i-bulb:before {
+    .i-bulb::before {
         content: "\f12e";
     }
-    .i-calculator:before {
+    .i-calculator::before {
         content: "\f12f";
     }
-    .i-calendar-days:before {
+    .i-calendar-days::before {
         content: "\f130";
     }
-    .i-calendar:before {
+    .i-calendar::before {
         content: "\f131";
     }
-    .i-camera-slash:before {
+    .i-camera-slash::before {
         content: "\f132";
     }
-    .i-camera:before {
+    .i-camera::before {
         content: "\f133";
     }
-    .i-car:before {
+    .i-car::before {
         content: "\f134";
     }
-    .i-card:before {
+    .i-card::before {
         content: "\f135";
     }
-    .i-caret-down-circle:before {
+    .i-caret-down-circle::before {
         content: "\f136";
     }
-    .i-caret-down-fill:before {
+    .i-caret-down-fill::before {
         content: "\f137";
     }
-    .i-caret-down:before {
+    .i-caret-down::before {
         content: "\f138";
     }
-    .i-caret-left-circle:before {
+    .i-caret-left-circle::before {
         content: "\f139";
     }
-    .i-caret-left-fill:before {
+    .i-caret-left-fill::before {
         content: "\f13a";
     }
-    .i-caret-left:before {
+    .i-caret-left::before {
         content: "\f13b";
     }
-    .i-caret-right-circle:before {
+    .i-caret-right-circle::before {
         content: "\f13c";
     }
-    .i-caret-right-fill:before {
+    .i-caret-right-fill::before {
         content: "\f13d";
     }
-    .i-caret-right:before {
+    .i-caret-right::before {
         content: "\f13e";
     }
-    .i-caret-up-circle:before {
+    .i-caret-up-circle::before {
         content: "\f13f";
     }
-    .i-caret-up-fill:before {
+    .i-caret-up-fill::before {
         content: "\f140";
     }
-    .i-caret-up:before {
+    .i-caret-up::before {
         content: "\f141";
     }
-    .i-cart:before {
+    .i-cart::before {
         content: "\f142";
     }
-    .i-cellular:before {
+    .i-cellular::before {
         content: "\f143";
     }
-    .i-chart-down:before {
+    .i-chart-down::before {
         content: "\f144";
     }
-    .i-chart-up:before {
+    .i-chart-up::before {
         content: "\f145";
     }
-    .i-check-circle:before {
+    .i-check-circle::before {
         content: "\f146";
     }
-    .i-check:before {
+    .i-check::before {
         content: "\f147";
     }
-    .i-chevron-down:before {
+    .i-chevron-down::before {
         content: "\f148";
     }
-    .i-chevron-left:before {
+    .i-chevron-left::before {
         content: "\f149";
     }
-    .i-chevron-right:before {
+    .i-chevron-right::before {
         content: "\f14a";
     }
-    .i-chevron-up:before {
+    .i-chevron-up::before {
         content: "\f14b";
     }
-    .i-clip-rotated:before {
+    .i-clip-rotated::before {
         content: "\f14c";
     }
-    .i-clip:before {
+    .i-clip::before {
         content: "\f14d";
     }
-    .i-clipboard:before {
+    .i-clipboard::before {
         content: "\f14e";
     }
-    .i-clock:before {
+    .i-clock::before {
         content: "\f14f";
     }
-    .i-close-circle:before {
+    .i-close-circle::before {
         content: "\f150";
     }
-    .i-close:before {
+    .i-close::before {
         content: "\f151";
     }
-    .i-cloud-download:before {
+    .i-cloud-download::before {
         content: "\f152";
     }
-    .i-cloud-fill:before {
+    .i-cloud-fill::before {
         content: "\f153";
     }
-    .i-cloud-upload:before {
+    .i-cloud-upload::before {
         content: "\f154";
     }
-    .i-cloud:before {
+    .i-cloud::before {
         content: "\f155";
     }
-    .i-compass:before {
+    .i-compass::before {
         content: "\f156";
     }
-    .i-compress:before {
+    .i-compress::before {
         content: "\f157";
     }
-    .i-copy:before {
+    .i-copy::before {
         content: "\f158";
     }
-    .i-crop:before {
+    .i-crop::before {
         content: "\f159";
     }
-    .i-cube:before {
+    .i-cube::before {
         content: "\f15a";
     }
-    .i-diamond:before {
+    .i-diamond::before {
         content: "\f15b";
     }
-    .i-direction:before {
+    .i-direction::before {
         content: "\f15c";
     }
-    .i-dot:before {
+    .i-dot::before {
         content: "\f15d";
     }
-    .i-dots-x-circle:before {
+    .i-dots-x-circle::before {
         content: "\f15e";
     }
-    .i-dots-x:before {
+    .i-dots-x::before {
         content: "\f15f";
     }
-    .i-dots-y-circle:before {
+    .i-dots-y-circle::before {
         content: "\f160";
     }
-    .i-dots-y:before {
+    .i-dots-y::before {
         content: "\f161";
     }
-    .i-download:before {
+    .i-download::before {
         content: "\f162";
     }
-    .i-drop:before {
+    .i-drop::before {
         content: "\f163";
     }
-    .i-edit:before {
+    .i-edit::before {
         content: "\f164";
     }
-    .i-emoji:before {
+    .i-emoji::before {
         content: "\f165";
     }
-    .i-enter-down-left:before {
+    .i-enter-down-left::before {
         content: "\f166";
     }
-    .i-enter-down-right:before {
+    .i-enter-down-right::before {
         content: "\f167";
     }
-    .i-enter-down:before {
+    .i-enter-down::before {
         content: "\f168";
     }
-    .i-enter-left:before {
+    .i-enter-left::before {
         content: "\f169";
     }
-    .i-enter-right:before {
+    .i-enter-right::before {
         content: "\f16a";
     }
-    .i-enter-up-left:before {
+    .i-enter-up-left::before {
         content: "\f16b";
     }
-    .i-enter-up-right:before {
+    .i-enter-up-right::before {
         content: "\f16c";
     }
-    .i-enter-up:before {
+    .i-enter-up::before {
         content: "\f16d";
     }
-    .i-exit-down-left:before {
+    .i-exit-down-left::before {
         content: "\f16e";
     }
-    .i-exit-down-right:before {
+    .i-exit-down-right::before {
         content: "\f16f";
     }
-    .i-exit-down:before {
+    .i-exit-down::before {
         content: "\f170";
     }
-    .i-exit-left:before {
+    .i-exit-left::before {
         content: "\f171";
     }
-    .i-exit-right:before {
+    .i-exit-right::before {
         content: "\f172";
     }
-    .i-exit-up-left:before {
+    .i-exit-up-left::before {
         content: "\f173";
     }
-    .i-exit-up-right:before {
+    .i-exit-up-right::before {
         content: "\f174";
     }
-    .i-exit-up:before {
+    .i-exit-up::before {
         content: "\f175";
     }
-    .i-eye-slash:before {
+    .i-eye-slash::before {
         content: "\f176";
     }
-    .i-eye:before {
+    .i-eye::before {
         content: "\f177";
     }
-    .i-file-lines:before {
+    .i-file-lines::before {
         content: "\f178";
     }
-    .i-file:before {
+    .i-file::before {
         content: "\f179";
     }
-    .i-film:before {
+    .i-film::before {
         content: "\f17a";
     }
-    .i-filter-slash:before {
+    .i-filter-slash::before {
         content: "\f17b";
     }
-    .i-filter:before {
+    .i-filter::before {
         content: "\f17c";
     }
-    .i-flag:before {
+    .i-flag::before {
         content: "\f17d";
     }
-    .i-flash:before {
+    .i-flash::before {
         content: "\f17e";
     }
-    .i-flower:before {
+    .i-flower::before {
         content: "\f17f";
     }
-    .i-folder:before {
+    .i-folder::before {
         content: "\f180";
     }
-    .i-forward-circle:before {
+    .i-forward-circle::before {
         content: "\f181";
     }
-    .i-funnel-slash:before {
+    .i-funnel-slash::before {
         content: "\f182";
     }
-    .i-funnel:before {
+    .i-funnel::before {
         content: "\f183";
     }
-    .i-globe:before {
+    .i-globe::before {
         content: "\f184";
     }
-    .i-grid-2:before {
+    .i-grid-2::before {
         content: "\f185";
     }
-    .i-grid-3:before {
+    .i-grid-3::before {
         content: "\f186";
     }
-    .i-grid-4:before {
+    .i-grid-4::before {
         content: "\f187";
     }
-    .i-half-circle:before {
+    .i-half-circle::before {
         content: "\f188";
     }
-    .i-hamburger:before {
+    .i-hamburger::before {
         content: "\f189";
     }
-    .i-hand-left:before {
+    .i-hand-left::before {
         content: "\f18a";
     }
-    .i-hand-right:before {
+    .i-hand-right::before {
         content: "\f18b";
     }
-    .i-heart-fill:before {
+    .i-heart-fill::before {
         content: "\f18c";
     }
-    .i-heart-slash:before {
+    .i-heart-slash::before {
         content: "\f18d";
     }
-    .i-heart:before {
+    .i-heart::before {
         content: "\f18e";
     }
-    .i-hourglass:before {
+    .i-hourglass::before {
         content: "\f18f";
     }
-    .i-house-chimney:before {
+    .i-house-chimney::before {
         content: "\f190";
     }
-    .i-house:before {
+    .i-house::before {
         content: "\f191";
     }
-    .i-image:before {
+    .i-image::before {
         content: "\f192";
     }
-    .i-info:before {
+    .i-info::before {
         content: "\f193";
     }
-    .i-italic:before {
+    .i-italic::before {
         content: "\f194";
     }
-    .i-key:before {
+    .i-key::before {
         content: "\f195";
     }
-    .i-language:before {
+    .i-language::before {
         content: "\f196";
     }
-    .i-laptop:before {
+    .i-laptop::before {
         content: "\f197";
     }
-    .i-layers:before {
+    .i-layers::before {
         content: "\f198";
     }
-    .i-lines:before {
+    .i-lines::before {
         content: "\f199";
     }
-    .i-link:before {
+    .i-link::before {
         content: "\f19a";
     }
-    .i-lock-open:before {
+    .i-lock-open::before {
         content: "\f19b";
     }
-    .i-lock:before {
+    .i-lock::before {
         content: "\f19c";
     }
-    .i-mail:before {
+    .i-mail::before {
         content: "\f19d";
     }
-    .i-map:before {
+    .i-map::before {
         content: "\f19e";
     }
-    .i-mic-slash:before {
+    .i-mic-slash::before {
         content: "\f19f";
     }
-    .i-mic:before {
+    .i-mic::before {
         content: "\f1a0";
     }
-    .i-minus-circle:before {
+    .i-minus-circle::before {
         content: "\f1a1";
     }
-    .i-minus:before {
+    .i-minus::before {
         content: "\f1a2";
     }
-    .i-mobile-landscape:before {
+    .i-mobile-landscape::before {
         content: "\f1a3";
     }
-    .i-mobile:before {
+    .i-mobile::before {
         content: "\f1a4";
     }
-    .i-money:before {
+    .i-money::before {
         content: "\f1a5";
     }
-    .i-monitor:before {
+    .i-monitor::before {
         content: "\f1a6";
     }
-    .i-moon-fill:before {
+    .i-moon-fill::before {
         content: "\f1a7";
     }
-    .i-moon:before {
+    .i-moon::before {
         content: "\f1a8";
     }
-    .i-move:before {
+    .i-move::before {
         content: "\f1a9";
     }
-    .i-music:before {
+    .i-music::before {
         content: "\f1aa";
     }
-    .i-off:before {
+    .i-off::before {
         content: "\f1ab";
     }
-    .i-options:before {
+    .i-options::before {
         content: "\f1ac";
     }
-    .i-palette:before {
+    .i-palette::before {
         content: "\f1ad";
     }
-    .i-paper:before {
+    .i-paper::before {
         content: "\f1ae";
     }
-    .i-pause-circle:before {
+    .i-pause-circle::before {
         content: "\f1af";
     }
-    .i-pause:before {
+    .i-pause::before {
         content: "\f1b0";
     }
-    .i-phone:before {
+    .i-phone::before {
         content: "\f1b1";
     }
-    .i-pin:before {
+    .i-pin::before {
         content: "\f1b2";
     }
-    .i-plane:before {
+    .i-plane::before {
         content: "\f1b3";
     }
-    .i-play-circle:before {
+    .i-play-circle::before {
         content: "\f1b4";
     }
-    .i-play:before {
+    .i-play::before {
         content: "\f1b5";
     }
-    .i-plus-circle:before {
+    .i-plus-circle::before {
         content: "\f1b6";
     }
-    .i-plus:before {
+    .i-plus::before {
         content: "\f1b7";
     }
-    .i-puzzle:before {
+    .i-puzzle::before {
         content: "\f1b8";
     }
-    .i-qr-code-scan:before {
+    .i-qr-code-scan::before {
         content: "\f1b9";
     }
-    .i-qr-code:before {
+    .i-qr-code::before {
         content: "\f1ba";
     }
-    .i-redo:before {
+    .i-redo::before {
         content: "\f1bb";
     }
-    .i-rotate-down-left-clock:before {
+    .i-rotate-down-left-clock::before {
         content: "\f1bc";
     }
-    .i-rotate-down-left:before {
+    .i-rotate-down-left::before {
         content: "\f1bd";
     }
-    .i-rotate-down-right-clock:before {
+    .i-rotate-down-right-clock::before {
         content: "\f1be";
     }
-    .i-rotate-down-right:before {
+    .i-rotate-down-right::before {
         content: "\f1bf";
     }
-    .i-rotate-reverse:before {
+    .i-rotate-reverse::before {
         content: "\f1c0";
     }
-    .i-rotate-up-left-clock:before {
+    .i-rotate-up-left-clock::before {
         content: "\f1c1";
     }
-    .i-rotate-up-left:before {
+    .i-rotate-up-left::before {
         content: "\f1c2";
     }
-    .i-rotate-up-right-clock:before {
+    .i-rotate-up-right-clock::before {
         content: "\f1c3";
     }
-    .i-rotate-up-right:before {
+    .i-rotate-up-right::before {
         content: "\f1c4";
     }
-    .i-rotate:before {
+    .i-rotate::before {
         content: "\f1c5";
     }
-    .i-scan:before {
+    .i-scan::before {
         content: "\f1c6";
     }
-    .i-search:before {
+    .i-search::before {
         content: "\f1c7";
     }
-    .i-settings:before {
+    .i-settings::before {
         content: "\f1c8";
     }
-    .i-share:before {
+    .i-share::before {
         content: "\f1c9";
     }
-    .i-signal:before {
+    .i-signal::before {
         content: "\f1ca";
     }
-    .i-skip-back-circle:before {
+    .i-skip-back-circle::before {
         content: "\f1cb";
     }
-    .i-skip-circle:before {
+    .i-skip-circle::before {
         content: "\f1cc";
     }
-    .i-snowflake:before {
+    .i-snowflake::before {
         content: "\f1cd";
     }
-    .i-star-fill:before {
+    .i-star-fill::before {
         content: "\f1ce";
     }
-    .i-star:before {
+    .i-star::before {
         content: "\f1cf";
     }
-    .i-stocks-down:before {
+    .i-stocks-down::before {
         content: "\f1d0";
     }
-    .i-stocks-up:before {
+    .i-stocks-up::before {
         content: "\f1d1";
     }
-    .i-sun-fill:before {
+    .i-sun-fill::before {
         content: "\f1d2";
     }
-    .i-sun:before {
+    .i-sun::before {
         content: "\f1d3";
     }
-    .i-table-2-2:before {
+    .i-table-2-2::before {
         content: "\f1d4";
     }
-    .i-table-2-3:before {
+    .i-table-2-3::before {
         content: "\f1d5";
     }
-    .i-table-3-2:before {
+    .i-table-3-2::before {
         content: "\f1d6";
     }
-    .i-table-3-3:before {
+    .i-table-3-3::before {
         content: "\f1d7";
     }
-    .i-table-4-2:before {
+    .i-table-4-2::before {
         content: "\f1d8";
     }
-    .i-table-4-3:before {
+    .i-table-4-3::before {
         content: "\f1d9";
     }
-    .i-tablet-landscape:before {
+    .i-tablet-landscape::before {
         content: "\f1da";
     }
-    .i-tablet:before {
+    .i-tablet::before {
         content: "\f1db";
     }
-    .i-tag:before {
+    .i-tag::before {
         content: "\f1dc";
     }
-    .i-target:before {
+    .i-target::before {
         content: "\f1dd";
     }
-    .i-thermometer:before {
+    .i-thermometer::before {
         content: "\f1de";
     }
-    .i-ticket:before {
+    .i-ticket::before {
         content: "\f1df";
     }
-    .i-trash:before {
+    .i-trash::before {
         content: "\f1e0";
     }
-    .i-trophy:before {
+    .i-trophy::before {
         content: "\f1e1";
     }
-    .i-tv:before {
+    .i-tv::before {
         content: "\f1e2";
     }
-    .i-umbrella:before {
+    .i-umbrella::before {
         content: "\f1e3";
     }
-    .i-underline:before {
+    .i-underline::before {
         content: "\f1e4";
     }
-    .i-undo:before {
+    .i-undo::before {
         content: "\f1e5";
     }
-    .i-unlink:before {
+    .i-unlink::before {
         content: "\f1e6";
     }
-    .i-video-slash:before {
+    .i-video-slash::before {
         content: "\f1e7";
     }
-    .i-video:before {
+    .i-video::before {
         content: "\f1e8";
     }
-    .i-volume-high:before {
+    .i-volume-high::before {
         content: "\f1e9";
     }
-    .i-volume-low:before {
+    .i-volume-low::before {
         content: "\f1ea";
     }
-    .i-volume-off:before {
+    .i-volume-off::before {
         content: "\f1eb";
     }
-    .i-volume-slash:before {
+    .i-volume-slash::before {
         content: "\f1ec";
     }
-    .i-volume:before {
+    .i-volume::before {
         content: "\f1ed";
     }
-    .i-wifi-slash:before {
+    .i-wifi-slash::before {
         content: "\f1ee";
     }
-    .i-wifi:before {
+    .i-wifi::before {
         content: "\f1ef";
     }
-    .i-zebra:before {
+    .i-zebra::before {
         content: "\f1f0";
     }
 }
